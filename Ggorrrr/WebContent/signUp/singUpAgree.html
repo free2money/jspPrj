@@ -4,8 +4,7 @@
 <meta charset="UTF-8">
 <title>그래서 뭐먹어?</title>
 <style>
-
-.submit{
+.submit {
 	padding-top: 30px;
 }
 
@@ -23,13 +22,13 @@ header nav {
 	display: inline-block;
 	font-size: 30px;
 	height: 70px;
-	padding-top: 35%;
 	left: 50%;
 }
 
-
-header {
-	display: inline-block;
+#header {
+	height: 100px;
+	font-size: 30px;
+	padding-top: 60px;
 }
 
 textarea {
@@ -42,7 +41,11 @@ span {
 	text-align: left;
 	top: 10px;
 	margin-bottom: 10px;
-	margin-top: 30px;
+	margin-top: 50px;
+}
+
+span div {
+	margin-bottom: 10px;
 }
 
 h1 {
@@ -79,10 +82,11 @@ span input[type="checkbox"]:checked+label .chk_img {
 
 <body bgcolor="#f5f6f7">
 	<!-- ====header========================= -->
-	<header>
+	<header id="header">
 		<h1>회원가입페이지</h1>
 		<nav>
-			<a href="">그래서 뭐먹어?<img src="./images/logo.png"></a>
+			<a href="">그래서 뭐먹어?<img width="50px" height="50px"
+				src="../images/ggorrrrlogo.png"></a>
 		</nav>
 	</header>
 
@@ -240,9 +244,9 @@ span input[type="checkbox"]:checked+label .chk_img {
 		http://cs.daum.net/question/305.html
 		</textarea>
 		<br>
-		<div class = "submit">
+		<div class="submit">
 			<a class="submit" href=""><img src="../images/확인.PNG"></a> <a
-				 href=""><img src="../images/취소.PNG"></a>
+				href=""><img src="../images/취소.PNG"></a>
 		</div>
 		<!-- <input class="submit" type="submit" value="확인"
 			name="signUpAgree"> <input class="submit1" type="submit"
