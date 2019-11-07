@@ -4,50 +4,6 @@
 <meta charset="UTF-8">
 <title>그래서 뭐먹어?</title>
 <style>
-.submit {
-	padding-top: 30px;
-}
-
-body {
-	text-align: center;
-}
-
-section {
-	display: inline-block;
-	width: 500px;
-	height: 200px;
-}
-
-header nav {
-	display: inline-block;
-	font-size: 30px;
-	height: 70px;
-	left: 50%;
-}
-
-#header {
-	height: 100px;
-	font-size: 30px;
-	padding-top: 60px;
-}
-
-textarea {
-	width: 450px;
-}
-
-span {
-	display: inline-block;
-	width: 450px;
-	text-align: left;
-	top: 10px;
-	margin-bottom: 10px;
-	margin-top: 50px;
-}
-
-span div {
-	margin-bottom: 10px;
-}
-
 h1 {
 	width: 0px;
 	height: 0px;
@@ -57,24 +13,71 @@ h1 {
 	overflow: hidden;
 }
 
-span input[type="checkbox"] {
+#header {
+	width: 1600px;
+	height: 100px;
+	text-align: center;
+	font-size: 40px;
+	margin-top: 40px;
+}
+
+section nav {
+	width: 1600px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+main {
+	width: 1600px;
+	min-height: 300px;
+}
+
+.middlebox {
+	width: 1200px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.middlebox>div {
+	width: 575px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#footer {
+	width: 1600px;
+	height: 100px;
+}
+
+div input[type="checkbox"] {
 	display: none;
 }
 
-span label {
+div label {
 	width: 100%;
 	height: 20px;
 }
 
-span input[type="checkbox"]+label .chk_img {
-	padding: 0 0 0 30px;
+div input[type="checkbox"]+label .chk_img {
+	padding: 0 10px 0 30px;
 	height: 20px;
 	background: url("../images/checkboxoff.png") no-repeat;
 	cursor: pointer;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
-span input[type="checkbox"]:checked+label .chk_img {
+div input[type="checkbox"]:checked+label .chk_img {
 	background: url("../images/checkboxon.png") no-repeat;
+}
+
+#checkbox{
+	padding-top: 20px;
+}
+
+.cancel{
+	float :right;
 }
 </style>
 </head>
@@ -83,22 +86,23 @@ span input[type="checkbox"]:checked+label .chk_img {
 <body bgcolor="#f5f6f7">
 	<!-- ====header========================= -->
 	<header id="header">
-		<h1>회원가입페이지</h1>
-		<nav>
-			<a href="">그래서 뭐먹어?<img width="50px" height="50px"
-				src="../images/ggorrrrlogo.png"></a>
-		</nav>
+		<section>
+			<h1>회원가입페이지</h1>
+			<nav>
+				<a class="" href=""><img width="50px" height="50px"
+					src="../images/ggorrrrlogo.png">그래서 뭐먹어?<a>
+			</nav>
+		</section>
 	</header>
 
 	<!-- ====main========================= -->
 	<main>
 	<h1>회원가입 동의약관</h1>
-	<section>
-		<h1>사이트 동의약관</h1>
-		<span> <input id="checkbox" type="checkbox" name="termsService">
-			<label for="checkbox"><div class="chk_img">개인정보 동의약관</div></label>
-		</span><br>
-		<textarea rows="10" cols="80">1. 개인정보의 처리 목적 <그래서뭐먹어>(‘www.Ggorrrr.com’이하 ‘Ggorrrr’) 은(는) 다음의 목적을 위하여 개인정보를 처리하고 있으며, 다음의 목적 이외의 용도로는 이용하지 않습니다.
+	<div class="middlebox">
+		<div>
+			<input id="checkbox" type="checkbox" name="termsService"> <label
+				for="checkbox"><div class="chk_img">개인정보 동의약관</div></label>
+			<textarea rows="10" cols="80">1. 개인정보의 처리 목적 <그래서뭐먹어>(‘www.Ggorrrr.com’이하 ‘Ggorrrr’) 은(는) 다음의 목적을 위하여 개인정보를 처리하고 있으며, 다음의 목적 이외의 용도로는 이용하지 않습니다.
 - 고객 가입의사 확인, 고객에 대한 서비스 제공에 따른 본인 식별.인증, 회원자격 유지.관리, 물품 또는 서비스 공급에 따른 금액 결제, 물품 또는 서비스의 공급.배송 등
 
 2. 개인정보의 처리 및 보유 기간
@@ -173,15 +177,12 @@ span input[type="checkbox"]:checked+label .chk_img {
 10. 개인정보 처리방침 변경
 ①이 개인정보처리방침은 시행일로부터 적용되며, 법령 및 방침에 따른 변경내용의 추가, 삭제 및 정정이 있는 경우에는 변경사항의 시행 7일 전부터 공지사항을 통하여 고지할 것입니다.
 11. 개인정보의 안전성 확보 조치 <그래서뭐먹어>('Ggorrrr')은(는) 개인정보보호법 제29조에 따라 다음과 같이 안전성 확보에 필요한 기술적/관리적 및 물리적 조치를 하고 있습니다.</textarea>
-	</section>
-	<br>
-	<section>
-		<h1>위치서비스동의약관</h1>
-		<span> <input id="checkbox1" type="checkbox"
-			name="termsLocation"> <label for="checkbox1"><div
-					class="chk_img">위치서비스 동의약관</div></label>
-		</span><br>
-		<textarea rows="10" cols="80"> 제 1 조 (목적) 본 약관은 주식회사 카카오(이하 "회사")가 제공하는 위치기반서비스에 대해 회사와
+			<br>
+			<section>
+				<h1>위치서비스동의약관</h1>
+				<input id="checkbox1" type="checkbox" name="termsLocation">
+				<label for="checkbox1"><div class="chk_img">위치서비스 동의약관</div></label>
+				<textarea rows="10" cols="80"> 제 1 조 (목적) 본 약관은 주식회사 카카오(이하 "회사")가 제공하는 위치기반서비스에 대해 회사와
 		위치기반서비스를 이용하는 개인위치정보주체(이하 "이용자")간의 권리·의무 및 책임사항, 기타 필요한 사항 규정을 목적으로
 		합니다. 제 2 조 (이용약관의 효력 및 변경) ① 본 약관은 이용자가 본 약관에 동의하고 회사가 정한 절차에 따라
 		위치기반서비스의 이용자로 등록됨으로써 효력이 발생합니다. ② 회사는 법률이나 위치기반서비스의 변경사항을 반영하기 위한 목적
@@ -243,16 +244,20 @@ span input[type="checkbox"]:checked+label .chk_img {
 		부서의 부서장으로서 성명과 연락처는 아래와 같습니다. 성명 : 강성 대표전화 : 1577-3754 위치정보 전용문의 게시판 :
 		http://cs.daum.net/question/305.html
 		</textarea>
-		<br>
-		<div class="submit">
-			<a class="submit" href=""><img src="../images/확인.PNG"></a> <a
-				href=""><img src="../images/취소.PNG"></a>
+			</section>
+			<br>
+			<section>
+				<div class="submitbox">
+					<a class="confirm" href=""><img width="280px" src="../images/확인.PNG"></a> <a class="cancel"
+						href=""><img width="280px" src="../images/취소.PNG"></a>
+				</div>
+			</section>
 		</div>
-		<!-- <input class="submit" type="submit" value="확인"
+	</div>
+	<!-- <input class="submit" type="submit" value="확인"
 			name="signUpAgree"> <input class="submit1" type="submit"
-			value="취소" name="exit"> -->
-	</section>
-	<!-- ======footer===================== --> <footer>
+			value="취소" name="exit"> --> <!-- ======footer===================== -->
+	<footer id="footer">
 		<section>
 			<h1>회사소개</h1>
 		</section>
