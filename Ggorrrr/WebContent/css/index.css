@@ -1,0 +1,165 @@
+@charset "UTF-8";
+/*==============Header===========*/
+* {
+	margin: 0px;
+	padding: 0px;
+	font: bold 12px Malgun Gothic;
+	color: black;
+}
+
+a {
+	text-decoration: none;
+}
+
+#header {
+	width: 1600px;
+	position: static;
+	padding-top: 5px;
+	height: 200px;
+}
+
+#topHeader .top {
+	float: left;
+	display: inline;
+}
+
+#memberMenu {
+	width: 700px;
+	padding: 0px;
+	text-align: center;
+	height: 40px;
+	padding: 0px;
+}
+
+#memberMenu li {
+	list-style: none;
+	float: left;
+	text-align: center;
+	color: black;
+	padding-top: 10px;
+	padding-left: 50px;
+}
+
+#searchForm {
+	margin-left: 200px;
+	margin-top: 5px;
+	float: left;
+	height: 40px;
+	width: 300px;
+}
+
+#searchForm .searchWin {
+	display: inline;
+	float: left;
+}
+
+#search {
+	width: 250px;
+	height: 30px;
+	border: 3px solid #D4F4FA;
+	border-right: white;
+}
+
+#btn_search {
+	width: 40px;
+	height: 34px;
+	
+	border: 3px solid #D4F4FA;
+	
+}
+
+#btn_search img {
+	width: 30px;
+	height: 28px;
+	background-color: white;
+}
+
+#popularity {
+	margin-left: 50px;
+	width: 300px;
+	height: 40px;
+}
+
+#popularity li {
+	list-style: none;
+	font-size: 150%;
+}
+
+#categori {
+	margin-top:50px;
+	border-top: 2px solid black;
+	height: 50px;
+}
+
+#categori li {
+	padding-top:15px;
+	padding-left: 120px;
+	float: left;
+	list-style: none;
+}
+
+#categori a {
+	font-size: 250%;
+}
+
+#logo {
+	margin-top:40px;
+	margin-bottom:20px;
+	width: 1600px; height : 100px;
+	padding: 10px 550px 20px;
+	height: 60px;
+
+}
+
+#logo div {
+	margin:10px;
+	float: left;
+	display: inline;
+	
+}
+#title{
+text-align: center;
+	font-size:400%;
+	font: bold Malgun Gothic;
+}
+
+#logo img {
+	width: 70px;
+	height: 70px;
+}
+
+/*==============/Header===========*/
+
+/*==============Main==============*/
+
+#main{
+	margin-top:80px;
+	height:500px;
+	border-bottom: 2px solid black;
+}
+
+#best h1{
+	height:80px;
+	text-align: center;
+	font-size:300%;
+	font: bold Malgun Gothic;
+	border-bottom: 2px solid black;
+	
+}
+
+#food {
+	height:500px;
+	
+}
+
+#food table{
+	margin: auto;
+	margin-top:80px;
+	background: yellow;
+}
+
+#food td{
+	padding-left:80px;
+}
+
+/*=============/Main=========*/
