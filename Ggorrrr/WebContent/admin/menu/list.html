@@ -14,7 +14,7 @@
 				<li><a href="">home</a></li>
 				<li><a href="">로그인</a></li>
 				<li><a href="">회원가입</a></li>
-				
+
 				<li><a href="">마이페이지</a></li>
 				<li><a href="">고객의 소리</a></li>
 			</ul>
@@ -55,12 +55,11 @@
 		</nav>
 	</header>
 	<!-- ======main===================== -->
-
 	<main>
 	<h1>관리자 메뉴</h1>
 	<section>
 		<h1>관리자</h1>
-		<img src="../images/profile.png">
+		<img src="../../images/profile.png">
 	</section>
 
 	<section>
@@ -77,35 +76,32 @@
 				<option value="테마별">테마별</option>
 				<option value="기타">기타</option>
 				<option value="채식">채식</option>
-			</select> <input value="이름" size="2"> <input type="text"
-				name="menuName"> <input type="submit" name="search"
-				value="검색">
+			</select> <label>이름</label> <input type="text" name="menuName"> <input
+				type="submit" name="search" value="검색">
 		</form>
 	</section>
 
-	<table>
-		<thead>
-			<tr>
-				<td>카테고리</td>
-				<td>이름</td>
-				<td>삭제</td>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>한식</td>
-				<td>비빔밥</td>
-				<td><input type="checkbox"></td>
-			</tr>
-		</tbody>
-	</table>
-		<input type="submit" value="일괄삭제" name="menudelete">
-		<input type="submit" value="메뉴등록" name="menureg">
+	<form>
+		<table>
+			<thead>
+				<tr>
+					<td>카테고리</td>
+					<td>이름</td>
+					<td>삭제</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>한식</td>
+					<td>비빔밥</td>
+					<td><input type="checkbox"></td>
+				</tr>
+			</tbody>
+		</table>
+		<input type="submit" value="일괄삭제" name="commit">
+		<input type="submit" value="메뉴등록" name="reg">
+	</form>
 	</main>
-
-
-
-
 	<!-- ======footer===================== -->
 	<footer>
 		<section>
