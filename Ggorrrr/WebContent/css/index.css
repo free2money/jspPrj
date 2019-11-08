@@ -12,23 +12,39 @@ a {
 }
 
 #header {
-	width: 1600px;
-	position: static;
-	padding-top: 5px;
+	width: inherit;
 	height: 200px;
+	background: yellow;
 }
 
-#topHeader .top {
+#header #topHeader {
+	min-width: 1100px;
+	height: 40px;
+	background: green;
+}
+
+#header #visual {
+	width: 100%;
+	height: 110px;
+	background: gray;
+
+}
+
+#header #categori {
+	width: 100%;
+	height: 50px;
+	background: red;
+}
+
+.top {
 	float: left;
-	display: inline;
 }
 
 #memberMenu {
 	width: 700px;
-	padding: 0px;
 	text-align: center;
 	height: 40px;
-	padding: 0px;
+	background: #992222;
 }
 
 #memberMenu li {
@@ -40,17 +56,13 @@ a {
 	padding-left: 50px;
 }
 
-#searchForm {
-	margin-left: 200px;
-	margin-top: 5px;
-	float: left;
-	height: 40px;
-	width: 300px;
+#searchHeader {
+	float: right;
 }
 
-#searchForm .searchWin {
-	display: inline;
-	float: left;
+#searchForm {
+	height: 40px;
+	width: 300px;
 }
 
 #search {
@@ -63,9 +75,7 @@ a {
 #btn_search {
 	width: 40px;
 	height: 34px;
-	
 	border: 3px solid #D4F4FA;
-	
 }
 
 #btn_search img {
@@ -75,8 +85,6 @@ a {
 }
 
 #popularity {
-	margin-left: 50px;
-	width: 300px;
 	height: 40px;
 }
 
@@ -85,81 +93,49 @@ a {
 	font-size: 150%;
 }
 
-#categori {
-	margin-top:50px;
-	border-top: 2px solid black;
-	height: 50px;
+#visual>div {
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	vertical-align: middle;
+	padding-top:10px;
 }
 
+
+#visual>div>span {
+	width: 70px;
+	vertical-align: middle;
+
+}
+
+#visual img {
+	width: 70px;
+	height: 70px;
+}
+
+#title{
+
+	font-size:400%;
+	font: bold Malgun Gothic;
+}
+
+#categori {
+	min-width:1200px;
+	border-top: 2px solid black;
+	height: 50px;
+	
+}
+
+
 #categori li {
-	padding-top:15px;
-	padding-left: 120px;
+	
+	padding-left: 80px;
 	float: left;
 	list-style: none;
 }
 
 #categori a {
 	font-size: 250%;
-}
-
-#logo {
-	margin-top:40px;
-	margin-bottom:20px;
-	width: 1600px; height : 100px;
-	padding: 10px 550px 20px;
-	height: 60px;
-
-}
-
-#logo div {
-	margin:10px;
-	float: left;
-	display: inline;
-	
-}
-#title{
-text-align: center;
-	font-size:400%;
-	font: bold Malgun Gothic;
-}
-
-#logo img {
-	width: 70px;
-	height: 70px;
-}
-
-/*==============/Header===========*/
-
-/*==============Main==============*/
-
-#main{
-	margin-top:80px;
-	height:500px;
-	border-bottom: 2px solid black;
-}
-
-#best h1{
-	height:80px;
-	text-align: center;
-	font-size:300%;
-	font: bold Malgun Gothic;
-	border-bottom: 2px solid black;
-	
-}
-
-#food {
-	height:500px;
-	
-}
-
-#food table{
-	margin: auto;
-	margin-top:80px;
-	background: yellow;
-}
-
-#food td{
-	padding-left:80px;
 }
 
 /*=============/Main=========*/
