@@ -8,7 +8,7 @@
 
 <style>
 main {
-	width: 1600px;
+	width: inherit;
 	min-height: 300px;
 }
 
@@ -22,7 +22,7 @@ h1 {
 }
 
 #header {
-	width: 1600px;
+	width: inherit;
 	height: 100px;
 	text-align: center;
 	font-size: 40px;
@@ -30,7 +30,7 @@ h1 {
 }
 
 #footer {
-	width: 1600px;
+	width: inherit;
 	height: 100px;
 }
 
@@ -130,7 +130,7 @@ div input[type="submit"] {
 						<option value="year"><%=(i + 1950)%></option>
 						<%
 							}
-						%>
+						%><!-- <!--<!sdasdhfkjsfhkajsdfhkajsdhfkjsdhfjkhfsadjkksafhksajdfsdfhjkshfkjsadhjkhsk -->
 
 					</select> <select class="month" name="month">
 						<%
