@@ -1,13 +1,12 @@
 @charset "UTF-8";
 
-
-#main{
+#main {
 	font: bold Malgun Gothic; /* 폰트 설정 - 12px의 돋움체 굵은 글씨로 표시 */
 }
 
 #main>div {
 	width: 1200px;
-	min-height: 300px;
+	min-height: inherit;
 	background: #0000ff20;
 	margin-left: auto; /* auto: 값픽셀 없이 그냥 밀어버림*/
 	margin-right: auto;
@@ -15,30 +14,50 @@
 	text-align: center;
 }
 
-#main>div #menulist {	
+#main>div #menulist {
 	width: 1200px;
 	min-height: inherit;
-	background: #0000ff20;
+	background: #0000ff10;
 	text-align: center;
+	margin-left: auto; /* auto: 값픽셀 없이 그냥 밀어버림*/
+	margin-right: auto;
 }
 
-#menulist>div>div{
-	height: 250px; /* 메뉴한줄 크기 */
-}
-
-#menulist>div{
+#menulist>div {
 	width: 1100px;
-	
+	min-height: inherit;
+	margin-left: auto; /* auto: 값픽셀 없이 그냥 밀어버림*/
+	margin-right: auto;
+	background: #0000ff20;
 }
 
-#menulist img{
+#menulist>div>div {
+	width: 1000px;
+	min-width: inherit; /* 메뉴한줄 크기 */
+	margin-left: auto; /* auto: 값픽셀 없이 그냥 밀어버림*/
+	margin-right: auto;
+	min-height: inherit;
+}
+
+#menulist>div>div ul {
+	width: 900;
+	min-height: inherit;
+	display : flex;
+	flex-direction: row;
+	margin-left : auto; /* auto: 값픽셀 없이 그냥 밀어버림*/
+	margin-right: auto;
+}
+
+
+#menulist img {
 	width: 150px;
 	height: 150px;
 }
 
 #menulist li {
-	float: left;
-	padding: 20px;
+	list-style: none;
+	margin-left: auto; /* auto: 값픽셀 없이 그냥 밀어버림*/
+	margin-right: auto;
 }
 
 #socategori {
