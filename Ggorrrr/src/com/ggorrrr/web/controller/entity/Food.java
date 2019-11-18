@@ -43,6 +43,12 @@ public class Food {
 		this.recipe = recipe;
 	}
 
+	// 즐겨찾기 메뉴 가져올때 사용함.
+	public Food(String korname, String photo) {
+		this.korname = korname;
+		this.photo = photo;
+	}
+
 	public String getRecipe() {
 		return recipe;
 	}

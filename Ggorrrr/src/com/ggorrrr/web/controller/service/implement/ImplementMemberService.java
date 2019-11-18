@@ -1,5 +1,7 @@
 package com.ggorrrr.web.controller.service.implement;
 
-public class ImplementMemberService {
+import com.ggorrrr.web.controller.service.MemberService;
+
+public class ImplementMemberService implements MemberService{
 
 }
