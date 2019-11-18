@@ -2,10 +2,12 @@
 
 #footer {
 	font: bold Malgun Gothic; /* 폰트 설정 - 12px의 돋움체 굵은 글씨로 표시 */
+	background: rgba(152,152,152,1);
 }
 
 #footer>div {
 	height: 100%;
+	
 }
 
 #footer_list h2 {
@@ -14,7 +16,7 @@
 	font-size: 14px;
 }
 
-hr {
+#footer hr {
 	color: black;
 	border-style: solid;
 	border-width: 0.5px;

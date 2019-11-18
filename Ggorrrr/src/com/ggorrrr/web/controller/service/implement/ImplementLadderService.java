@@ -1,5 +1,7 @@
 package com.ggorrrr.web.controller.service.implement;
 
-public class ImplementLadderService {
+import com.ggorrrr.web.controller.service.LadderService;
+
+public class ImplementLadderService implements LadderService{
 
 }

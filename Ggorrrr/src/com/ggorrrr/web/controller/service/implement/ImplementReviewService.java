@@ -1,5 +1,7 @@
 package com.ggorrrr.web.controller.service.implement;
 
-public class ImplementReviewService {
+import com.ggorrrr.web.controller.service.ReviewService;
+
+public class ImplementReviewService implements ReviewService{
 
 }
