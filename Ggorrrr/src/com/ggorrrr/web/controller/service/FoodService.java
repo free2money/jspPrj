@@ -6,6 +6,8 @@ import com.ggorrrr.web.controller.entity.Food;
 
 public interface FoodService {
 
+	List<Food> getFoodList();
+	
 	List<Food> getFoodList(String category);
 
 	List<Food> getFoodList(String category, int page);

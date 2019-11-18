@@ -14,6 +14,13 @@ public class ImplementFoodService implements FoodService {
 	public ImplementFoodService() {
 		foodDao = new JdbcFoodDao();
 	}
+	
+
+	@Override
+	public List<Food> getFoodList() {
+		
+		return foodDao.getFoodList();
+	}
 
 	@Override
 	public List<Food> getFoodList(String category) {
@@ -36,7 +43,7 @@ public class ImplementFoodService implements FoodService {
 	@Override
 	public Food get(int id) {
 		
-		return null;
+		return foodDao.get(id);
 	}
 
 	@Override
@@ -60,5 +67,6 @@ public class ImplementFoodService implements FoodService {
 	public int deletes(int[] ids) {
 		return 0;
 	}
+
 
 }

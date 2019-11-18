@@ -141,7 +141,7 @@
 			<div>
 				<div>
 					<ul>
-						<li><a href=""> <img src="./../images/KimchiSoup.jpg"><br>김치찌개
+						<li><a href="detail?${f.id }"> <img src="./../images/KimchiSoup.jpg"><br>김치찌개
 								<input id="star" type="submit" name="bookmark" value=""><br>6000원
 						</a></li>
 
