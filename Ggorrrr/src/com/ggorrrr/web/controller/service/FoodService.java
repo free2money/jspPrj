@@ -1,5 +1,24 @@
 package com.ggorrrr.web.controller.service;
 
+import java.util.List;
+
+import com.ggorrrr.web.controller.entity.Food;
+
 public interface FoodService {
 
+	List<Food> getFoodList(String category);
+
+	List<Food> getFoodList(String category, int page);
+
+	List<Food> getFoodList(String category, int page, String field, String query);
+
+	Food get(int id);
+
+	int insert(Food food);
+
+	int update(Food food);
+
+	int delete(int id);
+
+	int deletes(int[] ids);
 }
