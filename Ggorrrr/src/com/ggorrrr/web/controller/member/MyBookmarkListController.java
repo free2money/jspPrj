@@ -8,21 +8,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.ggorrrr.web.controller.service.FavoriteService;
-import com.ggorrrr.web.controller.service.implement.ImplementFavoriteService;
+import com.ggorrrr.web.controller.service.BookmarkService;
+import com.ggorrrr.web.controller.service.implement.ImplementBookmarkService;
 
 @WebServlet("/mybookmark")
 public class MyBookmarkListController extends HttpServlet {
-	private FavoriteService favoriteService;
+	private BookmarkService bookmarkService;
 
 	public MyBookmarkListController() {
-		favoriteService = new ImplementFavoriteService();
+		bookmarkService = new ImplementBookmarkService();
 	}
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setAttribute("list", favoriteService.getList(Long.parseLong(request.getParameter("member_id"))));
+		request.setAttribute("list", bookmarkService.getList(Long.parseLong(request.getParameter("member_id"))));
 		request.getRequestDispatcher("/WEB-INF/view/member/myBookmarkList.jsp").forward(request, response);
 	}
 
