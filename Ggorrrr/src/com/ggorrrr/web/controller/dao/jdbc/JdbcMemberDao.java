@@ -15,7 +15,7 @@ import com.ggorrrr.web.controller.entity.Member;
 
 public class JdbcMemberDao implements MemberDao {
 
-	// ÀüÃ¼È¸¿ø°ü¸®-ÀüÃ¼È¸¿ø¸®½ºÆ®
+	// ì „ì²´íšŒì›ê´€ë¦¬-ì „ì²´íšŒì›ë¦¬ìŠ¤íŠ¸
 	@Override
 	public List<Member> getMemberList() {
 
@@ -61,8 +61,8 @@ public class JdbcMemberDao implements MemberDao {
 		return list;
 	}
 
-	// ÀüÃ¼È¸¿ø°ü¸®-°Ë»ö
-	//ÇÊµå -> id, user_id
+	// ì „ì²´íšŒì›ê´€ë¦¬-ê²€ìƒ‰
+	//í•„ë“œ -> id, user_id
 	@Override
 	public List<Member> getMemberList(String field, String query) {
 
@@ -110,7 +110,7 @@ public class JdbcMemberDao implements MemberDao {
 		return list;
 	}
 
-	// È¸¿ø°¡ÀÔ
+	// íšŒì›ê°€ì…
 	@Override
 	public int insert(Member member) {
 
@@ -136,7 +136,7 @@ public class JdbcMemberDao implements MemberDao {
 			st.setString(9, member.getLocation_agree());
 			st.setString(10, member.getNickname());
 
-			result = st.executeUpdate(); // st½ÇÇà //½ÇÇàµÇ¸é 1¹İÈ¯
+			result = st.executeUpdate(); // stì‹¤í–‰ //ì‹¤í–‰ë˜ë©´ 1ë°˜í™˜
 
 			st.close();
 			con.close();
@@ -152,7 +152,7 @@ public class JdbcMemberDao implements MemberDao {
 		return result;
 	}
 
-	// ºñ¹øº¯°æ,´Ğ³×ÀÓº¯°æ,À§Ä¡Á¤º¸º¯°æ
+	// ë¹„ë²ˆë³€ê²½,ë‹‰ë„¤ì„ë³€ê²½,ìœ„ì¹˜ì •ë³´ë³€ê²½
 	@Override
 	public int update(Member member) {
 
@@ -184,7 +184,7 @@ public class JdbcMemberDao implements MemberDao {
 		return result;
 	}
 
-	// ÀüÃ¼È¸¿ø°ü¸®-»èÁ¦
+	// ì „ì²´íšŒì›ê´€ë¦¬-ì‚­ì œ
 	@Override
 	public int deletes(int[] ids) {
 
@@ -194,7 +194,7 @@ public class JdbcMemberDao implements MemberDao {
 		for (int i = 0; i < ids.length; i++) {
 			values += ids[i];
 
-			if (i != (ids.length - 1)) // ¸¶Áö¸·ÀÌ ¾Æ´Ï¶ó¸é
+			if (i != (ids.length - 1)) // ë§ˆì§€ë§‰ì´ ì•„ë‹ˆë¼ë©´
 				values += ",";
 		}
 
@@ -219,7 +219,7 @@ public class JdbcMemberDao implements MemberDao {
 		return result;
 	}
 
-	// È¸¿øÅ»Åğ
+	// íšŒì›íƒˆí‡´
 	@Override
 	public int delete(int id) {
 		int result = 0;
@@ -246,7 +246,7 @@ public class JdbcMemberDao implements MemberDao {
 		return result;
 	}
 
-	//my±×¸Ô,·Î±×ÀÎÀÎÁõ,ºñ¹øÃ£±â
+	//myê·¸ë¨¹,ë¡œê·¸ì¸ì¸ì¦,ë¹„ë²ˆì°¾ê¸°
 	@Override
 	public Member get(int id) {
 	
@@ -292,7 +292,7 @@ public class JdbcMemberDao implements MemberDao {
 			return member;
 	}
 
-	//³ªÀÇ¸Ş´ºÃ£±â MemberView»ç¿ë
+	//ë‚˜ì˜ë©”ë‰´ì°¾ê¸° MemberViewì‚¬ìš©
 	@Override
 	public String MyFavorite(int id) {
 		// TODO Auto-generated method stub

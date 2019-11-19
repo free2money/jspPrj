@@ -6,14 +6,14 @@ import com.ggorrrr.web.controller.entity.Member;
 
 public interface MemberDao {
 	
-	  List<Member> getMemberList(); //ÀüÃ¼È¸¿ø°ü¸®¿¡¼­ ¸ğµçÈ¸¿ø¸®½ºÆ®
-	  List<Member> getMemberList(String field, String query); 	//ÀüÃ¼È¸¿ø°ü¸® °Ë»ö
+	  List<Member> getMemberList(); //ì „ì²´íšŒì›ê´€ë¦¬ì—ì„œ ëª¨ë“ íšŒì›ë¦¬ìŠ¤íŠ¸
+	  List<Member> getMemberList(String field, String query); 	//ì „ì²´íšŒì›ê´€ë¦¬ ê²€ìƒ‰
 
-	  int insert(Member member);	//È¸¿ø°¡ÀÔ
-	  int update(Member member);	//ºñ¹øº¯°æ,´Ğ³×ÀÓº¯°æ
-	  int deletes(int[] ids); 		//ÀüÃ¼È¸¿ø°ü¸® ÀÏ°ı»èÁ¦
-	  int delete(int id);			//my±×¸Ô È¸¿øÅ»Åğ
-	  Member get(int id) ;		    //my±×¸Ô, ·Î±×ÀÎ
-	  String MyFavorite(int id);    //Áñ°ÜÃ£±â¸Ş´º °¡Á®¿À±â.
+	  int insert(Member member);	//íšŒì›ê°€ì…
+	  int update(Member member);	//ë¹„ë²ˆë³€ê²½,ë‹‰ë„¤ì„ë³€ê²½
+	  int deletes(int[] ids); 		//ì „ì²´íšŒì›ê´€ë¦¬ ì¼ê´„ì‚­ì œ
+	  int delete(int id);			//myê·¸ë¨¹ íšŒì›íƒˆí‡´
+	  Member get(int id) ;		    //myê·¸ë¨¹, ë¡œê·¸ì¸
+	  String MyFavorite(int id);    //ì¦ê²¨ì°¾ê¸°ë©”ë‰´ ê°€ì ¸ì˜¤ê¸°.
 
 }

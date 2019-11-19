@@ -13,7 +13,7 @@ public class Member {
 	private String location_agree;
 	private String nickname;
 	
-	//ÀüÃ¼
+	//ì „ì²´
 	public Member(int id, String user_id, String pwd, String name, String birthday, String email, String gender,
 			String phone, String location_agree, String nickname) {
 		this.id = id;
@@ -28,7 +28,7 @@ public class Member {
 		this.nickname = nickname;
 	}
 	
-	//À§Ä¡µ¿ÀÇ ¾ø´Â°Í
+	//ìœ„ì¹˜ë™ì˜ ì—†ëŠ”ê²ƒ
 	public Member(int id, String user_id, String pwd, String name, String birthday, String email, String gender,
 			String phone, String nickname) {
 		this.id = id;
