@@ -103,8 +103,8 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		<input type="submit" value="일괄삭제" name="commit"> <input
-			type="submit" value="메뉴등록" name="reg">
+		<input type="submit" value="일괄삭제" name="cmd"> <input
+			type="submit" value="메뉴등록" name="cmd">
 	</form>
 	</main>
 	<!-- ======footer===================== -->
