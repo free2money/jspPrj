@@ -15,11 +15,6 @@ public class ImplementBookmarkService implements BookmarkService {
 	}
 
 	@Override
-	public List<BookmarkMenu> getList(long member_id) {
-		return bookmarkDao.getList(member_id);
-	}
-
-	@Override
 	public int insert(BookmarkMenu bookmarkMenu) {
 		return bookmarkDao.insert(bookmarkMenu);
 	}
@@ -32,6 +27,11 @@ public class ImplementBookmarkService implements BookmarkService {
 	@Override
 	public BookmarkMenu get(long food_id) {
 		return bookmarkDao.get(food_id);
+	}
+
+	@Override
+	public List<BookmarkMenu> getList(int member_id) {
+		return bookmarkDao.getList(member_id);
 	}
 
 }

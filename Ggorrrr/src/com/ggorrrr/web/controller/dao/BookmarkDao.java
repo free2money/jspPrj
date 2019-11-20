@@ -10,7 +10,8 @@ public interface BookmarkDao {
 
 	int delete(BookmarkMenu bookmarkMenu);
 
-	List<BookmarkMenu> getList(long member_id);
+	List<BookmarkMenu> getList(int member_id);
 
 	BookmarkMenu get(long id);
+
 }

@@ -13,6 +13,7 @@ public class TestHeader extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		request.getRequestDispatcher("/WEB-INF/view/headerTest.jsp").forward(request, response);
 	}
 }

@@ -30,10 +30,10 @@ public class LadderController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		long id = 0;
+		int id = 2;
 		String id_ = request.getParameter("member_id");
 		List<BookmarkMenu> list = bookmarkService.getList(id);
-		request.setAttribute("bookmark_list", list);
+		request.setAttribute("list", list);
 		request.getRequestDispatcher("/WEB-INF/view/ladder.jsp").forward(request, response);
 	}
 

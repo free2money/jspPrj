@@ -22,7 +22,9 @@ public class MyBookmarkListController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setAttribute("list", bookmarkService.getList(Long.parseLong(request.getParameter("member_id"))));
+		int id = 1;
+		request.setAttribute("list", bookmarkService.getList(id));
+//		request.setAttribute("list", bookmarkService.getList(Integer.parseInt(request.getParameter("member_id"))));
 		request.getRequestDispatcher("/WEB-INF/view/member/myBookmarkList.jsp").forward(request, response);
 	}
 
