@@ -12,7 +12,7 @@ import com.ggorrrr.web.controller.entity.Food;
 import com.ggorrrr.web.controller.service.FoodService;
 import com.ggorrrr.web.controller.service.implement.ImplementFoodService;
 
-@WebServlet("/menu/detail")
+@WebServlet("/admin/menu/detail")
 public class FoodDetailController extends HttpServlet {
 
 	private FoodService foodService;
@@ -26,12 +26,12 @@ public class FoodDetailController extends HttpServlet {
 			throws ServletException, IOException {
 		
 		int id = Integer.parseInt(request.getParameter("id"));
-		// 2. µ¥ÀÌÅÍ¸¦ ¸¶·ÃÇÏ°í
+		// 2. ë°ì´í„°ë¥¼ ë§ˆë ¨í•˜ê³ 
 		Food food = foodService.get(id);
-		// 3. Ãâ·ÂÇÏ´Â ¼­ºí¸´À¸·Î Àü´Ş
+		// 3. ì¶œë ¥í•˜ëŠ” ì„œë¸”ë¦¿ìœ¼ë¡œ ì „ë‹¬
 		request.setAttribute("f", food);
-
-		request.getRequestDispatcher("/WEB-INF/view/menu/detail.jsp").forward(request, response);
+		
+		request.getRequestDispatcher("/WEB-INF/view/admin/menu/detail.jsp").forward(request, response);
 	}
 
 }

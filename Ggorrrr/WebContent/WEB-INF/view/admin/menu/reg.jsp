@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,30 +69,26 @@
 						<tr>
 							<th>카테고리</th>
 							<td>
-									<!-- 목록 펼치기. -->
-								<select name="category">
-									<option>한식</option>
-									<option>양식</option>
-									<option>중식</option>
-									<option>일식</option>
-									<option>분식</option>
+								<!-- 목록 펼치기. --> <select name="category">
+									<option value="1">한식</option>
+									<option value="2">양식</option>
+									<option value="3">중식</option>
+									<option value="4">일식</option>
+									<option value="5">분식</option>
 									<option>테마별</option>
-									<option>기타</option>
+									<option value="6">기타</option>
 									<option>채식</option>
-								</select>
-								<select name ="vegetarian">
-									<option value="0">채식아님</option>
-									<option value="1">채식임</option>
-								</select>
-								
-								</td>
+							</select> <select name="vegetarian">
+									<option value = "0">채식아님</option>
+									<option value = "1">채식임</option>
+							</select> 
+							</td>
 							<th>음식 이름</th>
 							<td><input type="text" name="food_name" value="음식이름"></td>
 						</tr>
 						<tr>
 							<th>주 재료</th>
-							<td><input type="text" name="main_ingredents"
-								 value="주재료"></td>
+							<td><input type="text" name="main_ingredents" value="주재료"></td>
 						</tr>
 						<tr>
 							<th>먹는 방법</th>
@@ -108,8 +104,8 @@
 						</tr>
 						<tr>
 							<th>첨부 사진</th>
-							<td colspan="3"><input type="file" name="files"
-								value="내PC" multiple="multiple"></td>
+							<td colspan="3"><input type="file" name="files" value="내PC"
+								multiple="multiple"></td>
 
 						</tr>
 					</tbody>

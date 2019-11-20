@@ -39,7 +39,7 @@
 				</li>
 			</ul>
 		</nav>
-
+		<hr>
 		<nav>
 			<h1>메뉴</h1>
 			<ul>
@@ -54,63 +54,73 @@
 			</ul>
 		</nav>
 	</header>
-	<!-- ======main===================== -->
+	<hr>
+	<!-- =========================================================================== -->
 	<main>
-		<h1>관리자 메뉴</h1>
+	<section>
+		<img src="./images/profile.png">
+		<h1>관리자</h1>
+		<hr>
 		<section>
-				<h1>관리자</h1>
-				<img src="../../images/profile.png">
-		</section>
-		
-		<section>
-				<h1>메뉴관리</h1>
-		
-				<form>
-					<select name="category">
-						<option value="카테고리">카테고리</option>
-						<option value="한식">한식</option>
-						<option value="양식">양식</option>
-						<option value="중식">중식</option>
-						<option value="일식">일식</option>
-						<option value="분식">분식</option>
-						<option value="테마별">테마별</option>
-						<option value="기타">기타</option>
-						<option value="채식">채식</option>
-					</select>
-					<label>이름</label>
-					<input type="text" name="menuName">
-					<input type="submit" name="search" value="검색">
-				</form>
-		</section>
+			<h1>메뉴 등록</h1>
+			<form action="reg" method="post" enctype="multipart/form-data">
+				<table>
+					<tbody>
+						<tr>
+							<th>카테고리</th>
+							<td>
+								<!-- 목록 펼치기. --> <select name="category">
+									<option value="1">한식</option>
+									<option value="2">양식</option>
+									<option value="3">중식</option>
+									<option value="4">일식</option>
+									<option value="5">분식</option>
+									<option>테마별</option>
+									<option value="6">기타</option>
+									<option>채식</option>
+							</select> <select name="vegetarian">
+									<option value = "0">채식아님</option>
+									<option value = "1">채식임</option>
+							</select> 
+							</td>
+							<th>음식 이름</th>
+							<td><input type="text" name="food_name" value="음식이름"></td>
+						</tr>
+						<tr>
+							<th>주 재료</th>
+							<td><input type="text" name="main_ingredents" value="주재료"></td>
+						</tr>
+						<tr>
+							<th>먹는 방법</th>
+							<td><input type="text" name="how_to_eat" value="먹는 방법"></td>
+						</tr>
+						<tr>
+							<th>테마</th>
+							<td><input type="text" name="thema" value="테마"></td>
+						</tr>
+						<tr>
+							<th>레시피</th>
+							<td><input type="text" name="recipe" value="레시피"></td>
+						</tr>
+						<tr>
+							<th>첨부 사진</th>
+							<td colspan="3"><input type="file" name="files" value="내PC"
+								multiple="multiple"></td>
 
-		<form>
-			<table>
-				<thead>
-					<tr>
-						<td>카테고리</td>
-						<td>이름</td>
-						<td>주재료</td>
-						<td>설명</td>
-						<td>사진</td>
-						<td>삭제</td>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>한식</td>
-						<td>비빔밥</td>
-						<td>쌀,나물,계란,고추장</td>
-						<td>재료들을 잘 섞어 먹는 음식</td>
-						<td>사진경로</td>
-						<td><input type="checkbox"></td>
-					</tr>
-				</tbody>
-			</table>
-			<input type="submit" value="적용" name="commit"> <input
-				type="submit" value="메뉴등록" name="reg">
-		</form>
+						</tr>
+					</tbody>
+				</table>
+				<div>
+					<a href="">취소</a>&nbsp;
+					<!--  -->
+					<input type="submit" name="commit" value="확인">
+				</div>
+			</form>
+		</section>
+	</section>
 	</main>
-	<!-- ======footer===================== -->
+	<hr>
+	<!-- =========================================================================== -->
 	<footer>
 		<section>
 			<h1>회사소개</h1>

@@ -1,120 +1,121 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>�׷��� ���Ծ�?</title>
+<title>그래서 뭐먹어?</title>
 </head>
 <body>
 	<!-- ====header========================= -->
 	<header>
-		<h1>�׷��� ���Ծ�?</h1>
+		<h1>그래서 뭐먹어?</h1>
 		<nav>
-			<h1>ȸ���޴�</h1>
+			<h1>회원메뉴</h1>
 			<ul>
 				<li><a href="">home</a></li>
-				<li><a href="">�α���</a></li>
-				<li><a href="">ȸ������</a></li>
+				<li><a href="">로그인</a></li>
+				<li><a href="">회원가입</a></li>
 
-				<li><a href="">����������</a></li>
-				<li><a href="">������ �Ҹ�</a></li>
+				<li><a href="">마이페이지</a></li>
+				<li><a href="">고객의 소리</a></li>
 			</ul>
 		</nav>
 
 		<section>
-			<h1>�˻�â</h1>
+			<h1>검색창</h1>
 			<form>
-				<input type="text" name="�˻�â" value="�˻���"> <input
-					type="submit" value="�˻�">
+				<input type="text" name="검색창" value="검색어"> <input
+					type="submit" value="검색">
 			</form>
 		</section>
 
 		<nav>
-			<h1>�α�˻���</h1>
+			<h1>인기검색어</h1>
 			<ul>
-				<li>1.&nbsp;&nbsp;<a href="">���ⶱ����</a>
+				<li>1.&nbsp;&nbsp;<a href="">엽기떡볶이</a>
 					<ul>
-						<li>2.&nbsp;&nbsp;<a href="">������</a></li>
-						<li>3.&nbsp;&nbsp;<a href="">��ġ�</a></li>
+						<li>2.&nbsp;&nbsp;<a href="">갈비탕</a></li>
+						<li>3.&nbsp;&nbsp;<a href="">김치찌개</a></li>
 					</ul>
 				</li>
 			</ul>
 		</nav>
 
 		<nav>
-			<h1>�޴�</h1>
+			<h1>메뉴</h1>
 			<ul>
-				<li>�ѽ�</li>
-				<li>���</li>
-				<li>�߽�</li>
-				<li>�Ͻ�</li>
-				<li>�н�</li>
-				<li>�׸���</li>
-				<li>��Ÿ</li>
-				<li>ä��</li>
+				<li>한식</li>
+				<li>양식</li>
+				<li>중식</li>
+				<li>일식</li>
+				<li>분식</li>
+				<li>테마별</li>
+				<li>기타</li>
+				<li>채식</li>
 			</ul>
 		</nav>
 	</header>
 	<!-- ======main===================== -->
 	<main>
-	<h1>������ �޴�</h1>
+	<h1>관리자 메뉴</h1>
 	<section>
-		<h1>������</h1>
+		<h1>관리자</h1>
 		<img src="../../images/profile.png">
 	</section>
 
 	<section>
-		<h1>�޴�����</h1>
+		<h1>메뉴관리</h1>
 
 		<form>
 			<select name="category">
-				<option value="ī�װ���">ī�װ���</option>
-				<option value="�ѽ�">�ѽ�</option>
-				<option value="���">���</option>
-				<option value="�߽�">�߽�</option>
-				<option value="�Ͻ�">�Ͻ�</option>
-				<option value="�н�">�н�</option>
-				<option value="�׸���">�׸���</option>
-				<option value="��Ÿ">��Ÿ</option>
-				<option value="ä��">ä��</option>
-			</select> <label>�̸�</label> <input type="text" name="menuName"> <input
-				type="submit" name="search" value="�˻�">
+				<option value="카테고리">카테고리</option>
+				<option value="한식">한식</option>
+				<option value="양식">양식</option>
+				<option value="중식">중식</option>
+				<option value="일식">일식</option>
+				<option value="분식">분식</option>
+				<option value="테마별">테마별</option>
+				<option value="기타">기타</option>
+				<option value="채식">채식</option>
+			</select> <label>이름</label> <input type="text" name="menuName"> <input
+				type="submit" name="search" value="검색">
 		</form>
 	</section>
 
-	<form>
+	<form action="list" method="post">
 		<table>
 			<thead>
 				<tr>
-					<td>ī�װ���</td>
-					<td>�̸�</td>
-					<td>����</td>
+					<td>카테고리</td>
+					<td>이름</td>
+					<td>삭제</td>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach items="${list }" var="list">
 					<tr>
-						<td>${list.korname }</td>
+						<td><a href="detail?id=${list.id}">${list.korname }</a></td>
 						<td>${list.explain }</td>
-						<td><input type="checkbox"></td>
+						<td>${list.id}</td>
+						<td><input type="checkbox" name ="del" value= "${list.id }"></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
-		<input type="submit" value="�ϰ�����" name="cmd"> <input
-			type="submit" value="�޴����" name="cmd">
+		<input type="submit" value="일괄삭제" name="cmd">
+		<a href="reg">메뉴등록</a>
 	</form>
 	</main>
 	<!-- ======footer===================== -->
 	<footer>
 		<section>
-			<h1>ȸ��Ұ�</h1>
+			<h1>회사소개</h1>
 		</section>
 
 		<section>
-			<h1>�̿���</h1>
+			<h1>이용약관</h1>
 		</section>
 	</footer>
 

@@ -7,21 +7,21 @@ import com.ggorrrr.web.controller.entity.BookmarkMenu;
 
 public class JdbcBookmarkDao implements BookmarkDao {
 
-	// Áñ°ÜÃ£±â µî·Ï
+	// ì¦ê²¨ì°¾ê¸° ë“±ë¡
 	@Override
 	public int insert(BookmarkMenu bookmarkMenu) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	// Áñ°ÜÃ£±â »èÁ¦
+	// ì¦ê²¨ì°¾ê¸° ì‚­ì œ
 	@Override
 	public int delete(BookmarkMenu bookmarkMenu) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	// member_id°¡ Áñ°ÜÃ£±âÇÑ ¸ñ·ÏÀ» ¹İÈ¯
+	// member_idê°€ ì¦ê²¨ì°¾ê¸°í•œ ëª©ë¡ì„ ë°˜í™˜
 	@Override
 	public List<BookmarkMenu> getList(long member_id) {
 		List<BookmarkMenu> list = null;

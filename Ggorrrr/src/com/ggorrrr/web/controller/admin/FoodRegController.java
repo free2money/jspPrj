@@ -44,7 +44,8 @@ public class FoodRegController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
+		String category_ = request.getParameter("category");
 		String korName = request.getParameter("food_name");
 		String engName = request.getParameter("korname");
 		String ingridients = request.getParameter("main_ingredents");
@@ -53,20 +54,40 @@ public class FoodRegController extends HttpServlet {
 		String thema = request.getParameter("thema");
 		String vegetarian_ = request.getParameter("vegetarian");
 		boolean vegetarian = false;
+		String category = null;
+		
+		switch (category_) {
+		case "1":
+			category = "í•œì‹";
+			break;
+		case "2":
+			category = "ì–‘ì‹";
+			break;
+		case "3":
+			category = "ì¤‘ì‹";
+			break;
+		case "4":
+			category = "ì¼ì‹";
+			break;
+		case "5":
+			category = "ë¶„ì‹";
+			break;
+		case "6":
+			category = "ê¸°íƒ€";
+			break;
+		}
 		
 		if(vegetarian_.equals("1")) 
 			vegetarian = true;
 		else vegetarian = false;
+		
+		System.out.println(vegetarian);
 
 		Collection<Part> parts = request.getParts();
 
 		String fileNames = "";
 
 		for (Part p : parts) {
-			System.out.println(p.getName());
-
-			// 1. ÆÄÀÏÀ» »ç¿ëÇÏ´Â ¹æ¹ı 2°¡Áö
-			// 2. ´ÙÁß ÆÄÀÏÀ» ¾÷·Îµå ÇÏ´Â ¹æ¹ı
 
 			if (!p.getName().equals("files"))
 				continue;
@@ -76,14 +97,8 @@ public class FoodRegController extends HttpServlet {
 			String realPath = application.getRealPath(urlPath);
 
 			File file = new File(realPath);
-			if (!file.exists())
-				file.mkdirs();
-			else
-				System.out.println("°æ·Î°¡ Á¸ÀçÇÕ´Ï´Ù");
 
-			System.out.println(realPath);
-
-//		Part filePart = request.getPart("file");
+//			Part filePart = request.getPart("file");
 
 			Part filePart = p;
 			String fileName = filePart.getSubmittedFileName();
@@ -107,7 +122,7 @@ public class FoodRegController extends HttpServlet {
 		fileNames = fileNames.substring(0, fileNames.length() - 1);
 
 		int result = foodService
-				.insert(new Food(1323,korName, engName, fileNames, ingridients, explain,1, vegetarian, thema, recipe));
+				.insert(new Food(13777,korName, engName, fileNames, ingridients, explain,1, vegetarian, thema, recipe,category));
 //		filePart.getSubmittedFileName();
 
 //		String title = titlePart.getName();
@@ -117,6 +132,6 @@ public class FoodRegController extends HttpServlet {
 		} else {
 			response.sendRedirect("list");
 		}
-
+		
 	}
 }

@@ -11,13 +11,14 @@ public class Food {
 	private boolean vegetarian;
 	private String thema;
 	private String recipe;
+	private String category;
 
 	public Food() {
 	}
 	
-	// insert πÆøÎ
+	// insert Î¨∏Ïö©
 	public Food(String korname, String engname, String photo, String ingridients, String explain, boolean vegetarian,
-			String thema, String recipe) {
+			String thema, String recipe, String category) {
 		this.korname = korname;
 		this.engname = engname;
 		this.photo = photo;
@@ -26,11 +27,12 @@ public class Food {
 		this.vegetarian = vegetarian;
 		this.thema = thema;
 		this.recipe = recipe;
+		this.category = category; 
 	}
 	
-	// select πÆøÎ
+	// select Î¨∏Ïö©
 	public Food(int id, String korname, String engname, String photo, String ingridients, String explain, int managerId,
-			boolean vegetarian, String thema, String recipe) {
+			boolean vegetarian, String thema, String recipe, String category) {
 		this.id = id;
 		this.korname = korname;
 		this.engname = engname;
@@ -41,9 +43,10 @@ public class Food {
 		this.vegetarian = vegetarian;
 		this.thema = thema;
 		this.recipe = recipe;
+		this.category = category; 
 	}
 
-	// ¡Ò∞‹√£±‚ ∏ﬁ¥∫ ∞°¡Æø√∂ß ªÁøÎ«‘.
+	// Ï¶êÍ≤®Ï∞æÍ∏∞ Î©îÎâ¥ Í∞ÄÏ†∏Ïò¨Îïå ÏÇ¨Ïö©Ìï®.
 	public Food(String korname, String photo) {
 		this.korname = korname;
 		this.photo = photo;
@@ -65,58 +68,84 @@ public class Food {
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getKorname() {
 		return korname;
 	}
+
 	public void setKorname(String korname) {
 		this.korname = korname;
 	}
+
 	public String getEngname() {
 		return engname;
 	}
+
 	public void setEngname(String engname) {
 		this.engname = engname;
 	}
+
 	public String getPhoto() {
 		return photo;
 	}
+
 	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
+
 	public String getIngridients() {
 		return ingridients;
 	}
+
 	public void setIngridients(String ingridients) {
 		this.ingridients = ingridients;
 	}
+
 	public String getExplain() {
 		return explain;
 	}
+
 	public void setExplain(String explain) {
 		this.explain = explain;
 	}
+
 	public int getManagerId() {
 		return managerId;
 	}
+
 	public void setManagerId(int managerId) {
 		this.managerId = managerId;
 	}
+
 	public boolean isVegetarian() {
 		return vegetarian;
 	}
+
 	public boolean isVegetarian(boolean vegetarian) {
 		return this.vegetarian = vegetarian;
 	}
+
 	public String getThema() {
 		return thema;
 	}
+
 	public void setThema(String thema) {
 		this.thema = thema;
 	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
 	@Override
 	public String toString() {
 		return "Food [id=" + id + ", korname=" + korname + ", engname=" + engname + ", photo=" + photo
 				+ ", ingridients=" + ingridients + ", explain=" + explain + ", managerId=" + managerId + ", vegetarian="
-				+ vegetarian + ", thema=" + thema + "]";
+				+ vegetarian + ", thema=" + thema + ", recipe=" + recipe + ", category=" + category + "]";
 	}
+	
 }

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,8 +62,8 @@
 		<h1>관리자</h1>
 		<hr>
 		<section>
-			<h1>메뉴 등록</h1>
-			<form action="reg" method="post" enctype="multipart/form-data">
+			<h1>메뉴 수정</h1>
+			<form action="update" method="post" enctype="multipart/form-data">
 				<table>
 					<tbody>
 						<tr>
@@ -84,23 +84,23 @@
 							</select> 
 							</td>
 							<th>음식 이름</th>
-							<td><input type="text" name="food_name" value="음식이름"></td>
+							<td><input type="text" name="food_name" value="${f.korname }"></td>
 						</tr>
 						<tr>
 							<th>주 재료</th>
-							<td><input type="text" name="main_ingredents" value="주재료"></td>
+							<td><input type="text" name="main_ingridients" value="${f.ingridients }"></td>
 						</tr>
 						<tr>
 							<th>먹는 방법</th>
-							<td><input type="text" name="how_to_eat" value="먹는 방법"></td>
+							<td><input type="text" name="how_to_eat" value="${f.explain }"></td>
 						</tr>
 						<tr>
 							<th>테마</th>
-							<td><input type="text" name="thema" value="테마"></td>
+							<td><input type="text" name="thema" value="${f.thema }"></td>
 						</tr>
 						<tr>
 							<th>레시피</th>
-							<td><input type="text" name="recipe" value="레시피"></td>
+							<td><input type="text" name="recipe" value="${f.recipe }"></td>
 						</tr>
 						<tr>
 							<th>첨부 사진</th>
@@ -113,7 +113,7 @@
 				<div>
 					<a href="">취소</a>&nbsp;
 					<!--  -->
-					<input type="submit" name="commit" value="확인">
+					<input type="submit" name="sss" value="확인">
 				</div>
 			</form>
 		</section>

@@ -30,13 +30,13 @@ public class ImplementFoodService implements FoodService {
 	@Override
 	public List<Food> getFoodList(String category, int page) {
 
-		return null;
+		return foodDao.getFoodList(category, page);
 	}
 
 	@Override
 	public List<Food> getFoodList(String category, int page, String field, String query) {
 
-		return null;
+		return foodDao.getFoodList(category, page, field, query);
 	}
 
 	@Override
@@ -54,7 +54,7 @@ public class ImplementFoodService implements FoodService {
 	@Override
 	public int update(Food food) {
 
-		return 0;
+		return foodDao.update(food);
 	}
 
 	@Override
