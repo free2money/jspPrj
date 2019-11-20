@@ -6,7 +6,7 @@
 
 <meta charset="UTF-8">
 <title>그래서 뭐먹어?</title>
-<link href="./css/index_header.css" type="text/css" rel="stylesheet">
+<link href="/css/index_header.css" type="text/css" rel="stylesheet">
 
 </head>
 <body>
