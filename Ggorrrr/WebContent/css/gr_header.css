@@ -1,11 +1,11 @@
 @charset "UTF-8";
 /*==============Header===========*/
-* {
+/* * {
 	margin: 0px;
 	padding: 0px;
 	font: bold 12px Malgun Gothic;
 	color: black;
-}
+} */
 
 a {
 	text-decoration: none;
@@ -88,8 +88,7 @@ a {
 }
 
 #popularity li {
-	list-style: none;
-	font-size: 150%;
+	
 }
 
 #title {

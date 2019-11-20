@@ -16,10 +16,10 @@ import com.ggorrrr.web.controller.service.implement.ImplementBookmarkService;
 @WebServlet("/ladder")
 public class LadderController extends HttpServlet {
 
-	BookmarkService favoriteService;
+	BookmarkService bookmarkService;
 
 	public LadderController() {
-		favoriteService = new ImplementBookmarkService();
+		bookmarkService = new ImplementBookmarkService();
 	}
 
 	@Override
@@ -32,7 +32,7 @@ public class LadderController extends HttpServlet {
 			throws ServletException, IOException {
 		long id = 0;
 		String id_ = request.getParameter("member_id");
-		List<BookmarkMenu> list = favoriteService.getList(id);
+		List<BookmarkMenu> list = bookmarkService.getList(id);
 		request.setAttribute("bookmark_list", list);
 		request.getRequestDispatcher("/WEB-INF/view/ladder.jsp").forward(request, response);
 	}
