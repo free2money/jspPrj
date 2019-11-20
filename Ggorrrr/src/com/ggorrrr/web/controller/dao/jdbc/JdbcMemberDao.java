@@ -1,7 +1,6 @@
 package com.ggorrrr.web.controller.dao.jdbc;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,52 +12,13 @@ import java.util.List;
 import com.ggorrrr.web.controller.dao.MemberDao;
 import com.ggorrrr.web.controller.entity.Member;
 
-public class JdbcMemberDao implements MemberDao {
+public class JdbcMemberDao implements MemberDao{
 
 	// 전체회원관리-전체회원리스트
 	@Override
 	public List<Member> getMemberList() {
-
-		Member member = null;
-
-		List<Member> list = new ArrayList<Member>();
-		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
-		String sql = "select * from member";
-
-		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection(url, "GGORRRR", "0112");
-			Statement st = con.createStatement();
-			ResultSet rs = st.executeQuery(sql);
-
-			while (rs.next()) {
-
-				int id = rs.getInt("id");
-				String user_name = rs.getString("user_name");
-				String pwd = rs.getString("pwd");
-				String name = rs.getString("name");
-				String birthday = rs.getString("birthday");
-				String email = rs.getString("email");
-				String gender = rs.getString("gender");
-				String phone = rs.getString("phone");
-				String location_agree = rs.getString("location_agree");
-				String nickname = rs.getString("nickname");
-
-				member = new Member(id, user_name, pwd, name, birthday, email, gender, phone, location_agree, nickname);
-				list.add(member);
-			}
-
-			rs.close();
-			st.close();
-			con.close();
-
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-		return list;
+		
+		return getMemberList("user_id","");
 	}
 
 	// 전체회원관리-검색
@@ -83,7 +43,7 @@ public class JdbcMemberDao implements MemberDao {
 			while (rs.next()) {
 				
 				int id = rs.getInt("id");
-				String user_name = rs.getString("user_name");
+				String user_name = rs.getString("user_id");
 				String pwd = rs.getString("pwd");
 				String name = rs.getString("name");
 				String birthday = rs.getString("birthday");
@@ -184,40 +144,31 @@ public class JdbcMemberDao implements MemberDao {
 		return result;
 	}
 
-	// 전체회원관리-삭제
-	@Override
-	public int deletes(int[] ids) {
-
-		int result = 0;
-
-		String values = "";
-		for (int i = 0; i < ids.length; i++) {
-			values += ids[i];
-
-			if (i != (ids.length - 1)) // 마지막이 아니라면
-				values += ",";
-		}
-
-		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
-		String sql = "delete member where id in(" + values + ")";
-
-		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection(url, "ACORN", "newlec");
-			PreparedStatement st = con.prepareStatement(sql);
-
-			result = st.executeUpdate();
-
-			st.close();
-			con.close();
-
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return result;
-	}
+	/*
+	 * // 전체회원관리-삭제
+	 * 
+	 * @Override public int deletes(int[] ids) {
+	 * 
+	 * int result = 0;
+	 * 
+	 * String values = ""; for (int i = 0; i < ids.length; i++) { values += ids[i];
+	 * 
+	 * if (i != (ids.length - 1)) // 마지막이 아니라면 values += ","; }
+	 * 
+	 * String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1"; String sql =
+	 * "delete member where id in(" + values + ")";
+	 * 
+	 * try { Class.forName("oracle.jdbc.driver.OracleDriver"); Connection con =
+	 * DriverManager.getConnection(url, "GGORRRR", "0112"); PreparedStatement st =
+	 * con.prepareStatement(sql);
+	 * 
+	 * result = st.executeUpdate();
+	 * 
+	 * st.close(); con.close();
+	 * 
+	 * } catch (ClassNotFoundException e) { e.printStackTrace(); } catch
+	 * (SQLException e) { e.printStackTrace(); } return result; }
+	 */
 
 	// 회원탈퇴
 	@Override
@@ -265,7 +216,7 @@ public class JdbcMemberDao implements MemberDao {
 
 			while (rs.next()) {
 				
-				String user_name = rs.getString("user_name");
+				String user_name = rs.getString("user_id");
 				String pwd = rs.getString("pwd");
 				String name = rs.getString("name");
 				String birthday = rs.getString("birthday");
@@ -290,13 +241,6 @@ public class JdbcMemberDao implements MemberDao {
 		}
 			
 			return member;
-	}
-
-	//나의메뉴찾기 MemberView사용
-	@Override
-	public String MyFavorite(int id) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

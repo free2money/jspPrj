@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.ggorrrr.web.controller.service.BookmarkService;
 import com.ggorrrr.web.controller.service.implement.ImplementBookmarkService;
 
-@WebServlet("/mybookmark")
+@WebServlet("/member/mybookmarklist")
 public class MyBookmarkListController extends HttpServlet {
 	private BookmarkService bookmarkService;
 
@@ -22,9 +22,9 @@ public class MyBookmarkListController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int id = 1;
-		request.setAttribute("list", bookmarkService.getList(id));
-//		request.setAttribute("list", bookmarkService.getList(Integer.parseInt(request.getParameter("member_id"))));
+		
+		
+		request.setAttribute("list", bookmarkService.getList(Long.parseLong(request.getParameter("id"))));
 		request.getRequestDispatcher("/WEB-INF/view/member/myBookmarkList.jsp").forward(request, response);
 	}
 

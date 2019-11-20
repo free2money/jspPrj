@@ -13,6 +13,10 @@ public class Member {
 	private String location_agree;
 	private String nickname;
 	
+	public Member() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	//전체
 	public Member(int id, String user_id, String pwd, String name, String birthday, String email, String gender,
 			String phone, String location_agree, String nickname) {
@@ -27,6 +31,15 @@ public class Member {
 		this.location_agree = location_agree;
 		this.nickname = nickname;
 	}
+	
+	
+	public Member(int id, String pwd, String location_agree, String nickname) {
+		this.id = id;
+		this.pwd=pwd;
+		this.location_agree = location_agree;
+		this.nickname = nickname;
+	}
+
 	
 	//위치동의 없는것
 	public Member(int id, String user_id, String pwd, String name, String birthday, String email, String gender,
@@ -120,6 +133,13 @@ public class Member {
 
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
+	}
+
+	@Override
+	public String toString() {
+		return "Member [id=" + id + ", user_id=" + user_id + ", pwd=" + pwd + ", name=" + name + ", birthday="
+				+ birthday + ", email=" + email + ", gender=" + gender + ", phone=" + phone + ", location_agree="
+				+ location_agree + ", nickname=" + nickname + "]";
 	}
 	
 	
