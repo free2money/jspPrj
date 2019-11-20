@@ -59,8 +59,8 @@ public class ListController extends HttpServlet {
 		for (Part p : parts) {
 			System.out.println(p.getName());
 
-			// 1. ÆÄÀÏÀ» »ç¿ëÇÏ´Â ¹æ¹ı 2°¡Áö
-			// 2. ´ÙÁß ÆÄÀÏÀ» ¾÷·Îµå ÇÏ´Â ¹æ¹ı
+			// 1. íŒŒì¼ì„ ì‚¬ìš©í•˜ëŠ” ë°©ë²• 2ê°€ì§€
+			// 2. ë‹¤ì¤‘ íŒŒì¼ì„ ì—…ë¡œë“œ í•˜ëŠ” ë°©ë²•
 
 			if (!p.getName().equals("files"))
 				continue;
@@ -73,7 +73,7 @@ public class ListController extends HttpServlet {
 			if (!file.exists())
 				file.mkdirs();
 			else
-				System.out.println("°æ·Î°¡ Á¸ÀçÇÕ´Ï´Ù");
+				System.out.println("ê²½ë¡œê°€ ì¡´ì¬í•©ë‹ˆë‹¤");
 
 			System.out.println(realPath);
 

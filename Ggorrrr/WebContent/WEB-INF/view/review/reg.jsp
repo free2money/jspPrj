@@ -1,8 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>그래서 뭐먹어?</title>
+
+<style>
+.star-rating { width:205px; }
+.star-rating,.star-rating span { display:inline-block; height:39px; overflow:hidden; background:url(../images/star.png)no-repeat; }
+.star-rating span{ background-position:left bottom; line-height:0; vertical-align:top; }
+</style>
+
 </head>
 <body>
 	<header>
@@ -64,7 +73,7 @@
 					<tbody>
 						<tr>
 							<th>카테고리 선택</th>
-							<td><select name="foodType">
+							<td><select name="food_type">
 									<option value="kor">한식</option>
 									<option value="chi">중식</option>
 									<option value="jap">일식</option>
@@ -79,8 +88,8 @@
 						</tr>
 						<tr>
 							<th>먹은 날짜</th>
-							<td><input type="text" name="eating_date"
-								readonly="readonly" value="먹은 날짜"></td>
+							<td><input type="date" name="eating_date"
+								 value="먹은 날짜"></td>
 
 							<th>먹은 장소</th>
 							<td><input type="text" name="address" value="먹은 장소"></td>
@@ -91,9 +100,15 @@
 						</tr>
 						<tr>
 							<th>첨부 사진</th>
-							<td colspan="3"><input type="text" name="images"
+							<td colspan="3"><input type="image" name="images"
 								value="첨부사진" size="50px"></td>
 						</tr>
+						<tr>
+							<th>별점</th>
+							<td colspan="3"><div class='star-rating'> <span
+									style="width: 50%"></span></div></td>
+						</tr>
+						
 					</tbody>
 				</table>
 				<div>

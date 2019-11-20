@@ -2,57 +2,64 @@ package com.ggorrrr.web.controller.service.implement;
 
 import java.util.List;
 
+import com.ggorrrr.web.controller.dao.ReviewDao;
+import com.ggorrrr.web.controller.dao.jdbc.JdbcReviewDao;
 import com.ggorrrr.web.controller.entity.Review;
 import com.ggorrrr.web.controller.service.ReviewService;
 
 public class ImplementReviewService implements ReviewService{
-
+	
+	private ReviewDao reviewDao;
+	
+	public ImplementReviewService() {
+		reviewDao=new JdbcReviewDao();
+	}
 	@Override
 	public List<Review> getList() {
-		// TODO Auto-generated method stub
-		return null;
+	
+		return getList("content","");
 	}
 
 	@Override
 	public List<Review> getList(String field, String query) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return reviewDao.getList(field,query);
 	}
 
 	@Override
 	public List<Review> orderByDate() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return reviewDao.orderByDate();
 	}
 
 	@Override
 	public List<Review> orderByGrade() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return reviewDao.orderByGrade();
 	}
 
 	@Override
 	public int insert(Review review) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return reviewDao.insert(review);
 	}
 
 	@Override
 	public int update(Review review) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return reviewDao.update(review);
 	}
 
 	@Override
 	public int delete(int id) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return reviewDao.delete(id);
 	}
 
 	@Override
 	public int deletes(int[] ids) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return reviewDao.deletes(ids);
 	}
 
 }
