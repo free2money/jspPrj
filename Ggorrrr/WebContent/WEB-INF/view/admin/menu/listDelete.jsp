@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,7 +84,7 @@
 		</form>
 	</section>
 
-	<form>
+	<form action="list" method="post">
 		<table>
 			<thead>
 				<tr>
@@ -91,15 +94,18 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>한식</td>
-					<td>비빔밥</td>
-					<td><input type="checkbox"></td>
-				</tr>
+				<c:forEach items="${list }" var="list">
+					<tr>
+						<td><a href="detail?id=${list.id}">${list.korname }</a></td>
+						<td>${list.explain }</td>
+						<td>${list.id}</td>
+						<td><input type="checkbox" name ="del" value= "${list.id }"></td>
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
-		<input type="submit" value="일괄삭제" name="commit">
-		<input type="submit" value="메뉴등록" name="reg">
+		<input type="submit" value="일괄삭제" name="cmd">
+		<a href="reg">메뉴등록</a>
 	</form>
 	</main>
 	<!-- ======footer===================== -->

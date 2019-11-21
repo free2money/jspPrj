@@ -1,4 +1,4 @@
-package com.ggorrrr.web.controller.member;
+package com.ggorrrr.web.controller.admin;
 
 import java.io.IOException;
 
@@ -11,12 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import com.ggorrrr.web.controller.service.MemberService;
 import com.ggorrrr.web.controller.service.implement.ImplementMemberService;
 
-@WebServlet("/member/changePassword")
-public class ChangePasswordController extends HttpServlet {
+public class AdminChangePasswordController extends HttpServlet {
 
 	private MemberService memberService;
 
-	public ChangePasswordController() {
+	public AdminChangePasswordController() {
 		memberService = new ImplementMemberService();
 	}
 
@@ -38,32 +37,19 @@ public class ChangePasswordController extends HttpServlet {
 			throws ServletException, IOException {
 
 		String pwd = request.getParameter("pwd");
-		String nows = "";
-		String news = "";
+		String s = "";
 		String nowPwd = request.getParameter("nowPwd");
-		String nowcheck = request.getParameter("nowPwdsubmit");
-		String newPwd = request.getParameter("newPwd");
-		String newPwd2 = request.getParameter("newPwd2");
-		String newcheck = request.getParameter("newPwdsubmit");
+		String check = request.getParameter("nowPwdsubmit");
 		
-		if(nowcheck.equals("확인")) {
+		if(check.equals("확인")) {
 			if (!nowPwd.equals("") && pwd.equals(nowPwd))
-				nows = "비밀번호가 일치합니다.";
+				s = "비밀번호가 일치합니다.";
 			else if (!nowPwd.equals("") && !pwd.equals(nowPwd))
-				nows = "비밀번호가 일치하지 않습니다.";
-		}
-		
-		//널포인트
-		if(newcheck.equals("확인")) {
-			if (!newPwd.equals("") && newPwd.equals(newPwd2))
-				news = "새비밀번호 확인이 완료되었습니다.";
-			else if (!newPwd.equals("") && !newPwd.equals(newPwd2))
-				news = "새비밀번호 확인이 완료되지 않았습니다.";
+				s = "비밀번호가 일치하지 않습니다.";
 		}
 		
 		request.setAttribute("pwd", pwd); //페이지가 넘겨지면 한번 쓴 member.pwd는 없어지기때문에 계속 넣어줌
-		request.setAttribute("nows", nows);
-		request.setAttribute("news", news);
+		request.setAttribute("s", s);
 		
 		request.getRequestDispatcher("/WEB-INF/view/member/changePassword.jsp").forward(request, response);
 

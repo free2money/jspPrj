@@ -6,9 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>그래서 뭐먹어?</title>
-<script type="text/javascript">
-
-</script>
+<script src="/js/pwd.js"></script>
 </head>
 <body>
 	<header>
@@ -123,7 +121,7 @@
 	<!------------------------- ㅡheader끝 main시작 ------------------------------------>
 	<main>
 	<div>
-		<img src="./images/ggorrrrlogo.png" width="50" height="50">
+		<img src="/images/ggorrrrlogo.png" width="50" height="50">
 		<section>
 			<h1>MY그먹</h1>
 		</section>
@@ -133,48 +131,39 @@
 		<section>
 			<h1>마이페이지비밀번호변경프로필</h1>
 			<div>
-				<img src="./images/profile.png" width="50" height="50">
+				<img src="/images/profile.png" width="50" height="50">
 				<h1>${member.nickname}</h1>
 			</div>
-			<dl>
+			<dl id="change-pwd">
 				<dt>현재비밀번호:</dt>
-								<dd>
-					<input type="hidden" name="pwd" value="${pwd}">
+				<dd>
+					<input class="now-pwd" type="hidden" name="pwd" value="${pwd}">
 				</dd>
 				<dd>
-					<input type="text" name="nowPwd" value="">
+					<input class="now-pwd2" type="text" name="nowPwd" value="">
+					<input class="now-check-button" type="button" name="nowPwdbutton"
+						value="확인">
 				</dd>
-				<dd>
-					<input type="submit" name="nowPwdsubmit" value="확인">
-				</dd>
-				<dd>${s}</dd>
-
+				</dl>
+			<label class="now-check-text"></label>
+			<!--<dd>${nows}</dd>-->
+			<dl>
 				<dt>새 비밀번호:</dt>
 				<dd>
-					<input type="text" name="newPwd" value="새비밀번호">
-				</dd>
-				<dd>
-<%-- 					<c:if test="${newPwd!=null}">
-				가능한 비밀번호 입니다.
-				</c:if> --%>
+					<input class="new-pwd" type="text" name="newPwd" value="새비밀번호">
 				</dd>
 
 				<dt>새 비밀번호 확인:</dt>
 				<dd>
-					<input type="text" name="newPwd2" value="새비밀번호재입력">
+					<input class="new-pwd2" type="text" name="newPwd2" value="새비밀번호재입력">
+					<input class="new-check-button" type="submit" name="newPwdsubmit"
+						value="확인">
 				</dd>
-				<dd>
-<%-- 					<c:if test="${newPwd.equals(newPwd2)}">
-				비밀번호가 일치합니다.
-				</c:if>
-					<c:if test="${!newPwd.equals(newPwd2)}">
-				비밀번호가 일치하지 않습니다.
-				</c:if> --%>
-				</dd>
+				<dd>${news}</dd>
 			</dl>
 
 			<div>
-				<a href="./mypage.html"><input type="button" name="취소"
+				<a href="mypage"><input type="button" name="취소"
 					value="취소"></a> <a href="./categori.html"><input
 					type="submit" name="저장" value="저장"></a>
 			</div>
@@ -186,7 +175,7 @@
 		<h1>사다리게임</h1>
 		<nav>
 			<h1>사다리이미지</h1>
-			<a href=""><img src="./images/sadari.png" width="100"
+			<a href=""><img src="/images/sadari.png" width="100"
 				height="100"></a>
 		</nav>
 	</aside>

@@ -81,7 +81,7 @@ public class FoodRegController extends HttpServlet {
 			vegetarian = true;
 		else vegetarian = false;
 		
-		Collection<Part> parts = request.getParts();
+			Collection<Part> parts = request.getParts();
 
 		String fileNames = "";
 

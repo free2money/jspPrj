@@ -71,3 +71,6 @@ local.properties
 
 # 내가 추가한 ignore
 build/
+
+# visualcode
+.vscode/

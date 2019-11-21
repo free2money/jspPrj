@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,23 +23,23 @@
 
 		<section>
 			<h1>검색창</h1>
-			<form action="">
+			<form>
 				<input type="text" name="검색창" value="검색어"> <input
 					type="submit" value="검색">
 			</form>
 		</section>
 
 		<nav>
-         <h1>인기검색어</h1>
-         <ul>
-            <li>1.&nbsp;&nbsp;<a href="">엽기떡볶이</a>
-               <ul>
-                  <li>2.&nbsp;&nbsp;<a href="">갈비탕</a></li>
-                  <li>3.&nbsp;&nbsp;<a href="">김치찌개</a></li>
-               </ul>
-            </li>
-         </ul>
-      </nav>
+			<h1>인기검색어</h1>
+			<ul>
+				<li>1.&nbsp;&nbsp;<a href="">엽기떡볶이</a>
+					<ul>
+						<li>2.&nbsp;&nbsp;<a href="">갈비탕</a></li>
+						<li>3.&nbsp;&nbsp;<a href="">김치찌개</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
 
 		<nav>
 			<h1>메뉴</h1>
@@ -56,32 +58,39 @@
 
 	<!-- =================MAIN================ -->
 	<main>
+
 	<section>
-		<h1>아이디 찾기</h1>
-		<div>회원가입 시,입력하신 이메일로 <br>아이디를 확인할 수 있습니다.</div>
-		
+		<h1>전체회원관리</h1>
+
 		<form action="">
-			<div>NAME</div>
-			<input type="text" name="name">
-			<div>E-MAIL</div>
-			<input type="text" name="email"> <br>
-			<input type="button" onclick='alert("아이디:csw758")' value="아이디찾기"><br>
-			<input type="submit" name="login" value="로그인">
+			<table border="1">
+				<thead>
+					<tr>
+						<td>아이디</td>
+						<td>비밀번호</td>
+						<td>이름</td>
+						<td>성별</td>
+						<td>생년월일</td>
+						<td>이메일</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>sw123</td>
+						<td>12******</td>
+						<td>남선우</td>
+						<td>남성</td>
+						<td>1995-10-09</td>
+						<td>ㄵ123@naver.com</td>
+						<td><input type="button" value="삭제"
+							onclick='alert("삭제되었습니다")' /></td>
+					</tr>
+				</tbody>
+			</table>
 		</form>
-		
 	</section>
 	</main>
-	
-	<!-- =================FOOTER================ -->
-
-	<footer>
-		<section>
-			<h1>회사소개</h1>
-		</section>
-
-		<section>
-			<h1>이용약관</h1>
-		</section>
-	</footer>
+	<!-- ======footer===================== -->
+	<jsp:include page="../../inc/footer.jsp"/>
 </body>
 </html>
