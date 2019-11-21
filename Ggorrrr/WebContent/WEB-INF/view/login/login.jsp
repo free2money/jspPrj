@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,15 +58,16 @@ footer {
 </head>
 <body>
 	<!-- =================HEADER================ -->
-	<jsp:include page="../inc/header.jsp"/>
+	<jsp:include page="../inc/header.jsp" />
 	<!-- =================MAIN================ -->
 	<div class="headerBmain"></div>
 
 	<main>
 	<div class="middlebox">
-	
+
 		<section>
 			<h1>로그인</h1>
+
 			<form action="" method="post">
 				<img src="../images/login.png">
 				<div class="idbox">ID</div>
@@ -73,6 +75,13 @@ footer {
 				<div>PASSWORD</div>
 				<input class="pwdbox" type="password" name="pwd"> <input
 					type="submit" name="login" value="로그인">
+				<c:if test="${not empty param.error }">
+					<input type="hidden" name="error" value="${param.error }">
+					<div
+						style="color: red; font-weight: bold; font-size: 15px; text-align: center;">아이디
+						또는 비밀번호가 올바르지 않습니다.</div>
+				</c:if>
+				<input type="hidden" name="return-url" value="${param.returnUrl}" />
 			</form>
 		</section>
 		<nav>
@@ -89,6 +98,6 @@ footer {
 
 	<div class="mainBfooter"></div>
 	<!--=================FOOTER================ -->
-	<jsp:include page="../inc/footer.jsp"/>
+	<jsp:include page="../inc/footer.jsp" />
 </body>
 </html>

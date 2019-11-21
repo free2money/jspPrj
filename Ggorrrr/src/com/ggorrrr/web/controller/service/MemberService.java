@@ -6,9 +6,9 @@ import com.ggorrrr.web.controller.entity.Member;
 
 public interface MemberService {
 
-	boolean isValidMember(int id, String pwd); // 회원인지확인
-	
-	boolean isDuplicatedId(int id, String user_id); //아이디중복확인
+	boolean isValidMember(String id, String pwd); // 회원인지확인
+
+	boolean isDuplicatedId(String id, String user_id); // 아이디중복확인
 
 	List<Member> getMemberList(); // 전체회원관리에서 모든회원리스트
 

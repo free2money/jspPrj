@@ -12,17 +12,17 @@ import java.util.List;
 import com.ggorrrr.web.controller.dao.MemberDao;
 import com.ggorrrr.web.controller.entity.Member;
 
-public class JdbcMemberDao implements MemberDao{
+public class JdbcMemberDao implements MemberDao {
 
 	// 전체회원관리-전체회원리스트
 	@Override
 	public List<Member> getMemberList() {
-		
-		return getMemberList("user_id","");
+
+		return getMemberList("user_id", "");
 	}
 
 	// 전체회원관리-검색
-	//필드 -> id, user_id
+	// 필드 -> id, user_id
 	@Override
 	public List<Member> getMemberList(String field, String query) {
 
@@ -30,18 +30,18 @@ public class JdbcMemberDao implements MemberDao{
 
 		List<Member> list = new ArrayList<Member>();
 		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
-		String sql = "select * from member where "+field+" like ?";
+		String sql = "select * from member where " + field + " like ?";
 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			Connection con = DriverManager.getConnection(url, "ACORN", "newlec");
 			PreparedStatement st = con.prepareStatement(sql);
-			st.setString(1,"%"+query+"%");
-		
+			st.setString(1, "%" + query + "%");
+
 			ResultSet rs = st.executeQuery();
 
 			while (rs.next()) {
-				
+
 				int id = rs.getInt("id");
 				String user_name = rs.getString("user_id");
 				String pwd = rs.getString("pwd");
@@ -52,7 +52,7 @@ public class JdbcMemberDao implements MemberDao{
 				String phone = rs.getString("phone");
 				String location_agree = rs.getString("location_agree");
 				String nickname = rs.getString("nickname");
-				
+
 				member = new Member(id, user_name, pwd, name, birthday, email, gender, phone, location_agree, nickname);
 				list.add(member);
 			}
@@ -197,10 +197,10 @@ public class JdbcMemberDao implements MemberDao{
 		return result;
 	}
 
-	//my그먹,로그인인증,비번찾기
+	// my그먹,로그인인증,비번찾기
 	@Override
 	public Member get(int id) {
-	
+
 		Member member = null;
 
 		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
@@ -215,7 +215,7 @@ public class JdbcMemberDao implements MemberDao{
 			ResultSet rs = st.executeQuery();
 
 			while (rs.next()) {
-				
+
 				String user_name = rs.getString("user_id");
 				String pwd = rs.getString("pwd");
 				String name = rs.getString("name");
@@ -227,20 +227,64 @@ public class JdbcMemberDao implements MemberDao{
 				String nickname = rs.getString("nickname");
 
 				member = new Member(id, user_name, pwd, name, birthday, email, gender, phone, location_agree, nickname);
-	
+
 			}
 
 			rs.close();
 			st.close();
 			con.close();
-			
+
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-			
-			return member;
+
+		return member;
+	}
+
+	@Override
+	public Member get(String id) {
+		Member member = null;
+
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+		String sql = "select * from member where user_id = ?";
+
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection con = DriverManager.getConnection(url, "GGORRRR", "0112");
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setString(1, id);
+			ResultSet rs = st.executeQuery();
+
+			while (rs.next()) {
+				int id_ = rs.getInt("id");
+				String user_name = rs.getString("user_id");
+				String pwd = rs.getString("pwd");
+				String name = rs.getString("name");
+				String birthday = rs.getString("birthday");
+				String email = rs.getString("email");
+				String gender = rs.getString("gender");
+				String phone = rs.getString("phone");
+				String location_agree = rs.getString("location_agree");
+				String nickname = rs.getString("nickname");
+
+				member = new Member(id_, user_name, pwd, name, birthday, email, gender, phone, location_agree,
+						nickname);
+
+			}
+
+			rs.close();
+			st.close();
+			con.close();
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return member;
 	}
 
 }

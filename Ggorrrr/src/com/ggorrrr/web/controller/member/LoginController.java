@@ -22,16 +22,40 @@ public class LoginController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String returnUrl = request.getParameter("returnUrl");
+
+		request.setAttribute("return-url", returnUrl);
 		request.getRequestDispatcher("/WEB-INF/view/login/login.jsp").forward(request, response);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String id = request.getParameter("id");
-		String pwd = request.getParameter("password");
-		
-//		boolean isValidMember = memberService.get
+		String id = "";
+		String pwd = "";
+
+		String id_ = request.getParameter("id");
+		String pwd_ = request.getParameter("pwd");
+		String returnUrl = request.getParameter("return-url");
+
+		if (id_ != null && !id_.equals(""))
+			id = id_;
+		if (pwd_ != null && !pwd_.equals(""))
+			pwd = pwd_;
+
+		System.out.println(id + "/ " + pwd);
+		boolean isValidMember = memberService.isValidMember(id, pwd);
+		System.out.println(isValidMember);
+		if (!isValidMember) {
+			response.sendRedirect("/login/login?error=1");
+		} else {
+			request.getSession().setAttribute("username", id);
+			if (!returnUrl.equals(""))
+				response.sendRedirect(returnUrl);
+			else
+				response.sendRedirect("/index");
+		}
+
 	}
 
 }

@@ -17,7 +17,7 @@ public class ImplementMemberService implements MemberService {
 
 	// 회원인지확인
 	@Override
-	public boolean isValidMember(int id, String pwd) {
+	public boolean isValidMember(String id, String pwd) {
 
 		Member member = memberDao.get(id);
 
@@ -30,13 +30,12 @@ public class ImplementMemberService implements MemberService {
 		else if (!member.getPwd().equals(pwd))
 			return false;
 		// 사용자 패스워드가 맞을시
-		else
-			return true;
+		return true;
 	}
 
 	// 아이디중복확인
 	@Override
-	public boolean isDuplicatedId(int id, String user_id) {
+	public boolean isDuplicatedId(String id, String user_id) {
 
 		Member member = memberDao.get(id);
 
