@@ -43,11 +43,11 @@ public class RegController extends HttpServlet{
 		System.out.println(date);
 		
 		
-		int result=reviewService.insert(new Review(1,2,address,content,date,photo,foodName,foodType));
+		int result=reviewService.insert(new Review(4,2,address,content,date,photo,foodName,foodType));
 		
-//		if(result == 0)
-//			response.sendRedirect("/error?code=2");
-//		else
-//			response.sendRedirect("list");
+		if(result == 0)
+			response.sendRedirect("/error?code=2");
+		else
+			response.sendRedirect("list");
 	}
 }

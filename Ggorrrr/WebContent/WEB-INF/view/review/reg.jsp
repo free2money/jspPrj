@@ -20,8 +20,7 @@
 			<h1>회원메뉴</h1>
 			<ul>
 				<li><a href="">home</a></li>
-				<li><a href="">로그인</a></li>
-				<li><a href="">회원가입</a></li>
+				<li><a href="">로그아웃</a></li>
 				<li><a href="">마이페이지</a></li>
 				<li><a href="">고객의 소리</a></li>
 			</ul>
@@ -74,16 +73,17 @@
 						<tr>
 							<th>카테고리 선택</th>
 							<td><select name="food_type">
-									<option value="kor">한식</option>
-									<option value="chi">중식</option>
-									<option value="jap">일식</option>
-									<option value="bun">분식</option>
-									<option value="the">테마별</option>
-									<option value="etc">기타</option>
-									<option value="veg">채식</option>
+									<option value="한식">한식</option>
+									<option value="증식">중식</option>
+									<option value="일식">일식</option>
+									<option value="분식">분식</option>
+									<option value="테마별">테마별</option>
+									<option value="기타">기타</option>
+									<option value="채식">채식</option>
 
 							</select></td>
 							<th>음식 이름</th>
+							<input hidden="" type="text" name="member_id" value="${list?id=${list.id }">
 							<td><input type="text" name="food_name" value="음식이름"></td>
 						</tr>
 						<tr>
