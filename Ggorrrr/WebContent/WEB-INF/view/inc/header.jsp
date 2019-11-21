@@ -6,6 +6,7 @@
 	<div id="header">
 		<div id="topHeader">
 			<nav id="memberMenu" class="top">
+
 				<ul>
 					<li><a href="index">Home</a></li>
 					<c:if test="${empty sessionScope.username }">

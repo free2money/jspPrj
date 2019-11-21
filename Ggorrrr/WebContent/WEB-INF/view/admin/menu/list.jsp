@@ -84,7 +84,7 @@
 		</form>
 	</section>
 
-	<form action="list" method="post">
+	<form action="adminlist" method="post">
 		<table>
 			<thead>
 				<tr>

@@ -88,7 +88,7 @@
 						</tr>
 						<tr>
 							<th>주 재료</th>
-							<td><input type="text" name="main_ingredents" value="주재료"></td>
+							<td><input type="text" name="main_ingridients" value="주재료"></td>
 						</tr>
 						<tr>
 							<th>먹는 방법</th>

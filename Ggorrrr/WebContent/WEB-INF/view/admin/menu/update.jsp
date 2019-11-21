@@ -83,6 +83,7 @@
 									<option value = "1">채식임</option>
 							</select> 
 							</td>
+							 <input hidden="" type="text" name="detail_id" value="${f.id }"> 
 							<th>음식 이름</th>
 							<td><input type="text" name="food_name" value="${f.korname }"></td>
 						</tr>

@@ -8,6 +8,7 @@ import java.util.Collection;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,45 +19,50 @@ import com.ggorrrr.web.controller.entity.Food;
 import com.ggorrrr.web.controller.service.FoodService;
 import com.ggorrrr.web.controller.service.implement.ImplementFoodService;
 
+
+@MultipartConfig(
+		maxFileSize = 1024*1024*5,
+		maxRequestSize = 1024*1024*5*10,
+		fileSizeThreshold = 1024*1024*50
+		)
+
 @WebServlet("/admin/menu/update")
-public class FoodEditContoller extends HttpServlet {
+public class FoodEditController extends HttpServlet {
 
 	private FoodService foodService;
 
-	public FoodEditContoller() {
+	public FoodEditController() {
+		
 		foodService = new ImplementFoodService();
 	}
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
 		int id = Integer.parseInt(request.getParameter("id"));
 		Food food = foodService.get(id);
 		request.setAttribute("f", food);
-
+		
 		request.getRequestDispatcher("/WEB-INF/view/admin/menu/update.jsp").forward(request, response);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		int id = Integer.parseInt(request.getParameter("detail_id"));
+		
 		String category_ = request.getParameter("category");
 		String korName = request.getParameter("food_name");
 		String engName = request.getParameter("korname");
-		String ingridients = request.getParameter("main_ingredents");
+		String ingridients = request.getParameter("main_ingridients");
 		String explain = request.getParameter("how_to_eat");
 		String recipe = request.getParameter("recipe");
 		String thema = request.getParameter("thema");
 		String vegetarian_ = request.getParameter("vegetarian");
-		int id = Integer.parseInt(request.getParameter("detailId"));
-		
-		System.out.println(id);
-		
 		boolean vegetarian = false;
-		String category = "";
-
+		String category = null;
+		
 		switch (category_) {
 		case "1":
 			category = "한식";
@@ -77,14 +83,11 @@ public class FoodEditContoller extends HttpServlet {
 			category = "기타";
 			break;
 		}
-
-		if (vegetarian_.equals("1"))
+		
+		if(vegetarian_.equals("1")) 
 			vegetarian = true;
-		else
-			vegetarian = false;
-
-		System.out.println(vegetarian);
-
+		else vegetarian = false;
+		
 		Collection<Part> parts = request.getParts();
 
 		String fileNames = "";
@@ -100,13 +103,13 @@ public class FoodEditContoller extends HttpServlet {
 
 			File file = new File(realPath);
 
-//		Part filePart = request.getPart("file");
+//			Part filePart = request.getPart("file");
 
 			Part filePart = p;
 			String fileName = filePart.getSubmittedFileName();
-			if (fileName.equals(""))
+			if(fileName.equals(""))
 				break;
-
+			
 			fileNames += fileName + ",";
 
 			InputStream fis = filePart.getInputStream();
@@ -123,8 +126,8 @@ public class FoodEditContoller extends HttpServlet {
 
 		fileNames = fileNames.substring(0, fileNames.length() - 1);
 
-		int result = foodService.update(new Food(id, korName, engName, fileNames, ingridients, explain, 1, vegetarian,
-				thema, recipe, category));
+		int result = foodService
+				.update(new Food(id,korName, engName, fileNames, ingridients, explain,1, vegetarian, thema, recipe,category));
 //		filePart.getSubmittedFileName();
 
 //		String title = titlePart.getName();
@@ -134,5 +137,6 @@ public class FoodEditContoller extends HttpServlet {
 		} else {
 			response.sendRedirect("list");
 		}
+		
 	}
 }

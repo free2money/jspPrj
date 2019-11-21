@@ -13,11 +13,11 @@ import com.ggorrrr.web.controller.service.FoodService;
 import com.ggorrrr.web.controller.service.implement.ImplementFoodService;
 
 @WebServlet("/admin/menu/detail")
-public class FoodDetailController extends HttpServlet {
+public class AdminFoodDetailController extends HttpServlet {
 
 	private FoodService foodService;
 
-	public FoodDetailController() {
+	public AdminFoodDetailController() {
 		foodService = new ImplementFoodService();
 	}
 

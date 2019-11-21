@@ -48,7 +48,7 @@ public class FoodRegController extends HttpServlet {
 		String category_ = request.getParameter("category");
 		String korName = request.getParameter("food_name");
 		String engName = request.getParameter("korname");
-		String ingridients = request.getParameter("main_ingredents");
+		String ingridients = request.getParameter("main_ingridients");
 		String explain = request.getParameter("how_to_eat");
 		String recipe = request.getParameter("recipe");
 		String thema = request.getParameter("thema");
@@ -81,8 +81,6 @@ public class FoodRegController extends HttpServlet {
 			vegetarian = true;
 		else vegetarian = false;
 		
-		System.out.println(vegetarian);
-
 		Collection<Part> parts = request.getParts();
 
 		String fileNames = "";
