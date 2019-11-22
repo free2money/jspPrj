@@ -14,7 +14,6 @@
 		<nav>
 			<h1>회원메뉴</h1>
 			<ul>
-				${f.recipe }
 				<li><a href="../index.html">home</a></li>
 				<li><a href="">로그인</a></li>
 				<li><a href="">회원가입</a></li>

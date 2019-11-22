@@ -11,6 +11,8 @@ public interface FoodService {
 	List<Food> getFoodList(String category);
 
 	List<Food> getFoodList(String category, int page);
+	
+	List<Food> getFoodList(String category, String query);
 
 	List<Food> getFoodList(String category, int page, String field, String query);
 
@@ -23,4 +25,6 @@ public interface FoodService {
 	int delete(int id);
 
 	int deletes(int[] ids);
+
+	int getFoodCount(String category, String field, String query);
 }

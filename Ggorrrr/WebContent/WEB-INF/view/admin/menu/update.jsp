@@ -88,6 +88,10 @@
 							<td><input type="text" name="food_name" value="${f.korname }"></td>
 						</tr>
 						<tr>
+							<th>가격</th>
+							<td><input type="text" name="price" value="${f.price }"><span>원</span></td>
+						</tr>
+						<tr>
 							<th>주 재료</th>
 							<td><input type="text" name="main_ingridients" value="${f.ingridients }"></td>
 						</tr>

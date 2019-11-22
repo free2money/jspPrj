@@ -68,9 +68,8 @@
 	<section>
 		<h1>메뉴관리</h1>
 
-		<form>
+		<form action ="adminlist" >
 			<select name="category">
-				<option value="카테고리">카테고리</option>
 				<option value="한식">한식</option>
 				<option value="양식">양식</option>
 				<option value="중식">중식</option>
@@ -84,7 +83,7 @@
 		</form>
 	</section>
 
-	<form action="list" method="post">
+	<form action="adminlist" method="post">
 		<table>
 			<thead>
 				<tr>
@@ -96,7 +95,7 @@
 			<tbody>
 				<c:forEach items="${list }" var="list">
 					<tr>
-						<td><a href="detail?id=${list.id}">${list.korname }</a></td>
+						<td><a href="update?id=${list.id}">${list.korname }</a></td>
 						<td>${list.explain }</td>
 						<td>${list.id}</td>
 						<td><input type="checkbox" name ="del" value= "${list.id }"></td>

@@ -12,13 +12,14 @@ public class Food {
 	private String thema;
 	private String recipe;
 	private String category;
+	private int price;
 
 	public Food() {
 	}
 	
 	// insert 문용
 	public Food(String korname, String engname, String photo, String ingridients, String explain, boolean vegetarian,
-			String thema, String recipe, String category) {
+			String thema, String recipe, String category, int price) {
 		this.korname = korname;
 		this.engname = engname;
 		this.photo = photo;
@@ -28,11 +29,12 @@ public class Food {
 		this.thema = thema;
 		this.recipe = recipe;
 		this.category = category; 
+		this.price = price;
 	}
 	
 	// select 문용
 	public Food(int id, String korname, String engname, String photo, String ingridients, String explain, int managerId,
-			boolean vegetarian, String thema, String recipe, String category) {
+			boolean vegetarian, String thema, String recipe, String category,int price) {
 		this.id = id;
 		this.korname = korname;
 		this.engname = engname;
@@ -44,6 +46,7 @@ public class Food {
 		this.thema = thema;
 		this.recipe = recipe;
 		this.category = category; 
+		this.price = price;
 	}
 
 	// 즐겨찾기 메뉴 가져올때 사용함.
@@ -141,11 +144,20 @@ public class Food {
 		this.category = category;
 	}
 
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
 	@Override
 	public String toString() {
 		return "Food [id=" + id + ", korname=" + korname + ", engname=" + engname + ", photo=" + photo
 				+ ", ingridients=" + ingridients + ", explain=" + explain + ", managerId=" + managerId + ", vegetarian="
-				+ vegetarian + ", thema=" + thema + ", recipe=" + recipe + ", category=" + category + "]";
+				+ vegetarian + ", thema=" + thema + ", recipe=" + recipe + ", category=" + category + ", price=" + price
+				+ "]";
 	}
 	
 }

@@ -21,14 +21,36 @@ public class FoodListController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String category = request.getParameter("category");
 		
-		request.setAttribute("list", foodService.getFoodList());
+		foodService.getFoodList(category);
 		
-		request.getRequestDispatcher("/WEB-INF/view/menu/list.jsp").forward(request, response);
-	}
+		request.setAttribute("list",foodService.getFoodList(category));
+		
+		int page = 1;
+		String field = "ingridients";
+		String query = "";
 
-	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+		String page_ = null;
+		String field_ = null;
+		String query_ = null;
+
+		page_ = request.getParameter("p");
+		field_ = request.getParameter("f");
+		query_ = request.getParameter("q");
+
+		if (page_ != null && !page_.equals(""))
+			page = Integer.parseInt(page_);
+
+		if (field_ != null && !field_.equals(""))
+			field = field_;
+
+		if (query_ != null && !query_.equals(""))
+			query = query_;
+		
+		request.setAttribute("list", foodService.getFoodList(category, page, field, query));
+		request.setAttribute("listCount", foodService.getFoodCount(category,field, query));
+
+		request.getRequestDispatcher("/WEB-INF/view/menu/list.jsp").forward(request, response);
 	}
 }

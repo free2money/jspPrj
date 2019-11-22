@@ -21,4 +21,8 @@ public interface FoodDao {
 	int update(Food food);
 
 	int delete(int id);
+
+	List<Food> getFoodList(String category, String query);
+
+	int getListCount(String category, String field, String query);
 }

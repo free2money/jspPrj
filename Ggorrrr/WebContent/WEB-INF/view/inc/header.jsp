@@ -61,16 +61,14 @@
 			<!-- <h1>메뉴</h1> -->
 			<div>
 				<ul>
-
-					<li><a href="">한식</a></li>
-					<li><a href="">양식</a></li>
-					<li><a href="">중식</a></li>
-					<li><a href="">일식</a></li>
-					<li><a href="">분식</a></li>
-					<li><a href="">테마별</a></li>
-					<li><a href="">기타</a></li>
-					<li><a href="">채식</a></li>
-
+					<li><a href="/menu/list?category=한식">한식</a></li>
+					<li><a href="/menu/list?category=양식">양식</a></li>
+					<li><a href="/menu/list?category=중식">중식</a></li>
+					<li><a href="/menu/list?category=일식">일식</a></li>
+					<li><a href="/menu/list?category=분식">분식</a></li>
+					<li><a href="/menu/list?category=테마별">테마별</a></li>
+					<li><a href="/menu/list?category=기타">기타</a></li>
+					<li><a href="/menu/list?category=채식">채식</a></li>
 				</ul>
 			</div>
 		</nav>

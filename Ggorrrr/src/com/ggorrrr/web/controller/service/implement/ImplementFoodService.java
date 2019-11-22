@@ -32,6 +32,12 @@ public class ImplementFoodService implements FoodService {
 
 		return foodDao.getFoodList(category, page);
 	}
+	
+	@Override
+	public List<Food> getFoodList(String category, String query) {
+		
+		return foodDao.getFoodList(category, query);
+	}
 
 	@Override
 	public List<Food> getFoodList(String category, int page, String field, String query) {
@@ -72,5 +78,11 @@ public class ImplementFoodService implements FoodService {
 			foodDao.delete(ids[i]);
 
 		return i;
+	}
+
+	@Override
+	public int getFoodCount(String category,String field, String query) {
+		
+		return foodDao.getListCount(category,field,query);
 	}
 }

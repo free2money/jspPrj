@@ -60,6 +60,7 @@ public class FoodEditController extends HttpServlet {
 		String recipe = request.getParameter("recipe");
 		String thema = request.getParameter("thema");
 		String vegetarian_ = request.getParameter("vegetarian");
+		int price = Integer.parseInt(request.getParameter("price"));
 		boolean vegetarian = false;
 		String category = null;
 		
@@ -127,7 +128,7 @@ public class FoodEditController extends HttpServlet {
 		fileNames = fileNames.substring(0, fileNames.length() - 1);
 
 		int result = foodService
-				.update(new Food(id,korName, engName, fileNames, ingridients, explain,1, vegetarian, thema, recipe,category));
+				.update(new Food(id,korName, engName, fileNames, ingridients, explain,1, vegetarian, thema, recipe,category,price));
 //		filePart.getSubmittedFileName();
 
 //		String title = titlePart.getName();

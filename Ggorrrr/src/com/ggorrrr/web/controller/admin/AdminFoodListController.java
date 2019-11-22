@@ -23,8 +23,23 @@ public class AdminFoodListController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String category = "한식";
+		String query = "";
+				
+		String category_ = null;
+		String query_ = null;
+		
+		category_ = request.getParameter("category");
+		query_ = request.getParameter("menuName");
 
-		request.setAttribute("list", foodService.getFoodList());
+		if (category_ != null && !category_.equals(""))
+			category =category_;
+
+		if (query_ != null && !query_.equals(""))
+			query = query_;
+
+		System.out.println(category +","+ query);
+		request.setAttribute("list", foodService.getFoodList(category, query));
 
 		request.getRequestDispatcher("/WEB-INF/view/admin/menu/list.jsp").forward(request, response);
 	}

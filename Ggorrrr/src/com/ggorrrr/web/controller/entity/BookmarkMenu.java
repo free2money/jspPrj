@@ -22,8 +22,8 @@ public class BookmarkMenu extends Food {
 
 	// selectDetail
 	public BookmarkMenu(int id, String korname, String engname, String photo, String ingridients, String explain,
-			int managerId, boolean vegetarian, String thema, String recipe, String category, int member_id) {
-		super(id, korname, engname, photo, ingridients, explain, managerId, vegetarian, thema, recipe, category);
+			int managerId, boolean vegetarian, String thema, String recipe, String category,int price , int member_id) {
+		super(id, korname, engname, photo, ingridients, explain, managerId, vegetarian, thema, recipe, category, price);
 		this.member_id = member_id;
 		this.food_id = id;
 	}

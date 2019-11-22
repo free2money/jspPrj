@@ -79,12 +79,16 @@
 									<option value="6">기타</option>
 									<option>채식</option>
 							</select> <select name="vegetarian">
-									<option value = "0">채식아님</option>
-									<option value = "1">채식임</option>
-							</select> 
+									<option value="0">채식아님</option>
+									<option value="1">채식임</option>
+							</select>
 							</td>
 							<th>음식 이름</th>
 							<td><input type="text" name="food_name" value="음식이름"></td>
+						</tr>
+						<tr>
+							<th>가격</th>
+							<td><input type="text" name="price" value="가격"><span>원</span></td>
 						</tr>
 						<tr>
 							<th>주 재료</th>
