@@ -70,6 +70,7 @@
 							<th>카테고리 선택</th>
 							<td><ul>
 									<!-- 목록 펼치기. -->
+									
 									<select id="foodType">
 									<c:choose>
 										<c:when test="${edit.foodType eq '한식'}">
@@ -125,6 +126,7 @@
 						</tr>
 					</tbody>
 				</table>
+				<input type="hidden" name="review" value="${edit.id}">
 				<div>
 					<a href="">취소</a>&nbsp;
 					<!--  -->

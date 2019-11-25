@@ -36,7 +36,7 @@ public class JdbcReviewDao implements ReviewDao {
 			ResultSet rs = st.executeQuery();
 			
 			while (rs.next()) {
-				System.out.println(rs.getInt("MEMBER_ID"));
+				
 				Review review = new Review(rs.getInt("id"), rs.getInt("member_id"), rs.getString("address"),
 						rs.getString("content"), rs.getDate("eating_date"), rs.getString("photo"),
 						rs.getDate("regdate"), rs.getInt("rating"),rs.getString("foodName"),rs.getString("foodType"));
@@ -103,7 +103,7 @@ public class JdbcReviewDao implements ReviewDao {
 	public List<Review> orderByGrade() {
 		List<Review> list = new ArrayList<>();
 
-		String sql = "SELECT * " + "FROM REVIEW " + "ORDER BY RATING DESC";
+		String sql = "SELECT * FROM REVIEW ORDER BY RATING DESC";
 
 		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 

@@ -14,12 +14,13 @@ public class ImplementReviewService implements ReviewService{
 	public ImplementReviewService() {
 		reviewDao=new JdbcReviewDao();
 	}
+	
 	@Override
 	public List<Review> getList() {
 	
 		return getList("content","");
 	}
-
+	
 	@Override
 	public List<Review> getList(String field, String query) {
 		

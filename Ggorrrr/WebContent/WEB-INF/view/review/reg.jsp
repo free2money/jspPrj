@@ -112,7 +112,7 @@
 					</tbody>
 				</table>
 				<div>
-					<input type="submit" name="commit" value="취소">
+					<a href="">취소</a>&nbsp;
 					<!--  -->
 					<input type="submit" name="commit" value="확인">
 				</div>

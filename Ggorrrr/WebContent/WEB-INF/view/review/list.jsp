@@ -84,7 +84,9 @@
 	<nav>
 		<h1>고객의 소리 리스트</h1>
 		<form action="list" method="post">
-		<input type="submit" name="cmd" value="글쓰기" >
+			<input type="submit" name="cmd" value="글쓰기" >
+			<a href="list?order=0">최신순</a>
+			<a href="list?order=1">평점순</a>
 		</form>
 		<ul>
 			<c:forEach var="n" items="${list}">
