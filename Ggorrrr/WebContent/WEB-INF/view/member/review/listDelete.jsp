@@ -7,6 +7,11 @@
 <head>
 <meta charset="UTF-8">
 <title>그래서 뭐먹지?</title>
+<style>
+#list li {
+	list-style:;
+}
+</style>
 </head>
 <body>
 	<header>
@@ -76,51 +81,46 @@
 		</section>
 	</div>
 	<div>
-		<form action="list" method="post">
+		<form>
 			<input type="text" name="q" value="검색어"> <input type="submit"
 				name="cmd" value="검색">
 		</form>
 	</div>
 	<nav>
 		<h1>고객의 소리 리스트</h1>
-		<form action="list" method="post">
-		<input type="submit" name="cmd" value="글쓰기" >
-		</form>
-		<ul>
-			<c:forEach var="n" items="${list}">
-				<li>
-					<table>
-						<tbody>
+		<ul id="list">
+			<c:forEach var="n" items="${listDelete}">
+				<form action="listDelete" method="post">
+					<li>주소:${n.address}</li>
+					<li>음식종류:${n.foodType}</li>
+					<li>음식이름:${n.foodName}</li>
+					<li>
+						<div id="content_main">
+							내용: ${n.content}<span id="content_hidden">...</span><span
+								id="content_" style="display: none;">${n.content}</span><span
+								id="content_expand" style="cursor: pointer;"><a
+								onclick="parent.content_.style.display=''; parent.content_hidden.style.display='none'; parent.content_expand.style.display = 'none'; parent.content_fold.style.display = '';">
+									<br> 더보기
+							</a> </span> <span id="content_fold" style="display: none; cursor: pointer;"><a
+								onclick="parent.content_.style.display='none'; parent.content_hidden.style.display=''; parent.content_fold.style.display = 'none'; parent.content_expand.style.display = ''; ">
+									<br> 줄이기
+							</a> </span>
+						</div>
+					</li>
+					<li>먹은날짜:${n.eating_date}</li>
+					<li>등록일:${n.regdate}</li>
+					<li>사진:${n.photo}</li>
 
+					<a href="edit?review_id=${n.id }"><input type="button" name="cmd" value="수정"/></a>
+					<input type="button" name="cmd" value="삭제"/>
+				</form>
+				<br>
+				<hr>
+				<!-- id를 번호로 부여해서 style을 건들이면 되겟다. -->
 
-							<tr>
-								<th>${n.address}</th>
-							</tr>
-							<tr>
-								<td>
-									<!-- id를 번호로 부여해서 style을 건들이면 되겟다. -->
-									<div id="content_main">
-										${n.content}<span id="content_hidden">...</span><span
-											id="content_" style="display: none;">${n.content}</span><span
-											id="content_expand" style="cursor: pointer;"><a
-											onclick="parent.content_.style.display=''; parent.content_hidden.style.display='none'; parent.content_expand.style.display = 'none'; parent.content_fold.style.display = '';">
-												<br> 더보기
-										</a> </span> <span id="content_fold"
-											style="display: none; cursor: pointer;"><a
-											onclick="parent.content_.style.display='none'; parent.content_hidden.style.display=''; parent.content_fold.style.display = 'none'; parent.content_expand.style.display = ''; ">
-												<br> 줄이기
-										</a> </span>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td><img alt="" src="">${n.photo }</td>
-							</tr>
-
-						</tbody>
-					</table>
-				</li>
 			</c:forEach>
+
+
 		</ul>
 	</nav>
 	</main>

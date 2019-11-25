@@ -17,6 +17,9 @@ public class Review {
 	private Date regdate;
 	private int rating;
 	private String foodName;
+	private String foodType;
+	
+	
 	public String getFoodType() {
 		return foodType;
 	}
@@ -25,7 +28,6 @@ public class Review {
 		this.foodType = foodType;
 	}
 
-	private String foodType;
 	public Review(int id, int member_id, String address, String content, Date eating_date, String photo, Date regdate,
 			int rating, String foodName, String foodType) {
 		super();

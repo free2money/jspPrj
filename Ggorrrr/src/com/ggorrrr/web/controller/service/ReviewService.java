@@ -14,4 +14,5 @@ public interface ReviewService {
 	int update(Review review);
 	int delete(int id);
 	int deletes(int[] ids);
+	Review get(int review_id);
 }

@@ -36,7 +36,7 @@ public class JdbcReviewDao implements ReviewDao {
 			ResultSet rs = st.executeQuery();
 			
 			while (rs.next()) {
-				System.out.println(rs.getInt("MEMBER_ID"));
+				
 				Review review = new Review(rs.getInt("id"), rs.getInt("member_id"), rs.getString("address"),
 						rs.getString("content"), rs.getDate("eating_date"), rs.getString("photo"),
 						rs.getDate("regdate"), rs.getInt("rating"),rs.getString("foodName"),rs.getString("foodType"));
@@ -273,6 +273,42 @@ public class JdbcReviewDao implements ReviewDao {
 		}
 
 		return result;
+	}
+
+	@Override
+	public Review get(int review_id) {
+	
+		Review review = null;
+		String sql = "SELECT * FROM REVIEW WHERE ID=?";		
+		
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection con = DriverManager.getConnection(url,"GGORRRR", "0112");
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setInt(1, review_id);			
+			
+			ResultSet rs = st.executeQuery();
+			
+			if(rs.next()) {
+				review  = new Review(rs.getInt("id"), rs.getInt("member_id"), rs.getString("address"),
+						rs.getString("content"), rs.getDate("eating_date"), rs.getString("photo"),
+						rs.getDate("regdate"), rs.getInt("rating"),rs.getString("foodName"),rs.getString("foodType"));
+			}
+			
+			rs.close();
+			st.close();
+			con.close();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return review;
 	}
 
 }

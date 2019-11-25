@@ -67,7 +67,7 @@
 		<img src="/images/ggorrrrlogo.png">
 		<h1>고객의 소리 등록</h1>
 		<section>
-			<form action="" method="post">
+			<form action="reg" method="post">
 				<table>
 					<tbody>
 						<tr>
@@ -83,7 +83,7 @@
 
 							</select></td>
 							<th>음식 이름</th>
-							<input hidden="" type="text" name="member_id" value="${list?id=${list.id }">
+							
 							<td><input type="text" name="food_name" value="음식이름"></td>
 						</tr>
 						<tr>
@@ -112,7 +112,7 @@
 					</tbody>
 				</table>
 				<div>
-					<a href="">취소</a>&nbsp;
+					<input type="submit" name="commit" value="취소">
 					<!--  -->
 					<input type="submit" name="commit" value="확인">
 				</div>

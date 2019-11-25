@@ -47,10 +47,9 @@ public class ListController extends HttpServlet {
 		String cmd=request.getParameter("cmd");
 		String field="content";
 		String query = "";
-		
-		if(cmd.equals("검색"))
-		{
-			
+	
+		switch(cmd){
+		case "검색":
 			String field_ = request.getParameter("f");
 			if(field_ !=  null && !field_.equals(""))
 				field = field_;
@@ -58,12 +57,22 @@ public class ListController extends HttpServlet {
 			String query_ = request.getParameter("q");
 			if(query_ !=  null && !query_.equals(""))
 				query = query_;
-
 			
-			request.setAttribute("list", reviewService.getList(field, query));
-		}
 		
-		response.sendRedirect("list?f="+field+"&q="+query);
+			request.setAttribute("list", reviewService.getList(field, query));
+			response.sendRedirect("list?f="+field+"&q="+query);
+			break;
+			
+		case "글쓰기":
+		
+			response.sendRedirect("reg");
+			break;
+			
+		default:
+			response.sendRedirect("list");
+		}
+	
+		
 	}
 	
 }
