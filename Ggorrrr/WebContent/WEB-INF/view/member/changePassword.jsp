@@ -131,8 +131,11 @@
 		<section>
 			<h1>마이페이지비밀번호변경프로필</h1>
 			<div>
+			 <input type="hidden" name="id" value="${member.id}">
+			 <input type="hidden" name="agreement" value="${member.location_agree}">
+			<input type="hidden" name="nickname" value="${member.nickname}">
 				<img src="/images/profile.png" width="50" height="50">
-				<h1>${member.nickname}</h1>
+				 <h1>${member.nickname}</h1>
 			</div>
 			<dl id="change-pwd">
 				<dt>현재비밀번호:</dt>
@@ -144,28 +147,30 @@
 					<input class="now-check-button" type="button" name="nowPwdbutton"
 						value="확인">
 				</dd>
-				</dl>
-			<label class="now-check-text"></label>
+				<dd>
+				<input class="now-check-text" type="text" name="nowPwdText" value="">
+				</dd>
+
 			<!--<dd>${nows}</dd>-->
-			<dl>
+			
 				<dt>새 비밀번호:</dt>
 				<dd>
-					<input class="new-pwd" type="text" name="newPwd" value="새비밀번호">
+					<input class="new-pwd" type="text" name="newPwd" value="">
 				</dd>
 
 				<dt>새 비밀번호 확인:</dt>
 				<dd>
-					<input class="new-pwd2" type="text" name="newPwd2" value="새비밀번호재입력">
-					<input class="new-check-button" type="submit" name="newPwdsubmit"
+					<input class="new-pwd2" type="text" name="newPwd2" value="">
+					<input class="new-check-button" type="button" name="newPwdsubmit"
 						value="확인">
 				</dd>
-				<dd>${news}</dd>
+				<dd><input class="new-check-text" type="text" name="newPwdText" value=""></dd>
 			</dl>
 
 			<div>
 				<a href="mypage"><input type="button" name="취소"
 					value="취소"></a> <a href="./categori.html"><input
-					type="submit" name="저장" value="저장"></a>
+					type="submit" name="save" value="저장"></a>
 			</div>
 		</section>
 	</form>

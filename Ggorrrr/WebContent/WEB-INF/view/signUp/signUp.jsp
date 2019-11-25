@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>그래서 뭐먹어?</title>
+<script src="/js/signUp.js"></script>
 
 <style>
 main {
@@ -98,7 +99,10 @@ div input[type="submit"] {
 	<div class="middlebox">
 		<section>
 			<h1>입력</h1>
-			<form method="post">
+			<form action="signUp" method="post">
+			<div>
+			<input type="hidden" name="location_chk" value="${location_chk}">
+			</div>
 				<div>
 					<label>아이디</label><br> <input class="id" type="text"
 						name="signupId"><br>
@@ -116,18 +120,23 @@ div input[type="submit"] {
 						name="signupname">
 				</div>
 				<div>
-					<label>성별</label><br> <select class="gender" name="gender">
-						<option value="gender">성별</option>
-						<option value="male">남성</option>
-						<option value="female">여성</option>
-					</select>
+					<label>닉네임</label><br> <input class="name" type="text"
+						name="nickname">
 				</div>
 				<div>
+					<label>성별</label><br> <select class="gender" name="gender">
+						<option value="gender">성별</option>
+						<option value="남">남</option>
+						<option value="여">여</option>
+					</select>
+				</div>
+				<div id="select-birthday">
 					<label>생년월일</label><br> <select class="year" name="year">
 						<%
 							for (int i = 0; i < 70; i++) {
 						%>
-						<option value="year"><%=(i + 1950)%></option>
+						<%int year=(i + 1950);%>
+						<option value="<%=year%>"><%=year%></option>
 						<%
 							}
 						%><!-- <!--<!sdasdhfkjsfhkajsdfhkajsdhfkjsdhfjkhfsadjkksafhksajdfsdfhjkshfkjsadhjkhsk -->
@@ -136,7 +145,8 @@ div input[type="submit"] {
 						<%
 							for (int i = 0; i < 12; i++) {
 						%>
-						<option value="year"><%=(i + 1)%></option>
+						<%int month=(i + 1);%>
+						<option value="<%=month%>"><%=month%></option>
 						<%
 							}
 						%>
@@ -144,22 +154,29 @@ div input[type="submit"] {
 						<%
 							for (int i = 0; i < 31; i++) {
 						%>
-						<option value="year"><%=(i + 1)%></option>
+						<%int day=(i + 1);%>
+						<option value="<%=day%>"><%=(i + 1)%></option>
 						<%
 							}
 						%>
 					</select>
 				</div>
 				<div>
+					<label>전화번호</label> <br> <input size="10"
+						type="text" name="phone"> <input type="text"
+						value="연결자(-)를 사용하여 입력하세요">
+				</div>
+				<div id="select-email">
 					<label>이메일</label> <br> <input class="email" size="10"
-						type="text" name="email"><label>@</label> <select>
-						<option value="naver">naver.com
-						<option value="daum">daum.net
-						<option value="google">gmail.com
+						type="text" name="email"><label>@</label> <select name="emailadress">
+						<option value="naver.com">naver.com
+						<option value="daum.net">daum.net
+						<option value="gmail.com">gmail.com
 					</select>
 				</div>
 				<div class="singup">
-					<a href=""><img width="450px" src="../images/aa.png"></a>
+					<input type="submit" name="signUp" value="가입하기">
+					<img width="450px" src="../images/aa.png">
 				</div>
 			</form>
 		</section>

@@ -1,4 +1,5 @@
 window.addEventListener("load", function() {
+	//현재비밀번호
 	var section = document.getElementById("change-pwd"); // div
 
 	var hiddenTextBox = section.getElementsByClassName("now-pwd")[0]; // 현재비밀번호입력란
@@ -15,6 +16,25 @@ window.addEventListener("load", function() {
 			nowCheckText.value="비밀번호가 일치합니다.";
 	     else
 			nowCheckText.value="비밀번호가 틀렸습니다.";
+	}
+	
+	//새로운비밀번호
+	var newTextBox = section.getElementsByClassName("new-pwd")[0]; // 현재비밀번호입력란
+	var newTextBox2 = section.getElementsByClassName("new-pwd2")[0];
+	var newButton = section.getElementsByClassName("new-check-button")[0];
+	var newCheckText = section.getElementsByClassName("new-check-text")[0];
+	
+	newButton.onclick = function() {
+		if(nowTextBox.value!=""){
+			
+			if (newTextBox.value==newTextBox2.value)
+				newCheckText.value="새비밀번호로 가능합니다.";
+			
+			else
+				newCheckText.value="새비밀번호로 불가능합니다.";
+		}
+		else
+			newCheckText.value="현재비밀번호를 입력하세요.";
 	}
 
 });

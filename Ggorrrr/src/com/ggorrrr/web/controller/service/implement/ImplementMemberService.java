@@ -21,8 +21,6 @@ public class ImplementMemberService implements MemberService {
 
 		Member member = memberDao.get(id);
 
-		System.out.println(member);
-
 		// 사용자가 없을시
 		if (member == null)
 			return false;
