@@ -14,7 +14,7 @@ window.addEventListener("load", function() {
 	console.log(textLabel);
 	
 	pwdInput.value.onchange = function(e) {
-		console.log("바뀜");
+		alert("heelo");
 		// if (nowPwd.value.equals(pwdInput.value))
 		// textLabel.innerText = "비밀번호가 일치합니다.";
 		// else
