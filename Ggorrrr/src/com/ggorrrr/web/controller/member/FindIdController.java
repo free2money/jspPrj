@@ -42,9 +42,9 @@ public class FindIdController extends HttpServlet {
 		if (!email_.equals("") && email_ != null)
 			email = email_;
 
-		boolean isValid = false; 
+		boolean isValid = false;
 
-		isValid = memberService.isFindId(name, email); // 입력받은 name 에 대한 이메일 정보가 맞는지 확인 
+		isValid = memberService.isFindId(name, email);
 
 		if (isValid) {
 			request.getRequestDispatcher("/WEB-INF/view/login/findID.jsp").forward(request, response);

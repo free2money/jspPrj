@@ -6,23 +6,23 @@ import com.ggorrrr.web.controller.entity.Food;
 
 public interface FoodDao {
 	
-	List<Food> getFoodList(); // 기본 리스트
+	List<Food> getFoodList();
 	
-	List<Food> getFoodList(String category); // 카테고리만 출력
+	List<Food> getFoodList(String category);
 
-	List<Food> getFoodList(String category, int page); 
+	List<Food> getFoodList(String category, int page);
 
 	List<Food> getFoodList(String category, int page, String field, String query);
 
-	List<Food> getFoodList(String category, String query); 
+	Food get(int id);
 
-	Food get(int id); // 음식 디테일
+	int insert(Food food);
 
-	int insert(Food food); // 음식 넣기
+	int update(Food food);
 
-	int update(Food food); // 음식 수정
+	int delete(int id);
 
-	int delete(int id); // 삭제
+	List<Food> getFoodList(String category, String query);
 
-	int getListCount(String category, String field, String query); // 전체 수 확인 후 페이지 번호 매기기
+	int getListCount(String category, String field, String query);
 }
