@@ -29,6 +29,12 @@ public class AdminChangePasswordController extends HttpServlet {
 //		if (session.getAttribute("adminname") == null) {
 //		response.sendRedirect("/login/login?error=1");
 //	} else {
+
+//		디버그용
+		String pwd = "0000";
+		request.setAttribute("pwd_", pwd);
+
+//		request.setAttribute("pwd_", adminService.get(id).getPwd());
 		request.getRequestDispatcher("/WEB-INF/view/admin/changePassword.jsp").forward(request, response);
 //	}
 

@@ -14,7 +14,6 @@
 <link href="/css/list-main.css" type="text/css" rel="stylesheet" />
 <link href="/css/default.css" type="text/css" rel="stylesheet" />
 
-
 </head>
 <body>
 	<jsp:include page="../inc/header.jsp" />
@@ -93,14 +92,7 @@
 	</div>
 	</main>
 	<!------------------------- ㅡmain끝 ------------------------------------>
-	<aside id="aside">
-		<!--<h1>사다리게임</h1>-->
-		<nav>
-			<!--<h1>사다리이미지</h1>-->
-			<a href=""><img id="sadari" src="./../images/sadari.png"
-				width="60" height="60"></a>
-		</nav>
-	</aside>
+	<jsp:include page="../inc/sadari.jsp" />
 	<!-- ================================footer시작=============================== -->
 	<jsp:include page="../inc/footer.jsp" />
 </body>

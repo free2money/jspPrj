@@ -89,7 +89,7 @@ div input[type="submit"] {
 	<header id="header">
 		<h1>회원가입페이지</h1>
 		<nav>
-			<a href=""><img width="50px" height="50px"
+			<a href="../index"><img width="50px" height="50px"
 				src="../images/ggorrrrlogo.png">그래서 뭐먹어?</a>
 		</nav>
 	</header>
@@ -185,14 +185,6 @@ div input[type="submit"] {
 	</main>
 
 	<!-- ======footer===================== -->
-	<footer id="footer">
-		<section>
-			<h1>회사소개</h1>
-		</section>
-
-		<section>
-			<h1>이용약관</h1>
-		</section>
-	</footer>
+	<jsp:include page="../inc/footer.jsp"/>
 </body>
 </html>

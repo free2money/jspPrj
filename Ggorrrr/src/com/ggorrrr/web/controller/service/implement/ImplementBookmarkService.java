@@ -5,13 +5,17 @@ import java.util.List;
 import com.ggorrrr.web.controller.dao.BookmarkDao;
 import com.ggorrrr.web.controller.dao.jdbc.JdbcBookmarkDao;
 import com.ggorrrr.web.controller.entity.BookmarkMenu;
+import com.ggorrrr.web.controller.entity.Food;
 import com.ggorrrr.web.controller.service.BookmarkService;
+import com.ggorrrr.web.controller.service.FoodService;
 
 public class ImplementBookmarkService implements BookmarkService {
 	private BookmarkDao bookmarkDao;
+	private FoodService foodService;
 
 	public ImplementBookmarkService() {
 		bookmarkDao = new JdbcBookmarkDao();
+		foodService = new ImplementFoodService();
 	}
 
 	@Override
@@ -25,13 +29,7 @@ public class ImplementBookmarkService implements BookmarkService {
 	}
 
 	@Override
-	public BookmarkMenu get(long food_id) {
-		return bookmarkDao.get(food_id);
-	}
-
-	@Override
 	public List<BookmarkMenu> getList(int member_id) {
 		return bookmarkDao.getList(member_id);
 	}
-
 }

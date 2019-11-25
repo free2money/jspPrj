@@ -24,13 +24,13 @@ public class AdminFoodDetailController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		int id = Integer.parseInt(request.getParameter("id"));
 		// 2. 데이터를 마련하고
 		Food food = foodService.get(id);
 		// 3. 출력하는 서블릿으로 전달
 		request.setAttribute("f", food);
-		
+
 		request.getRequestDispatcher("/WEB-INF/view/admin/menu/detail.jsp").forward(request, response);
 	}
 

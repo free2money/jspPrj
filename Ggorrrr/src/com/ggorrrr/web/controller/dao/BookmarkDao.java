@@ -12,6 +12,4 @@ public interface BookmarkDao {
 
 	List<BookmarkMenu> getList(int member_id);
 
-	BookmarkMenu get(long id);
-
 }

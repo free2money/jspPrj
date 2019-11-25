@@ -21,7 +21,7 @@
 					<h1>즐겨찾기한 목록</h1>
 					<ul>
 						<c:forEach items="${list }" var="bm">
-							<li><a href="./menu/detail?id=${bm.food_id }"><img
+							<li><a href="./menu/detail?id=${bm.id }"><img
 									alt="${bm.korname }" src="/upload/${bm.photo }"></a></li>
 						</c:forEach>
 					</ul>

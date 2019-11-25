@@ -49,7 +49,7 @@
 				<div>${requestScope.messege }</div>
 			</div>
 			<div>
-				<a href="/login/login">로그인</a>
+				<a href="login">로그인</a>
 			</div>
 		</c:if>
 	</section>

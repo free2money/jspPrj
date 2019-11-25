@@ -12,7 +12,7 @@
 	<!-- =========================================================================== -->
 	<main>
 	<section>
-		<img src="./images/profile.png">
+		<img src="../../images/profile.png">
 		<h1>관리자</h1>
 		<hr>
 		<section>
@@ -64,12 +64,11 @@
 							<th>첨부 사진</th>
 							<td colspan="3"><input type="file" name="files" value="내PC"
 								multiple="multiple"></td>
-
 						</tr>
 					</tbody>
 				</table>
 				<div>
-					<a href="">취소</a>&nbsp;
+					<a href="adminlist">취소</a>&nbsp;
 					<!--  -->
 					<input type="submit" name="commit" value="확인">
 				</div>

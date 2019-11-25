@@ -13,7 +13,6 @@
 	<jsp:include page="../../inc/header.jsp" />
 	<!-- =================MAIN================ -->
 	<main>
-
 	<section>
 		<h1>전체회원관리</h1>
 		<div>
@@ -33,22 +32,22 @@
 				<c:forEach var="m" items="${list }">
 					<form method="post">
 						<input type="hidden" name="id" value="${m.id }" />
-					<tbody>
-						<tr>
-							<td><input type="text" name="user_id" value="${m.user_id }" /></td>
-							<td><input type="password" value="${m.pwd }" /></td>
-							<td>${m.name }</td>
-							<td>${m.gender }</td>
-							<td>${m.birthday }</td>
-							<td>${m.email }</td>
-							<td><input type="submit" name="del" value="삭제" /></td>
-						</tr>
-					</tbody>
+						<tbody>
+							<tr>
+								<td><input type="text" name="user_id" value="${m.user_id }" /></td>
+								<td><input type="password" value="${m.pwd }" /></td>
+								<td>${m.name }</td>
+								<td>${m.gender }</td>
+								<td>${m.birthday }</td>
+								<td>${m.email }</td>
+								<td><input type="submit" name="del" value="삭제" /></td>
+							</tr>
+						</tbody>
 					</form>
 				</c:forEach>
 			</table>
-
 		</div>
+		<a href="../page">뒤로</a>
 	</section>
 	</main>
 	<!-- ======footer===================== -->

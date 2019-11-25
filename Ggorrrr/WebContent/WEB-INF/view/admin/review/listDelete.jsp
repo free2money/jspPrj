@@ -58,6 +58,7 @@
 				<input type="submit" name="삭제" value="삭제" style="float: right;">
 			</div>
 		</section>
+		<a href="../page">뒤로</a>
 	</form>
 	</main>
 	<!-- ======================footer========================================== -->

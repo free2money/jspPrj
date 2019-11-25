@@ -14,7 +14,6 @@ public class ImplementReviewService implements ReviewService{
 	public ImplementReviewService() {
 		reviewDao=new JdbcReviewDao();
 	}
-	
 	@Override
 	public List<Review> getList() {
 	

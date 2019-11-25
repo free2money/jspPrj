@@ -12,7 +12,7 @@
 	<!-- =========================================================================== -->
 	<main>
 	<section>
-		<img src="./images/profile.png">
+		<img src="../../images/profile.png">
 		<h1>관리자</h1>
 		<hr>
 		<section>
@@ -70,7 +70,7 @@
 					</tbody>
 				</table>
 				<div>
-					<a href="">취소</a>&nbsp;
+					<a href="adminlist">취소</a>&nbsp;
 					<!--  -->
 					<input type="submit" name="sss" value="확인">
 				</div>

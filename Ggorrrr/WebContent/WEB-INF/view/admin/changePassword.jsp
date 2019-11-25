@@ -29,31 +29,27 @@
 					<h1>${sessionScope.sessionuser.name}</h1>
 				</div>
 				<!-- 현재비밀번호는 자바스크립트로 -->
-				<dl id="change-pwd">
+				<dl id="now-pwd">
 					<dt>현재비밀번호:</dt>
 					<dd>
-						<input class="now-pwd" type="text" name="nowPwd" value="">
-						<input class="now-pwd" type="hidden" name="nowPwd_"
-							value="${sessionScope.sessionuser.pwd }">
+						<input class="now-pwd" type="password" name="nowPwd"> <input
+							class="now-pwd" type="hidden" name="nowPwdCheck"
+							value="${requestScope.pwd_ }">
+						<%-- value="${sessionScope.sessionuser.pwd }"> --%>
 					</dd>
 				</dl>
-				<label class="now-check-text"></label>
-				<!--<dd>${nows}</dd>-->
-				<dl>
+				<label class="now-pwd-check-text"></label>
+				<dl id="new-pwd">
 					<dt>새 비밀번호:</dt>
 					<dd>
-						<input class="new-pwd" type="text" name="newPwd" value="">
+						<input class="new-pwd" type="password" name="newPwd">
 					</dd>
-
 					<dt>새 비밀번호 확인:</dt>
 					<dd>
-						<input class="new-pwd-check" type="text" name="newPwd2" value="">
-						<input class="new-check-button" type="submit" name="cmd"
-							value="확인">
+						<input class="new-pwd" type="password" name="newPwdCheck">
 					</dd>
-					<dd>${news}</dd>
 				</dl>
-
+				<label class="new-pwd-check-text"></label>
 				<div>
 					<a href="index">취소</a> <input type="submit" name="commit"
 						value="저장">

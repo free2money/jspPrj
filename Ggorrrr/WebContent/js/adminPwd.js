@@ -1,24 +1,33 @@
 /**
  * 
  */
-
 window.addEventListener("load", function() {
-	var section = document.querySelector("#change-pwd");
-	var nowPwd = section.querySelector("dd input");
-	var pwdInput = section.querySelector("dd input+input");
-	var textLabel = document.querySelector(".now-check-text");
+	// 현재 패스워드 일치 확인때 필요한 영역 설정
+	var nowPwdSection = document.querySelector("#now-pwd");
+	var nowPwdInput = nowPwdSection.querySelector("dd input");
+	var nowPwd = nowPwdSection.querySelector("dd input+input");
+	var nowPwdTextLabel = document.querySelector(".now-pwd-check-text");
 
-	console.log(section);
-	console.log(nowPwd);
-	console.log(pwdInput);
-	console.log(textLabel);
-	
-	pwdInput.value.onchange = function(e) {
-		console.log("바뀜");
-		// if (nowPwd.value.equals(pwdInput.value))
-		// textLabel.innerText = "비밀번호가 일치합니다.";
-		// else
-		// textLabel.innerText = "비밀번호가 다릅니다.";
+	// 새로운 패스워드 일치 확인때 필요한 영역 설정
+	var newPwdSection = document.querySelector("#new-pwd");
+	var newPwdInput = newPwdSection.querySelector("dd input");
+	var newPwdChk = newPwdSection.querySelector("dd~dd input");
+	var newPwdTextLabel = document.querySelector(".new-pwd-check-text");
 
+	// 현재 패스워드 확인
+	nowPwdInput.onkeyup = function() {
+		if (nowPwdInput.value == nowPwd.value)
+			nowPwdTextLabel.innerText = "";
+		else
+			nowPwdTextLabel.innerText = "현재 비밀번호를 확인해주세요.";
+	}
+
+	// 새로운 비밀번호 확인
+	newPwdChk.onkeyup = functionw()
+	{
+		if (newPwdInput.value == newPwdChk.value)
+			newPwdTextLabel.innerText = "비밀번호가 일치합니다.";
+		else
+			newPwdTextLabel.innerText = "비밀번호가 다릅니다.";
 	}
 });

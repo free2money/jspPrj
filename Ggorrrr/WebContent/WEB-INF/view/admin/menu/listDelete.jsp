@@ -58,6 +58,7 @@
 			</tbody>
 		</table>
 		<input type="submit" value="일괄삭제" name="cmd">
+		<a href="../page">뒤로</a>
 		<a href="reg">메뉴등록</a>
 	</form>
 	</main>

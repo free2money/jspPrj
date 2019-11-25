@@ -91,8 +91,8 @@ div input[type="checkbox"]:checked+label .chk_img {
 		<section>
 			<h1>회원가입페이지</h1>
 			<nav>
-				<a class="" href=""><img width="50px" height="50px"
-					src="../images/ggorrrrlogo.png">그래서 뭐먹어?<a>
+				<a class="" href="../index" ><img width="50px" height="50px"
+					src="/images/ggorrrrlogo.png" alt="그래서 뭐먹어?"></a>
 			</nav>
 		</section>
 	</header>
@@ -262,14 +262,6 @@ div input[type="checkbox"]:checked+label .chk_img {
 	<!-- <input class="submit" type="submit" value="확인"
 			name="signUpAgree"> <input class="submit1" type="submit"
 			value="취소" name="exit"> --> <!-- ======footer===================== -->
-	<footer id="footer">
-		<section>
-			<h1>회사소개</h1>
-		</section>
-
-		<section>
-			<h1>이용약관</h1>
-		</section>
-	</footer>
+	<jsp:include page="../inc/footer.jsp"/>
 </body>
 </html>

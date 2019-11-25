@@ -64,10 +64,8 @@ footer {
 
 	<main>
 	<div class="middlebox">
-
 		<section>
 			<h1>로그인</h1>
-
 			<form action="" method="post">
 				<img src="../images/login.png">
 				<div class="idbox">ID</div>
@@ -87,9 +85,9 @@ footer {
 		<nav>
 			<h1>로그인 도움 메뉴</h1>
 			<ul>
-				<li><a href="">회원가입</a></li>
-				<li><a href="">아이디 찾기</a></li>
-				<li><a href="">비밀번호 찾기</a></li>
+				<li><a href="../signUp/signUpAgree">회원가입</a></li>
+				<li><a href="findID">아이디 찾기</a></li>
+				<li><a href="findPwd">비밀번호 찾기</a></li>
 			</ul>
 		</nav>
 	</div>

@@ -33,7 +33,6 @@ public class LogoutController extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
 		out.print("<script>\r\n" + /**/
-				"window.alert(\"로그아웃 완료\");\r\n" + /**/
 				"window.location.href=\"../index\";\r\n" + /**/
 				"</script>");
 	}
