@@ -45,6 +45,18 @@ public class ImplementMemberService implements MemberService {
 			return true;
 
 	}
+	
+	// 아이디 찾기
+	@Override
+	public boolean isFindId(String name, String email) {
+		
+		Member member = memberDao.findId(name);
+
+		if(member != null && member.getEmail().equals(email) && member.getName().equals(name))
+			return true;
+
+		return false;
+	}
 
 	// 전체회원관리-회원리스트
 	@Override
@@ -94,4 +106,8 @@ public class ImplementMemberService implements MemberService {
 		return memberDao.get(id);
 	}
 
+	@Override
+	public Member findId(String name) {
+		return memberDao.findId(name);
+	}
 }

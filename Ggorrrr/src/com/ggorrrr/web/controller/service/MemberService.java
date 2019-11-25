@@ -9,6 +9,8 @@ public interface MemberService {
 	boolean isValidMember(String id, String pwd); // 회원인지확인
 
 	boolean isDuplicatedId(String id, String user_id); // 아이디중복확인
+	
+	boolean isFindId(String name,String email); // 아이디 찾기
 
 	List<Member> getMemberList(); // 전체회원관리에서 모든회원리스트
 
@@ -23,4 +25,6 @@ public interface MemberService {
 	int delete(int id); // my그먹 회원탈퇴
 
 	Member get(int id); // my그먹, 로그인
+	
+	Member findId(String name);
 }
