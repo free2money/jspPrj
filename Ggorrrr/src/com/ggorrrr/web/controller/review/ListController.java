@@ -71,7 +71,6 @@ public class ListController extends HttpServlet {
 		default:
 			response.sendRedirect("list");
 		}
-	
 		
 	}
 	
