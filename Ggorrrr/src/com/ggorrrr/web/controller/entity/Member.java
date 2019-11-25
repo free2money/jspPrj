@@ -54,21 +54,6 @@ public class Member {
 		this.phone = phone;
 		this.nickname = nickname;
 	}
-	
-
-
-	public Member(String user_id, String pwd, String name, String birthday, String email, String gender, String phone,
-			String location_agree, String nickname) {
-		this.user_id = user_id;
-		this.pwd = pwd;
-		this.name = name;
-		this.birthday = birthday;
-		this.email = email;
-		this.gender = gender;
-		this.phone = phone;
-		this.location_agree = location_agree;
-		this.nickname = nickname;
-	}
 
 	public int getId() {
 		return id;
