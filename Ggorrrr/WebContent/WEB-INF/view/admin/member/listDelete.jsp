@@ -1,68 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>그래서 뭐먹어?</title>
+<link href="/css/default.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 	<!-- =================HEADER================ -->
-	<header>
-		<h1>그래서 뭐먹어?</h1>
-		<nav>
-			<h1>회원메뉴</h1>
-			<ul>
-				<li><a href="">home</a></li>
-				<li><a href="">로그인</a></li>
-				<li><a href="">회원가입</a></li>
-				<li><a href="">마이페이지</a></li>
-				<li><a href="">고객의 소리</a></li>
-			</ul>
-		</nav>
-
-		<section>
-			<h1>검색창</h1>
-			<form>
-				<input type="text" name="검색창" value="검색어"> <input
-					type="submit" value="검색">
-			</form>
-		</section>
-
-		<nav>
-			<h1>인기검색어</h1>
-			<ul>
-				<li>1.&nbsp;&nbsp;<a href="">엽기떡볶이</a>
-					<ul>
-						<li>2.&nbsp;&nbsp;<a href="">갈비탕</a></li>
-						<li>3.&nbsp;&nbsp;<a href="">김치찌개</a></li>
-					</ul>
-				</li>
-			</ul>
-		</nav>
-
-		<nav>
-			<h1>메뉴</h1>
-			<ul>
-				<li><a href="">한식</a></li>
-				<li><a href="">양식</a></li>
-				<li><a href="">중식</a></li>
-				<li><a href="">일식</a></li>
-				<li><a href="">분식</a></li>
-				<li><a href="">테마별</a></li>
-				<li><a href="">기타</a></li>
-				<li><a href="">채식</a></li>
-			</ul>
-		</nav>
-	</header>
-
+	<jsp:include page="../../inc/header.jsp" />
 	<!-- =================MAIN================ -->
 	<main>
 
 	<section>
 		<h1>전체회원관리</h1>
+		<div>
 
-		<form action="">
 			<table border="1">
 				<thead>
 					<tr>
@@ -74,23 +29,29 @@
 						<td>이메일</td>
 					</tr>
 				</thead>
-				<tbody>
-					<tr>
-						<td>sw123</td>
-						<td>12******</td>
-						<td>남선우</td>
-						<td>남성</td>
-						<td>1995-10-09</td>
-						<td>ㄵ123@naver.com</td>
-						<td><input type="button" value="삭제"
-							onclick='alert("삭제되었습니다")' /></td>
-					</tr>
-				</tbody>
+
+				<c:forEach var="m" items="${list }">
+					<form method="post">
+						<input type="hidden" name="id" value="${m.id }" />
+					<tbody>
+						<tr>
+							<td><input type="text" name="user_id" value="${m.user_id }" /></td>
+							<td><input type="password" value="${m.pwd }" /></td>
+							<td>${m.name }</td>
+							<td>${m.gender }</td>
+							<td>${m.birthday }</td>
+							<td>${m.email }</td>
+							<td><input type="submit" name="del" value="삭제" /></td>
+						</tr>
+					</tbody>
+					</form>
+				</c:forEach>
 			</table>
-		</form>
+
+		</div>
 	</section>
 	</main>
 	<!-- ======footer===================== -->
-	<jsp:include page="../../inc/footer.jsp"/>
+	<jsp:include page="../../inc/footer.jsp" />
 </body>
 </html>

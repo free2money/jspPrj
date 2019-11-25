@@ -36,7 +36,7 @@ public class JdbcReviewDao implements ReviewDao {
 			ResultSet rs = st.executeQuery();
 			
 			while (rs.next()) {
-				
+				System.out.println(rs.getInt("MEMBER_ID"));
 				Review review = new Review(rs.getInt("id"), rs.getInt("member_id"), rs.getString("address"),
 						rs.getString("content"), rs.getDate("eating_date"), rs.getString("photo"),
 						rs.getDate("regdate"), rs.getInt("rating"),rs.getString("foodName"),rs.getString("foodType"));

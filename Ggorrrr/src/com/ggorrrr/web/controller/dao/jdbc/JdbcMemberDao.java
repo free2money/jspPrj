@@ -34,7 +34,7 @@ public class JdbcMemberDao implements MemberDao {
 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection(url, "ACORN", "newlec");
+			Connection con = DriverManager.getConnection(url, "GGORRRR", "0112");
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, "%" + query + "%");
 
@@ -259,7 +259,7 @@ public class JdbcMemberDao implements MemberDao {
 
 			while (rs.next()) {
 				int id_ = rs.getInt("id");
-				String user_name = rs.getString("user_id");
+				String user_name = id;
 				String pwd = rs.getString("pwd");
 				String name = rs.getString("name");
 				String birthday = rs.getString("birthday");

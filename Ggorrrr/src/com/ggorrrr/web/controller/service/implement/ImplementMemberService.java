@@ -106,6 +106,11 @@ public class ImplementMemberService implements MemberService {
 		return memberDao.get(id);
 	}
 
+@Override
+	public Member get(String id) {
+		return memberDao.get(id);
+	}
+
 	@Override
 	public Member findId(String name) {
 		return memberDao.findId(name);

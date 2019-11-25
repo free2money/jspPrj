@@ -6,6 +6,9 @@
 	font: bold 12px Malgun Gothic;
 	color: black;
 } */
+.d-none {
+	display: none;
+}
 
 a {
 	text-decoration: none;
@@ -105,11 +108,15 @@ a {
 #categori li {
 	padding-left: 80px;
 	float: left;
-	list-style: none;
+	/* list-style: none; */
 }
 
 #categori a {
 	font-size: 250%;
 }
 
+#categori>ul li>ul {
+	display: none;
+	overflow: hidden;
+}
 /*=============/Main=========*/

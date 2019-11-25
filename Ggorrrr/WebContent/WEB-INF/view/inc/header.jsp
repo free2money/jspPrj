@@ -57,20 +57,83 @@
 		</div>
 
 		<nav id="categori">
-
-			<!-- <h1>메뉴</h1> -->
-			<div>
-				<ul>
-					<li><a href="/menu/list?category=한식">한식</a></li>
-					<li><a href="/menu/list?category=양식">양식</a></li>
-					<li><a href="/menu/list?category=중식">중식</a></li>
-					<li><a href="/menu/list?category=일식">일식</a></li>
-					<li><a href="/menu/list?category=분식">분식</a></li>
-					<li><a href="/menu/list?category=테마별">테마별</a></li>
-					<li><a href="/menu/list?category=기타">기타</a></li>
-					<li><a href="/menu/list?category=채식">채식</a></li>
-				</ul>
-			</div>
+			<h1 class="d-none">메뉴</h1>
+			<ul>
+				<li><a href="/menu/list?category=한식">한식</a>
+					<ul>
+						<li><a href="">찌개</a></li>
+						<li><a href="">국</a></li>
+						<li><a href="">밥</a></li>
+						<li><a href="">백반</a></li>
+						<li><a href="">국수</a></li>
+						<li><a href="">구이</a></li>
+						<li><a href="">찜</a></li>
+						<li><a href="">조림</a></li>
+						<li><a href="">볶음</a></li>
+						<li><a href="">부침</a></li>
+					</ul></li>
+				<li><a href="/menu/list?category=양식">양식</a>
+					<ul>
+						<li><a href="">치킨</a></li>
+						<li><a href="">피자</a></li>
+						<li><a href="">햄버거</a></li>
+						<li><a href="">파스타</a></li>
+						<li><a href="">스테이크</a></li>
+					</ul></li>
+				<li><a href="/menu/list?category=중식">중식</a>
+					<ul>
+						<li><a href="">면</a></li>
+						<li><a href="">밥</a></li>
+						<li><a href="">딤섬</a></li>
+						<li><a href="">튀김</a></li>
+						<li><a href="">탕</a></li>
+						<li><a href="">볶음</a></li>
+					</ul></li>
+				<li><a href="/menu/list?category=일식">일식</a>
+					<ul>
+						<li><a href="">밥</a></li>
+						<li><a href="">튀김</a></li>
+						<li><a href="">면</a></li>
+						<li><a href="">전골</a></li>
+						<li><a href="">일본가정식</a></li>
+					</ul></li>
+				<li><a href="/menu/list?category=분식">분식</a>
+					<ul>
+						<li><a href="">김밥</a></li>
+						<li><a href="">떡볶이</a></li>
+						<li><a href="">순대</a></li>
+						<li><a href="">튀김</a></li>
+						<li><a href="">라면</a></li>
+						<li><a href="">만두</a></li>
+					</ul></li>
+				<li><a href="/menu/list?category=테마별">테마별</a>
+					<ul>
+						<li><a href="">비오는날</a></li>
+						<li><a href="">매운음식땡기는날</a></li>
+						<li><a href="">쌀쌀한날</a></li>
+						<li><a href="">더운날</a></li>
+						<li><a href="">해장</a></li>
+						<li><a href="">소개팅</a></li>
+						<li><a href="">가족식사</a></li>
+						<li><a href="">야식</a></li>
+					</ul></li>
+				<li><a href="/menu/list?category=기타">기타</a>
+					<ul>
+						<li><a href="">카레</a></li>
+						<li><a href="">케밥</a></li>
+						<li><a href="">부리또</a></li>
+						<li><a href="">쌀국수</a></li>
+						<li><a href="">볶음</a></li>
+						<li><a href="">볶음밥</a></li>
+						<li><a href="">튀김</a></li>
+					</ul></li>
+				<li><a href="/menu/list?category=채식">채식</a>
+					<ul>
+						<li><a href="">샐러드</a></li>
+						<li><a href="">나물</a></li>
+						<li><a href="">해산물</a></li>
+					</ul></li>
+			</ul>
 		</nav>
 	</div>
 </header>

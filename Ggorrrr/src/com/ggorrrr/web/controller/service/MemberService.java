@@ -26,5 +26,7 @@ public interface MemberService {
 
 	Member get(int id); // my그먹, 로그인
 	
+	Member get(String id);
+	
 	Member findId(String name);
 }

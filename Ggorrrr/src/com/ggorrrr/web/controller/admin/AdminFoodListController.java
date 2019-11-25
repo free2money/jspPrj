@@ -64,7 +64,6 @@ public class AdminFoodListController extends HttpServlet {
 			foodService.deletes(ids);
 			break;
 		}
-		System.out.println("dd");
 		response.sendRedirect("list");
 	}
 }

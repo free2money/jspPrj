@@ -5,56 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>그래서 뭐먹어?</title>
+<link href="/css/default.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
-	<header>
-		<h1>그래서 뭐먹어?</h1>
-		<nav>
-			<h1>회원메뉴</h1>
-			<ul>
-				<li><a href="">home</a></li>
-				<li><a href="">로그인</a></li>
-				<li><a href="">회원가입</a></li>
-				<li><a href="">마이페이지</a></li>
-				<li><a href="">고객의 소리</a></li>
-			</ul>
-		</nav>
-
-		<section>
-			<h1>검색창</h1>
-			<form>
-				<input type="text" name="검색창" value="검색어"> <input
-					type="submit" value="검색">
-			</form>
-		</section>
-
-		<nav>
-			<h1>인기검색어</h1>
-			<ul>
-				<li>1.&nbsp;&nbsp;<a href="">엽기떡볶이</a>
-					<ul>
-						<li>2.&nbsp;&nbsp;<a href="">갈비탕</a></li>
-						<li>3.&nbsp;&nbsp;<a href="">김치찌개</a></li>
-					</ul>
-				</li>
-			</ul>
-		</nav>
-		<hr>
-		<nav>
-			<h1>메뉴</h1>
-			<ul>
-				<li>한식</li>
-				<li>양식</li>
-				<li>중식</li>
-				<li>일식</li>
-				<li>분식</li>
-				<li>테마별</li>
-				<li>기타</li>
-				<li>채식</li>
-			</ul>
-		</nav>
-	</header>
-	<hr>
+	<jsp:include page="../../inc/header.jsp" />
 	<!-- =========================================================================== -->
 	<main>
 	<section>
@@ -125,14 +79,6 @@
 	</main>
 	<hr>
 	<!-- =========================================================================== -->
-	<footer>
-		<section>
-			<h1>회사소개</h1>
-		</section>
-
-		<section>
-			<h1>이용약관</h1>
-		</section>
-	</footer>
+	<jsp:include page="../../inc/footer.jsp" />
 </body>
 </html>

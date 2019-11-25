@@ -8,15 +8,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ggorrrr.web.controller.entity.Admin;
+import com.ggorrrr.web.controller.service.AdminService;
 import com.ggorrrr.web.controller.service.MemberService;
+import com.ggorrrr.web.controller.service.implement.ImplementAdminService;
 import com.ggorrrr.web.controller.service.implement.ImplementMemberService;
 
 @WebServlet("/login/login")
 public class LoginController extends HttpServlet {
-	MemberService memberService;
+	private MemberService memberService;
+	private AdminService adminService;
 
 	public LoginController() {
 		memberService = new ImplementMemberService();
+		adminService = new ImplementAdminService();
 	}
 
 	@Override
@@ -43,17 +48,24 @@ public class LoginController extends HttpServlet {
 		if (pwd_ != null && !pwd_.equals(""))
 			pwd = pwd_;
 
-		System.out.println(id + "/ " + pwd);
 		boolean isValidMember = memberService.isValidMember(id, pwd);
-		System.out.println(isValidMember);
+		boolean isValidAdmin = adminService.isValidAdmin(id, pwd);
+
 		if (!isValidMember) {
 			response.sendRedirect("/login/login?error=1");
 		} else {
-			request.getSession().setAttribute("username", id);
-			if (!returnUrl.equals(""))
-				response.sendRedirect(returnUrl);
-			else
-				response.sendRedirect("/index");
+			if (isValidAdmin) {
+				request.getSession().setAttribute("adminname", id);
+				request.getSession().setAttribute("sessionuser", adminService.get(id));
+				request.getRequestDispatcher("/admin/index").forward(request, response);
+			} else {
+				request.getSession().setAttribute("username", id);
+				request.getSession().setAttribute("sessionuser", memberService.get(id));
+				if (!returnUrl.equals(""))
+					response.sendRedirect(returnUrl);
+				else
+					response.sendRedirect("/index");
+			}
 		}
 
 	}
