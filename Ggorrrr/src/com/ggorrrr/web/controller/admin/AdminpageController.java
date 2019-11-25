@@ -14,7 +14,7 @@ import com.ggorrrr.web.controller.service.AdminService;
 import com.ggorrrr.web.controller.service.implement.ImplementAdminService;
 import com.ggorrrr.web.controller.service.implement.ImplementMemberService;
 
-@WebServlet("/admin/index")
+@WebServlet("/admin/page")
 public class AdminpageController extends HttpServlet {
 
 	private AdminService adminService;
