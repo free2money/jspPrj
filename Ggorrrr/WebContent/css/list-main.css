@@ -7,7 +7,6 @@
 #main>div {
 	width: 1200px;
 	min-height: inherit;
-	background: #0000ff20;
 	margin-left: auto; /* auto: 값픽셀 없이 그냥 밀어버림*/
 	margin-right: auto;
 	text-align: center;
@@ -17,7 +16,6 @@
 #main>div #menulist {
 	width: 1200px;
 	min-height: inherit;
-	background: #0000ff10;
 	text-align: center;
 	margin-left: auto; /* auto: 값픽셀 없이 그냥 밀어버림*/
 	margin-right: auto;
@@ -28,7 +26,6 @@
 	min-height: inherit;
 	margin-left: auto; /* auto: 값픽셀 없이 그냥 밀어버림*/
 	margin-right: auto;
-	background: #0000ff20;
 }
 
 #menulist>div>div {

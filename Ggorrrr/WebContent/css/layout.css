@@ -3,23 +3,19 @@
 #header {
 	width: inherit;
 	height: 70px;
-	background-color: aqua;
 }
 
 #main {
 	width: inherit;
 	min-height: 300px;
-	background-color: gray;
 }
 
 #footer {
 	width: inherit;
 	height: 100px;
 	position: static;
-	background-color: yellow;
 }
 
 #aside {
 	height: 50px;
-	background-color: pink;
 }

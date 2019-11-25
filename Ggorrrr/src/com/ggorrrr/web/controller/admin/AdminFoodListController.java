@@ -38,10 +38,9 @@ public class AdminFoodListController extends HttpServlet {
 		if (query_ != null && !query_.equals(""))
 			query = query_;
 
-		System.out.println(category +","+ query);
 		request.setAttribute("list", foodService.getFoodList(category, query));
 
-		request.getRequestDispatcher("/WEB-INF/view/admin/menu/list.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/view/admin/menu/listDelete.jsp").forward(request, response);
 	}
 
 	@Override
@@ -51,9 +50,6 @@ public class AdminFoodListController extends HttpServlet {
 		String cmd = request.getParameter("cmd");
 
 		switch (cmd) {
-		case "일괄공개":
-
-			break;
 		case "일괄삭제":
 			String[] ids_ = request.getParameterValues("del");
 
@@ -64,6 +60,6 @@ public class AdminFoodListController extends HttpServlet {
 			foodService.deletes(ids);
 			break;
 		}
-		response.sendRedirect("list");
+		response.sendRedirect("adminlist");
 	}
 }
