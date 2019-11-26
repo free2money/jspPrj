@@ -47,6 +47,7 @@
 					</form>
 				</c:forEach>
 			</table>
+
 		</div>
 		<a href="../page">뒤로</a>
 	</section>

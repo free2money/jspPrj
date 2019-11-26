@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+#sadari {
+	float: right;
+	position: fixed;
+	bottom: 50px;
+	right: 50px;
+}
+
+h1 {
+	width: 0px;
+	height: 0px;
+	font-size: 0px;
+	line-height: 0px;
+	position: absolute;
+	overflow: hidden;
+}
+
+main>#img{
+	text-align: center;
+	margin-top: 30px;
+}
+
+main>div:nth-child(2) {
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	min-height: 300px;
+	border: 2px solid black;
+	margin-bottom: 20px;
+}
+section div{
+	border-bottom: 2px solid black;
+	text-align: center;
+}
+section dt,dd{
+	display: inline-block;
+	margin-top: 20px;
+}
+section dl,dt,dd{
+	font-size:14px;
+	margin-left: 30px;
+}
