@@ -64,6 +64,7 @@
 							<th>첨부 사진</th>
 							<td colspan="3"><input type="file" name="files" value="내PC"
 								multiple="multiple"></td>
+
 						</tr>
 					</tbody>
 				</table>

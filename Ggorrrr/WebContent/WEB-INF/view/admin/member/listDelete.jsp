@@ -13,6 +13,7 @@
 	<jsp:include page="../../inc/header.jsp" />
 	<!-- =================MAIN================ -->
 	<main>
+
 	<section>
 		<h1>전체회원관리</h1>
 		<div>
@@ -46,6 +47,7 @@
 					</form>
 				</c:forEach>
 			</table>
+
 		</div>
 		<a href="../page">뒤로</a>
 	</section>

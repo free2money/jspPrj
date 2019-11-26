@@ -1,6 +1,7 @@
 /**
  * 
  */
+
 window.addEventListener("load", function() {
 	// 현재 패스워드 일치 확인때 필요한 영역 설정
 	var nowPwdSection = document.querySelector("#now-pwd");

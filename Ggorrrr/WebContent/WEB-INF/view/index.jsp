@@ -36,9 +36,12 @@
 				<!--<h1>검색창</h1>-->
 				<div id="searchHeader">
 					<div id="searchForm" class="top">
+
 						<form action="">
 							<div class="searchWin">
 								<input id="search" type="text" name="검색창" value="검색어">
+
+
 								<button id="btn_search" type="submit">
 									<img src="./images/search.png">
 								</button>

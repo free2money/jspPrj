@@ -44,6 +44,7 @@
 					<dd>
 						<input class="new-pwd" type="password" name="newPwd">
 					</dd>
+
 					<dt>새 비밀번호 확인:</dt>
 					<dd>
 						<input class="new-pwd" type="password" name="newPwdCheck">

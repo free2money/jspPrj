@@ -23,6 +23,7 @@
 							<th>카테고리 선택</th>
 							<td><ul>
 									<!-- 목록 펼치기. -->
+									
 									<select id="foodType">
 										<c:choose>
 											<c:when test="${edit.foodType eq '한식'}">

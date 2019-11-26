@@ -64,8 +64,10 @@ footer {
 
 	<main>
 	<div class="middlebox">
+
 		<section>
 			<h1>로그인</h1>
+
 			<form action="" method="post">
 				<img src="../images/login.png">
 				<div class="idbox">ID</div>
