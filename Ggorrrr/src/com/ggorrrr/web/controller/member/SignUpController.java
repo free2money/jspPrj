@@ -38,7 +38,7 @@ public class SignUpController extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		//20~29
-		int id=20;
+		int id=24;
 		String user_id  = request.getParameter("signupId");
 		String pwd  = request.getParameter("signupPw");
 		String checkPwd  = request.getParameter("signupPwCf");
@@ -56,6 +56,7 @@ public class SignUpController extends HttpServlet{
 		Member member;
 		
 		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
 		
 //		String id_ = request.getParameter("id");
 //		String user_id_ = request.getParameter("user_id");
@@ -65,10 +66,10 @@ public class SignUpController extends HttpServlet{
 		int month = Integer.parseInt(month_);
 		int day = Integer.parseInt(day_);
 		
-		if(month<9)
+		if(month<10)
 			month_ = "0"+Integer.toString(month);
 		
-		if(day<9)
+		if(day<10)
 			day_ = "0"+Integer.toString(month);
 		
 		switch(emailadress) {
@@ -83,18 +84,27 @@ public class SignUpController extends HttpServlet{
 			break;	
 		}
 		
-		if(pwd.equals(checkPwd)) {
-			if(signUpButton.equals("가입하기")) {
-				member = new Member(id, user_id, checkPwd, name, year+"-"+month_+"-"+day_, email+emailadress, gender, phone, location_agree, nickname);
-				memberService.insert(member);
-				System.out.println(member);
-				response.sendRedirect("/login/login");
-			}
+		boolean isDup = false;
+		isDup = memberService.isDuplicatedId(user_id);
+		if(isDup!=true) {
+			out.println("<script>alert('사용할 수 없는 아이디입니다.'); location.href='/signUp/signUp?location_chk="+location_agree+"';</script>");
 		}
 		else {
-			PrintWriter out = response.getWriter();
-			out.println("<script>alert('비밀번호가 일치하지 않습니다.'); location.href='/signUp/signUp';</script>");
+			
+			if(pwd.equals(checkPwd)) {
+				if(signUpButton.equals("가입하기")) {
+					member = new Member(id, user_id, checkPwd, name, year+"-"+month_+"-"+day_, email+emailadress, gender, phone, location_agree, nickname);
+					memberService.insert(member);
+					System.out.println(member);
+					out.println("<script>alert('회원가입이 완료되었습니다!'); location.href='/login/login';</script>");
+				}
+			}
+			else {
+				out.println("<script>alert('비밀번호가 일치하지 않습니다.'); location.href='/signUp/signUp?location_chk="+location_agree+"';</script>");
+			}
+			
 		}
+		
 		
 	}
 

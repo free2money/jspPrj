@@ -44,9 +44,6 @@ public class SignUpAgreeController extends HttpServlet {
 		if (check2_ != null)
 			check2 = check2_;
 
-		System.out.println(check1 + "/" + check1_);
-		System.out.println(check2 + "/" + check2_);
-
 		String yesButton = request.getParameter("yes");
 		String noButton = request.getParameter("no");
 		

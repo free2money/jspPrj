@@ -33,14 +33,13 @@ public class ImplementMemberService implements MemberService {
 
 	// 아이디중복확인
 	@Override
-	public boolean isDuplicatedId(String id, String user_id) {
+	public boolean isDuplicatedId(String id) {
 
 		Member member = memberDao.get(id);
-
-		if (member.getUser_id().equals(user_id))
-			return false;
-		else
+		if (member==null)
 			return true;
+		else
+			return false;
 
 	}
 	

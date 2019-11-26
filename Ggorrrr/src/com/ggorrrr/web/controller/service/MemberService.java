@@ -8,7 +8,7 @@ public interface MemberService {
 
 	boolean isValidMember(String id, String pwd); // 회원인지확인
 
-	boolean isDuplicatedId(String id, String user_id); // 아이디중복확인
+	boolean isDuplicatedId(String id); // 아이디중복확인
 	
 	boolean isFindId(String name,String email); // 아이디 찾기
 
