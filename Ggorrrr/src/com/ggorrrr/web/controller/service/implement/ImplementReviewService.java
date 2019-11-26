@@ -56,11 +56,7 @@ public class ImplementReviewService implements ReviewService{
 		return reviewDao.delete(id);
 	}
 
-	@Override
-	public int deletes(int[] ids) {
-		
-		return reviewDao.deletes(ids);
-	}
+
 	@Override
 	public Review get(int review_id) {
 	

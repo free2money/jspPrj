@@ -14,25 +14,25 @@ public class JdbcAdminDao implements AdminDao {
 	@Override
 	public int insert(int memberId) {
 		int result = 0;
-
-		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 		String sql = "INSERT INTO manager (member_id) VALUES(?)";
-
+		PreparedStatement st = null;
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection(url, "GGORRRR", "0112");
-			PreparedStatement st = con.prepareStatement(sql);
+			st = JdbcContext.getPreparedStatement(sql);
 			st.setInt(1, memberId);
 			result = st.executeUpdate();
 
 			st.close();
-			con.close();
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			if (st != null)
+				try {
+					st.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 		}
 		return result;
 	}
@@ -40,20 +40,15 @@ public class JdbcAdminDao implements AdminDao {
 	@Override
 	public int delete(int adminId, int memberId) {
 		int result = 0;
-		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 		String sql = "delete manager where member_id=? and id = ?";
-
+		PreparedStatement st = null;
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection(url, "GGORRRR", "0112");
-			PreparedStatement st = con.prepareStatement(sql);
+			st = JdbcContext.getPreparedStatement(sql);
 			st.setInt(1, memberId);
 			st.setInt(2, adminId);
 			result = st.executeUpdate();
 
 			st.close();
-			con.close();
-
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -65,15 +60,14 @@ public class JdbcAdminDao implements AdminDao {
 	@Override
 	public Admin get(String id) {
 		Admin admin = null;
-		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 		String sql = "select * from admin where user_id = ?";
-
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection(url, "GGORRRR", "0112");
-			PreparedStatement st = con.prepareStatement(sql);
+			st = JdbcContext.getPreparedStatement(sql);
 			st.setString(1, id);
-			ResultSet rs = st.executeQuery();
+			rs = st.executeQuery();
 
 			while (rs.next()) {
 				admin = new Admin(/**/
@@ -85,14 +79,19 @@ public class JdbcAdminDao implements AdminDao {
 			}
 			rs.close();
 			st.close();
-			con.close();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			if (st != null)
+				try {
+					rs.close();
+					st.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 		}
-
 		return admin;
 	}
-
 }

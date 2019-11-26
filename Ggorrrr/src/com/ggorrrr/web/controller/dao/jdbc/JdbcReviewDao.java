@@ -21,40 +21,40 @@ public class JdbcReviewDao implements ReviewDao {
 	@Override
 	public List<Review> getList(String field, String query) {
 		List<Review> list = new ArrayList<>();
+		String sql = "SELECT * " + "FROM REVIEW " + "WHERE " + field + " LIKE ? " + "ORDER BY REGDATE DESC";
 
-		String sql = "SELECT * " + "FROM REVIEW " + "WHERE " + field + " LIKE ? " + 
-					"ORDER BY REGDATE DESC";
-
-		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
-
+		PreparedStatement st = null;
+		ResultSet rs = null;
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection(url, "GGORRRR", "0112");
-			PreparedStatement st = con.prepareStatement(sql);
+			st = JdbcContext.getPreparedStatement(sql);
 			st.setString(1, "%" + query + "%");
 
-			ResultSet rs = st.executeQuery();
-			
+			rs = st.executeQuery();
+
 			while (rs.next()) {
-				
 				Review review = new Review(rs.getInt("id"), rs.getInt("member_id"), rs.getString("address"),
 						rs.getString("content"), rs.getDate("eating_date"), rs.getString("photo"),
-						rs.getDate("regdate"), rs.getInt("rating"),rs.getString("foodName"),rs.getString("foodType"));
-			
-				list.add(review);
+						rs.getDate("regdate"), rs.getInt("rating"), rs.getString("foodName"), rs.getString("foodType"));
 
-				
+				list.add(review);
 			}
 
 			rs.close();
 			st.close();
-			con.close();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			if (st != null)
+				try {
+					rs.close();
+					st.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 		}
 
 		return list;
@@ -63,94 +63,90 @@ public class JdbcReviewDao implements ReviewDao {
 	@Override
 	public List<Review> orderByDate() {
 		List<Review> list = new ArrayList<>();
-
 		String sql = "SELECT * " + "FROM REVIEW " + "ORDER BY REGDATE DESC";
 
-		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
-
+		PreparedStatement st = null;
+		ResultSet rs = null;
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection(url, "GGORRRR", "0112");
-			PreparedStatement st = con.prepareStatement(sql);
-
-			ResultSet rs = st.executeQuery();
+			st = JdbcContext.getPreparedStatement(sql);
+			rs = st.executeQuery();
 
 			while (rs.next()) {
 				Review review = new Review(rs.getInt("id"), rs.getInt("member_id"), rs.getString("address"),
 						rs.getString("content"), rs.getDate("eating_date"), rs.getString("photo"),
-						rs.getDate("regdate"), rs.getInt("rating"),rs.getString("foodName"),rs.getString("foodType"));
+						rs.getDate("regdate"), rs.getInt("rating"), rs.getString("foodName"), rs.getString("foodType"));
 
 				list.add(review);
-
-				System.out.println(review);
 			}
 
 			rs.close();
 			st.close();
-			con.close();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			if (st != null)
+				try {
+					rs.close();
+					st.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 		}
-
 		return list;
 	}
 
 	@Override
 	public List<Review> orderByGrade() {
 		List<Review> list = new ArrayList<>();
-
 		String sql = "SELECT * FROM REVIEW ORDER BY RATING DESC";
 
-		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
-
+		PreparedStatement st = null;
+		ResultSet rs = null;
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection(url, "GGORRRR", "0112");
-			PreparedStatement st = con.prepareStatement(sql);
-
-			ResultSet rs = st.executeQuery();
+			st = JdbcContext.getPreparedStatement(sql);
+			rs = st.executeQuery();
 
 			while (rs.next()) {
 				Review review = new Review(rs.getInt("id"), rs.getInt("member_id"), rs.getString("address"),
 						rs.getString("content"), rs.getDate("eating_date"), rs.getString("photo"),
-						rs.getDate("regdate"), rs.getInt("rating"),rs.getString("foodName"),rs.getString("foodType"));
+						rs.getDate("regdate"), rs.getInt("rating"), rs.getString("foodName"), rs.getString("foodType"));
 
 				list.add(review);
-
-				System.out.println(review);
 			}
 
 			rs.close();
 			st.close();
-			con.close();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			if (st != null)
+				try {
+					rs.close();
+					st.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 		}
-
 		return list;
 	}
 
 	@Override
 	public int insert(Review review) {
 		int result = 0;
-
 		String sql = "INSERT INTO REVIEW(ID,MEMBER_ID,ADDRESS, CONTENT, EATING_DATE, PHOTO,FOODNAME,FOODTYPE) "
 				+ "VALUES(?,?,?,?,?,?,?,?)";
 
-		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
-
+		PreparedStatement st = null;
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection(url, "GGORRRR", "0112");
-			PreparedStatement st = con.prepareStatement(sql);
+			st = JdbcContext.getPreparedStatement(sql);
 			st.setInt(1, review.getId());
 			st.setInt(2, review.getMember_id());
 			st.setString(3, review.getAddress());
@@ -159,33 +155,33 @@ public class JdbcReviewDao implements ReviewDao {
 			st.setString(6, review.getPhoto());
 			st.setString(7, review.getFoodName());
 			st.setString(8, review.getFoodType());
-			System.out.println(review.getFoodName());
 			result = st.executeUpdate();
 
 			st.close();
-			con.close();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			if (st != null)
+				try {
+					st.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 		}
-
 		return result;
 	}
 
 	@Override
 	public int update(Review review) {
 		int result = 0;
-
 		String sql = "UPDATE REVIEW SET ADDRESS=?, CONTENT=?, EATING_DATE=?, PHOTO=?, REGDATE=?, RATING=? WHERE ID=?";
-		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
-
+		PreparedStatement st = null;
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection(url, "GGORRRR", "0112");
-			PreparedStatement st = con.prepareStatement(sql);
+			st = JdbcContext.getPreparedStatement(sql);
 			st.setString(1, review.getAddress());
 			st.setString(2, review.getContent());
 			st.setDate(3, review.getEating_date());
@@ -197,117 +193,86 @@ public class JdbcReviewDao implements ReviewDao {
 			result = st.executeUpdate();
 
 			st.close();
-			con.close();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			if (st != null)
+				try {
+					st.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 		}
-
 		return result;
 	}
 
 	@Override
 	public int delete(int id) {
 		int result = 0;
-
 		String sql = "DELETE REVIEW WHERE ID=?";
-		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
-
+		PreparedStatement st = null;
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection(url,"GGORRRR", "0112");
-			PreparedStatement st = con.prepareStatement(sql);
-
+			st = JdbcContext.getPreparedStatement(sql);
 			st.setInt(1, id);
-
 			result = st.executeUpdate();
 
 			st.close();
-			con.close();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			if (st != null)
+				try {
+					st.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 		}
-
-		return result;
-	}
-
-	@Override
-	public int deletes(int[] ids) {
-		int result = 0;
-
-		String values = "";
-		for (int i = 0; i < ids.length; i++) {
-			values += ids[i];
-
-			if (i < ids.length - 1)
-				values += ",";
-		}
-
-		System.out.println(values);
-
-		String sql = "DELETE REVIEW WHERE ID in (" + values + ")";
-		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
-
-		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection(url,"GGORRRR", "0112");
-			PreparedStatement st = con.prepareStatement(sql);
-
-			result = st.executeUpdate();
-
-			st.close();
-			con.close();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
 		return result;
 	}
 
 	@Override
 	public Review get(int review_id) {
-	
 		Review review = null;
-		String sql = "SELECT * FROM REVIEW WHERE ID=?";		
-		
-		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
-		
+		String sql = "SELECT * FROM REVIEW WHERE ID=?";
+		PreparedStatement st = null;
+		ResultSet rs = null;
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection(url,"GGORRRR", "0112");
-			PreparedStatement st = con.prepareStatement(sql);
-			st.setInt(1, review_id);			
-			
-			ResultSet rs = st.executeQuery();
-			
-			if(rs.next()) {
-				review  = new Review(rs.getInt("id"), rs.getInt("member_id"), rs.getString("address"),
+			st = JdbcContext.getPreparedStatement(sql);
+			st.setInt(1, review_id);
+
+			rs = st.executeQuery();
+
+			if (rs.next()) {
+				review = new Review(rs.getInt("id"), rs.getInt("member_id"), rs.getString("address"),
 						rs.getString("content"), rs.getDate("eating_date"), rs.getString("photo"),
-						rs.getDate("regdate"), rs.getInt("rating"),rs.getString("foodName"),rs.getString("foodType"));
+						rs.getDate("regdate"), rs.getInt("rating"), rs.getString("foodName"), rs.getString("foodType"));
 			}
-			
+
 			rs.close();
 			st.close();
-			con.close();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			if (st != null)
+				try {
+					rs.close();
+					st.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 		}
-		
 		return review;
 	}
 
