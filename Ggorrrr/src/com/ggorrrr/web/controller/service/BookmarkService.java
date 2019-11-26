@@ -10,7 +10,5 @@ public interface BookmarkService {
 
 	int delete(BookmarkMenu bookmarkMenu);
 
-	BookmarkMenu get(long food_id);
-
 	List<BookmarkMenu> getList(int member_id);
 }

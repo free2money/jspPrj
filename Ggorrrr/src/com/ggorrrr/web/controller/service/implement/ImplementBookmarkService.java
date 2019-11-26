@@ -11,11 +11,9 @@ import com.ggorrrr.web.controller.service.FoodService;
 
 public class ImplementBookmarkService implements BookmarkService {
 	private BookmarkDao bookmarkDao;
-	private FoodService foodService;
 
 	public ImplementBookmarkService() {
 		bookmarkDao = new JdbcBookmarkDao();
-		foodService = new ImplementFoodService();
 	}
 
 	@Override

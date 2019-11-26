@@ -47,10 +47,10 @@
 					</form>
 				</c:forEach>
 			</table>
-
 		</div>
 		<a href="../page">뒤로</a>
 	</section>
+
 	</main>
 	<!-- ======footer===================== -->
 	<jsp:include page="../../inc/footer.jsp" />
