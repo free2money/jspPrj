@@ -6,16 +6,17 @@
 <head>
 <meta charset="UTF-8">
 <title>그래서 뭐먹어?</title>
+<link href="../css/default.css" rel="stylesheet" type="text/css">
+<link href="../css/mypage.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<jsp:include page="../inc/header.jsp" />
 	<!------------------------- ㅡheader끝 main시작 ------------------------------------>
-	<main>
-	<div>
-		<img src="../images/ggorrrrlogo.png" width="50" height="50">
-		<section>
-			<h1>MY그먹</h1>
-		</section>
+	<main id="main">
+	<div id="mypageLogo">
+		<h2>
+			<img src="../images/ggorrrrlogo.png" width="50" height="50">MY그먹
+		</h2>
 	</div>
 	<form action="/member/mypage" method="post">
 		<section>
@@ -71,7 +72,7 @@
 					<a href="mybookmarklist?id=${member.id}">My메뉴관리</a>
 				</dt>
 				<dt>
-					<a href="./review/listDelete">내가 쓴 소리 관리</a>
+					<a href="">내가 쓴 소리 관리</a>
 				</dt>
 			</dl>
 		</section>
