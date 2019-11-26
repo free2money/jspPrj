@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <header>
 
 	<div id="header">
@@ -27,22 +28,22 @@
 				<div id="searchForm" class="top">
 
 					<form action="">
-						<div class="searchWin">
-							<input id="search" type="text" name="검색창" value="검색어">
+							<div class="searchWin">
+								<input type="text" name="q" placeholder="Search..." /> 
+								<input type="button" name="검색버튼" />
 
-
-							<button id="btn_search" type="submit">
-								<img src="/images/search.png">
-							</button>
-						</div>
-					</form>
+								<!-- <button id="btn_search" type="submit">
+									<img src="./images/search.png">
+								</button> -->
+							</div>
+						</form>
 
 				</div>
 
 
 				<nav id="popularity" class="top">
 
-					<h1>인기검색어</h1>
+					<h1>인기검색어&nbsp;</h1>
 					<ul>
 						<li>1.&nbsp;&nbsp;<a href="">엽기떡볶이</a>
 							<ul>

@@ -30,4 +30,5 @@ public class ImplementBookmarkService implements BookmarkService {
 	public List<BookmarkMenu> getList(int member_id) {
 		return bookmarkDao.getList(member_id);
 	}
+
 }
