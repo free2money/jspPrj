@@ -6,7 +6,9 @@ import com.ggorrrr.web.controller.entity.Review;
 
 public interface ReviewDao {
 	List<Review> getList();
-	List<Review> getList(String field,String query);
+
+	List<Review> getList(String field, String query);
+
 	List<Review> orderByDate();
 
 	List<Review> orderByGrade();
@@ -16,6 +18,8 @@ public interface ReviewDao {
 	int update(Review review);
 
 	int delete(int id);
+
 	int deletes(int[] ids);
+
 	Review get(int review_id);
 }

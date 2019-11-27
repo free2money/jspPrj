@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>±×·¡¼­ ¹¹¸Ô¾î?</title>
+<title>ê·¸ë˜ì„œ ë­ë¨¹ì–´?</title>
 <link href="/css/default.css" type="text/css" rel="stylesheet" />
 <style>
 h1 {
@@ -75,38 +75,38 @@ section dl {
 	<main>
 	<div id="middleBox">
 		<nav>
-			<h1>À½½Ä µğÅ×ÀÏ</h1>
+			<h1>ìŒì‹ ë””í…Œì¼</h1>
 			<ul id="nav">
-				<li><a href="#img">»çÁø</a></li>
-				<li><a href="#explain">¼³¸í</a></li>
-				<li><a href="#map">½Ä´çÀ§Ä¡</a></li>
-				<li><a href="#recipe">·¹½ÃÇÇ</a></li>
+				<li><a href="#img">ì‚¬ì§„</a></li>
+				<li><a href="#explain">ì„¤ëª…</a></li>
+				<li><a href="#map">ì‹ë‹¹ìœ„ì¹˜</a></li>
+				<li><a href="#recipe">ë ˆì‹œí”¼</a></li>
 			</ul>
 		</nav>
 
 		<div id="img">
-			<h1>À½½Ä»çÁø</h1>
+			<h1>ìŒì‹ì‚¬ì§„</h1>
 			<img src="../../images/KimchiSoup.jpg">
-			<p>(»ó±â »çÁøÀº ½Ç¹°°ú ´Ù¸¦ ¼ö ÀÖ½À´Ï´Ù.)</p>
+			<p>(ìƒê¸° ì‚¬ì§„ì€ ì‹¤ë¬¼ê³¼ ë‹¤ë¥¼ ìˆ˜ ìˆìŠµë‹ˆë‹¤.)</p>
 		</div>
 
 		<section id="explain">
-			<h1>À½½Ä¼³¸í</h1>
+			<h1>ìŒì‹ì„¤ëª…</h1>
 			<dl>
-				<dt>ÀÌ¸§</dt>
-				<dd>ºñºö¹ä</dd>
+				<dt>ì´ë¦„</dt>
+				<dd>ë¹„ë¹”ë°¥</dd>
 				<br>
-				<dt>ÁÖ Àç·á</dt>
-				<dd>¹ä,³ª¹°,¼è°í±â</dd>
+				<dt>ì£¼ ì¬ë£Œ</dt>
+				<dd>ë°¥,ë‚˜ë¬¼,ì‡ ê³ ê¸°</dd>
 				<br>
-				<dt>¸Ô´Â ¹æ¹ı</dt>
-				<dd>ºñº­ ¸Ô´Â À½½Ä</dd>
+				<dt>ë¨¹ëŠ” ë°©ë²•</dt>
+				<dd>ë¹„ë²¼ ë¨¹ëŠ” ìŒì‹</dd>
 				<br>
 			</dl>
 		</section>
 
 		<section id="map">
-			<h1>Áöµµ</h1>
+			<h1>ì§€ë„</h1>
 			Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
  

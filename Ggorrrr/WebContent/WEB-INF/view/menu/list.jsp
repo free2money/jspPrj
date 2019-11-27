@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<c:set var="page" value="${(empty param.p)?1:param.p}" />
+<c:set var="page" value="${(empty param.p) ? 1 : param.p}" />
 <c:set var="startNum" value="${page - (page-1)%5}" />
 <c:set var="lastNum"
 	value="${fn:substringBefore(Math.ceil(listCount / 10) , '.')}" />
@@ -12,9 +12,9 @@
 <head>
 <meta charset="UTF-8">
 <title>그래서 뭐먹어?</title>
-<link href="/css/list-main.css" type="text/css" rel="stylesheet" />
 <link href="/css/default.css" type="text/css" rel="stylesheet" />
 <style>
+
 main>div {
 	width: 900px;
 	margin-left: auto;
@@ -91,6 +91,10 @@ main>div {
 .pager ul li:hover {
 	color: red;
 }
+
+.-text-.orange{
+	color: #ff6a00;	
+}
 </style>
 
 </head>
@@ -141,14 +145,14 @@ main>div {
 					href="list?category=${param.category }&p=${startNum-5}&f=${param.f}&q=${param.q}">이전</a>
 			</c:if>
 		</div>
-		<ul class="-list- center">
+		<ul>
 			<c:forEach var="i" begin="0" end="4">
 				<c:if test="${startNum+i <= lastNum }">
 					<li><c:if test="${ startNum+i == page }">
-							<c:set var="currentStyle" value="red bold" />
+							<c:set var="currentStyle" value="orange bold" />
 						</c:if> <c:if test="${ startNum+i != page}">
 							<c:set var="currentStyle" value="" />
-						</c:if> <a class="-text- ${currentStyle }"
+						</c:if> <a class="-text- ${currentStyle}"
 						href="list?category=${param.category }&p=${startNum+i}&f=${param.f}&q=${param.q}">${startNum+i }</a>
 					</li>
 				</c:if>

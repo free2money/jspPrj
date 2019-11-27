@@ -4,17 +4,6 @@
 	display: none;
 }
 
-* {
-	margin: 0px;
-	padding: 0px;
-	font: bold 12px Malgun Gothic;
-	color: black;
-}
-
-a {
-	text-decoration: none;
-}
-
 #header {
 	width: inherit;
 	height: 220px;
@@ -208,6 +197,3 @@ a {
 	display:block;
 }
 
-
-
-/*=============/Main=========*/
