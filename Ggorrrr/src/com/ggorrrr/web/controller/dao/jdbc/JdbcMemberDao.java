@@ -1,11 +1,8 @@
 package com.ggorrrr.web.controller.dao.jdbc;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,7 +61,10 @@ public class JdbcMemberDao implements MemberDao {
 				try {
 					rs.close();
 					st.close();
+					JdbcContext.delCon();
 				} catch (SQLException e) {
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
 					e.printStackTrace();
 				}
 		}
@@ -104,7 +104,10 @@ public class JdbcMemberDao implements MemberDao {
 			if (st != null)
 				try {
 					st.close();
+					JdbcContext.delCon();
 				} catch (SQLException e) {
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
 					e.printStackTrace();
 				}
 		}
@@ -135,7 +138,10 @@ public class JdbcMemberDao implements MemberDao {
 			if (st != null)
 				try {
 					st.close();
+					JdbcContext.delCon();
 				} catch (SQLException e) {
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
 					e.printStackTrace();
 				}
 		}
@@ -164,7 +170,10 @@ public class JdbcMemberDao implements MemberDao {
 			if (st != null)
 				try {
 					st.close();
+					JdbcContext.delCon();
 				} catch (SQLException e) {
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
 					e.printStackTrace();
 				}
 		}
@@ -211,7 +220,10 @@ public class JdbcMemberDao implements MemberDao {
 				try {
 					rs.close();
 					st.close();
+					JdbcContext.delCon();
 				} catch (SQLException e) {
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
 					e.printStackTrace();
 				}
 		}
@@ -256,7 +268,10 @@ public class JdbcMemberDao implements MemberDao {
 			if (st != null)
 				try {
 					st.close();
+					JdbcContext.delCon();
 				} catch (SQLException e) {
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
 					e.printStackTrace();
 				}
 		}
@@ -300,7 +315,10 @@ public class JdbcMemberDao implements MemberDao {
 			if (st != null)
 				try {
 					st.close();
+					JdbcContext.delCon();
 				} catch (SQLException e) {
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
 					e.printStackTrace();
 				}
 		}

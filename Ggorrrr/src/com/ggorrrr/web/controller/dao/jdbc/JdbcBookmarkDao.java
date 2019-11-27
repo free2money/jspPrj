@@ -1,7 +1,5 @@
 package com.ggorrrr.web.controller.dao.jdbc;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -36,7 +34,10 @@ public class JdbcBookmarkDao implements BookmarkDao {
 			if (st != null)
 				try {
 					st.close();
+					JdbcContext.delCon();
 				} catch (SQLException e) {
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
 					e.printStackTrace();
 				}
 		}
@@ -65,7 +66,10 @@ public class JdbcBookmarkDao implements BookmarkDao {
 			if (st != null)
 				try {
 					st.close();
+					JdbcContext.delCon();
 				} catch (SQLException e) {
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
 					e.printStackTrace();
 				}
 		}
@@ -104,7 +108,10 @@ public class JdbcBookmarkDao implements BookmarkDao {
 			if (st != null)
 				try {
 					st.close();
+					JdbcContext.delCon();
 				} catch (SQLException e) {
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
 					e.printStackTrace();
 				}
 		}

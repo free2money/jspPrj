@@ -28,9 +28,23 @@ public class ReivewListController extends HttpServlet {
 //		if (session.getAttribute("adminname") == null) {
 //			response.sendRedirect("/login/login?error=1");
 //		} else {
-			
-			request.getRequestDispatcher("/WEB-INF/view/admin/review/listDelete.jsp").forward(request, response);
+
+		request.setAttribute("list", reviewService.getList());
+		request.getRequestDispatcher("/WEB-INF/view/admin/review/listDelete.jsp").forward(request, response);
 //		}
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		int id = 0;
+		String id_ = request.getParameter("del_id");
+
+		if (id_ != null && !id_.equals(""))
+			id = Integer.parseInt(id_);
+
+		reviewService.delete(id);
+		response.sendRedirect("listDelete");
 	}
 
 }

@@ -1,7 +1,5 @@
 package com.ggorrrr.web.controller.dao.jdbc;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -52,11 +50,13 @@ public class JdbcReviewDao implements ReviewDao {
 				try {
 					rs.close();
 					st.close();
+					JdbcContext.delCon();
 				} catch (SQLException e) {
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
 					e.printStackTrace();
 				}
 		}
-
 		return list;
 	}
 
@@ -92,7 +92,10 @@ public class JdbcReviewDao implements ReviewDao {
 				try {
 					rs.close();
 					st.close();
+					JdbcContext.delCon();
 				} catch (SQLException e) {
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
 					e.printStackTrace();
 				}
 		}
@@ -131,7 +134,10 @@ public class JdbcReviewDao implements ReviewDao {
 				try {
 					rs.close();
 					st.close();
+					JdbcContext.delCon();
 				} catch (SQLException e) {
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
 					e.printStackTrace();
 				}
 		}
@@ -168,7 +174,10 @@ public class JdbcReviewDao implements ReviewDao {
 			if (st != null)
 				try {
 					st.close();
+					JdbcContext.delCon();
 				} catch (SQLException e) {
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
 					e.printStackTrace();
 				}
 		}
@@ -194,16 +203,17 @@ public class JdbcReviewDao implements ReviewDao {
 
 			st.close();
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			if (st != null)
 				try {
 					st.close();
+					JdbcContext.delCon();
 				} catch (SQLException e) {
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
 					e.printStackTrace();
 				}
 		}
@@ -222,16 +232,17 @@ public class JdbcReviewDao implements ReviewDao {
 
 			st.close();
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			if (st != null)
 				try {
 					st.close();
+					JdbcContext.delCon();
 				} catch (SQLException e) {
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
 					e.printStackTrace();
 				}
 		}
@@ -259,17 +270,18 @@ public class JdbcReviewDao implements ReviewDao {
 			rs.close();
 			st.close();
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			if (st != null)
 				try {
 					rs.close();
 					st.close();
+					JdbcContext.delCon();
 				} catch (SQLException e) {
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
 					e.printStackTrace();
 				}
 		}

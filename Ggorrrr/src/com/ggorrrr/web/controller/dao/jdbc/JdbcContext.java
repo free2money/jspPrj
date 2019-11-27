@@ -25,5 +25,9 @@ public class JdbcContext {
 		PreparedStatement st = con.prepareStatement(sql);
 		return st;
 	}
-	
+	public static void delCon() throws ClassNotFoundException, SQLException{
+		Connection con = getConnection();
+		if(con != null)
+			con.close();
+	}
 }

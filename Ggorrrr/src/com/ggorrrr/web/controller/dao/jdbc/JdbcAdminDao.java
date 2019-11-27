@@ -1,7 +1,5 @@
 package com.ggorrrr.web.controller.dao.jdbc;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -30,7 +28,10 @@ public class JdbcAdminDao implements AdminDao {
 			if (st != null)
 				try {
 					st.close();
+					JdbcContext.delCon();
 				} catch (SQLException e) {
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
 					e.printStackTrace();
 				}
 		}
@@ -53,6 +54,16 @@ public class JdbcAdminDao implements AdminDao {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			if (st != null)
+				try {
+					st.close();
+					JdbcContext.delCon();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
+					e.printStackTrace();
+				}
 		}
 		return result;
 	}
@@ -63,7 +74,7 @@ public class JdbcAdminDao implements AdminDao {
 		String sql = "select * from admin where user_id = ?";
 		PreparedStatement st = null;
 		ResultSet rs = null;
-		
+
 		try {
 			st = JdbcContext.getPreparedStatement(sql);
 			st.setString(1, id);
@@ -83,12 +94,15 @@ public class JdbcAdminDao implements AdminDao {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			if (st != null)
 				try {
 					rs.close();
 					st.close();
+					JdbcContext.delCon();
 				} catch (SQLException e) {
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
 					e.printStackTrace();
 				}
 		}
