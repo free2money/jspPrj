@@ -91,11 +91,16 @@ public class SignUpController extends HttpServlet{
 		}
 		else {
 			
-			if(pwd.equals(checkPwd)) {
+			if(pwd.equals(checkPwd)&&!pwd.equals("")) {
 				if(signUpButton.equals("가입하기")) {
 					member = new Member(id, user_id, checkPwd, name, year+"-"+month_+"-"+day_, email+emailadress, gender, phone, location_agree, nickname);
 					memberService.insert(member);
 					out.println("<script>alert('회원가입이 완료되었습니다!'); location.href='/login/login';</script>");
+				}
+			}
+			else if(!user_id.equals("")||!pwd.equals("")||!checkPwd.equals("")||!year.equals("")||!month_.equals("")||!day_.equals("")||!email.equals("")||phone.equals("")||!nickname.equals("")) {
+				if(signUpButton.equals("가입하기")) {
+					out.println("<script>alert('빈칸없이 입력해주세요.'); location.href='/signUp/signUp?location_chk="+location_agree+"';</script>");
 				}
 			}
 			else {

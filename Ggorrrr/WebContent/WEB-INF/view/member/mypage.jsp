@@ -9,7 +9,7 @@
 <link href="/css/default.css" type="text/css" rel="stylesheet">
 <link href="/css/mypage.css" type="text/css" rel="stylesheet">
 <style>
-.nickname {
+/* .nickname {
 	position: relative;
 }
 
@@ -19,49 +19,64 @@
 	font-size: 30px;
 	top: 3px;
 	left:
-}
+} */
 </style>
 </head>
 <body>
 
 	<jsp:include page="../inc/header.jsp" />
 	<!------------------------- ㅡheader끝 main시작 ------------------------------------>
-	<main>
-	<div id="img">
-		<h1>My그먹</h1>
-		<img src="/images/my그먹.png" width="170" height="50">
+	<main id="main">
+	<div>
+		<h2>
+			<img id="img" src="/images/ggorrrrlogo.png" width="50" height="50">
+			My그먹
+		</h2>
 	</div>
 	<div>
 		<form action="/member/mypage" method="post">
-			<section>
+			<section id="middlebox">
 				<!--<h1>마이페이지사용자프로필</h1>-->
 				<div class="nickname">
-					<img src="../images/profile.png" width="50" height="50"> <span>${member.nickname}</span>
+					<span><img id="img" src="../images/profile.png" width="40"
+						height="40"> ${member.nickname}</span>
 				</div>
+				<div></div>
 				<input type="hidden" name="id" value="${member.id}">
 				<dl>
-					<dt>아이디:</dt>
-					<dd>${member.user_id}</dd>
+					<div id="dtdd">
+						<dt>아이디:</dt>
+						<dd>${member.user_id}</dd>
+					</div>
 					<br>
-					<dt>비밀번호:</dt>
-					<dd>
-						<input type="password" name="pwd" value="${member.pwd}"
-							readonly="readonly"><input type="submit" name="cmd"
-							value="이동">
-					</dd>
+					<div id="dtdd">
+						<dt>비밀번호:</dt>
+						<dd>
+							<input type="password" name="pwd" value="${member.pwd}"
+								readonly="readonly"><input type="submit" name="cmd"
+								value="이동">
+						</dd>
+					</div>
 					<br>
-					<dt>닉네임:</dt>
-					<dd>
-						<input type="text" name="닉네임수정" value="${member.nickname}">
-						<input type="submit" name="cmd" value="변경">
-					</dd>
+					<div id="dtdd">
+						<dt>닉네임:</dt>
+						<dd>
+							<input type="text" name="닉네임수정" value="${member.nickname}">
+							<input type="submit" name="cmd" value="변경">
+						</dd>
+					</div>
 					<br>
+					<div id="dtdd">
 					<dt>생년월일:</dt>
 					<dd>${member.birthday}</dd>
+					</div>
 					<br>
+					<div id="dtdd">
 					<dt>전화번호:</dt>
 					<dd>${member.phone}</dd>
+					</div>
 					<br>
+					<div id="dtdd">
 					<dt>위치정보:</dt>
 					<dd>
 						<input type="hidden" name="위치정보동의"
@@ -82,6 +97,7 @@
 						</c:if>
 						<input type="submit" name="cmd" value="변경">
 					</dd>
+					</div>
 					<br>
 					<dt>
 						<a href="mybookmarklist?id=${member.id}">My메뉴관리</a>
@@ -90,8 +106,7 @@
 						<a href="">내가 쓴 소리 관리</a>
 					</dt>
 				</dl>
-				<br>
-				<br>
+				<br> <br>
 			</section>
 		</form>
 	</div>

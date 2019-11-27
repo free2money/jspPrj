@@ -1,87 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>그래서 뭐먹어?</title>
-<style>
-h1 {
-	width: 0px;
-	height: 0px;
-	font-size: 0px;
-	line-height: 0px;
-	position: absolute;
-	overflow: hidden;
-}
-
-#header {
-	width: inherit;
-	height: 100px;
-	text-align: center;
-	font-size: 40px;
-	margin-top: 40px;
-}
-
-section nav {
-	width: inherit;
-	margin-right: auto;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-main {
-	width: inherit;
-	min-height: 300px;
-}
-
-.middlebox {
-	width: 1200px;
-	margin-right: auto;
-	margin-left: auto;
-}
-
-.middlebox>div {
-	width: 575px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-#footer {
-	width: inherit;
-	height: 100px;
-}
-
-div input[type="checkbox"] {
-	display: none;
-}
-
-div label {
-	width: 100%;
-	height: 20px;
-}
-
-div input[type="checkbox"]+label .chk_img {
-	padding: 0 10px 0 30px;
-	height: 20px;
-	background: url("../images/checkboxoff.png") no-repeat;
-	cursor: pointer;
-	margin-top: 20px;
-	margin-bottom: 20px;
-}
-
-div input[type="checkbox"]:checked+label .chk_img {
-	background: url("../images/checkboxon.png") no-repeat;
-}
-
-#checkbox{
-	padding-top: 20px;
-}
-
-.cancel{
-	float :right;
-}
-</style>
+<link href="/css/default.css" type="text/css" rel="stylesheet">
+<link href="/css/signUpAgree.css" type="text/css" rel="stylesheet">
 </head>
 
 
@@ -91,21 +16,26 @@ div input[type="checkbox"]:checked+label .chk_img {
 		<section>
 			<h1>회원가입페이지</h1>
 			<nav>
-				<a class="" href="../index" ><img width="50px" height="50px"
-					src="/images/ggorrrrlogo.png" alt="그래서 뭐먹어?"></a>
+				<a class="" href="../index">
+					<h2 id="h2">
+						<h3><img id=img width="50px" height="50px"
+							src="/images/ggorrrrlogo.png">그래서뭐먹어?</h3>
+				</a>
 			</nav>
 		</section>
 	</header>
 
 	<!-- ====main========================= -->
-	<main>
-	<form action="/signUp/signUpAgree" method="post">
-	<h1>회원가입 동의약관</h1>
-	<div class="middlebox">
-		<div>
-			<input id="checkbox" type="checkbox" name="termsService" value="1"> <label
-				for="checkbox"><div class="chk_img">개인정보 동의약관</div></label>
-			<textarea rows="10" cols="80">1. 개인정보의 처리 목적 <그래서뭐먹어>(‘www.Ggorrrr.com’이하 ‘Ggorrrr’) 은(는) 다음의 목적을 위하여 개인정보를 처리하고 있으며, 다음의 목적 이외의 용도로는 이용하지 않습니다.
+	<main id="main">
+	<div>
+		<form action="/signUp/signUpAgree" method="post">
+			<h1>회원가입 동의약관</h1>
+			<div class="middlebox">
+				<div>
+					<div>
+						<input id="checkbox" type="checkbox" name="termsService" value="1">
+						<label for="checkbox"><div class="chk_img">개인정보 동의약관 (필수)</div></label>
+						<textarea rows="10" cols="80">1. 개인정보의 처리 목적 <그래서뭐먹어>(‘www.Ggorrrr.com’이하 ‘Ggorrrr’) 은(는) 다음의 목적을 위하여 개인정보를 처리하고 있으며, 다음의 목적 이외의 용도로는 이용하지 않습니다.
 - 고객 가입의사 확인, 고객에 대한 서비스 제공에 따른 본인 식별.인증, 회원자격 유지.관리, 물품 또는 서비스 공급에 따른 금액 결제, 물품 또는 서비스의 공급.배송 등
 
 2. 개인정보의 처리 및 보유 기간
@@ -179,13 +109,15 @@ div input[type="checkbox"]:checked+label .chk_img {
 ② 정보주체께서는 그래서뭐먹어(‘www.Ggorrrr.com’이하 ‘Ggorrrr) 의 서비스(또는 사업)을 이용하시면서 발생한 모든 개인정보 보호 관련 문의, 불만처리, 피해구제 등에 관한 사항을 개인정보 보호책임자 및 담당부서로 문의하실 수 있습니다. 그래서뭐먹어(‘www.Ggorrrr.com’이하 ‘Ggorrrr) 은(는) 정보주체의 문의에 대해 지체 없이 답변 및 처리해드릴 것입니다.
 10. 개인정보 처리방침 변경
 ①이 개인정보처리방침은 시행일로부터 적용되며, 법령 및 방침에 따른 변경내용의 추가, 삭제 및 정정이 있는 경우에는 변경사항의 시행 7일 전부터 공지사항을 통하여 고지할 것입니다.
-11. 개인정보의 안전성 확보 조치 <그래서뭐먹어>('Ggorrrr')은(는) 개인정보보호법 제29조에 따라 다음과 같이 안전성 확보에 필요한 기술적/관리적 및 물리적 조치를 하고 있습니다.</textarea>
-			<br>
-			<section>
-				<h1>위치서비스동의약관</h1>
-				<input id="checkbox1" type="checkbox" name="termsLocation" value="1">
-				<label for="checkbox1"><div class="chk_img">위치서비스 동의약관</div></label>
-				<textarea rows="10" cols="80"> 제 1 조 (목적) 본 약관은 주식회사 카카오(이하 "회사")가 제공하는 위치기반서비스에 대해 회사와
+11. 개인정보의 안전성 확보 조치 <그래서뭐먹어>('Ggorrrr')은(는) 개인정보보호법 제29조에 따라 다음과 같이 안전성 확보에 필요한 기술적/관리적 및 물리적 조치를 하고 있습니다.
+</textarea>
+						<br>
+						<section>
+							<h1>위치서비스동의약관</h1>
+							<input id="checkbox1" type="checkbox" name="termsLocation"
+								value="1"> <label for="checkbox1"><div
+									class="chk_img">위치서비스 동의약관 (선택)</div></label>
+							<textarea rows="10" cols="80"> 제 1 조 (목적) 본 약관은 주식회사 카카오(이하 "회사")가 제공하는 위치기반서비스에 대해 회사와
 		위치기반서비스를 이용하는 개인위치정보주체(이하 "이용자")간의 권리·의무 및 책임사항, 기타 필요한 사항 규정을 목적으로
 		합니다. 제 2 조 (이용약관의 효력 및 변경) ① 본 약관은 이용자가 본 약관에 동의하고 회사가 정한 절차에 따라
 		위치기반서비스의 이용자로 등록됨으로써 효력이 발생합니다. ② 회사는 법률이나 위치기반서비스의 변경사항을 반영하기 위한 목적
@@ -247,21 +179,26 @@ div input[type="checkbox"]:checked+label .chk_img {
 		부서의 부서장으로서 성명과 연락처는 아래와 같습니다. 성명 : 강성 대표전화 : 1577-3754 위치정보 전용문의 게시판 :
 		http://cs.daum.net/question/305.html
 		</textarea>
-			</section>
-			<br>
-			<section>
-				<div class="submitbox">
-					<!-- <a class="confirm" href=""> --><input type="submit" name="yes" value="확인"><img  width="280px" src="../images/확인.PNG"><!-- </a> --> <a class="cancel"
-						href=""><input type="submit" name="no" value="취소"><img width="280px" src="../images/취소.PNG"></a>
+						</section>
+					</div>
+					<br>
+					<section id="submit">
+						<div class="submitbox">
+							<input style="width: 240px; height: 60px; font-size: 20px; " type="submit"
+								name="yes" value="확인"> <a class="cancel" href=""> <input 
+								style="width: 240px; height: 60px; font-size: 20px;" type="submit" name="no"
+								value="취소"></a>
+						</div>
+					</section>
 				</div>
-			</section>
-		</div>
+			</div>
+		</form>
 	</div>
-	</form>
 	</main>
 	<!-- <input class="submit" type="submit" value="확인"
 			name="signUpAgree"> <input class="submit1" type="submit"
-			value="취소" name="exit"> --> <!-- ======footer===================== -->
-	<jsp:include page="../inc/footer.jsp"/>
+			value="취소" name="exit"> -->
+	<!-- ======footer===================== -->
+	<jsp:include page="../inc/footer.jsp" />
 </body>
 </html>
