@@ -8,7 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.ggorrrr.web.controller.entity.Member;
 import com.ggorrrr.web.controller.entity.Review;
 import com.ggorrrr.web.controller.service.ReviewService;
 import com.ggorrrr.web.controller.service.implement.ImplementReviewService;
@@ -29,7 +31,12 @@ public class MyReviewEditController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		HttpSession session = request.getSession();
 
+		if (session.getAttribute("username") == null) {
+			response.sendRedirect("/login/login?error=1");
+			return;
+		}
 		// review 테이블의 식별자인 id를 선언
 		int review_id = 0;
 
@@ -46,69 +53,61 @@ public class MyReviewEditController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		//수정된 리뷰를 가져오기 위한 리뷰필드 선언
+
+		// 수정된 리뷰를 가져오기 위한 리뷰필드 선언
 		int id = 0;
-		String foodType="";
-		String foodName="";
-		Date eating_date=null;
-		String address="";
-		String content="";
-		String photo="";
-		
-		//리뷰 기본키인 id를 받아와서 수정해야할 리뷰 id저장
+		String foodType = "";
+		String foodName = "";
+		Date eating_date = null;
+		String address = "";
+		String content = "";
+		String photo = "";
+
+		// 리뷰 기본키인 id를 받아와서 수정해야할 리뷰 id저장
 		String review_id = request.getParameter("review");
-		
+
 		if (review_id != null && !review_id.equals(""))
 			id = Integer.parseInt(review_id);
 
-		
-		//수정해야할 항목들을 모두 받아옴
+		// 수정해야할 항목들을 모두 받아옴
 		String foodType_ = request.getParameter("foodType");
-		if(foodType_ !=  null && !foodType_.equals(""))
+		if (foodType_ != null && !foodType_.equals(""))
 			foodType = foodType_;
-		
+
 		String foodName_ = request.getParameter("food_name");
-		if(foodName_ !=  null && !foodName_.equals(""))
+		if (foodName_ != null && !foodName_.equals(""))
 			foodName = foodName_;
-		
+
 		String eating_date_ = request.getParameter("eating_date");
-		if(eating_date_ !=  null && !eating_date_.equals(""))
+		if (eating_date_ != null && !eating_date_.equals(""))
 			eating_date = Date.valueOf(eating_date_);
-		
-		
+
 		String address_ = request.getParameter("address");
-		if(address_ !=  null && !address_.equals(""))
+		if (address_ != null && !address_.equals(""))
 			address = address_;
-		
+
 		String content_ = request.getParameter("content");
-		if(content_ !=  null && !content_.equals(""))
+		if (content_ != null && !content_.equals(""))
 			content = content_;
-		
+
 		String photo_ = request.getParameter("photo");
-		if(photo_ !=  null && !photo_.equals(""))
+		if (photo_ != null && !photo_.equals(""))
 			photo = photo_;
-		
-		
-		//id를 이용해 리뷰객체를 저장
+
+		// id를 이용해 리뷰객체를 저장
 		Review review = reviewService.get(id);
-		
-		
-		//id와 멤버id는 수정이 안되므로 나머지 값들만 불러온 값으로 업데이트
-		int result=reviewService.update(new Review(review.getId(),
-				review.getMember_id(),address,content,eating_date,
-				photo,foodName,foodType));
 
+		// id와 멤버id는 수정이 안되므로 나머지 값들만 불러온 값으로 업데이트
+		int result = reviewService.update(new Review(review.getId(), review.getMember_id(), address, content,
+				eating_date, photo, foodName, foodType));
 
-		//실패시 에러페이지
+		// 실패시 에러페이지
 		if (result == 0)
 			response.sendRedirect("/error?code=2");
-		
-		//성공시 리스트페이지
+
+		// 성공시 리스트페이지
 		else
 			response.sendRedirect("listDelete");
-
-
 
 	}
 }

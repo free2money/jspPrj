@@ -47,8 +47,6 @@
 				<li>
 					<table>
 						<tbody>
-
-
 							<tr>
 								<th>${n.address}</th>
 							</tr>

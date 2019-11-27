@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.ggorrrr.web.controller.service.FoodService;
 import com.ggorrrr.web.controller.service.implement.ImplementFoodService;
@@ -23,23 +24,25 @@ public class AdminFoodListController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		HttpSession session = request.getSession();
+
+		if (session.getAttribute("username") == null) {
+			response.sendRedirect("/login/login?error=1");
+			return;
+		}
+
 		String category = "한식";
 		String query = "";
-				
-		String category_ = null;
-		String query_ = null;
-		
-		category_ = request.getParameter("category");
-		query_ = request.getParameter("menuName");
+
+		String category_ = request.getParameter("category");
+		String query_ = request.getParameter("menuName");
 
 		if (category_ != null && !category_.equals(""))
-			category =category_;
-
+			category = category_;
 		if (query_ != null && !query_.equals(""))
 			query = query_;
 
 		request.setAttribute("list", foodService.getFoodList(category, query));
-
 		request.getRequestDispatcher("/WEB-INF/view/admin/menu/listDelete.jsp").forward(request, response);
 	}
 

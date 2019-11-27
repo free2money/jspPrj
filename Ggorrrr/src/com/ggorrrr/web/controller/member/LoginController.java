@@ -55,17 +55,18 @@ public class LoginController extends HttpServlet {
 			response.sendRedirect("/login/login?error=1");
 		} else {
 			if (isValidAdmin) {
-				request.getSession().setAttribute("adminname", id);
-				request.getSession().setAttribute("sessionuser", adminService.get(id));
-				request.getRequestDispatcher("/admin/index").forward(request, response);
+				request.getSession().setAttribute("username", id);
+				request.getSession().setAttribute("sessionadmin", memberService.get(id));
+				response.sendRedirect("/admin/page");
+				return;
 			} else {
 				request.getSession().setAttribute("username", id);
 				request.getSession().setAttribute("sessionuser", memberService.get(id));
-				if (!returnUrl.equals(""))
-					response.sendRedirect(returnUrl);
-				else
-					response.sendRedirect("/index");
 			}
+			if (!returnUrl.equals(""))
+				response.sendRedirect(returnUrl);
+			else
+				response.sendRedirect("/index");
 		}
 
 	}

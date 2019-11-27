@@ -1,7 +1,6 @@
 /**
  * 
  */
-
 window.addEventListener("load", function() {
 	// 현재 패스워드 일치 확인때 필요한 영역 설정
 	var nowPwdSection = document.querySelector("#now-pwd");
@@ -30,4 +29,9 @@ window.addEventListener("load", function() {
 		else
 			newPwdTextLabel.innerText = "비밀번호가 다릅니다.";
 	}
+
+	var pageSection = document.querySelector("#pageSection");
+	var btn = pageSection.querySelector('input[name="commit"]');
+//	새로운 비밀번호의 정보가 없으면 진행막기.
+
 });

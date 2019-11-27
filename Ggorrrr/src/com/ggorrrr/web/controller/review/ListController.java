@@ -25,7 +25,7 @@ public class ListController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String order ="";
+		String order = "";
 		String order_ = request.getParameter("order");
 		if (order_ != null && !order_.equals(""))
 			order = order_;
@@ -34,7 +34,7 @@ public class ListController extends HttpServlet {
 		String field = "address";
 		String query = "";
 
-		//검색엔진
+		// 검색엔진
 		String field_ = request.getParameter("f");
 		if (field_ != null && !field_.equals(""))
 			field = field_;
@@ -43,8 +43,7 @@ public class ListController extends HttpServlet {
 		if (query_ != null && !query_.equals(""))
 			query = query_;
 
-		
-		//정렬 방식
+		// 정렬 방식
 		if (order.equals("0")) {
 
 			request.setAttribute("list", reviewService.orderByDate());
@@ -52,14 +51,11 @@ public class ListController extends HttpServlet {
 		} else if (order.equals("1")) {
 
 			request.setAttribute("list", reviewService.orderByGrade());
-
-		}
-		else {
-
+		} else {
 			request.setAttribute("list", reviewService.getList(field, query));
 		}
 		request.getRequestDispatcher("/WEB-INF/view/review/list.jsp").forward(request, response);
-		
+
 	}
 
 	@Override

@@ -5,74 +5,67 @@ import java.sql.Date;
 public class Review {
 	private int id;
 	private int member_id;
-
-	public int getMember_id() {
-		return member_id;
-	}
-
-	private	String address;
-	private	String content;
+	private String address;
+	private String content;
 	private Date eating_date;
 	private String photo;
 	private Date regdate;
 	private int rating;
 	private String foodName;
 	private String foodType;
-	
-	
+
+	public Review() {
+
+	}
+
+	public Review(int id, int member_id, String address, String content, Date eating_date, String photo, Date regdate,
+			int rating, String foodName, String foodType) {
+		this.id = id;
+		this.member_id = member_id;
+		this.address = address;
+		this.content = content;
+		this.eating_date = eating_date;
+		this.photo = photo;
+		this.regdate = regdate;
+		this.rating = rating;
+		this.foodName = foodName;
+		this.foodType = foodType;
+	}
+
+	public Review(int id, int member_id, String address, String content, Date eating_date, String photo, Date regdate,
+			int rating, String foodName) {
+		this.id = id;
+		this.member_id = member_id;
+		this.address = address;
+		this.content = content;
+		this.eating_date = eating_date;
+		this.photo = photo;
+		this.regdate = regdate;
+		this.rating = rating;
+		this.foodName = foodName;
+	}
+
+	public Review(int id, int member_id, String address, String content, Date eating_date, String photo,
+			String foodName, String foodType) {
+		this.id = id;
+		this.member_id = member_id;
+		this.address = address;
+		this.content = content;
+		this.eating_date = eating_date;
+		this.photo = photo;
+		this.foodName = foodName;
+		this.foodType = foodType;
+	}
+
+	public int getMember_id() {
+		return member_id;
+	}
+
 	public String getFoodType() {
 		return foodType;
 	}
 
 	public void setFoodType(String foodType) {
-		this.foodType = foodType;
-	}
-
-	public Review(int id, int member_id, String address, String content, Date eating_date, String photo, Date regdate,
-			int rating, String foodName, String foodType) {
-		super();
-		this.id = id;
-		this.member_id = member_id;
-		this.address = address;
-		this.content = content;
-		this.eating_date = eating_date;
-		this.photo = photo;
-		this.regdate = regdate;
-		this.rating = rating;
-		this.foodName = foodName;
-		this.foodType = foodType;
-	}
-
-	public Review() {
-		
-	}
-
-	public Review(int id, int member_id, String address, String content, Date eating_date, String photo, Date regdate,
-			int rating, String foodName) {
-		super();
-		this.id = id;
-		this.member_id = member_id;
-		this.address = address;
-		this.content = content;
-		this.eating_date = eating_date;
-		this.photo = photo;
-		this.regdate = regdate;
-		this.rating = rating;
-		this.foodName = foodName;
-	}
-
-	
-	
-	public Review(int id, int member_id, String address, String content, Date eating_date, String photo,
-			String foodName, String foodType) {
-		
-		this.id = id;
-		this.member_id = member_id;
-		this.address = address;
-		this.content = content;
-		this.eating_date = eating_date;
-		this.photo = photo;
-		this.foodName = foodName;
 		this.foodType = foodType;
 	}
 
@@ -88,7 +81,6 @@ public class Review {
 		return content;
 	}
 
-	
 	public void setContent(String content) {
 		this.content = content;
 	}
@@ -143,5 +135,5 @@ public class Review {
 				+ ", eating_date=" + eating_date + ", photo=" + photo + ", regdate=" + regdate + ", rating=" + rating
 				+ ", foodName=" + foodName + "]";
 	}
-	
+
 }

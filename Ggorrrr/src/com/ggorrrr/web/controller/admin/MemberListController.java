@@ -26,9 +26,10 @@ public class MemberListController extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 
-//		if (session.getAttribute("adminname") == null) {
-//			response.sendRedirect("/login/login?error=1");
-//		} else {
+		if (session.getAttribute("username") == null) {
+			response.sendRedirect("/login/login?error=1");
+			return;
+		}
 		request.setAttribute("list", memberService.getMemberList());
 		request.getRequestDispatcher("/WEB-INF/view/admin/member/listDelete.jsp").forward(request, response);
 //		}

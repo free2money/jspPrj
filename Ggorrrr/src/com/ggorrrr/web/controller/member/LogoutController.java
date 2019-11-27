@@ -26,14 +26,9 @@ public class LogoutController extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 
-		if (session.getAttribute("username") != null)
+		if (session.getAttribute("username") != null) {
 			session.invalidate();
-
-		response.setContentType("text/html; charset=UTF-8");
-		response.setCharacterEncoding("UTF-8");
-		PrintWriter out = response.getWriter();
-		out.print("<script>\r\n" + /**/
-				"window.location.href=\"../index\";\r\n" + /**/
-				"</script>");
+		}
+		response.sendRedirect("/index");
 	}
 }

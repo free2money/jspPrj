@@ -28,11 +28,11 @@ public class AdminpageController extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 
-//		if (session.getAttribute("adminname") == null) {
-//			response.sendRedirect("/login/login?error=1");
-//		} else {
-			
-			request.getRequestDispatcher("/WEB-INF/view/admin/index.jsp").forward(request, response);
-//		}
+		if (session.getAttribute("username") == null) {
+			response.sendRedirect("/login/login?error=1");
+			return;
+		}
+		request.getRequestDispatcher("/WEB-INF/view/admin/index.jsp").forward(request, response);
+
 	}
 }

@@ -11,7 +11,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.ggorrrr.web.controller.entity.Member;
 import com.ggorrrr.web.controller.service.ReviewService;
 import com.ggorrrr.web.controller.service.implement.ImplementReviewService;
 
@@ -26,11 +28,15 @@ public class MyReviewListDeleteController extends HttpServlet{
 	}
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+
+		if (session.getAttribute("username") == null) {
+			response.sendRedirect("/login/login?error=1");
+			return;
+		}
+		Member member = (Member) session.getAttribute("sessionuser");
 		
-		//임의로 로그인아이디 3 저장
-		String member_id="3";
-		
-		//
+		String member_id="3";		
 		String member_id_ = request.getParameter("member_id");
 		if(member_id_ !=  null && !member_id_.equals(""))
 			member_id = member_id_;

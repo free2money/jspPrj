@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,49 +19,41 @@
 		</section>
 	</div>
 
-	<form action="delete">
-		<!-- 삭제를 처리하는 서블릿으로 이동. -->
-		<section>
-			<div style="width: 960px;">
-				<h1>고객이 쓴 소리 리스트</h1>
-				<table>
-					<thead>
-						<tr>
-							<th>목록</th>
-							<th>삭제</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<th>홍콩반점 명동점</th>
-							<th>
-								<!-- 아이디를 value로 전달 --> <input style="vertical-align: middle;"
-								type="checkbox" value="" name="delete_Id">
 
+	<!-- 삭제를 처리하는 서블릿으로 이동. -->
+	<section>
+		<div style="width: 960px;">
+			<h1>고객이 쓴 소리 리스트</h1>
+			<table>
+				<thead>
+					<tr>
+						<th>목록</th>
+						<th>삭제</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="review" items="${list }">
+						<form action="listDelete" method="post">
+						<tr>
+							<th>${review.address }</th>
+							<th>
+								<input type="hidden" name="del_id" value="${review.id }">
+								<input type="submit" name="del" value="삭제">
 							</th>
 						</tr>
 						<tr>
-							<!-- 사진과 내용 -->
-							<td></td>
+							<td>${review.content }</td>
 						</tr>
 						<tr>
-						<tr>
-							<th>유가네닭갈비 부평점</th>
-							<th><input style="vertical-align: middle;" type="checkbox"
-								value="" name="delete_Id"></th>
+							<td>${review.photo }</td>
 						</tr>
-						<tr>
-							<!-- 사진과 내용 -->
-							<td></td>
-						</tr>
-					</tbody>
-				</table>
-				<input type="submit" name="삭제" value="삭제" style="float: right;">
-			</div>
-		</section>
-		<a href="../page">뒤로</a>
-	</form>
-	</main>
+						</form>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
+	</section>
+	<a href="../page">뒤로</a> </main>
 	<!-- ======================footer========================================== -->
 	<jsp:include page="../../inc/footer.jsp" />
 </body>

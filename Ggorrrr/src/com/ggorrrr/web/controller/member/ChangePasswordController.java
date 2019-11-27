@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.ggorrrr.web.controller.entity.Member;
 import com.ggorrrr.web.controller.service.MemberService;
@@ -24,20 +25,23 @@ public class ChangePasswordController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int id = 2; // 로그인한 아이디 넘겨받기
+		HttpSession session = request.getSession();
 
-		// 컨트롤러가 할 일은 데이터 준비하는 일
-		// request에 담아주어야 jsp에서 가져다 쓸 수 있음
-		request.setAttribute("member", memberService.get(id));
-		request.setAttribute("pwd", memberService.get(Integer.parseInt(request.getParameter("id"))).getPwd());
-		// jsp(view)파일경로
+		if (session.getAttribute("username") == null) {
+			response.sendRedirect("/login/login?error=1");
+			return;
+		}
+		Member member = (Member) session.getAttribute("sessionuser");
+
+		request.setAttribute("member", member);
+		request.setAttribute("pwd", member.getPwd());
 		request.getRequestDispatcher("/WEB-INF/view/member/changePassword.jsp").forward(request, response);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Member member;
+		Member member = null;
 		int id = Integer.parseInt(request.getParameter("id"));
 		String newpwd = request.getParameter("newPwd2");
 		String nickname = request.getParameter("nickname");

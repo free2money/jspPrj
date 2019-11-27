@@ -13,17 +13,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import com.ggorrrr.web.controller.entity.Food;
 import com.ggorrrr.web.controller.service.FoodService;
 import com.ggorrrr.web.controller.service.implement.ImplementFoodService;
 
-@MultipartConfig(
-		maxFileSize = 1024*1024*5,
-		maxRequestSize = 1024*1024*5*10,
-		fileSizeThreshold = 1024*1024*50
-		)
+@MultipartConfig(maxFileSize = 1024 * 1024 * 5, maxRequestSize = 1024 * 1024 * 5 * 10, fileSizeThreshold = 1024 * 1024
+		* 50)
 
 @WebServlet("/admin/menu/update")
 public class FoodEditController extends HttpServlet {
@@ -31,25 +29,31 @@ public class FoodEditController extends HttpServlet {
 	private FoodService foodService;
 
 	public FoodEditController() {
-		
+
 		foodService = new ImplementFoodService();
 	}
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		HttpSession session = request.getSession();
+
+		if (session.getAttribute("username") == null) {
+			response.sendRedirect("/login/login?error=1");
+			return;
+		}
 		
 		int id = Integer.parseInt(request.getParameter("id"));
 		Food food = foodService.get(id);
 		request.setAttribute("f", food);
-		
+
 		request.getRequestDispatcher("/WEB-INF/view/admin/menu/update.jsp").forward(request, response);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int id = Integer.parseInt(request.getParameter("detail_id"));	
+		int id = Integer.parseInt(request.getParameter("detail_id"));
 		String category_ = request.getParameter("category");
 		String korName = request.getParameter("food_name");
 		String engName = request.getParameter("korname");
@@ -61,7 +65,7 @@ public class FoodEditController extends HttpServlet {
 		int price = Integer.parseInt(request.getParameter("price"));
 		boolean vegetarian = false;
 		String category = null;
-		
+
 		switch (category_) {
 		case "1":
 			category = "한식";
@@ -82,11 +86,12 @@ public class FoodEditController extends HttpServlet {
 			category = "기타";
 			break;
 		}
-		
-		if(vegetarian_.equals("1")) 
+
+		if (vegetarian_.equals("1"))
 			vegetarian = true;
-		else vegetarian = false;
-		
+		else
+			vegetarian = false;
+
 		Collection<Part> parts = request.getParts();
 
 		String fileNames = "";
@@ -104,9 +109,9 @@ public class FoodEditController extends HttpServlet {
 
 			Part filePart = p;
 			String fileName = filePart.getSubmittedFileName();
-			if(fileName.equals(""))
+			if (fileName.equals(""))
 				break;
-			
+
 			fileNames += fileName + ",";
 
 			InputStream fis = filePart.getInputStream();
@@ -123,13 +128,13 @@ public class FoodEditController extends HttpServlet {
 
 		fileNames = fileNames.substring(0, fileNames.length() - 1);
 
-		int result = foodService
-				.update(new Food(id,korName, engName, fileNames, ingridients, explain,1, vegetarian, thema, recipe,category,price));
+		int result = foodService.update(new Food(id, korName, engName, fileNames, ingridients, explain, 1, vegetarian,
+				thema, recipe, category, price));
 
 		if (result == 0) {
 			response.sendRedirect("/error?code=2");
 		} else {
-			response.sendRedirect("list");
+			response.sendRedirect("adminlist");
 		}
 	}
 }

@@ -23,15 +23,15 @@
 			<div id="searchHeader">
 				<div id="searchForm" class="top">
 					<form action="">
-							<div class="searchWin">
-								<input type="text" name="q" placeholder="Search..." /> 
-								<input type="button" name="검색버튼" />
+						<div class="searchWin">
+							<input type="text" name="q" placeholder="Search..." /> <input
+								type="button" name="검색버튼" />
 
-								<!-- <button id="btn_search" type="submit">
+							<!-- <button id="btn_search" type="submit">
 									<img src="./images/search.png">
 								</button> -->
-							</div>
-						</form>
+						</div>
+					</form>
 
 				</div>
 

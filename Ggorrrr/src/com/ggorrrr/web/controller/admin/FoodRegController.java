@@ -13,18 +13,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import com.ggorrrr.web.controller.entity.Food;
 import com.ggorrrr.web.controller.service.FoodService;
 import com.ggorrrr.web.controller.service.implement.ImplementFoodService;
 
-
-@MultipartConfig(
-		maxFileSize = 1024*1024*5,
-		maxRequestSize = 1024*1024*5*10,
-		fileSizeThreshold = 1024*1024*50
-		)
+@MultipartConfig(maxFileSize = 1024 * 1024 * 5, maxRequestSize = 1024 * 1024 * 5 * 10, fileSizeThreshold = 1024 * 1024
+		* 50)
 
 @WebServlet("/admin/menu/reg")
 public class FoodRegController extends HttpServlet {
@@ -38,13 +35,19 @@ public class FoodRegController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		HttpSession session = request.getSession();
+
+		if (session.getAttribute("username") == null) {
+			response.sendRedirect("/login/login?error=1");
+			return;
+		}
 		request.getRequestDispatcher("/WEB-INF/view/admin/menu/reg.jsp").forward(request, response);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		String category_ = request.getParameter("category");
 		String korName = request.getParameter("food_name");
 		String engName = request.getParameter("korname");
@@ -56,7 +59,7 @@ public class FoodRegController extends HttpServlet {
 		int price = Integer.parseInt(request.getParameter("price"));
 		boolean vegetarian = false;
 		String category = null;
-		
+
 		switch (category_) {
 		case "1":
 			category = "한식";
@@ -77,11 +80,12 @@ public class FoodRegController extends HttpServlet {
 			category = "기타";
 			break;
 		}
-		
-		if(vegetarian_.equals("1")) 
+
+		if (vegetarian_.equals("1"))
 			vegetarian = true;
-		else vegetarian = false;
-		
+		else
+			vegetarian = false;
+
 		Collection<Part> parts = request.getParts();
 
 		String fileNames = "";
@@ -99,9 +103,9 @@ public class FoodRegController extends HttpServlet {
 
 			Part filePart = p;
 			String fileName = filePart.getSubmittedFileName();
-			if(fileName.equals(""))
+			if (fileName.equals(""))
 				break;
-			
+
 			fileNames += fileName + ",";
 
 			InputStream fis = filePart.getInputStream();
@@ -124,7 +128,7 @@ public class FoodRegController extends HttpServlet {
 		if (result == 0) {
 			response.sendRedirect("/error?code=2");
 		} else {
-			response.sendRedirect("list");
+			response.sendRedirect("adminlist");
 		}
 	}
 }

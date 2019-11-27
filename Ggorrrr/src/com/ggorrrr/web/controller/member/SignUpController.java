@@ -36,9 +36,7 @@ public class SignUpController extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		//20~29
-		int id=24;
+		int id=24;	// 일련번호
 		String user_id  = request.getParameter("signupId");
 		String pwd  = request.getParameter("signupPw");
 		String checkPwd  = request.getParameter("signupPwCf");
@@ -57,11 +55,6 @@ public class SignUpController extends HttpServlet{
 		
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		
-//		String id_ = request.getParameter("id");
-//		String user_id_ = request.getParameter("user_id");
-//		
-//		boolean isDup = memberService.isDuplicatedId(id, user_id);
 		
 		int month = Integer.parseInt(month_);
 		int day = Integer.parseInt(day_);

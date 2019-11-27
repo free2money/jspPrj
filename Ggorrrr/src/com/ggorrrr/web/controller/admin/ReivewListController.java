@@ -25,13 +25,12 @@ public class ReivewListController extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 
-//		if (session.getAttribute("adminname") == null) {
-//			response.sendRedirect("/login/login?error=1");
-//		} else {
-
+		if (session.getAttribute("username") == null) {
+			response.sendRedirect("/login/login?error=1");
+			return;
+		}
 		request.setAttribute("list", reviewService.getList());
 		request.getRequestDispatcher("/WEB-INF/view/admin/review/listDelete.jsp").forward(request, response);
-//		}
 	}
 
 	@Override
