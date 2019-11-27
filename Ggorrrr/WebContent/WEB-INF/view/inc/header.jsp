@@ -1,32 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <header>
-
 	<div id="header">
 		<div id="topHeader">
 			<nav id="memberMenu" class="top">
-
 				<ul>
 					<li><a href="/index">Home</a></li>
 					<c:if test="${empty sessionScope.username }">
 						<li><a href="/login/login">로그인</a></li>
-						<li><a href="/signUp/signUp">회원가입</a></li>
+						<li><a href="/signUp/signUpAgree">회원가입</a></li>
 					</c:if>
 					<c:if test="${not empty sessionScope.username }">
 						<li><a href="/member/logout">로그아웃</a></li>
 					</c:if>
-					<li><a href="">마이페이지</a></li>
-					<li><a href="">고객의 소리</a></li>
+					<li><a href="/member/mypage">마이페이지</a></li>
+					<li><a href="/review/list">고객의 소리</a></li>
 				</ul>
-
 			</nav>
 
 			<!--<h1>검색창</h1>-->
 			<div id="searchHeader">
 				<div id="searchForm" class="top">
-
 					<form action="">
 							<div class="searchWin">
 								<input type="text" name="q" placeholder="Search..." /> 
@@ -40,7 +35,6 @@
 
 				</div>
 
-
 				<nav id="popularity" class="top">
 
 					<h1>인기검색어&nbsp;</h1>
@@ -52,7 +46,6 @@
 							</ul>
 						</li>
 					</ul>
-
 				</nav>
 			</div>
 		</div>

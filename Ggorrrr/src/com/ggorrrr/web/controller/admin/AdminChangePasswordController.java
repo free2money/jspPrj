@@ -45,24 +45,6 @@ public class AdminChangePasswordController extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		Admin admin = (Admin) session.getAttribute("sessionuser");
-		String pwd = admin.getPwd();
-
-		String nowPwd = request.getParameter("now-pwd");
-		String check = request.getParameter("nowPwdsubmit");
-
-		String s = "";
-
-		if (check.equals("확인")) {
-			if (!nowPwd.equals("") && pwd.equals(nowPwd))
-				s = "비밀번호가 일치합니다.";
-			else if (!nowPwd.equals("") && !pwd.equals(nowPwd))
-				s = "비밀번호가 일치하지 않습니다.";
-		}
-
-		request.setAttribute("pwd", pwd);
-
-		request.setAttribute("s", s);
-
 		request.getRequestDispatcher("/WEB-INF/view/member/changePassword.jsp").forward(request, response);
 
 	}

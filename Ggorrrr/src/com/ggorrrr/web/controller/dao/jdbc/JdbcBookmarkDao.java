@@ -45,13 +45,13 @@ public class JdbcBookmarkDao implements BookmarkDao {
 
 	// 즐겨찾기 삭제
 	@Override
-	public int delete(BookmarkMenu bookmarkMenu) {
+	public int delete(int food_id) {
 		int result = 0;
 		String sql = "DELETE FROM BOOKMARK WHERE FOOD_ID=?";
 		PreparedStatement st = null;
 		try {
 			st = JdbcContext.getPreparedStatement(sql);
-			st.setInt(1, bookmarkMenu.getId());
+			st.setInt(1, food_id);
 			result = st.executeUpdate();
 
 			st.close();
@@ -69,7 +69,6 @@ public class JdbcBookmarkDao implements BookmarkDao {
 					e.printStackTrace();
 				}
 		}
-
 		return result;
 	}
 

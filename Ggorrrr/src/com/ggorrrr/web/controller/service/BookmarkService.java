@@ -8,7 +8,7 @@ public interface BookmarkService {
 
 	int insert(BookmarkMenu bookmarkMenu);
 
-	int delete(BookmarkMenu bookmarkMenu);
+	int delete(int food_id);
 
 	List<BookmarkMenu> getList(int member_id);
 }

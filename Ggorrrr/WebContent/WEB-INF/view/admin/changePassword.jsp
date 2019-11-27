@@ -52,7 +52,7 @@
 				</dl>
 				<label class="new-pwd-check-text"></label>
 				<div>
-					<a href="index">취소</a> <input type="submit" name="commit"
+					<a href="page">취소</a> <input type="submit" name="commit"
 						value="저장">
 				</div>
 			</section>

@@ -43,7 +43,7 @@ public class BookmarkMenu extends Food {
 				+ getEngname() + ", getPhoto()=" + getPhoto() + ", getIngridients()=" + getIngridients()
 				+ ", getExplain()=" + getExplain() + ", getManagerId()=" + getManagerId() + ", isVegetarian()="
 				+ isVegetarian() + ", getThema()=" + getThema() + ", getCategory()=" + getCategory() + ", getPrice()="
-				+ getPrice() + ", toString()=" + super.toString() + ", getClass()=" + getClass() + ", hashCode()="
+				+ getPrice() + ", getClass()=" + getClass() + ", hashCode()="
 				+ hashCode() + "]";
 	}
 

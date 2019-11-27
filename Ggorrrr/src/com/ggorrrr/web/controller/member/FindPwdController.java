@@ -50,13 +50,6 @@ public class FindPwdController extends HttpServlet {
 			isValid = (m.getUser_id().equals(id)) && (m.getEmail().equals(email));
 
 		if (isValid) {
-//			response.setContentType("text/html; charset=UTF-8");
-//			response.setCharacterEncoding("UTF-8");
-//			PrintWriter out = response.getWriter();
-//			out.print("<script>\r\n" + /**/
-//					"window.alert(\"메일이 발송되었습니다.\");\r\n" + /**/
-//					"window.location.href=\"/login/login\";\r\n" + /**/
-//					"</script>");
 			request.setAttribute("messege", "메일이 발송 되었습니다.");
 			request.removeAttribute("errorMsg");
 		} else {

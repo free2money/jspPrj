@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>그래서 뭐먹지?</title>
+<link href="/css/default.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 	<jsp:include page="../inc/header.jsp" />

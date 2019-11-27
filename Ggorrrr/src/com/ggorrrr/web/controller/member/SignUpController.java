@@ -95,7 +95,6 @@ public class SignUpController extends HttpServlet{
 				if(signUpButton.equals("가입하기")) {
 					member = new Member(id, user_id, checkPwd, name, year+"-"+month_+"-"+day_, email+emailadress, gender, phone, location_agree, nickname);
 					memberService.insert(member);
-					System.out.println(member);
 					out.println("<script>alert('회원가입이 완료되었습니다!'); location.href='/login/login';</script>");
 				}
 			}

@@ -14,9 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.ggorrrr.web.controller.service.ReviewService;
 import com.ggorrrr.web.controller.service.implement.ImplementReviewService;
-import com.sun.xml.internal.ws.api.streaming.XMLStreamReaderFactory.Default;
 
-import oracle.jdbc.proxy.annotation.Post;
 @WebServlet("/member/review/listDelete")
 public class MyReviewListDeleteController extends HttpServlet{
 	

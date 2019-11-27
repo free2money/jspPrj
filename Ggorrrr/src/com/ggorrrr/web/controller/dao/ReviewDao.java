@@ -12,14 +12,12 @@ public interface ReviewDao {
 	List<Review> orderByDate();
 
 	List<Review> orderByGrade();
-	
+
 	int insert(Review review);
 
 	int update(Review review);
 
 	int delete(int id);
-
-	int deletes(int[] ids);
 
 	Review get(int review_id);
 }

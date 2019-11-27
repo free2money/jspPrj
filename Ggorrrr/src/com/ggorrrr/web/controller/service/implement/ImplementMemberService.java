@@ -18,9 +18,8 @@ public class ImplementMemberService implements MemberService {
 	// 회원인지확인
 	@Override
 	public boolean isValidMember(String id, String pwd) {
-
 		Member member = memberDao.get(id);
-
+		
 		// 사용자가 없을시
 		if (member == null)
 			return false;
@@ -34,8 +33,8 @@ public class ImplementMemberService implements MemberService {
 	// 아이디중복확인
 	@Override
 	public boolean isDuplicatedId(String id) {
-
 		Member member = memberDao.get(id);
+		
 		if (member==null)
 			return true;
 		else
@@ -46,9 +45,8 @@ public class ImplementMemberService implements MemberService {
 	// 아이디 찾기
 	@Override
 	public boolean isFindId(String name, String email) {
-		
 		Member member = memberDao.findId(name);
-
+		
 		if(member != null && member.getEmail().equals(email) && member.getName().equals(name))
 			return true;
 
@@ -64,7 +62,6 @@ public class ImplementMemberService implements MemberService {
 	// 전체회원리스트-검색
 	@Override
 	public List<Member> getMemberList(String field, String query) {
-		// TODO Auto-generated method stub
 		return memberDao.getMemberList(field, query);
 	}
 

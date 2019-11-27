@@ -19,7 +19,6 @@ import com.ggorrrr.web.controller.entity.Food;
 import com.ggorrrr.web.controller.service.FoodService;
 import com.ggorrrr.web.controller.service.implement.ImplementFoodService;
 
-
 @MultipartConfig(
 		maxFileSize = 1024*1024*5,
 		maxRequestSize = 1024*1024*5*10,
@@ -50,8 +49,7 @@ public class FoodEditController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int id = Integer.parseInt(request.getParameter("detail_id"));
-		
+		int id = Integer.parseInt(request.getParameter("detail_id"));	
 		String category_ = request.getParameter("category");
 		String korName = request.getParameter("food_name");
 		String engName = request.getParameter("korname");
@@ -104,8 +102,6 @@ public class FoodEditController extends HttpServlet {
 
 			File file = new File(realPath);
 
-//			Part filePart = request.getPart("file");
-
 			Part filePart = p;
 			String fileName = filePart.getSubmittedFileName();
 			if(fileName.equals(""))
@@ -129,15 +125,11 @@ public class FoodEditController extends HttpServlet {
 
 		int result = foodService
 				.update(new Food(id,korName, engName, fileNames, ingridients, explain,1, vegetarian, thema, recipe,category,price));
-//		filePart.getSubmittedFileName();
-
-//		String title = titlePart.getName();
 
 		if (result == 0) {
 			response.sendRedirect("/error?code=2");
 		} else {
 			response.sendRedirect("list");
 		}
-		
 	}
 }

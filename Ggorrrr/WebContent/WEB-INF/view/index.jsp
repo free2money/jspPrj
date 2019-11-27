@@ -9,8 +9,6 @@
 <title>그래서 뭐먹어?</title>
 
 <link href="/css/default.css" type="text/css" rel="stylesheet">
-<link href="/css/reset.css" type="text/css" rel="stylesheet">
-<link href="/css/layout.css" type="text/css" rel="stylesheet">
 <link href="/css/index_header.css" type="text/css" rel="stylesheet">
 <link href="/css/index.css" type="text/css" rel="stylesheet">
 
@@ -42,13 +40,7 @@
 	</section>
 	</main>
 	<!-- =================ASIDE================ -->
-	<aside>
-		<!-- <nav>
-			<h1>사다리게임</h1>
-			<a href="ladder.html"><img src="./images/sadari.png"> </a>
-		</nav> -->
-	</aside>
-
+	<jsp:include page="./inc/sadari.jsp" />
 	<!-- =================FOOTER================ -->
 	<jsp:include page="./inc/footer.jsp" />
 </body>

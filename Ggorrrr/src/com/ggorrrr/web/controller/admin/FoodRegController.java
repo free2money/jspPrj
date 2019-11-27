@@ -97,8 +97,6 @@ public class FoodRegController extends HttpServlet {
 
 			File file = new File(realPath);
 
-//			Part filePart = request.getPart("file");
-
 			Part filePart = p;
 			String fileName = filePart.getSubmittedFileName();
 			if(fileName.equals(""))
@@ -120,17 +118,13 @@ public class FoodRegController extends HttpServlet {
 
 		fileNames = fileNames.substring(0, fileNames.length() - 1);
 
-		int result = foodService
-				.insert(new Food(13777,korName, engName, fileNames, ingridients, explain,1, vegetarian, thema, recipe,category,price));
-//		filePart.getSubmittedFileName();
-
-//		String title = titlePart.getName();
+		int result = foodService.insert(new Food(13777, korName, engName, fileNames, ingridients, explain, 1,
+				vegetarian, thema, recipe, category, price));
 
 		if (result == 0) {
 			response.sendRedirect("/error?code=2");
 		} else {
 			response.sendRedirect("list");
 		}
-		
 	}
 }

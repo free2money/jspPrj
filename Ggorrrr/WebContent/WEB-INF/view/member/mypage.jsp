@@ -98,14 +98,7 @@
 	</main>
 
 	<!------------------------- ㅡmain끝 ------------------------------------>
-	<aside id="sadari">
-		<h1>사다리게임</h1>
-		<nav>
-			<h1>사다리이미지</h1>
-			<a href=""><img src="../images/sadari.png" width="100"
-				height="100"></a>
-		</nav>
-	</aside>
+	<jsp:include page="../inc/sadari.jsp" />
 	<!-- ================================footer시작=============================== -->
 	<jsp:include page="../inc/footer.jsp" />
 </body>

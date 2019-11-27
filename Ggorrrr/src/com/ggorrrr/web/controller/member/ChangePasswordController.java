@@ -24,7 +24,7 @@ public class ChangePasswordController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		 int id=2; //로그인한 아이디 넘겨받기
+		int id = 2; // 로그인한 아이디 넘겨받기
 
 		// 컨트롤러가 할 일은 데이터 준비하는 일
 		// request에 담아주어야 jsp에서 가져다 쓸 수 있음
@@ -37,15 +37,14 @@ public class ChangePasswordController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		Member member;
-		int id=Integer.parseInt(request.getParameter("id"));
+		int id = Integer.parseInt(request.getParameter("id"));
 		String newpwd = request.getParameter("newPwd2");
 		String nickname = request.getParameter("nickname");
 		String agreement = request.getParameter("agreement");
 		String save = request.getParameter("save");
-		
-		if(save.equals("저장")) {
+
+		if (save.equals("저장")) {
 			member = new Member(id, newpwd, agreement, nickname);
 			memberService.update(member);
 			response.sendRedirect("/member/mypage?id=" + id);
