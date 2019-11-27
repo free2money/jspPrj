@@ -113,8 +113,8 @@ section #smallbox *{
 
 					<h1>로그인 도움 메뉴</h1>
 					<ul>
-						<li><a href="">회원가입</a></li>
-						<li><a href="">아이디 찾기</a></li>
+						<li><a href="/signUp/signUp">회원가입</a></li>
+						<li><a href="/login/findId">아이디 찾기</a></li>
 						<li><a href="">비밀번호 찾기</a></li>
 					</ul>
 				</div>
