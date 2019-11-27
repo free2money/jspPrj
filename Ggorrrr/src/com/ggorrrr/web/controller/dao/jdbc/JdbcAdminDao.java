@@ -19,22 +19,20 @@ public class JdbcAdminDao implements AdminDao {
 			st.setInt(1, memberId);
 			result = st.executeUpdate();
 
-			st.close();
-			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (st != null)
-				try {
+			try {
+				if (st != null)
 					st.close();
-					JdbcContext.delCon();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				}
+				JdbcContext.delCon();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
 		}
 		return result;
 	}
@@ -50,22 +48,20 @@ public class JdbcAdminDao implements AdminDao {
 			st.setInt(2, adminId);
 			result = st.executeUpdate();
 
-			st.close();
-			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (st != null)
-				try {
+			try {
+				if (st != null)
 					st.close();
-					JdbcContext.delCon();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				}
+				JdbcContext.delCon();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
 		}
 		return result;
 	}
@@ -90,24 +86,22 @@ public class JdbcAdminDao implements AdminDao {
 						rs.getString("pwd"), /**/
 						rs.getString("name"));
 			}
-			rs.close();
-			st.close();
-			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (st != null)
-				try {
+			try {
+				if (rs != null)
 					rs.close();
+				if (st != null)
 					st.close();
-					JdbcContext.delCon();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				}
+				JdbcContext.delCon();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
 		}
 		return admin;
 	}

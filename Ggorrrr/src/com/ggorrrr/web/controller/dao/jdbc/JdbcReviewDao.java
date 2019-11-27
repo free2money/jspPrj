@@ -37,9 +37,6 @@ public class JdbcReviewDao implements ReviewDao {
 				list.add(review);
 			}
 
-			rs.close();
-			st.close();
-			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -47,16 +44,17 @@ public class JdbcReviewDao implements ReviewDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			if (st != null)
-				try {
+			try {
+				if (rs != null)
 					rs.close();
+				if (st != null)
 					st.close();
-					JdbcContext.delCon();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				}
+				JdbcContext.delCon();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
 		}
 		return list;
 	}
@@ -80,9 +78,6 @@ public class JdbcReviewDao implements ReviewDao {
 				list.add(review);
 			}
 
-			rs.close();
-			st.close();
-			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -90,16 +85,17 @@ public class JdbcReviewDao implements ReviewDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			if (st != null)
-				try {
+			try {
+				if (rs != null)
 					rs.close();
+				if (st != null)
 					st.close();
-					JdbcContext.delCon();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				}
+				JdbcContext.delCon();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
 		}
 		return list;
 	}
@@ -123,9 +119,6 @@ public class JdbcReviewDao implements ReviewDao {
 				list.add(review);
 			}
 
-			rs.close();
-			st.close();
-			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -133,16 +126,17 @@ public class JdbcReviewDao implements ReviewDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			if (st != null)
-				try {
+			try {
+				if (rs != null)
 					rs.close();
+				if (st != null)
 					st.close();
-					JdbcContext.delCon();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				}
+				JdbcContext.delCon();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
 		}
 		return list;
 	}
@@ -166,8 +160,6 @@ public class JdbcReviewDao implements ReviewDao {
 			st.setString(8, review.getFoodType());
 			result = st.executeUpdate();
 
-			st.close();
-			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -175,15 +167,15 @@ public class JdbcReviewDao implements ReviewDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			if (st != null)
-				try {
+			try {
+				if (st != null)
 					st.close();
-					JdbcContext.delCon();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				}
+				JdbcContext.delCon();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
 		}
 		return result;
 	}
@@ -205,22 +197,20 @@ public class JdbcReviewDao implements ReviewDao {
 
 			result = st.executeUpdate();
 
-			st.close();
-			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (st != null)
-				try {
+			try {
+				if (st != null)
 					st.close();
-					JdbcContext.delCon();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				}
+				JdbcContext.delCon();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
 		}
 		return result;
 	}
@@ -235,22 +225,20 @@ public class JdbcReviewDao implements ReviewDao {
 			st.setInt(1, id);
 			result = st.executeUpdate();
 
-			st.close();
-			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (st != null)
-				try {
+			try {
+				if (st != null)
 					st.close();
-					JdbcContext.delCon();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				}
+				JdbcContext.delCon();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
 		}
 		return result;
 	}
@@ -273,24 +261,22 @@ public class JdbcReviewDao implements ReviewDao {
 						rs.getDate("regdate"), rs.getInt("rating"), rs.getString("foodName"), rs.getString("foodType"));
 			}
 
-			rs.close();
-			st.close();
-			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (st != null)
-				try {
+			try {
+				if (rs != null)
 					rs.close();
+				if (st != null)
 					st.close();
-					JdbcContext.delCon();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				}
+				JdbcContext.delCon();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
 		}
 		return review;
 	}

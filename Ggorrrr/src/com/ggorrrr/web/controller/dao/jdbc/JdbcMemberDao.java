@@ -50,24 +50,23 @@ public class JdbcMemberDao implements MemberDao {
 				list.add(member);
 			}
 
-			rs.close();
-			st.close();
-			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (st != null)
-				try {
+
+			try {
+				if (rs != null)
 					rs.close();
+				if (st != null)
 					st.close();
-					JdbcContext.delCon();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				}
+				JdbcContext.delCon();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
 		}
 		return list;
 	}
@@ -94,8 +93,6 @@ public class JdbcMemberDao implements MemberDao {
 
 			result = st.executeUpdate(); // st실행 //실행되면 1반환
 
-			st.close();
-			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -103,15 +100,15 @@ public class JdbcMemberDao implements MemberDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			if (st != null)
-				try {
+			try {
+				if (st != null)
 					st.close();
-					JdbcContext.delCon();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				}
+				JdbcContext.delCon();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
 		}
 		return result;
 	}
@@ -131,22 +128,20 @@ public class JdbcMemberDao implements MemberDao {
 
 			result = st.executeUpdate();
 
-			st.close();
-			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (st != null)
-				try {
+			try {
+				if (st != null)
 					st.close();
-					JdbcContext.delCon();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				}
+				JdbcContext.delCon();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
 		}
 		return result;
 	}
@@ -164,22 +159,20 @@ public class JdbcMemberDao implements MemberDao {
 
 			result = st.executeUpdate();
 
-			st.close();
-			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (st != null)
-				try {
+			try {
+				if (st != null)
 					st.close();
-					JdbcContext.delCon();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				}
+				JdbcContext.delCon();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
 		}
 		return result;
 	}
@@ -213,24 +206,22 @@ public class JdbcMemberDao implements MemberDao {
 
 			}
 
-			rs.close();
-			st.close();
-			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (st != null)
-				try {
+			try {
+				if (rs != null)
 					rs.close();
+				if (st != null)
 					st.close();
-					JdbcContext.delCon();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				}
+				JdbcContext.delCon();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
 		}
 		return member;
 	}
@@ -263,23 +254,22 @@ public class JdbcMemberDao implements MemberDao {
 
 			}
 
-			rs.close();
-			st.close();
-			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (st != null)
-				try {
+			try {
+				if (rs != null)
+					rs.close();
+				if (st != null)
 					st.close();
-					JdbcContext.delCon();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				}
+				JdbcContext.delCon();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
 		}
 		return member;
 	}
@@ -311,23 +301,22 @@ public class JdbcMemberDao implements MemberDao {
 				member = new Member(id_, user_name, pwd, name_, birthday, email, gender, phone, location_agree,
 						nickname);
 			}
-			rs.close();
-			st.close();
-			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (st != null)
-				try {
+			try {
+				if (rs != null)
+					rs.close();
+				if (st != null)
 					st.close();
-					JdbcContext.delCon();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				}
+				JdbcContext.delCon();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
 		}
 		return member;
 	}

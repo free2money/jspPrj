@@ -96,25 +96,22 @@ public class JdbcFoodDao implements FoodDao {
 
 				list.add(food);
 			}
-
-			rs.close();
-			st.close();
-			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (st != null)
-				try {
+			try {
+				if (rs != null)
 					rs.close();
+				if (st != null)
 					st.close();
-					JdbcContext.delCon();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				}
+				JdbcContext.delCon();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
 		}
 		return list;
 	}
@@ -146,22 +143,20 @@ public class JdbcFoodDao implements FoodDao {
 				food = new Food(id, korname, engname, photo, ingridients, explain, managerId, vegetarian, thema, recipe,
 						category, price);
 			}
-			st.close();
-			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (st != null)
-				try {
+			try {
+				if (st != null)
 					st.close();
-					JdbcContext.delCon();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				}
+				JdbcContext.delCon();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
 		}
 		return food;
 	}
@@ -186,22 +181,20 @@ public class JdbcFoodDao implements FoodDao {
 			st.setInt(9, food.getPrice());
 			result = st.executeUpdate();
 
-			st.close();
-			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (st != null)
-				try {
+			try {
+				if (st != null)
 					st.close();
-					JdbcContext.delCon();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				}
+				JdbcContext.delCon();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
 		}
 		return result;
 	}
@@ -226,22 +219,20 @@ public class JdbcFoodDao implements FoodDao {
 
 			result = st.executeUpdate();
 
-			st.close();
-			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (st != null)
-				try {
+			try {
+				if (st != null)
 					st.close();
-					JdbcContext.delCon();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				}
+				JdbcContext.delCon();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
 		}
 		return result;
 	}
@@ -255,22 +246,21 @@ public class JdbcFoodDao implements FoodDao {
 			st = JdbcContext.getPreparedStatement(sql);
 			st.setInt(1, id);
 			result = st.executeUpdate();
-			st.close();
-			JdbcContext.delCon();
+
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (st != null)
-				try {
+			try {
+				if (st != null)
 					st.close();
-					JdbcContext.delCon();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				}
+				JdbcContext.delCon();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
 		}
 		return result;
 	}
@@ -319,24 +309,22 @@ public class JdbcFoodDao implements FoodDao {
 				;
 			count = rs.getInt("count");
 
-			rs.close();
-			st.close();
-			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (st != null)
-				try {
+			try {
+				if (rs != null)
 					rs.close();
+				if (st != null)
 					st.close();
-					JdbcContext.delCon();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				}
+				JdbcContext.delCon();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
 		}
 		return count;
 	}

@@ -23,8 +23,6 @@ public class JdbcBookmarkDao implements BookmarkDao {
 			st.setInt(2, bookmarkMenu.getMember_id());
 			result = st.executeUpdate();
 
-			st.close();
-			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -32,15 +30,15 @@ public class JdbcBookmarkDao implements BookmarkDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			if (st != null)
-				try {
+			try {
+				if (st != null)
 					st.close();
-					JdbcContext.delCon();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				}
+				JdbcContext.delCon();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
 		}
 		return result;
 	}
@@ -56,8 +54,6 @@ public class JdbcBookmarkDao implements BookmarkDao {
 			st.setInt(1, food_id);
 			result = st.executeUpdate();
 
-			st.close();
-			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -65,15 +61,15 @@ public class JdbcBookmarkDao implements BookmarkDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			if (st != null)
-				try {
+			try {
+				if (st != null)
 					st.close();
-					JdbcContext.delCon();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				}
+				JdbcContext.delCon();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
 		}
 		return result;
 	}
@@ -84,10 +80,11 @@ public class JdbcBookmarkDao implements BookmarkDao {
 		List<BookmarkMenu> list = new ArrayList<BookmarkMenu>();
 		String sql = "SELECT FOOD_ID, KORNAME, PHOTO FROM BOOKMARK_VIEW WHERE member_ID = ?";
 		PreparedStatement st = null;
+		ResultSet rs = null;
 		try {
 			st = JdbcContext.getPreparedStatement(sql);
 			st.setInt(1, member_id);
-			ResultSet rs = st.executeQuery();
+			rs = st.executeQuery();
 
 			while (rs.next()) {
 				BookmarkMenu bookmarkView = new BookmarkMenu(/**/
@@ -97,10 +94,6 @@ public class JdbcBookmarkDao implements BookmarkDao {
 						member_id);
 				list.add(bookmarkView);
 			}
-
-			rs.close();
-			st.close();
-			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -108,15 +101,17 @@ public class JdbcBookmarkDao implements BookmarkDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			if (st != null)
-				try {
+			try {
+				if (rs != null)
+					rs.close();
+				if (st != null)
 					st.close();
-					JdbcContext.delCon();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				}
+				JdbcContext.delCon();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
 		}
 		return list;
 	}
