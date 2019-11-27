@@ -24,6 +24,7 @@ public class JdbcBookmarkDao implements BookmarkDao {
 			result = st.executeUpdate();
 
 			st.close();
+			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -56,6 +57,7 @@ public class JdbcBookmarkDao implements BookmarkDao {
 			result = st.executeUpdate();
 
 			st.close();
+			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -98,6 +100,7 @@ public class JdbcBookmarkDao implements BookmarkDao {
 
 			rs.close();
 			st.close();
+			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -20,6 +20,7 @@ public class JdbcAdminDao implements AdminDao {
 			result = st.executeUpdate();
 
 			st.close();
+			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -50,6 +51,7 @@ public class JdbcAdminDao implements AdminDao {
 			result = st.executeUpdate();
 
 			st.close();
+			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -90,6 +92,7 @@ public class JdbcAdminDao implements AdminDao {
 			}
 			rs.close();
 			st.close();
+			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {

@@ -52,6 +52,7 @@ public class JdbcMemberDao implements MemberDao {
 
 			rs.close();
 			st.close();
+			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -94,6 +95,7 @@ public class JdbcMemberDao implements MemberDao {
 			result = st.executeUpdate(); // st실행 //실행되면 1반환
 
 			st.close();
+			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -130,6 +132,7 @@ public class JdbcMemberDao implements MemberDao {
 			result = st.executeUpdate();
 
 			st.close();
+			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -162,6 +165,7 @@ public class JdbcMemberDao implements MemberDao {
 			result = st.executeUpdate();
 
 			st.close();
+			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -211,6 +215,7 @@ public class JdbcMemberDao implements MemberDao {
 
 			rs.close();
 			st.close();
+			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -260,6 +265,7 @@ public class JdbcMemberDao implements MemberDao {
 
 			rs.close();
 			st.close();
+			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -307,6 +313,7 @@ public class JdbcMemberDao implements MemberDao {
 			}
 			rs.close();
 			st.close();
+			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {

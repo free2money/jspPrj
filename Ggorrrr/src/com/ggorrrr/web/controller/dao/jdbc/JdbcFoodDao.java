@@ -99,6 +99,7 @@ public class JdbcFoodDao implements FoodDao {
 
 			rs.close();
 			st.close();
+			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -146,6 +147,7 @@ public class JdbcFoodDao implements FoodDao {
 						category, price);
 			}
 			st.close();
+			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -185,6 +187,7 @@ public class JdbcFoodDao implements FoodDao {
 			result = st.executeUpdate();
 
 			st.close();
+			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -224,6 +227,7 @@ public class JdbcFoodDao implements FoodDao {
 			result = st.executeUpdate();
 
 			st.close();
+			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -252,6 +256,7 @@ public class JdbcFoodDao implements FoodDao {
 			st.setInt(1, id);
 			result = st.executeUpdate();
 			st.close();
+			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -316,6 +321,7 @@ public class JdbcFoodDao implements FoodDao {
 
 			rs.close();
 			st.close();
+			JdbcContext.delCon();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
