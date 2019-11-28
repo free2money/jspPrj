@@ -17,9 +17,8 @@
 			<h1>회원가입페이지</h1>
 			<nav>
 				<a class="" href="../index">
-					<h2 id="h2">
 						<h3><img id=img width="50px" height="50px"
-							src="/images/ggorrrrlogo.png">그래서뭐먹어?</h3>
+							src="/images/ggorrrrlogo.png"> 그래서뭐먹어?</h3>
 				</a>
 			</nav>
 		</section>

@@ -45,7 +45,7 @@ public class MypageController extends HttpServlet {
 		// 멤버서비스에 업데이트를 가져와야함
 		String cmd = request.getParameter("cmd");
 //		int id = Integer.parseInt(request.getParameter("id"));
-		int id = 2;
+		int id = 191128019;
 
 		switch (cmd) {
 		case "이동":

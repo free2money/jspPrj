@@ -13,8 +13,8 @@
 	<header id="header">
 		<h1>회원가입페이지</h1>
 		<nav>
-			<a href="../index"><img id="img" width="50px" height="50px"
-				src="../images/ggorrrrlogo.png">그래서뭐먹어?</a>
+			<a href="../index"><h3><img id="img" width="50px" height="50px"
+				src="../images/ggorrrrlogo.png"> 그래서뭐먹어?</h3></a>
 		</nav>
 	</header>
 

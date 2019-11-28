@@ -13,32 +13,32 @@
 <body>
 	<jsp:include page="../inc/header.jsp" />
 	<!------------------------- ㅡheader끝 main시작 ------------------------------------>
-	<main>
+	<main id="main">
 	<div>
-		<img src="/images/ggorrrrlogo.png" width="50" height="50">
 		<section>
-			<h1>MY그먹</h1>
+		<h2 id="h2"><img id="img" src="/images/ggorrrrlogo.png" width="50" height="50"> MY그먹</h2>
 		</section>
 	</div>
 
 	<form action="" method="post">
-		<section>
+		<section id="middlebox">
 			<h1>마이페이지비밀번호변경프로필</h1>
-			<div>
+			<div id="nicknameDiv">
 			 <input type="hidden" name="id" value="${member.id}">
 			 <input type="hidden" name="agreement" value="${member.location_agree}">
 			<input type="hidden" name="nickname" value="${member.nickname}">
-				<img src="/images/profile.png" width="50" height="50">
-				 <h1>${member.nickname}</h1>
+				 <h3><img id="img" src="/images/profile.png" width="35" height="35"> ${member.nickname}</h3>
 			</div>
+			
+			<div id="inMiddlebox">
 			<dl id="change-pwd">
-				<dt>현재비밀번호:</dt>
+				<dt>현재비밀번호</dt>
 				<dd>
 					<input class="now-pwd" type="hidden" name="pwd" value="${pwd}">
 				</dd>
 				<dd>
 					<input class="now-pwd2" type="text" name="nowPwd" value="">
-					<input class="now-check-button" type="button" name="nowPwdbutton"
+					<input style="width:30px; height: 24px;" class="now-check-button" type="button" name="nowPwdbutton"
 						value="확인">
 				</dd>
 				<dd>
@@ -47,23 +47,24 @@
 
 			<!--<dd>${nows}</dd>-->
 			
-				<dt>새 비밀번호:</dt>
+				<dt>새 비밀번호</dt>
 				<dd>
 					<input class="new-pwd" type="text" name="newPwd" value="">
 				</dd>
 
-				<dt>새 비밀번호 확인:</dt>
+				<dt>새 비밀번호 확인</dt>
 				<dd>
 					<input class="new-pwd2" type="text" name="newPwd2" value="">
-					<input class="new-check-button" type="button" name="newPwdsubmit"
+					<input style="width:30px; height: 24px;" class="new-check-button" type="button" name="newPwdsubmit"
 						value="확인">
 				</dd>
 				<dd><input class="new-check-text" type="text" name="newPwdText" value=""></dd>
 			</dl>
+			</div>
 
-			<div>
-				<a href="mypage"><input type="button" name="취소"
-					value="취소"></a> <a href="./categori.html"><input
+			<div id="button">
+				<a href="mypage"><input style="width:110px; height: 50px;" type="button" name="취소"
+					value="취소"></a> <a href="./categori.html"><input style="width:110px; height: 50px;"
 					type="submit" name="save" value="저장"></a>
 			</div>
 		</section>

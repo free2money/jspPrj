@@ -1,12 +1,12 @@
 @charset "UTF-8";
 
-#h2 {
+/* #h2 {
 	font-size: 30px;
 	color: black;
-}
+} */
 
-#h2>h3 {
-	padding-left: 10px;
+h3 {
+	font-size: 40px;
 }
 
 #img {
@@ -133,10 +133,14 @@ div select {
 
 
 div input[type="submit"] {
-	background-color: #bdd7ee;
+	--background-color: #bdd7ee;
 	width: 350px;
 	height: 50px;
 	font-size: 22px;
 	--color: white;
 	margin-bottom: 30px;
+}
+
+div input[type="submit"]:hover {
+	border: solid #bdd7ee;
 }
