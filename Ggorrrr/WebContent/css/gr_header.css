@@ -10,7 +10,7 @@
 }
 
 #header #topHeader {
-	margin-top: 10px;
+	margin-top:10px;
 	min-width: 1100px;
 	height: 40px;
 }
@@ -158,6 +158,10 @@
 	padding-left: 40px;
 	z-index: 1000;
 }
+#categori ul li>a{
+	width:100px;
+	height:inherit;
+	display: inline-block;
 
 }
 

@@ -11,7 +11,7 @@
 <link href="/css/default.css" type="text/css" rel="stylesheet">
 <link href="/css/index_header.css" type="text/css" rel="stylesheet">
 <link href="/css/index.css" type="text/css" rel="stylesheet">
-
+<script src="/js/index.js"></script>
 <script src="/js/sadariFix.js"></script>
 
 </head>
@@ -74,7 +74,7 @@
 
 			<div id="visual">
 				<div>
-					<span> <img src="./images/ggorrrrlogo.png">
+					<span> <img src="/images/ggorrrrlogo.png">
 					</span> <span id="title"> 그래서 뭐먹어? </span>
 				</div>
 			</div>
@@ -170,16 +170,23 @@
 		<div id="best">
 			<h1>BEST</h1>
 		</div>
-		<div id="food">
-			<table>
-				<c:forEach var="n" items="${list}" begin="0" end="10" step="1" >
-				<tr>
-					<td>${n.korname }</td>
-					<td>${n.korname }</td>
-					<td>${n.korname }</td>
-				</tr>
-				</c:forEach>
-			</table>
+		
+		<div class="slide">
+			<div class="food">
+				
+				<div class="img"><img src="/images/KimchiSoup.jpg"></div>
+				<div class="img"><img src="/images/tonkatsu.jpg"></div>
+				<div class="img"><img src="/images/tteokbokki.jpg"></div>
+				<div class="img"><img src="/images/kimchiFriedRice.jpg"></div>
+				<div class="img"><img src="/images/jajangmyeon.jpg"></div>
+				<div class="img"><img src="/images/bookmark.png"></div>
+				
+			</div>
+			
+			<div class="buttonDiv">
+			<button type="button" class="slideButton">Prev</button>
+			<button type="button" class="slideButton">Next</button>
+			</div>
 		</div>
 	</section>
 	</main>
