@@ -40,7 +40,7 @@ public class RegController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int id = 6; // 일련번호
+		int id = 0;
 		int member_id = 3;
 		String foodType = "";
 		String foodName = "";

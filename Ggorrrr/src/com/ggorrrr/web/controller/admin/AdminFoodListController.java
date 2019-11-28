@@ -43,7 +43,6 @@ public class AdminFoodListController extends HttpServlet {
 			query = query_;
 
 		request.setAttribute("list", foodService.getFoodList(category, query));
-
 		request.getRequestDispatcher("/WEB-INF/view/admin/menu/listDelete.jsp").forward(request, response);
 	}
 

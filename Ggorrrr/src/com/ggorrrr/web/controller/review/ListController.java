@@ -81,7 +81,6 @@ public class ListController extends HttpServlet {
 			break;
 
 		case "글쓰기":
-
 			response.sendRedirect("reg");
 			break;
 

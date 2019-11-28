@@ -41,7 +41,7 @@ public class AdminChangePasswordController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		Member admin = (Member) session.getAttribute("sessionadmin");
+		Member admin = (Member) session.getAttribute("sessionuser");
 		if (admin == null) {
 			response.sendRedirect("/login/login?error=1");
 			return;
@@ -49,7 +49,7 @@ public class AdminChangePasswordController extends HttpServlet {
 		String newPwd = request.getParameter("newPwd");
 
 		memberService.update(new Member(admin.getId(), newPwd, admin.getLocation_agree(), admin.getNickname()));
-		request.getSession().setAttribute("sessionadmin", memberService.get(admin.getId()));
+		request.getSession().setAttribute("sessionuser", memberService.get(admin.getId()));
 		response.sendRedirect("page");
 	}
 }
