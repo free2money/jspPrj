@@ -135,5 +135,4 @@ public class Review {
 				+ ", eating_date=" + eating_date + ", photo=" + photo + ", regdate=" + regdate + ", rating=" + rating
 				+ ", foodName=" + foodName + "]";
 	}
-
 }

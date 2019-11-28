@@ -9,77 +9,195 @@
 <title>그래서 뭐먹지?</title>
 <link href="/css/default.css" type="text/css" rel="stylesheet" />
 </head>
+<style>
+/* h1 {
+	font-size: 0px;
+	overflow: hidden;
+} */
+main {
+	min-width: 1600px;
+	min-height: 700px;
+}
+
+main nav {
+	min-height: 100%;
+}
+
+main>#sori-title {
+	text-align: center;
+}
+
+main>.topvisual {
+	text-align: right;
+	margin-right: 50px;
+	margin-bottom: 40px;
+}
+
+main>nav .topvisual {
+	text-align: right;
+	margin-right: 80px;
+	margin-top: 30px;
+}
+
+#middlebox {
+	overflow: auto;
+	width: 1000px;
+	min-height: 600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#ppp {
+	position: relative;
+	min-height: 100%;
+}
+
+div #content_main {
+	float: left;
+}
+
+nav #order {
+	width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: right;
+}
+
+nav #order  a {
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+#middlebox #content_main {
+	margin-top: 20px;
+	padding: 22px;
+}
+
+#middlebox #content_main span {
+	margin-top: 10px;
+	display: inline-block;
+	padding-left: 20px;
+}
+
+#review-title {
+	padding: 19px;
+	border-bottom: 1px solid #979797;
+	width: 900px;
+}
+
+#review-title>span {
+	font-size: 30px;
+	font-weight: bold;
+}
+
+#review-content {
+	padding-left: 80px;
+}
+
+main #search {
+	display: inline-block;
+	float: right;
+	margin-right: 80px;
+	border: 3px solid #D4F4FA;
+	position: relative;
+}
+
+main #search input[type="text"] {
+	padding: 3px;
+	width: 200px;
+	border: 1px solid #D4F4FA;
+}
+
+main #search input[type="button"] {
+	width: 25px;
+	height: 26px;
+	position: absolute;
+	right: 0;
+	background: url("../images/search1.png") no-repeat;
+	outline: none;
+	border: 0px;
+}
+
+#sori-title {
+	border-bottom: 1px solid black;
+	margin-bottom: 2px;
+}
+
+#order a:hover {
+	color: #6262ff;
+}
+
+.aaa {
+	content: "";
+	clear: both;
+	display: block;
+}
+
+#content_main::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+</style>
 <body>
 	<jsp:include page="../inc/header.jsp" />
 	<!-- =========================================================================== -->
 	<main>
-	<div>
-		<section>
-			<h1>
-				<img src="../images/ggorrrrlogo.png" width="50" height="50">고객의
-				소리
-			</h1>
-		</section>
+	<div id="sori-title">
+		<h1>
+			<img src="/images/sori.png" width="283" height="80">
+		</h1>
 	</div>
 
-	<div>
-		<section>
-			<h1>
-				<img src="../images/sori.png" width="50" height="50">고객의 소리
-			</h1>
-		</section>
-	</div>
-	<div>
-		<form action="list" method="post">
-			<input type="text" name="q" value="검색어"> <input type="submit"
-				name="cmd" value="검색">
-		</form>
-	</div>
-	<nav>
-		<h1>고객의 소리 리스트</h1>
-		<form action="list" method="post">
-			<input type="submit" name="cmd" value="글쓰기" >
-			<a href="list?order=0">최신순</a>
-			<a href="list?order=1">평점순</a>
-		</form>
-		<ul>
-			<c:forEach var="n" items="${list}">
-				<li>
-					<table>
-						<tbody>
-							<tr>
-								<th>${n.address}</th>
-							</tr>
-							<tr>
-								<td>
-									<!-- id를 번호로 부여해서 style을 건들이면 되겟다. -->
-									<div id="content_main">
-										${n.content}<span id="content_hidden">...</span><span
-											id="content_" style="display: none;">${n.content}</span><span
-											id="content_expand" style="cursor: pointer;"><a
-											onclick="parent.content_.style.display=''; parent.content_hidden.style.display='none'; parent.content_expand.style.display = 'none'; parent.content_fold.style.display = '';">
-												<br> 더보기
-										</a> </span> <span id="content_fold"
-											style="display: none; cursor: pointer;"><a
-											onclick="parent.content_.style.display='none'; parent.content_hidden.style.display=''; parent.content_fold.style.display = 'none'; parent.content_expand.style.display = ''; ">
-												<br> 줄이기
-										</a> </span>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td><img alt="" src="">${n.photo }</td>
-							</tr>
+	<form id="search" action="">
+		<input type="text" name="q" placeholder="search..." /> <input
+			onclick="submit();" style="cursor: pointer;" type="button"
+			name="검색버튼" />
+	</form>
+	<br>
 
-						</tbody>
-					</table>
-				</li>
-			</c:forEach>
-		</ul>
+	<nav id="review">
+		<h1 class="d-none">고객의 소리 리스트</h1>
+		<div class="topvisual">
+			<form action="list" method="post">
+				<input type="submit" name="cmd" value="글쓰기">
+			</form>
+		</div>
+
+		<div id="order">
+			<a href="list?order=0">최신순</a> <a href="list?order=1">평점순</a><br>
+		</div>
+
+		<div id="ppp">
+			<div id="middlebox">
+				<div id="content_main">
+					<c:forEach var="n" items="${list}" begin="0" end="${lastReview }">
+						<div id="review-title">
+							<span>ㆍ ${n.address}종각역 엽기떡볶이</span>
+						</div>
+						<br>
+						<div id="review-content">
+							<!-- id를 번호로 부여해서 style을 건들이면 되겟다. -->
+							<span>${n.content}</span> <span id="content_hidden">...</span> <span
+								id="content_" style="display: none;">${n.content}</span> <span
+								id="content_expand" style="cursor: pointer;"><a
+								onclick="parent.content_.style.display=''; parent.content_hidden.style.display='none'; parent.content_expand.style.display = 'none'; parent.content_fold.style.display = '';">
+									<br> 더보기
+							</a> </span> <span id="content_fold" style="display: none; cursor: pointer;"><a
+								onclick="parent.content_.style.display='none'; parent.content_hidden.style.display=''; parent.content_fold.style.display = 'none'; parent.content_expand.style.display = ''; ">
+									<br> 줄이기
+							</a> </span><br> <span><img alt="" src="">${n.photo }사진자리입니다.<br></span>
+						</div>
+					</c:forEach>
+
+				</div>
+				<div class="aaa"></div>
+			</div>
+		</div>
 	</nav>
 	</main>
 	<jsp:include page="../inc/sadari.jsp" />
 	<!-- ================================footer시작=============================== -->
-	<jsp:include page="../inc/footer.jsp"/>
+	<jsp:include page="../inc/footer.jsp" />
 </body>
 </html>

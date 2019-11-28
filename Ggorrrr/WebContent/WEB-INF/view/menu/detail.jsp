@@ -86,7 +86,7 @@ section dl {
 
 		<div id="img">
 			<h1>음식사진</h1>
-			<img src="../../images/KimchiSoup.jpg">
+			<img src="/upload/${f.photo }">
 			<p>(상기 사진은 실물과 다를 수 있습니다.)</p>
 		</div>
 

@@ -50,6 +50,7 @@ public class FindIdController extends HttpServlet {
 		if (isValid) {
 			request.getRequestDispatcher("/WEB-INF/view/login/findID.jsp").forward(request, response);
 			request.setAttribute("findId", memberService.findId(name));
+			request.getRequestDispatcher("/WEB-INF/view/login/findID.jsp").forward(request, response);
 		} else
 			response.sendRedirect("findID?error=1");
 	}

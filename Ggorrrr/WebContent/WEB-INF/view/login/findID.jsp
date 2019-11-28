@@ -82,7 +82,7 @@
 		<div id="findId">
 			<c:if test="${not empty findId }">
 				<p>귀하의 아이디는</p>
-				<div style="color: black; font-weight: bold;">${findId.user_id }</div>
+				<div style="color: red; font-weight: bold;">${findId.user_id }</div>
 				<p>입니다.</p>
 			</c:if>
 		</div>

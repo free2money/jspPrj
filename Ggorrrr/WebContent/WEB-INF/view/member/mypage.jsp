@@ -9,74 +9,68 @@
 <link href="/css/default.css" type="text/css" rel="stylesheet">
 <link href="/css/mypage.css" type="text/css" rel="stylesheet">
 <style>
-/* .nickname {
+.nickname {
 	position: relative;
+	height: 50px;
 }
 
 .nickname span {
 	position: absolute;
-	display: inline-block;
-	font-size: 30px;
-	top: 3px;
-	left:
-} */
+    display: inline-block;
+    font-size: 22px;
+    top: 7px;
+    left: 194px;
+}
+
+.nickname img {
+	position: relative;
+	left: -31px;
+	width: 30px;
+	height: 30px;
+	top: 9px;
+}
 </style>
 </head>
 <body>
 
 	<jsp:include page="../inc/header.jsp" />
 	<!------------------------- ㅡheader끝 main시작 ------------------------------------>
-	<main id="main">
-	<div>
-		<h2>
-			<img id="img" src="/images/ggorrrrlogo.png" width="50" height="50">
-			My그먹
-		</h2>
+	<main>
+	<div id="img">
+		<h1>My그먹</h1>
+		<img src="/images/mypage.png" width="170" height="50">
 	</div>
 	<div>
-		<form action="/member/mypage" method="post">
-			<section id="middlebox">
+		<form action="mypage" method="post">
+			<section>
 				<!--<h1>마이페이지사용자프로필</h1>-->
 				<div class="nickname">
-					<span><img id="img" src="../images/profile.png" width="40"
-						height="40"> ${member.nickname}</span>
+					<img src="../images/profile.png" width="50" height="50"> <span>${member.nickname}</span>
 				</div>
-				<div></div>
 				<input type="hidden" name="id" value="${member.id}">
 				<dl>
-					<div id="dtdd">
-						<dt>아이디:</dt>
-						<dd>${member.user_id}</dd>
-					</div>
+					<dt>아이디:</dt>
+					<dd>${member.user_id}</dd>
 					<br>
-					<div id="dtdd">
-						<dt>비밀번호:</dt>
-						<dd>
-							<input type="password" name="pwd" value="${member.pwd}"
-								readonly="readonly"><input type="submit" name="cmd"
-								value="이동">
-						</dd>
-					</div>
+					<dt>비밀번호:</dt>
+					<dd>
+						<input type="password" name="pwd" value="${member.pwd}"
+							readonly="readonly"><input type="submit" name="cmd"
+							value="이동">
+					</dd>
 					<br>
-					<div id="dtdd">
-						<dt>닉네임:</dt>
-						<dd>
-							<input type="text" name="닉네임수정" value="${member.nickname}">
-							<input type="submit" name="cmd" value="변경">
-						</dd>
-					</div>
+					<dt>닉네임:</dt>
+					<dd>
+						<input type="text" name="닉네임수정" value="${member.nickname}">
+						<input type="submit" name="cmd" value="변경">
+					</dd>
 					<br>
-					<div id="dtdd">
 					<dt>생년월일:</dt>
 					<dd>${member.birthday}</dd>
-					</div>
 					<br>
-					<div id="dtdd">
 					<dt>전화번호:</dt>
 					<dd>${member.phone}</dd>
-					</div>
 					<br>
-					<div id="dtdd">
 					<dt>위치정보:</dt>
 					<dd>
 						<input type="hidden" name="위치정보동의"
@@ -97,7 +91,6 @@
 						</c:if>
 						<input type="submit" name="cmd" value="변경">
 					</dd>
-					</div>
 					<br>
 					<dt>
 						<a href="mybookmarklist?id=${member.id}">My메뉴관리</a>
