@@ -22,11 +22,10 @@ header {
 }
 
 main {
-	min-height: 500px;
 	margin-left: auto;
 	margin-right: auto;
 	min-height: 500px;
-	min-height: 500px;
+	min-width: 1600px;
 }
 
 footer {
@@ -46,7 +45,9 @@ footer {
 	margin-left: auto;
 	margin-right: auto;
 	min-height: inherit;
-	border: 2px solid black;
+	border: 2px solid gray;
+	margin-bottom: 20px;
+	margin-top: 20px;
 }
 
 .img {
@@ -58,24 +59,28 @@ footer {
 .img img {
 	margin-top: 20px;
 }
-section #smallbox{
+
+section #smallbox {
 	width: 280px;
 	margin-left: auto;
 	margin-right: auto;
 }
-form input{
+
+form input {
 	width: 270px;
 	height: 28px;
 }
-form input[type="submit"]{
+
+form input[type="submit"] {
 	width: 274px;
 }
 
-section #smallbox *{
+section #smallbox * {
 	margin-top: 20px;
 	font-size: 15px;
 }
-#smallbox ul{
+
+#smallbox ul {
 	text-align: center;
 }
 </style>
@@ -88,38 +93,38 @@ section #smallbox *{
 	<div class="headerBmain"></div>
 
 	<main>
-		<div class="middlebox">
-			<section>
-					<h1>로그인</h1>
-						<div class="img">
-							<img src="../images/login.png">
-						</div>
+	<div class="middlebox">
+		<section>
+			<h1>로그인</h1>
+			<div class="img">
+				<img src="../images/login.png">
+			</div>
 
-				<div id="smallbox">
-					<form action="" method="post">
-						<div>ID</div>
-						<input type="text" name="id">
-						<div>PASSWORD</div>
-						<input type="password" name="pwd"> <input type="submit"
-							name="login" value="로그인">
-						<c:if test="${not empty param.error }">
-							<input type="hidden" name="error" value="${param.error }">
-							<div
-								style="color: red; font-weight: bold; font-size: 15px; text-align: center;">아이디
-								또는 비밀번호가 올바르지 않습니다.</div>
-						</c:if>
-						<input type="hidden" name="return-url" value="${param.returnUrl}" />
-					</form>
+			<div id="smallbox">
+				<form action="" method="post">
+					<div>ID</div>
+					<input type="text" name="id">
+					<div>PASSWORD</div>
+					<input type="password" name="pwd"> <input type="submit"
+						name="login" value="로그인">
+					<c:if test="${not empty param.error }">
+						<input type="hidden" name="error" value="${param.error }">
+						<div
+							style="color: red; font-weight: bold; font-size: 15px; text-align: center;">아이디
+							또는 비밀번호가 올바르지 않습니다.</div>
+					</c:if>
+					<input type="hidden" name="return-url" value="${param.returnUrl}" />
+				</form>
 
-					<h1>로그인 도움 메뉴</h1>
-					<ul>
-						<li><a href="/signUp/signUpAgree">회원가입</a></li>
-						<li><a href="/login/findID">아이디 찾기</a></li>
-						<li><a href="/login/findPwd">비밀번호 찾기</a></li>
-					</ul>
-				</div>
-			</section>
-		</div>
+				<h1>로그인 도움 메뉴</h1>
+				<ul>
+					<li><a href="/signUp/signUpAgree">회원가입</a></li>
+					<li><a href="/login/findID">아이디 찾기</a></li>
+					<li><a href="/login/findPwd">비밀번호 찾기</a></li>
+				</ul>
+			</div>
+		</section>
+	</div>
 	</main>
 
 

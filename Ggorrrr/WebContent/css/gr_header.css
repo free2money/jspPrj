@@ -146,7 +146,8 @@
 #categori div {
 	width: 1320px;
 	height: inherit;
-	margin-left: 140px;
+	margin-left: auto;
+   	margin-right: auto;
 }
 
 #categori ul ul {

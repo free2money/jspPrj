@@ -29,6 +29,10 @@
 	height: 30px;
 	top: 9px;
 }
+
+main{
+	min-width: 1600px;
+}
 </style>
 </head>
 <body>
@@ -36,6 +40,7 @@
 	<jsp:include page="../inc/header.jsp" />
 	<!------------------------- ㅡheader끝 main시작 ------------------------------------>
 	<main>
+	
 	<div id="img">
 		<h1>My그먹</h1>
 		<img src="/images/mypage.png" width="170" height="50">
@@ -45,7 +50,7 @@
 			<section>
 				<!--<h1>마이페이지사용자프로필</h1>-->
 				<div class="nickname">
-					<img src="../images/profile.png" width="50" height="50"> <span>${member.nickname}</span>
+					<img src="/images/profile.png" width="50" height="50"> <span>${member.nickname}</span>
 				</div>
 				<input type="hidden" name="id" value="${member.id}">
 				<dl>

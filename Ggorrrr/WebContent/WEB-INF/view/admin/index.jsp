@@ -6,6 +6,42 @@
 <meta charset="UTF-8">
 <title>그래서 뭐먹어?</title>
 <link href="/css/default.css" type="text/css" rel="stylesheet" />
+<style>
+#middlebox {
+	width: 400px;
+	min-height: 350px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 2px solid gray;
+	margin-bottom: 30px;
+	margin-top: 30px;
+}
+
+section #content div {
+	margin-top: 30px;
+	font-size: 18px;
+	margin-left: 110px;
+}
+
+section>.profile {
+	position: relative;
+	height: 60px;
+	border-bottom: 2px solid gray;
+}
+
+section>.profile div {
+	position: absolute;
+	left: 174px;
+	top: 11px;
+	font-size: 22px;
+}
+
+section>.profile img {
+	position: absolute;
+	left: 114px;
+	top: 3px;
+}
+</style>
 </head>
 <body>
 	<jsp:include page="../inc/header.jsp" />
@@ -20,22 +56,25 @@
 		</div>
 		<section>
 			<h1 class="d-none">관리자</h1>
-			<div>
+			<div class="profile">
 				<img src="/images/profile.png" width="50" height="50">
-				<h1>${sessionScope.sessionuser.name }</h1>
+				<div>
+					<h1>관리자아이디</h1>
+				</div>
 			</div>
-			<div>
+			<br>
+			<div id="content">
 				<div>
-					<a href="changePwd">비밀번호 변경</a>
+					<a href="changePwd">ㆍ비밀번호 변경</a>
 				</div>
 				<div>
-					<a href="./member/memberlist">회원 관리</a>
+					<a href="./member/memberlist">ㆍ회원 관리</a>
 				</div>
 				<div>
-					<a href="./review/listDelete">고객의소리 관리</a>
+					<a href="./review/listDelete">ㆍ고객의소리 관리</a>
 				</div>
 				<div>
-					<a href="./menu/adminlist">메뉴 관리</a>
+					<a href="./menu/adminlist"> ㆍ관리</a>
 				</div>
 			</div>
 		</section>

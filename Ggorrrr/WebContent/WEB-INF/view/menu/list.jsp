@@ -6,7 +6,6 @@
 <c:set var="startNum" value="${page - (page-1)%5}" />
 <c:set var="lastNum"
 	value="${fn:substringBefore(Math.ceil(listCount / 10) , '.')}" />
-	
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,9 +13,12 @@
 <title>그래서 뭐먹어?</title>
 <link href="/css/default.css" type="text/css" rel="stylesheet" />
 <style>
+main {
+	min-width: 1580px;
+}
 
 main>div {
-	width: 900px;
+	width: 1000px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -58,6 +60,7 @@ main>div {
 #menulist ul li {
 	margin-left: 30px;
 	margin-top: 60px;
+	text-align: center;
 }
 
 .pager {
@@ -92,8 +95,55 @@ main>div {
 	color: red;
 }
 
-.-text-.orange{
-	color: #ff6a00;	
+.-text-.orange {
+	color: #ff6a00;
+}
+
+#socategori form .search select {
+	width: 70px;
+	border: 3px solid #D4F4FA;
+}
+
+#socategori form .search input[type="text"] {
+	border: 3px solid #D4F4FA;
+	height: 18px;
+	padding-left: 4px;
+	outline: none;
+}
+
+#socategori form .search .searchhap {
+	display: contents;
+	width: 300px;
+}
+
+#socategori form .search input[type="submit"] {
+	position: absolute;
+	left: 521px;
+	background: url("../images/search3.png") no-repeat;
+	width: 20px;
+	height: 20px;
+	outline: none;
+	border: 0px;
+	top: 74px;
+}
+
+#menulist ul li input[type="submit"] {
+	background: url("../images/bookmark.png") no-repeat;
+	width: 30px;
+	height: 30px;
+	outline: none;
+	border: 0px;
+	display: inline-block;
+}
+
+#menulist ul li span:nth-child(3) {
+	font-size: 17px;
+	font-weight: bold;
+}
+
+#menulist ul li span:last-child {
+	font-size: 12px;
+	font-weight: normal;
 }
 </style>
 
@@ -109,14 +159,17 @@ main>div {
 					height="50"> <span>${param.category }</span>
 			</h2>
 			<form>
-				<div>
+				<div class="search">
 					<input type="hidden" name="category" value=${param.category }>
 					<input type="hidden" name="p" value="${param.p}"> <select
 						name="f">
 						<option value="korname">이름</option>
 						<option value="ingridients">주재료</option>
-					</select> <input type="text" name="q" value="${param.q}"> <input
-						type="submit" value="검색" />
+					</select>
+					<div class=searchhap>
+						<input type="text" placeholder="search.. " name="q"
+							value="${param.q}"> <input type="submit" value="" />
+					</div>
 				</div>
 			</form>
 			<!-- 여기 까지 검색 폼이야~ -->

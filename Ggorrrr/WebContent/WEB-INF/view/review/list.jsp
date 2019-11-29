@@ -106,6 +106,7 @@ main #search input[type="text"] {
 	padding: 3px;
 	width: 200px;
 	border: 1px solid #D4F4FA;
+	outline: none;
 }
 
 main #search input[type="button"] {
@@ -169,9 +170,9 @@ main #search input[type="button"] {
 		<div id="ppp">
 			<div id="middlebox">
 				<div id="content_main">
-					<c:forEach var="n" items="${list}" begin="0" end="${lastReview }">
+					<c:forEach var="n" items="${list}" begin="0" end="3">
 						<div id="review-title">
-							<span>ㆍ ${n.address}종각역 엽기떡볶이</span>
+							<span>ㆍ ${n.address}</span>
 						</div>
 						<br>
 						<div id="review-content">
