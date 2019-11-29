@@ -9,9 +9,7 @@ public interface ReviewService {
 
 	List<Review> getList(String field, String query);
 
-	List<Review> orderByDate();
-
-	List<Review> orderByGrade();
+	List<Review> getListByOrder(String order, String field, String query);
 
 	int insert(Review review);
 

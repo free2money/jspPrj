@@ -13,109 +13,38 @@ public class JdbcReviewDao implements ReviewDao {
 
 	@Override
 	public List<Review> getList() {
-		return getList("content", "");
+		return getListByOrder("regdate", "content", "");
 	}
 
 	@Override
 	public List<Review> getList(String field, String query) {
-		List<Review> list = new ArrayList<>();
-		String sql = "SELECT * " + "FROM REVIEW " + "WHERE " + field + " LIKE ? " + "ORDER BY REGDATE DESC";
+		return getListByOrder("regdate", "content", "");
+	}
+
+	@Override
+	public List<Review> getListByOrder(String order, String field, String query) {
+		List<Review> list = new ArrayList<Review>();
+		String sql = "SELECT * FROM REVIEW WHERE " + field + " LIKE ? ORDER BY " + order + " DESC";
 
 		PreparedStatement st = null;
 		ResultSet rs = null;
 		try {
 			st = JdbcContext.getPreparedStatement(sql);
 			st.setString(1, "%" + query + "%");
-
 			rs = st.executeQuery();
 
 			while (rs.next()) {
-				Review review = new Review(rs.getInt("id"), rs.getInt("member_id"), rs.getString("address"),
-						rs.getString("content"), rs.getDate("eating_date"), rs.getString("photo"),
-						rs.getDate("regdate"), rs.getInt("rating"), rs.getString("foodName"), rs.getString("foodType"));
-
-				list.add(review);
-			}
-
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			try {
-				if (rs != null)
-					rs.close();
-				if (st != null)
-					st.close();
-				JdbcContext.delCon();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			}
-		}
-		return list;
-	}
-
-	@Override
-	public List<Review> orderByDate() {
-		List<Review> list = new ArrayList<>();
-		String sql = "SELECT * " + "FROM REVIEW " + "ORDER BY REGDATE DESC";
-
-		PreparedStatement st = null;
-		ResultSet rs = null;
-		try {
-			st = JdbcContext.getPreparedStatement(sql);
-			rs = st.executeQuery();
-
-			while (rs.next()) {
-				Review review = new Review(rs.getInt("id"), rs.getInt("member_id"), rs.getString("address"),
-						rs.getString("content"), rs.getDate("eating_date"), rs.getString("photo"),
-						rs.getDate("regdate"), rs.getInt("rating"), rs.getString("foodName"), rs.getString("foodType"));
-
-				list.add(review);
-			}
-
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			try {
-				if (rs != null)
-					rs.close();
-				if (st != null)
-					st.close();
-				JdbcContext.delCon();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			}
-		}
-		return list;
-	}
-
-	@Override
-	public List<Review> orderByGrade() {
-		List<Review> list = new ArrayList<>();
-		String sql = "SELECT * FROM REVIEW ORDER BY RATING DESC";
-
-		PreparedStatement st = null;
-		ResultSet rs = null;
-		try {
-			st = JdbcContext.getPreparedStatement(sql);
-			rs = st.executeQuery();
-
-			while (rs.next()) {
-				Review review = new Review(rs.getInt("id"), rs.getInt("member_id"), rs.getString("address"),
-						rs.getString("content"), rs.getDate("eating_date"), rs.getString("photo"),
-						rs.getDate("regdate"), rs.getInt("rating"), rs.getString("foodName"), rs.getString("foodType"));
-
+				Review review = new Review(/**/
+						rs.getInt("id"), /**/
+						rs.getInt("member_id"), /**/
+						rs.getString("address"), /**/
+						rs.getString("content"), /**/
+						rs.getDate("eating_date"), /**/
+						rs.getString("photo"), /**/
+						rs.getDate("regdate"), /**/
+						rs.getInt("rating"), /**/
+						rs.getString("foodName"), /**/
+						rs.getString("foodType"));
 				list.add(review);
 			}
 
@@ -144,20 +73,19 @@ public class JdbcReviewDao implements ReviewDao {
 	@Override
 	public int insert(Review review) {
 		int result = 0;
-		String sql = "INSERT INTO REVIEW(ID,MEMBER_ID,ADDRESS, CONTENT, EATING_DATE, PHOTO,FOODNAME,FOODTYPE) "
-				+ "VALUES(?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO REVIEW(MEMBER_ID,ADDRESS, CONTENT, EATING_DATE, PHOTO,FOODNAME,FOODTYPE) "
+				+ "VALUES (?,?,?,?,?,?,?)";
 
 		PreparedStatement st = null;
 		try {
 			st = JdbcContext.getPreparedStatement(sql);
-			st.setInt(1, review.getId());
-			st.setInt(2, review.getMember_id());
-			st.setString(3, review.getAddress());
-			st.setString(4, review.getContent());
-			st.setDate(5, review.getEating_date());
-			st.setString(6, review.getPhoto());
-			st.setString(7, review.getFoodName());
-			st.setString(8, review.getFoodType());
+			st.setInt(1, review.getMember_id());
+			st.setString(2, review.getAddress());
+			st.setString(3, review.getContent());
+			st.setDate(4, review.getEating_date());
+			st.setString(5, review.getPhoto());
+			st.setString(6, review.getFoodName());
+			st.setString(7, review.getFoodType());
 			result = st.executeUpdate();
 
 		} catch (ClassNotFoundException e) {
@@ -256,9 +184,17 @@ public class JdbcReviewDao implements ReviewDao {
 			rs = st.executeQuery();
 
 			if (rs.next()) {
-				review = new Review(rs.getInt("id"), rs.getInt("member_id"), rs.getString("address"),
-						rs.getString("content"), rs.getDate("eating_date"), rs.getString("photo"),
-						rs.getDate("regdate"), rs.getInt("rating"), rs.getString("foodName"), rs.getString("foodType"));
+				review = new Review(/**/
+						rs.getInt("id"), /**/
+						rs.getInt("member_id"), /**/
+						rs.getString("address"), /**/
+						rs.getString("content"), /**/
+						rs.getDate("eating_date"), /**/
+						rs.getString("photo"), /**/
+						rs.getDate("regdate"), /**/
+						rs.getInt("rating"), /**/
+						rs.getString("foodName"), /**/
+						rs.getString("foodType"));
 			}
 
 		} catch (ClassNotFoundException e) {

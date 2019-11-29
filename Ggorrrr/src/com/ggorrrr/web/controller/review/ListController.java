@@ -25,35 +25,24 @@ public class ListController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String order = "";
-		String order_ = request.getParameter("order");
-		if (order_ != null && !order_.equals(""))
-			order = order_;
-		System.out.println("order:" + order);
-
+		String order = "regdate";
 		String field = "address";
 		String query = "";
 
-		// 검색엔진
+		String order_ = request.getParameter("order");
 		String field_ = request.getParameter("f");
+		String query_ = request.getParameter("q");
+
 		if (field_ != null && !field_.equals(""))
 			field = field_;
 
-		String query_ = request.getParameter("q");
 		if (query_ != null && !query_.equals(""))
 			query = query_;
 
-		// 정렬 방식
-		if (order.equals("0")) {
+		if (order_ != null && !order_.equals(""))
+			order = order_;
 
-			request.setAttribute("list", reviewService.orderByDate());
-
-		} else if (order.equals("1")) {
-
-			request.setAttribute("list", reviewService.orderByGrade());
-		} else {
-			request.setAttribute("list", reviewService.getList(field, query));
-		}
+		request.setAttribute("list", reviewService.getListByOrder(order, field, query));
 		request.getRequestDispatcher("/WEB-INF/view/review/list.jsp").forward(request, response);
 
 	}
@@ -80,12 +69,9 @@ public class ListController extends HttpServlet {
 			response.sendRedirect("list?f=" + field + "&q=" + query);
 			break;
 
-		case "글쓰기":
-			response.sendRedirect("reg");
-			break;
-
 		default:
 			response.sendRedirect("list");
+			break;
 		}
 
 	}

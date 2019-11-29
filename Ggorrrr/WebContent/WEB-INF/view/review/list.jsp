@@ -159,13 +159,11 @@ main #search input[type="button"] {
 	<nav id="review">
 		<h1 class="d-none">고객의 소리 리스트</h1>
 		<div class="topvisual">
-			<form action="list" method="post">
-				<input type="submit" name="cmd" value="글쓰기">
-			</form>
+			<a href="reg">글쓰기</a>
 		</div>
 
 		<div id="order">
-			<a href="list?order=0">최신순</a> <a href="list?order=1">평점순</a><br>
+			<a href="list?order=regdate">최신순</a> <a href="list?order=rating">평점순</a><br>
 		</div>
 
 		<div id="ppp">

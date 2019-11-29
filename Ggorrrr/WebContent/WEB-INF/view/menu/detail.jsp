@@ -16,13 +16,6 @@ h1 {
 	overflow: hidden;
 }
 
-#sadari {
-	float: right;
-	position: fixed;
-	bottom: 50px;
-	right: 50px;
-}
-
 #middleBox {
 	position: relative;
 	width: 800px;

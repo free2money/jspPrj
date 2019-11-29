@@ -40,8 +40,15 @@ public class RegController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int id = 0;
-		int member_id = 3;
+		HttpSession session = request.getSession();
+		if (session.getAttribute("username") == null) {
+			response.sendRedirect("/login/login?error=1");
+			return;
+		}
+		Member member = (Member) session.getAttribute("sessionuser");
+		System.out.println(member.toString());
+		int id = -9;
+		int member_id = member.getId();
 		String foodType = "";
 		String foodName = "";
 		Date eating_date = null;
@@ -86,10 +93,6 @@ public class RegController extends HttpServlet {
 			else
 				response.sendRedirect("list");
 			break;
-		case "취소":
-			response.sendRedirect("list");
-			break;
-
 		}
 	}
 }

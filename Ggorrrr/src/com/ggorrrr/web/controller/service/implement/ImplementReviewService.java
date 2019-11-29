@@ -7,32 +7,27 @@ import com.ggorrrr.web.controller.dao.jdbc.JdbcReviewDao;
 import com.ggorrrr.web.controller.entity.Review;
 import com.ggorrrr.web.controller.service.ReviewService;
 
-public class ImplementReviewService implements ReviewService{
-	
+public class ImplementReviewService implements ReviewService {
+
 	private ReviewDao reviewDao;
-	
+
 	public ImplementReviewService() {
-		reviewDao=new JdbcReviewDao();
+		reviewDao = new JdbcReviewDao();
 	}
 
 	@Override
 	public List<Review> getList() {
-		return getList("content","");
+		return getList("content", "");
 	}
-	
+
 	@Override
 	public List<Review> getList(String field, String query) {
-		return reviewDao.getList(field,query);
+		return reviewDao.getList(field, query);
 	}
 
 	@Override
-	public List<Review> orderByDate() {
-		return reviewDao.orderByDate();
-	}
-
-	@Override
-	public List<Review> orderByGrade() {
-		return reviewDao.orderByGrade();
+	public List<Review> getListByOrder(String order, String field, String query) {
+		return reviewDao.getListByOrder(order, field, query);
 	}
 
 	@Override

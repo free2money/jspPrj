@@ -34,7 +34,9 @@
 							value="${requestScope.pwd_ }">
 						<%-- value="${sessionScope.sessionuser.pwd }"> --%>
 					</dd>
+				</dl>
 				<label class="now-pwd-check-text"></label>
+				<dl id="new-pwd">
 					<dt>새 비밀번호:</dt>
 					<dd>
 						<input class="new-pwd" type="password" name="newPwd">

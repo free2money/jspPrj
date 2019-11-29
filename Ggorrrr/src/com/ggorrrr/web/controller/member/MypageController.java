@@ -40,13 +40,13 @@ public class MypageController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		HttpSession session = request.getSession();
 		// 변경을 눌렀을때 닉네임과 위치정보가 변경됨
 		// 멤버서비스에 업데이트를 가져와야함
-		String cmd = request.getParameter("cmd");
-//		int id = Integer.parseInt(request.getParameter("id"));
-		int id = 191128019;
+		Member member = (Member) session.getAttribute("sessionuser");
+		int id = member.getId();
 
+		String cmd = request.getParameter("cmd");
 		switch (cmd) {
 		case "이동":
 			response.sendRedirect("/member/changePassword?id=" + id);
@@ -55,13 +55,15 @@ public class MypageController extends HttpServlet {
 			String pwd = request.getParameter("pwd");
 			String nickname = request.getParameter("닉네임수정");
 			String agreement = request.getParameter("agreement");
-			Member member;
+			String agree = "";
 			if (agreement.equals("동의"))
-				member = new Member(id, pwd, "1", nickname);
+				agree = "1";
 			else
-				member = new Member(id, pwd, "0", nickname);
+				agree = "0";
 
-			memberService.update(member);
+			Member newmember = new Member(id, pwd, agree, nickname);
+			memberService.update(newmember);
+			session.setAttribute("sessionuser", newmember);
 			response.sendRedirect("/mypage?id=" + id); // 페이지요청
 			break;
 		}
