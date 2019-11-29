@@ -95,15 +95,33 @@
 }
 
 #popularity {
+	width:220px;
 	display: flex;
 	position: absolute;
 	right: 0px;
-	height: 40px;
+	height: 100px;
+}
+
+#popularity>h1{
+	width:150px;
+	font-size: 15px;
 }
 
 #popularity li {
 	list-style: none;
-	font-size: 150%;
+	font-size: 120%;
+}
+
+#popularity>div{
+	width:inherit;
+	height:inherit;
+}
+
+#ranking:hover ul{
+	display: block;
+}
+#ranking ul{
+	display: none;
 }
 
 #visual>div {
@@ -146,8 +164,7 @@
 #categori div {
 	width: 1320px;
 	height: inherit;
-	margin-left: auto;
-   	margin-right: auto;
+	margin-left: 140px;
 }
 
 #categori ul ul {

@@ -12,6 +12,7 @@
 <link href="/css/index_header.css" type="text/css" rel="stylesheet">
 <link href="/css/index.css" type="text/css" rel="stylesheet">
 <script src="/js/index.js"></script>
+<script src="/js/header.js"></script>
 <script src="/js/sadariFix.js"></script>
 
 </head>
@@ -59,14 +60,16 @@
 					<nav id="popularity" class="top">
 
 						<h1>인기검색어&nbsp;</h1>
-						<ul>
-							<li>1.&nbsp;&nbsp;<a href="">엽기떡볶이</a>
-								<ul>
-									<li>2.&nbsp;&nbsp;<a href="">갈비탕</a></li>
-									<li>3.&nbsp;&nbsp;<a href="">김치찌개</a></li>
-								</ul>
-							</li>
-						</ul>
+						<div id="ranking">
+							<span id="view"></span>
+							<ul>
+								<li>1.&nbsp;&nbsp;<a href="">엽기떡볶이</a>	</li>							
+								<li>2.&nbsp;&nbsp;<a href="">갈비탕</a></li>
+								<li>3.&nbsp;&nbsp;<a href="">김치찌개</a></li>
+					
+							
+							</ul>
+						</div>
 
 					</nav>
 				</div>
@@ -174,18 +177,17 @@
 		<div class="slide">
 			<div class="food">
 				
-				<div class="img"><img src="/images/KimchiSoup.jpg"></div>
-				<div class="img"><img src="/images/tonkatsu.jpg"></div>
-				<div class="img"><img src="/images/tteokbokki.jpg"></div>
-				<div class="img"><img src="/images/kimchiFriedRice.jpg"></div>
-				<div class="img"><img src="/images/jajangmyeon.jpg"></div>
-				<div class="img"><img src="/images/bookmark.png"></div>
+				<div><img src="/images/KimchiSoup.jpg"></div>
+				<div><img src="/images/tonkatsu.jpg"></div>
+				<div><img src="/images/tteokbokki.jpg"></div>
+				<div><img src="/images/kimchiFriedRice.jpg"></div>
+				<div><img src="/images/bookmark.png"></div>
 				
 			</div>
 			
 			<div class="buttonDiv">
-			<button type="button" class="slideButton">Prev</button>
-			<button type="button" class="slideButton">Next</button>
+			<button type="button" class="slideButton"></button>
+			<button type="button" class="slideButton"></button>
 			</div>
 		</div>
 	</section>

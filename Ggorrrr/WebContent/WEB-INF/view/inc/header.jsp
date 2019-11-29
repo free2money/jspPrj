@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<script src="/js/header.js"></script>
+
 <header>
 	<div id="header">
 		<div id="topHeader">
@@ -37,16 +40,20 @@
 
 				<nav id="popularity" class="top">
 
-					<h1>인기검색어&nbsp;</h1>
-					<ul>
-						<li>1.&nbsp;&nbsp;<a href="">엽기떡볶이</a>
+						<h1>인기검색어&nbsp;</h1>
+						<div id="ranking">
+							<span id="view"></span>
 							<ul>
+								<li>1.&nbsp;&nbsp;<a href="">엽기떡볶이</a>	</li>							
 								<li>2.&nbsp;&nbsp;<a href="">갈비탕</a></li>
 								<li>3.&nbsp;&nbsp;<a href="">김치찌개</a></li>
+					
+							
 							</ul>
-						</li>
-					</ul>
-				</nav>
+						</div>
+
+					</nav>
+				</div>
 			</div>
 		</div>
 
