@@ -8,6 +8,9 @@
 <meta charset="UTF-8">
 <title>그래서 뭐먹지?</title>
 <link href="/css/default.css" type="text/css" rel="stylesheet" />
+<script src="/js/sadariFix.js"></script>
+
+<script src="/js/riviewList.js"></script>
 </head>
 <style>
 /* h1 {
@@ -170,13 +173,12 @@ main #search input[type="button"] {
 		<div id="ppp">
 			<div id="middlebox">
 				<div id="content_main">
-					<c:forEach var="n" items="${list}" begin="0" end="3">
+					<c:forEach var="n" items="${list}">
 						<div id="review-title">
 							<span>ㆍ ${n.address}</span>
 						</div>
 						<br>
 						<div id="review-content">
-							<!-- id를 번호로 부여해서 style을 건들이면 되겟다. -->
 							<span>${n.content}</span> <span id="content_hidden">...</span> <span
 								id="content_" style="display: none;">${n.content}</span> <span
 								id="content_expand" style="cursor: pointer;"><a
@@ -188,9 +190,11 @@ main #search input[type="button"] {
 							</a> </span><br> <span><img alt="" src="">${n.photo }사진자리입니다.<br></span>
 						</div>
 					</c:forEach>
-
 				</div>
 				<div class="aaa"></div>
+				<div id="more-more">
+					<a href="">더보기</a>
+				</div>
 			</div>
 		</div>
 	</nav>

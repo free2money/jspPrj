@@ -3,9 +3,9 @@
  */
 window.addEventListener("load", function() {
 	// 현재 패스워드 일치 확인때 필요한 영역 설정
-	var nowPwdSection = document.querySelector("#now-pwd");
-	var nowPwdInput = nowPwdSection.querySelector("dd input");
-	var nowPwd = nowPwdSection.querySelector("dd input+input");
+	var nowPwdSection = document.querySelector("#change-pwd");
+	var nowPwdInput = nowPwdSection.querySelector('dd input[name="nowPwd"]');
+	var nowPwd = nowPwdSection.querySelector('dd input[name="nowPwdCheck"]');
 	var nowPwdTextLabel = document.querySelector(".now-pwd-check-text");
 
 	// 현재 패스워드 확인
@@ -32,6 +32,5 @@ window.addEventListener("load", function() {
 
 	var pageSection = document.querySelector("#pageSection");
 	var btn = pageSection.querySelector('input[name="commit"]');
-//	새로운 비밀번호의 정보가 없으면 진행막기.
 
 });

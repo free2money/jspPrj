@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>그래서 뭐먹어?</title>
 <link href="/css/default.css" type="text/css" rel="stylesheet" />
+<script src="/js/sadariFix.js"></script>
 <style>
 h1 {
 	width: 0px;

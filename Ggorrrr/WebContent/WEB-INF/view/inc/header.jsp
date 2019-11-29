@@ -17,7 +17,16 @@
 					<c:if test="${not empty sessionScope.username }">
 						<li><a href="/member/logout">로그아웃</a></li>
 					</c:if>
-					<li><a href="/member/mypage">마이페이지</a></li>
+					<c:if
+						test="${empty sessionScope.sessionuser && empty sessionScope.sessionadmin }">
+						<li><a href="/member/mypage">마이페이지</a></li>
+					</c:if>
+					<c:if test="${not empty sessionScope.sessionuser }">
+						<li><a href="/member/mypage">마이페이지</a></li>
+					</c:if>
+					<c:if test="${not empty sessionScope.sessionadmin }">
+						<li><a href="/admin/page">관리자페이지</a></li>
+					</c:if>
 					<li><a href="/review/list">고객의 소리</a></li>
 				</ul>
 			</nav>
@@ -47,8 +56,6 @@
 								<li>1.&nbsp;&nbsp;<a href="">엽기떡볶이</a>	</li>							
 								<li>2.&nbsp;&nbsp;<a href="">갈비탕</a></li>
 								<li>3.&nbsp;&nbsp;<a href="">김치찌개</a></li>
-					
-							
 							</ul>
 						</div>
 

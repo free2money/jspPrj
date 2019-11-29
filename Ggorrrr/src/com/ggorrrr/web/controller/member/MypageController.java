@@ -28,7 +28,7 @@ public class MypageController extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		if (session.getAttribute("username") == null) {
-			response.sendRedirect("/login/login?error=1");
+			response.sendRedirect("/login/login");
 			return;
 		}
 		Member member = (Member) session.getAttribute("sessionuser");

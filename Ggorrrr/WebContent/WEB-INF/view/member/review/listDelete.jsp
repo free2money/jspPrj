@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>그래서 뭐먹지?</title>
+<script src="/js/sadariFix.js"></script>
 <style>
 #list li {
 	list-style:;

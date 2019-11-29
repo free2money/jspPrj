@@ -40,7 +40,6 @@ main{
 	<jsp:include page="../inc/header.jsp" />
 	<!------------------------- ㅡheader끝 main시작 ------------------------------------>
 	<main>
-	
 	<div id="img">
 		<h1>My그먹</h1>
 		<img src="/images/mypage.png" width="170" height="50">

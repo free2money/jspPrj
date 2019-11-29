@@ -11,11 +11,6 @@ window.addEventListener("scroll", function() {
 	var absolutefooterTop = window.pageYOffset
 			+ footer.getBoundingClientRect().top;
 
-	console.log(window.scrollY);
-	console.log(window.screenY);
-	console.log(window.pageYOffset);
-	console.log(footer.getBoundingClientRect().top);
-
 	if (absoluteSadariTop + 105 >= absolutefooterTop) {
 		sadariPopup.className = "sadari-over";
 	}
