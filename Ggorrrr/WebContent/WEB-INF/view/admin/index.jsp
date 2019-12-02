@@ -59,7 +59,7 @@ section>.profile img {
 			<div class="profile">
 				<img src="/images/profile.png" width="50" height="50">
 				<div>
-					<h1>관리자아이디</h1>
+					<h1>${sessionScope.sessionuser.name }</h1>
 				</div>
 			</div>
 			<br>
