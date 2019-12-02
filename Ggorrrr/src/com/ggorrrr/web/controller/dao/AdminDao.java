@@ -7,7 +7,7 @@ public interface AdminDao {
 	int insert(int memberId);
 
 	// 관리자 삭제
-	int delete(int adminId, int memberId);
+	int delete(int memberId);
 
 	// 관리자 정보 가져오기.
 	Admin get(String id);

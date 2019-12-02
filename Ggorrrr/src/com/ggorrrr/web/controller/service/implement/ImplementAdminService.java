@@ -29,8 +29,8 @@ public class ImplementAdminService implements AdminService {
 	}
 
 	@Override
-	public int delete(int adminId, int memberId) {
-		return adminDao.delete(adminId, memberId);
+	public int delete(int memberId) {
+		return adminDao.delete(memberId);
 	}
 
 	@Override

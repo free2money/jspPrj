@@ -38,14 +38,13 @@ public class JdbcAdminDao implements AdminDao {
 	}
 
 	@Override
-	public int delete(int adminId, int memberId) {
+	public int delete(int memberId) {
 		int result = 0;
-		String sql = "delete manager where member_id=? and id = ?";
+		String sql = "delete manager where member_id=?";
 		PreparedStatement st = null;
 		try {
 			st = JdbcContext.getPreparedStatement(sql);
 			st.setInt(1, memberId);
-			st.setInt(2, adminId);
 			result = st.executeUpdate();
 
 		} catch (ClassNotFoundException e) {
@@ -80,7 +79,6 @@ public class JdbcAdminDao implements AdminDao {
 
 			while (rs.next()) {
 				admin = new Admin(/**/
-						rs.getInt("admin_id"), /**/
 						rs.getInt("member_id"), /**/
 						id, /**/
 						rs.getString("pwd"), /**/
