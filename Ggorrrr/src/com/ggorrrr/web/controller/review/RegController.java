@@ -28,12 +28,11 @@ public class RegController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
-
 		if (session.getAttribute("username") == null) {
-			response.sendRedirect("/login/login?error=1");
+			String returnUri = request.getRequestURI();
+			response.sendRedirect("/login/login?returnUrl=.." + returnUri);
 			return;
 		}
-
 		request.getRequestDispatcher("/WEB-INF/view/review/reg.jsp").forward(request, response);
 	}
 
@@ -42,7 +41,8 @@ public class RegController extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		if (session.getAttribute("username") == null) {
-			response.sendRedirect("/login/login?error=1");
+			String returnUri = request.getRequestURI();
+			response.sendRedirect("/login/login?returnUrl=.." + returnUri);
 			return;
 		}
 		Member member = (Member) session.getAttribute("sessionuser");

@@ -13,12 +13,12 @@ public class JdbcReviewDao implements ReviewDao {
 
 	@Override
 	public List<Review> getList() {
-		return getListByOrder("regdate", "content", "");
+		return getListByOrder("regdate", "address", "");
 	}
 
 	@Override
 	public List<Review> getList(String field, String query) {
-		return getListByOrder("regdate", "content", "");
+		return getListByOrder("regdate", "address", "");
 	}
 
 	@Override
@@ -37,6 +37,56 @@ public class JdbcReviewDao implements ReviewDao {
 				Review review = new Review(/**/
 						rs.getInt("id"), /**/
 						rs.getInt("member_id"), /**/
+						rs.getString("address"), /**/
+						rs.getString("content"), /**/
+						rs.getDate("eating_date"), /**/
+						rs.getString("photo"), /**/
+						rs.getDate("regdate"), /**/
+						rs.getInt("rating"), /**/
+						rs.getString("foodName"), /**/
+						rs.getString("foodType"));
+				list.add(review);
+			}
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (st != null)
+					st.close();
+				JdbcContext.delCon();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+		}
+		return list;
+	}
+
+	@Override
+	public List<Review> getListById(int member_id, String field, String query) {
+		List<Review> list = new ArrayList<Review>();
+		String sql = "SELECT * FROM REVIEW WHERE " + field + " LIKE ? AND MEMBER_ID = ? ORDER BY regdate DESC";
+
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		try {
+			st = JdbcContext.getPreparedStatement(sql);
+			st.setString(1, "%" + query + "%");
+			st.setInt(2, member_id);
+			rs = st.executeQuery();
+
+			while (rs.next()) {
+				Review review = new Review(/**/
+						rs.getInt("id"), /**/
+						member_id, /**/
 						rs.getString("address"), /**/
 						rs.getString("content"), /**/
 						rs.getDate("eating_date"), /**/

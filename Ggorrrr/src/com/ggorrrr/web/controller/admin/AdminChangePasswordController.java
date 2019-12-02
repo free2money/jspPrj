@@ -18,23 +18,16 @@ import com.ggorrrr.web.controller.service.implement.ImplementMemberService;
 @WebServlet("/admin/changePwd")
 public class AdminChangePasswordController extends HttpServlet {
 
-	private AdminService adminService;
 	private MemberService memberService;
 
 	public AdminChangePasswordController() {
-		adminService = new ImplementAdminService();
 		memberService = new ImplementMemberService();
 	}
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		if (session.getAttribute("username") == null) {
-			response.sendRedirect("/login/login?error=1");
-		} else {
-			request.getRequestDispatcher("/WEB-INF/view/admin/changePassword.jsp").forward(request, response);
-		}
+		request.getRequestDispatcher("/WEB-INF/view/admin/changePassword.jsp").forward(request, response);
 	}
 
 	@Override
@@ -42,10 +35,6 @@ public class AdminChangePasswordController extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		Member admin = (Member) session.getAttribute("sessionadmin");
-		if (admin == null) {
-			response.sendRedirect("/login/login?error=1");
-			return;
-		}
 		String newPwd = request.getParameter("newPwd");
 
 		memberService.update(new Member(admin.getId(), newPwd, admin.getLocation_agree(), admin.getNickname()));

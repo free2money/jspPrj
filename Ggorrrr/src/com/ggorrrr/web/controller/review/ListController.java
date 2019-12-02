@@ -28,6 +28,15 @@ public class ListController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		List<Review> aList = reviewService.getListByOrder("regdate", "address", "");
+
+		request.setAttribute("list", aList);
+		request.getRequestDispatcher("/WEB-INF/view/review/list.jsp").forward(request, response);
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String order = "regdate";
 		String field = "address";
 		String query = "";
@@ -35,12 +44,6 @@ public class ListController extends HttpServlet {
 		String order_ = request.getParameter("order");
 		String field_ = request.getParameter("f");
 		String query_ = request.getParameter("q");
-
-		int prevNum = 0;
-		int count = 2;
-
-		String prevNum_ = request.getParameter("prevNum");
-		String count_ = request.getParameter("count");
 
 		if (field_ != null && !field_.equals(""))
 			field = field_;
@@ -51,50 +54,10 @@ public class ListController extends HttpServlet {
 		if (order_ != null && !order_.equals(""))
 			order = order_;
 
-		if (prevNum_ != null && !prevNum_.equals(""))
-			prevNum = Integer.parseInt(prevNum_);
-
-		if (count_ != null && !count_.equals(""))
-			count = Integer.parseInt(count_);
-
 		List<Review> aList = reviewService.getListByOrder(order, field, query);
-		List<Review> list = new ArrayList<Review>();
-		for (int i = prevNum; i < count; i++) {
-			list.add(aList.get(i));
-		}
-		request.setAttribute("prevNum", prevNum);
-		request.setAttribute("count", count);
-		request.setAttribute("list", list);
+
+		request.setAttribute("list", aList);
 		request.getRequestDispatcher("/WEB-INF/view/review/list.jsp").forward(request, response);
-
-	}
-
-	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-		String cmd = request.getParameter("cmd");
-		String field = "content";
-		String query = "";
-
-		switch (cmd) {
-		case "검색":
-			String field_ = request.getParameter("f");
-			if (field_ != null && !field_.equals(""))
-				field = field_;
-
-			String query_ = request.getParameter("q");
-			if (query_ != null && !query_.equals(""))
-				query = query_;
-
-			request.setAttribute("list", reviewService.getList(field, query));
-			response.sendRedirect("list?f=" + field + "&q=" + query);
-			break;
-
-		default:
-			response.sendRedirect("list");
-			break;
-		}
 
 	}
 

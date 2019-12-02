@@ -32,9 +32,9 @@ public class MyReviewEditController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
-
 		if (session.getAttribute("username") == null) {
-			response.sendRedirect("/login/login?error=1");
+			String returnUri = request.getRequestURI();
+			response.sendRedirect("/login/login?returnUrl=.." + returnUri);
 			return;
 		}
 		// review 테이블의 식별자인 id를 선언
@@ -53,7 +53,7 @@ public class MyReviewEditController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		HttpSession session = request.getSession();
 		// 수정된 리뷰를 가져오기 위한 리뷰필드 선언
 		int id = 0;
 		String foodType = "";

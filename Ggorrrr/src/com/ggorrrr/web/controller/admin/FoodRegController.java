@@ -35,12 +35,6 @@ public class FoodRegController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = request.getSession();
-
-		if (session.getAttribute("username") == null) {
-			response.sendRedirect("/login/login?error=1");
-			return;
-		}
 		request.getRequestDispatcher("/WEB-INF/view/admin/menu/reg.jsp").forward(request, response);
 	}
 
@@ -122,7 +116,7 @@ public class FoodRegController extends HttpServlet {
 
 		fileNames = fileNames.substring(0, fileNames.length() - 1);
 
-		int result = foodService.insert(new Food(1,korName, engName, fileNames, ingridients, explain, 191128018,
+		int result = foodService.insert(new Food(13777, korName, engName, fileNames, ingridients, explain, 1,
 				vegetarian, thema, recipe, category, price));
 
 		if (result == 0) {

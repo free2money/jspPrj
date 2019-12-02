@@ -8,8 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.ggorrrr.web.controller.entity.BookmarkMenu;
+import com.ggorrrr.web.controller.entity.Member;
 import com.ggorrrr.web.controller.service.BookmarkService;
 import com.ggorrrr.web.controller.service.implement.ImplementBookmarkService;
 
@@ -30,15 +32,11 @@ public class LadderController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int id = 2;
-		String id_ = request.getParameter("member_id");
-		List<BookmarkMenu> list = bookmarkService.getList(id);
+		HttpSession session = request.getSession();
+		Member member = (Member) session.getAttribute("sessionuser");
+
+		List<BookmarkMenu> list = bookmarkService.getList(member.getId());
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("/WEB-INF/view/ladder.jsp").forward(request, response);
-	}
-
-	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
 	}
 }

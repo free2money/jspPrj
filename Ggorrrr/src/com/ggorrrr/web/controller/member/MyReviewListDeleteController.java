@@ -1,10 +1,10 @@
 package com.ggorrrr.web.controller.member;
 
-
 /*
  * 로그인 상태에서 자신의 리뷰 리스트를 보고 수정/삭제 할 수 있는 컨트롤러
  */
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,71 +14,66 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.ggorrrr.web.controller.entity.Member;
+import com.ggorrrr.web.controller.entity.Review;
 import com.ggorrrr.web.controller.service.ReviewService;
 import com.ggorrrr.web.controller.service.implement.ImplementReviewService;
 
 @WebServlet("/member/review/listDelete")
-public class MyReviewListDeleteController extends HttpServlet{
-	
-	private ReviewService reviewService;
-	
-	public MyReviewListDeleteController() {
-		reviewService=new ImplementReviewService();
-				
-	}
-	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
+public class MyReviewListDeleteController extends HttpServlet {
 
-		if (session.getAttribute("username") == null) {
-			response.sendRedirect("/login/login?error=1");
-			return;
-		}
-		Member member = (Member) session.getAttribute("sessionuser");
-		
-		String member_id="3";		
-		String member_id_ = request.getParameter("member_id");
-		if(member_id_ !=  null && !member_id_.equals(""))
-			member_id = member_id_;
-		
-		//멤버 아이디를 이용해 리뷰리스트를 "listDelete"로 설정
-		request.setAttribute("listDelete",reviewService.getList("member_id", member_id));
-		request.getRequestDispatcher("/WEB-INF/view/member/review/listDelete.jsp").forward(request, response);
-		
+	private ReviewService reviewService;
+
+	public MyReviewListDeleteController() {
+		reviewService = new ImplementReviewService();
 	}
-	
+
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		//수정과 삭제를 위해 리뷰 식별자인 아이디 가져옴
-		int review_id=0;
-		String review_id_=request.getParameter("review_id");
-		
-		//수정인지 삭제인지 알기위한 cmd버튼값을 불러옴
-		String cmd=request.getParameter("cmd");
-		
-		
-		if(review_id_ !=  null && !review_id_.equals(""))
-			review_id=Integer.parseInt(review_id_);
-		
-		
-		switch(cmd) {
-		case "수정":
-			//기존의 리뷰 내용을 불러옴
-			request.setAttribute("edit", reviewService.get(review_id));
-		
-			response.sendRedirect("edit?review="+review_id);
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		Member member = (Member) session.getAttribute("sessionuser");
+
+		request.setAttribute("list", reviewService.getListById(member.getId(), "address", ""));
+		request.getRequestDispatcher("/WEB-INF/view/member/review/listDelete.jsp").forward(request, response);
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String cmd = request.getParameter("cmd");
+
+		switch (cmd) {
+		case "del":
+			int delId = Integer.parseInt(request.getParameter("del-id"));
+			int result = reviewService.delete(delId);
+			response.sendRedirect("listDelete");
 			break;
-			
-		case "삭제":
-			System.out.println("삭제합니다");
+		case "search":
+			String order = "regdate";
+			String field = "address";
+			String query = "";
+
+			String order_ = request.getParameter("order");
+			String field_ = request.getParameter("f");
+			String query_ = request.getParameter("q");
+
+			if (field_ != null && !field_.equals(""))
+				field = field_;
+
+			if (query_ != null && !query_.equals(""))
+				query = query_;
+
+			if (order_ != null && !order_.equals(""))
+				order = order_;
+
+			List<Review> aList = reviewService.getListByOrder(order, field, query);
+			request.setAttribute("list", aList);
+			request.getRequestDispatcher("/WEB-INF/view/member/review/listDelete.jsp").forward(request, response);
 			break;
-		
 		default:
 			response.sendRedirect("listDelete");
 			break;
-		
-	
+
 		}
 	}
 }

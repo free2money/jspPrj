@@ -1,6 +1,3 @@
-/**
- * 
- */
 window.addEventListener("scroll", function() {
 	var sadariSection = document.querySelector("#sadari");
 	var sadariPopup = sadariSection.querySelector("div");

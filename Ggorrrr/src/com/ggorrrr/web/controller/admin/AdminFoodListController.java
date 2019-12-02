@@ -24,13 +24,6 @@ public class AdminFoodListController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = request.getSession();
-
-		if (session.getAttribute("username") == null) {
-			response.sendRedirect("/login/login?error=1");
-			return;
-		}
-
 		String category = "한식";
 		String query = "";
 

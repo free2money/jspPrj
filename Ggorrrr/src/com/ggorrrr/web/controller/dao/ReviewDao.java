@@ -10,7 +10,9 @@ public interface ReviewDao {
 	List<Review> getList(String field, String query);
 
 	List<Review> getListByOrder(String order, String field, String query);
-	
+
+	List<Review> getListById(int member_id, String field, String query);
+
 	int insert(Review review);
 
 	int update(Review review);

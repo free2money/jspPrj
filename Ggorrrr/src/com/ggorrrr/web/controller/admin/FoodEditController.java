@@ -36,13 +36,6 @@ public class FoodEditController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = request.getSession();
-
-		if (session.getAttribute("username") == null) {
-			response.sendRedirect("/login/login?error=1");
-			return;
-		}
-		
 		int id = Integer.parseInt(request.getParameter("id"));
 		Food food = foodService.get(id);
 		request.setAttribute("f", food);

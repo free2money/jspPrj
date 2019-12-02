@@ -8,141 +8,10 @@
 <meta charset="UTF-8">
 <title>그래서 뭐먹지?</title>
 <link href="/css/default.css" type="text/css" rel="stylesheet" />
+<link href="/css/reviewList.css" type="text/css" rel="stylesheet" />
 <script src="/js/sadariFix.js"></script>
-
-<script src="/js/riviewList.js"></script>
+<!-- <script src="/js/riviewList.js"></script> -->
 </head>
-<style>
-/* h1 {
-	font-size: 0px;
-	overflow: hidden;
-} */
-main {
-	min-width: 1600px;
-	min-height: 700px;
-}
-
-main nav {
-	min-height: 100%;
-}
-
-main>#sori-title {
-	text-align: center;
-}
-
-main>.topvisual {
-	text-align: right;
-	margin-right: 50px;
-	margin-bottom: 40px;
-}
-
-main>nav .topvisual {
-	text-align: right;
-	margin-right: 80px;
-	margin-top: 30px;
-}
-
-#middlebox {
-	overflow: auto;
-	width: 1000px;
-	min-height: 600px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-#ppp {
-	position: relative;
-	min-height: 100%;
-}
-
-div #content_main {
-	float: left;
-}
-
-nav #order {
-	width: 900px;
-	margin-left: auto;
-	margin-right: auto;
-	text-align: right;
-}
-
-nav #order  a {
-	margin-right: 5px;
-	margin-left: 5px;
-}
-
-#middlebox #content_main {
-	margin-top: 20px;
-	padding: 22px;
-}
-
-#middlebox #content_main span {
-	margin-top: 10px;
-	display: inline-block;
-	padding-left: 20px;
-}
-
-#review-title {
-	padding: 19px;
-	border-bottom: 1px solid #979797;
-	width: 900px;
-}
-
-#review-title>span {
-	font-size: 30px;
-	font-weight: bold;
-}
-
-#review-content {
-	padding-left: 80px;
-}
-
-main #search {
-	display: inline-block;
-	float: right;
-	margin-right: 80px;
-	border: 3px solid #D4F4FA;
-	position: relative;
-}
-
-main #search input[type="text"] {
-	padding: 3px;
-	width: 200px;
-	border: 1px solid #D4F4FA;
-	outline: none;
-}
-
-main #search input[type="button"] {
-	width: 25px;
-	height: 26px;
-	position: absolute;
-	right: 0;
-	background: url("../images/search1.png") no-repeat;
-	outline: none;
-	border: 0px;
-}
-
-#sori-title {
-	border-bottom: 1px solid black;
-	margin-bottom: 2px;
-}
-
-#order a:hover {
-	color: #6262ff;
-}
-
-.aaa {
-	content: "";
-	clear: both;
-	display: block;
-}
-
-#content_main::after {
-	content: "";
-	clear: both;
-	display: table;
-}
-</style>
 <body>
 	<jsp:include page="../inc/header.jsp" />
 	<!-- =========================================================================== -->
@@ -153,10 +22,11 @@ main #search input[type="button"] {
 		</h1>
 	</div>
 
-	<form id="search" action="">
+	<form id="search" action="" method="post">
 		<input type="text" name="q" placeholder="search..." /> <input
-			onclick="submit();" style="cursor: pointer;" type="button"
-			name="검색버튼" />
+			onclick="submit();"
+			style="cursor: pointer; background: url('../images/search3.png') no-repeat center;"
+			type="button" name="cmd" />
 	</form>
 	<br>
 

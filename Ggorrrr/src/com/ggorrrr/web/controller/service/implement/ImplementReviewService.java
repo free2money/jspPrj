@@ -31,6 +31,11 @@ public class ImplementReviewService implements ReviewService {
 	}
 
 	@Override
+	public List<Review> getListById(int member_id, String field, String query) {
+		return reviewDao.getListById(member_id, field, query);
+	}
+
+	@Override
 	public int insert(Review review) {
 		return reviewDao.insert(review);
 	}

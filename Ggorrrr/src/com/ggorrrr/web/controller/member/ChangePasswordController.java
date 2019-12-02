@@ -26,11 +26,6 @@ public class ChangePasswordController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
-
-		if (session.getAttribute("username") == null) {
-			response.sendRedirect("/login/login?error=1");
-			return;
-		}
 		Member member = (Member) session.getAttribute("sessionuser");
 
 		request.setAttribute("member", member);

@@ -22,7 +22,6 @@ public class BookmarkRegController extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		int foodId = Integer.parseInt(request.getParameter("food-id"));
 		int memberId = Integer.parseInt(request.getParameter("member-id"));
 		

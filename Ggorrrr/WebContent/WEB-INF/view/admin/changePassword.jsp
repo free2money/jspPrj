@@ -28,7 +28,6 @@
 						${sessionScope.sessionadmin.name}
 					</h3>
 				</div>
-				<!-- 현재비밀번호는 자바스크립트로 -->
 				<dl id="change-pwd">
 					<dt>현재비밀번호</dt>
 					<dd>
