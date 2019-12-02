@@ -19,7 +19,7 @@ main {
 }
 
 main>div {
-	width: 1000px;
+	width: 1100px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -56,6 +56,7 @@ main>div {
 	display: flex;
 	flex-wrap: wrap;
 	padding-bottom: 40px;
+	margin-left: 92px;
 }
 
 #menulist ul li {
@@ -66,6 +67,7 @@ main>div {
 
 .pager {
 	text-align: center;
+	margin-bottom: 20px;
 }
 
 #socategori h2 {
@@ -129,12 +131,13 @@ main>div {
 }
 
 #menulist ul li input[type="submit"] {
-	background: url("../images/bookmark.png") no-repeat;
-	width: 30px;
-	height: 30px;
+	background: url("../images/onimages.png") no-repeat;
+	width: 100px;
+	height: 100px;
 	outline: none;
 	border: 0px;
 	display: inline-block;
+	cursor: pointer;
 }
 
 #menulist ul li span:nth-child(3) {
@@ -182,7 +185,13 @@ main>div {
 			<c:forEach items="${list }" var="list">
 				<li><a href="detail?id=${list.id }"> <img
 						src="./../images/KimchiSoup.jpg"><br> <span>${list.korname }</span>
-						<input id="star" type="submit" name="bookmark" value=""><br>
+
+						<form method="post" action="bookmark">
+							<input name="member-id" type="hidden" value="${member.id}">
+							<input name="food-id" type="hidden" value="${list.id }">
+							<input id="star" type="submit" name="bookmark" value="">
+						</form>
+						<br>
 						<span>${list.korname }</span>
 				</a></li>
 			</c:forEach>

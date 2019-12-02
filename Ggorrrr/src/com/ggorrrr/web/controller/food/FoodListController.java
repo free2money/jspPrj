@@ -7,7 +7,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.ggorrrr.web.controller.entity.Member;
 import com.ggorrrr.web.controller.service.FoodService;
 import com.ggorrrr.web.controller.service.implement.ImplementFoodService;
 
@@ -21,7 +23,14 @@ public class FoodListController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		HttpSession session = request.getSession();
+		
 		String category = request.getParameter("category");
+		
+		Member member = (Member) session.getAttribute("sessionuser");
+
+		request.setAttribute("member", member);
 		
 		foodService.getFoodList(category);
 		

@@ -55,13 +55,11 @@ public class LoginController extends HttpServlet {
 			response.sendRedirect("/login/login?error=1");
 		} else {
 			if (isValidAdmin) {
-				// 관리자 세션 저장
 				request.getSession().setAttribute("username", id);
 				request.getSession().setAttribute("sessionadmin", adminService.get(id));
 				response.sendRedirect("/admin/page");
 				return;
 			} else {
-				// 유저 세션 저장
 				request.getSession().setAttribute("username", id);
 				request.getSession().setAttribute("sessionuser", memberService.get(id));
 			}

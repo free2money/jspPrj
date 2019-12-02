@@ -26,6 +26,7 @@ main {
 	margin-right: auto;
 	min-height: 500px;
 	min-width: 1600px;
+	min-height: 515px;
 }
 
 footer {

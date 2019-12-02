@@ -32,6 +32,7 @@
 
 main{
 	min-width: 1600px;
+	min-height: 539px;
 }
 </style>
 </head>
