@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <script src="/js/header.js"></script>
-
+<link href="/css/gr_header.css" type="text/css" rel="stylesheet" />
 <header>
 	<div id="header">
 		<div id="topHeader">

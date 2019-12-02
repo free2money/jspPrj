@@ -1,0 +1,88 @@
+@charset "UTF-8";
+hr{
+	display: block;
+}
+
+#main{
+	margin-top:30px;
+	margin-bottom:80px;
+	width:100%;
+	height:850px;
+	text-align:center;
+}
+
+
+#title{
+	
+	width:inherit;
+	height:80px;
+	
+}
+
+.reviewList{
+	padding-top:50px;
+	width: inherit;
+	height:730px;
+}
+.reviewList h1{
+	font-size:30px;
+}
+
+.reviewList div table{
+	padding-top:40px;
+	text-align: center;
+}
+
+
+section>.topvisual {
+	text-align: right;
+	margin-right: 50px;
+	margin-bottom: 40px;
+}
+
+main>section .topvisual {
+	text-align: right;
+	margin-right: 80px;
+	margin-top: 30px;
+}
+
+main #search {
+	display: inline-block;
+	float: right;
+	margin-right: 80px;
+	border: 3px solid #D4F4FA;
+	position: relative;
+}
+
+main #search input[type="text"] {
+	padding: 3px;
+	width: 200px;
+	border: 1px solid #D4F4FA;
+	outline: none;
+}
+
+main #search input[type="button"] {
+	width: 25px;
+	height: 26px;
+	position: absolute;
+	right: 0;
+	background: url("../images/search.png") no-repeat;
+	outline: none;
+	border: 0px;
+}
+
+section #order {
+	width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: right;
+}
+
+section #order  a {
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+#table{
+	left:200px;
+}
