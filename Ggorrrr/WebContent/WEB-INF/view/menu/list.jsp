@@ -185,14 +185,13 @@ main>div {
 			<c:forEach items="${list }" var="list">
 				<li><a href="detail?id=${list.id }"> <img
 						src="./../images/KimchiSoup.jpg"><br> <span>${list.korname }</span>
-
 						<form method="post" action="bookmark">
 							<input name="member-id" type="hidden" value="${member.id}">
 							<input name="food-id" type="hidden" value="${list.id }">
-							<input id="star" type="submit" name="bookmark" value="">
+							<!-- <input id="star" type="submit" name="bookmark" value=""> -->
 						</form>
 						<br>
-						<span>${list.korname }</span>
+						<span>${list.price } 원</span>
 				</a></li>
 			</c:forEach>
 		</ul>

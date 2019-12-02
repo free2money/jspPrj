@@ -17,20 +17,12 @@ h1 {
 	overflow: hidden;
 }
 
-header {
-	height: 100px;
-}
-
 main {
 	margin-left: auto;
 	margin-right: auto;
 	min-height: 500px;
 	min-width: 1600px;
 	min-height: 515px;
-}
-
-footer {
-	height: 100px;
 }
 
 .headerBmain {

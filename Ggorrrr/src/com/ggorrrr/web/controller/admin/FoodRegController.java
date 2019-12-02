@@ -122,7 +122,7 @@ public class FoodRegController extends HttpServlet {
 
 		fileNames = fileNames.substring(0, fileNames.length() - 1);
 
-		int result = foodService.insert(new Food(13777, korName, engName, fileNames, ingridients, explain, 1,
+		int result = foodService.insert(new Food(1,korName, engName, fileNames, ingridients, explain, 191128018,
 				vegetarian, thema, recipe, category, price));
 
 		if (result == 0) {

@@ -164,8 +164,8 @@ public class JdbcFoodDao implements FoodDao {
 	@Override
 	public int insert(Food food) {
 		int result = 0;
-		String sql = "INSERT INTO FOOD(id,KORNAME,ENGNAME,PHOTO,INGRIDIENTS,EXPLAIN,manager_id,RECIPE,VEGETARIAN,THEMA,big_CATEGORY,PRICE) "
-				+ "VALUES(13777,?,?,?,?,?,1,?,?,?,?,?)";
+		String sql = "INSERT INTO FOOD(KORNAME,ENGNAME,PHOTO,INGRIDIENTS,EXPLAIN,manager_id,RECIPE,VEGETARIAN,THEMA,big_CATEGORY,PRICE) "
+				+ "VALUES(?,?,?,?,?,191128018,?,?,?,?,?)";
 		PreparedStatement st = null;
 		try {
 			st = JdbcContext.getPreparedStatement(sql);
@@ -178,7 +178,7 @@ public class JdbcFoodDao implements FoodDao {
 			st.setBoolean(7, food.isVegetarian());
 			st.setString(8, food.getThema());
 			st.setString(9, food.getCategory());
-			st.setInt(9, food.getPrice());
+			st.setInt(10, food.getPrice());
 			result = st.executeUpdate();
 
 		} catch (ClassNotFoundException e) {

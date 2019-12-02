@@ -7,6 +7,10 @@
 <title>그래서 뭐먹어?</title>
 <link href="/css/default.css" type="text/css" rel="stylesheet" />
 <style>
+main {
+	min-width: 1580px;
+}
+
 #middlebox {
 	width: 400px;
 	min-height: 350px;
@@ -48,12 +52,11 @@ section>.profile img {
 	<!------------------------- ㅡheader끝 main시작 ------------------------------------>
 	<main>
 	<div>
-		<div>
-			<img src="/images/ggorrrrlogo.png" width="50" height="50">
-			<section>
-				<h1>관리자페이지</h1>
-			</section>
-		</div>
+		<section>
+			<h1 class="d-none">관리자페이지</h1>
+		</section>
+	</div>
+	<div id="middlebox">
 		<section>
 			<h1 class="d-none">관리자</h1>
 			<div class="profile">
@@ -74,7 +77,7 @@ section>.profile img {
 					<a href="./review/listDelete">ㆍ고객의소리 관리</a>
 				</div>
 				<div>
-					<a href="./menu/adminlist"> ㆍ관리</a>
+					<a href="./menu/adminlist"> ㆍ메뉴 관리</a>
 				</div>
 			</div>
 		</section>
