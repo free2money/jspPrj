@@ -184,7 +184,7 @@ main>div {
 		<ul>
 			<c:forEach items="${list }" var="list">
 				<li><a href="detail?id=${list.id }"> <img
-						src="./../images/KimchiSoup.jpg"><br> <span>${list.korname }</span>
+						src="/upload/${list.photo }"><br> <span>${list.korname }</span>
 						<form method="post" action="bookmark">
 							<input name="member-id" type="hidden" value="${member.id}">
 							<input name="food-id" type="hidden" value="${list.id }">

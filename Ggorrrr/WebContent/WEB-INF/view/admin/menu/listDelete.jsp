@@ -10,7 +10,7 @@
 </head>
 <style>
 main {
-	width: 1580px;
+	min-width: 1580px;
 }
 
 #page-top {
@@ -47,7 +47,7 @@ main {
 }
 
 #middle-box {
-	width: 1200px;
+	width: 800px;
 	min-height: 300px;
 	margin-right: auto;
 	margin-left: auto;
@@ -59,12 +59,51 @@ main {
 	height: 24px;
 	padding-left: 20px;
 }
-#page-middle form *{
+
+#page-middle form * {
 	margin-left: 10px;
 }
+
 #page-middle form {
 	float: right;
 }
+
+#page-middle2 {
+	margin-top: 60px;
+	margin-left: 50px;
+	float: right;
+	position: relative;
+}
+
+#page-middle2 table tr .table-category {
+	border: 1px solid #85f4ff;
+	width: 150px;
+	text-align: center;
+	height: 30px;
+}
+
+#page-middle2 table tr .table-name {
+	border: 1px solid #85f4ff;
+	text-align: center;
+	width: 500px;
+	height: 30px;
+}
+
+#page-middle2 table tr .table-delete {
+	border: 1px solid #85f4ff;
+	text-align: center;
+	width: 150px;
+	height: 30px;
+}
+
+#page-middle2 .button {
+	float: right;
+}
+#page-middle2 .button *{
+	margin-left: 10px;
+	margin-top: 20px;
+}
+
 
 </style>
 <body>
@@ -92,34 +131,34 @@ main {
 					<option value="테마별">테마별</option>
 					<option value="기타">기타</option>
 					<option value="채식">채식</option>
-				</select> 
-				<label>음식이름</label> <input type="text" name="menuName"> <input
+				</select> <label>음식이름</label> <input type="text" name="menuName"> <input
 					type="submit" name="search" value="검색">
 			</form>
 		</section>
 
-		<form action="adminlist" method="post">
+		<form id="page-middle2" action="adminlist" method="post">
 			<table>
 				<thead>
 					<tr>
-						<td>카테고리</td>
-						<td>이름</td>
-						<td>삭제</td>
+						<td class="table-category">카테고리</td>
+						<td class="table-name">이름</td>
+						<td class="table-delete">삭제</td>
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach items="${list }" var="list">
 						<tr>
-							<td><a href="update?id=${list.id}">${list.korname }</a></td>
-							<td>${list.explain }</td>
-							<td>${list.id}</td>
-							<td><input type="checkbox" name="del" value="${list.id }"></td>
+							<td class="table-category">${list.category }</td>
+							<td class="table-name"><a href="update?id=${list.id}">${list.korname }</a></td>
+							<td class="table-delete"><input type="checkbox" name="del"
+								value="${list.id }"></td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
-			<input type="submit" value="일괄삭제" name="cmd"> <a
-				href="../page">뒤로</a> <a href="reg">메뉴등록</a>
+			<div class="button">
+				<input type="submit" value="일괄삭제" name="cmd"> <a href="reg">메뉴등록</a>
+			</div>
 		</form>
 
 	</div>

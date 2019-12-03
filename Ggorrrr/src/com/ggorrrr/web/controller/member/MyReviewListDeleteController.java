@@ -73,7 +73,6 @@ public class MyReviewListDeleteController extends HttpServlet {
 		default:
 			response.sendRedirect("listDelete");
 			break;
-
 		}
 	}
 }
