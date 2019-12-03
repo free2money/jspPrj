@@ -9,7 +9,6 @@
 <title>그래서 뭐먹어?</title>
 
 <link href="/css/default.css" type="text/css" rel="stylesheet">
-<link href="/css/index_header.css" type="text/css" rel="stylesheet">
 <link href="/css/index.css" type="text/css" rel="stylesheet">
 <script src="/js/index.js"></script>
 <script src="/js/header.js"></script>
@@ -89,7 +88,7 @@
 					</span> <span id="title"> 그래서 뭐먹어? </span>
 				</div>
 			</div>
-
+			<hr>
 			<nav id="categori">
 			<h1 class="d-none">메뉴</h1>
 			<div>
@@ -184,20 +183,21 @@
 		
 		<div class="slide">
 			<div class="food">
-				
+				<div class="foodDiv">
 				<div><img src="/images/KimchiSoup.jpg"></div>
 				<div><img src="/images/tonkatsu.jpg"></div>
 				<div><img src="/images/tteokbokki.jpg"></div>
 				<div><img src="/images/kimchiFriedRice.jpg"></div>
 				<div><img src="/images/bookmark.png"></div>
-				
+				</div>
 			</div>
 			
-			<div class="buttonDiv">
-			<button type="button" class="slideButton"></button>
-			<button type="button" class="slideButton"></button>
-			</div>
 		</div>
+		
+		
+		<button type="button" class="slideButton button"></button>
+		<button type="button" class="slideButton button"></button>
+		
 	</section>
 	</main>
 	<!-- =================ASIDE================ -->

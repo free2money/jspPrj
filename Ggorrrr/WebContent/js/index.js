@@ -2,8 +2,8 @@ window.addEventListener("load", function() {
 	// 슬라이드 쇼 객체 가져오기
 	var offset = 10000;
 	var section = document.querySelector("#main");
-	var x = section.querySelectorAll(".food div");
-	var b = section.querySelectorAll(".buttonDiv button");
+	var x = section.querySelectorAll(".food>div div");
+	var b = section.querySelectorAll(".slideButton");
 	var slide;
 	
 	

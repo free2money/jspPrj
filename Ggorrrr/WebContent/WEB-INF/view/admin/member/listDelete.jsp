@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>그래서 뭐먹어?</title>
 <link href="/css/default.css" type="text/css" rel="stylesheet" />
-<link href="/css/memberListDelete.css" type="text/css" rel="stylesheet" />
+<link href="/css/admin_memberManage.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 	<!-- =================HEADER================ -->
@@ -16,14 +16,13 @@
 	<main id="main">
 
 	<section>
-		<div id="div">
-
-			<h2 id="h2">
-				<img id="img" src="/images/ggorrrrlogo.png" width="50" height="50"> 전체회원관리
-			</h2>
+		<div id="title">
+			<img src="../../images/adminMemberManage.png">
+			
 		</div>
-		<div>
-			<div  id="tableDiv">
+		<hr>
+		<div id="tableDiv">
+		
 				<table id="table" border="1">
 					<thead>
 						<tr>
@@ -55,10 +54,10 @@
 						</form>
 					</c:forEach>
 				</table>
-			</div>
+			
 
 		</div>
-		<a href="../page">뒤로</a>
+		<a id="back" href="../page">뒤로</a>
 	</section>
 
 	</main>

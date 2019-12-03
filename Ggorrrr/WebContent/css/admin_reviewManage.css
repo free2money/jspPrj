@@ -13,15 +13,11 @@ hr{
 
 
 #title{
-	
-	width:inherit;
+	vertical-align:center;
+	width:1000px;
 	height:80px;
-	
-}
-#title img{
-	
-	position: absolute;
-	left:570px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .reviewList{
@@ -34,9 +30,11 @@ hr{
 	font-size:30px;
 	width:320px;
 	height: 50px;
+	margin-left:auto;
+	margin-right:auto;
 }
 .mid{
-	width:1200px;
+	width:1000px;
 	margin-left:auto;
 	margin-right: auto;
 	text-align: center;
@@ -65,7 +63,7 @@ main>section .topvisual {
 
 	display:inline-block;
 	float:right;
-	margin-right:80px;
+	
 	border:3px solid #D4F4FA;
 	position:relative;
 }
@@ -105,7 +103,7 @@ section #order  a {
 }
 
 #content_main{
-	width:800px;
+	width:1000px;
 	margin-left:auto;
 	margin-right:auto;
 	

@@ -6,7 +6,7 @@
 <header>
 	<div id="header">
 		<div id="topHeader">
-			<nav id="memberMenu" class="top">
+			<nav id="memberMenu">
 				<ul>
 					<li><a href="/index">Home</a></li>
 					<c:if test="${empty sessionScope.username }">
@@ -32,7 +32,7 @@
 
 			<!--<h1>검색창</h1>-->
 			<div id="searchHeader">
-				<div id="searchForm" class="top">
+				<div id="searchForm">
 					<form action="">
 						<div class="searchWin">
 							<input type="text" name="q" placeholder="Search..." /> <input
@@ -46,7 +46,7 @@
 
 				</div>
 
-				<nav id="popularity" class="top">
+				<nav id="popularity">
 
 						<h1>인기검색어&nbsp;</h1>
 						<div id="ranking">
@@ -61,8 +61,9 @@
 					</nav>
 				</div>
 			</div>
-		</div>
-
+			<div id="hiddenVisual">
+			</div>
+			<hr>
 		<nav id="categori">
 			<h1 class="d-none">메뉴</h1>
 			<div>
@@ -144,5 +145,7 @@
 				</ul>
 			</div>
 		</nav>
+		</div>
+
 	</div>
 </header>

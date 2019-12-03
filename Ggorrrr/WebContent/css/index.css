@@ -5,9 +5,19 @@ body{
 }
 
 #main{
+	width:1200px;
+	margin-left:auto;
+	margin-right:auto;
 	margin-bottom:100px;
 	margin-top:40px;
 	height:550px;
+	
+}
+#main>div{
+	text-align: center;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:50px;
 }
 #best{
 	font-size: 35px;
@@ -18,39 +28,39 @@ body{
 	z-index:1;
 	border-radius: 12px;
 	border: 2px solid black;
-	padding-top:50px;
-	padding-left:100px;
-	width:1000px;
+	width:inherit;
 	height:350px;
-	position: absolute;
-	display: flex;
 	overflow: hidden;
-	margin-left:240px;
-	margin-top:50px;
-	margin-bottom:100px;
+
 }
 
+.slide>div{
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:24px;
+}
 
 
 
 
 .food {
 	paddin:50px;
-	position: absolute;
 	width: 900px;
 	height: 300px;
 	overflow: hidden;
 	border: 1px solid #000;
+	display:flex;
 }
 
 .food div {
 	margin: 0px;
 	padding: 0px;
-	position: absolute;
 	width: 300px;
 	height: inherit;
 	transition: 200ms;
 	z-index: -10;
+	position: absolute;
+	overflow: hidden;
 }
 
 .food div img {
@@ -58,49 +68,52 @@ body{
 	height: inherit;
 	
 }
-
-.food .a0 {
-	left: 0px;
+.food .a0{
+	left:0px;
+}
+.food .a1{
+	left:300px;
+}
+.food .a2{
+	left:600px;
 }
 
-.food .a1 {
-	left: 300px;
-}
-
-.food .a2 {
-	left: 600px;
+.food>div{
+	width:900px;
+	height: inherit;
+	display: flex;
 }
 .food .a3{
-    position:absolute;
+  
 	top:-600px;
 	left:1200px;
-	display: hidden;
+
 }
 .food .a4{
-	position:absolute;
+	
 	top:-600px;
 	left:-300px;
-	display: hidden;
+	
 }
 
 
 .slideButton{
+	top:200px;
 	width:70px;
 	height: 62px;
-	margin-top:115px;
 	z-index: 100;
 	background: url("../images/direct2.jpg") no-repeat ;
 	border: none;
+	position: relative;
+	top:-200px;
+	left:40px;
 }
 
-.buttonDiv{
-	width:inherit;
-	height:inherit;	
-	left:50px;
-	position: absolute;
-}
 
-.buttonDiv .slideButton:last-child{
-background: url("../images/direct.jpg") no-repeat ;
+
+.slideButton:last-child{
+	background: url("../images/direct.jpg") no-repeat ;
 	float:right;
+	left:-40px;
+	
 }
