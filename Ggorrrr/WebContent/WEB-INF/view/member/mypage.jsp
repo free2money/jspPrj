@@ -75,7 +75,7 @@
 						<a href="mybookmarklist?id=${member.id}">My메뉴관리</a>
 					</dt>
 					<dt>
-						<a href="">내가 쓴 소리 관리</a>
+						<a href="./review/listDelete">내가 쓴 소리 관리</a>
 					</dt>
 				</dl>
 				<br> <br>

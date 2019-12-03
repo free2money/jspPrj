@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<c:set var="page" value="${empty p ? 1 : p}" />
+<c:set var="startNum" value="${page - (page-1)%3}" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +12,7 @@
 <link href="/css/default.css" type="text/css" rel="stylesheet" />
 <link href="/css/reviewList.css" type="text/css" rel="stylesheet" />
 <script src="/js/sadariFix.js"></script>
-<!-- <script src="/js/riviewList.js"></script> -->
+<script src="/js/riviewList.js"></script>
 </head>
 <body>
 	<jsp:include page="../inc/header.jsp" />
@@ -44,26 +46,29 @@
 			<div id="middlebox">
 				<div id="content_main">
 					<c:forEach var="n" items="${list}">
-						<div id="review-title">
-							<span>ㆍ ${n.address}</span>
-						</div>
-						<br>
-						<div id="review-content">
-							<span>${n.content}</span> <span id="content_hidden">...</span> <span
-								id="content_" style="display: none;">${n.content}</span> <span
-								id="content_expand" style="cursor: pointer;"><a
-								onclick="parent.content_.style.display=''; parent.content_hidden.style.display='none'; parent.content_expand.style.display = 'none'; parent.content_fold.style.display = '';">
-									<br> 더보기
-							</a> </span> <span id="content_fold" style="display: none; cursor: pointer;"><a
-								onclick="parent.content_.style.display='none'; parent.content_hidden.style.display=''; parent.content_fold.style.display = 'none'; parent.content_expand.style.display = ''; ">
-									<br> 줄이기
-							</a> </span><br> <span><img alt="" src="">${n.photo }사진자리입니다.<br></span>
-						</div>
+						<form action="../member/review/listDelete" method="post">
+							<div id="review-title">
+								<span>ㆍ ${n.address}</span>
+							</div>
+							<br>
+							<div id="review-content">
+								<span>${n.content}</span> <span id="content_hidden">...</span> <span
+									id="content_" style="display: none;">${n.content}</span> <span
+									id="content_expand" style="cursor: pointer;"><a
+									onclick="parent.content_.style.display=''; parent.content_hidden.style.display='none'; parent.content_expand.style.display = 'none'; parent.content_fold.style.display = '';">
+										<br> 더보기
+								</a> </span> <span id="content_fold"
+									style="display: none; cursor: pointer;"><a
+									onclick="parent.content_.style.display='none'; parent.content_hidden.style.display=''; parent.content_fold.style.display = 'none'; parent.content_expand.style.display = ''; ">
+										<br> 줄이기
+								</a> </span><br> <span><img alt="" src="">${n.photo }사진자리입니다.<br></span>
+							</div>
+						</form>
 					</c:forEach>
 				</div>
 				<div class="aaa"></div>
 				<div id="more-more">
-					<a href="">더보기</a>
+					<input type="hidden" name="p" value="${page }"> <a href="">더보기</a>
 				</div>
 			</div>
 		</div>

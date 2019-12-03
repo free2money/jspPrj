@@ -13,24 +13,27 @@ public class JdbcReviewDao implements ReviewDao {
 
 	@Override
 	public List<Review> getList() {
-		return getListByOrder("regdate", "address", "");
+		return getListByOrder(1, "regdate", "address", "");
 	}
 
 	@Override
-	public List<Review> getList(String field, String query) {
-		return getListByOrder("regdate", "address", "");
+	public List<Review> getList(int page, String field, String query) {
+		return getListByOrder(1, "regdate", "address", "");
 	}
 
 	@Override
-	public List<Review> getListByOrder(String order, String field, String query) {
+	public List<Review> getListByOrder(int page, String order, String field, String query) {
 		List<Review> list = new ArrayList<Review>();
-		String sql = "SELECT * FROM REVIEW WHERE " + field + " LIKE ? ORDER BY " + order + " DESC";
-
+		String sql = "select * from (select rownum num, n.* from (select * from review where " + field
+				+ " like ? order by " + order + " desc) n ) where num between ? and ?";
 		PreparedStatement st = null;
 		ResultSet rs = null;
+
 		try {
 			st = JdbcContext.getPreparedStatement(sql);
 			st.setString(1, "%" + query + "%");
+			st.setInt(2, (page - 1) * 3 + 1);
+			st.setInt(3, page * 3);
 			rs = st.executeQuery();
 
 			while (rs.next()) {
@@ -71,16 +74,18 @@ public class JdbcReviewDao implements ReviewDao {
 	}
 
 	@Override
-	public List<Review> getListById(int member_id, String field, String query) {
+	public List<Review> getListById(int member_id, int page, String field, String query) {
 		List<Review> list = new ArrayList<Review>();
-		String sql = "SELECT * FROM REVIEW WHERE " + field + " LIKE ? AND MEMBER_ID = ? ORDER BY regdate DESC";
-
+		String sql = "select * from (select rownum num, n.* from (select * from review where " + field
+				+ " like ? order by regdate desc) n ) where num between ? and ? and member_id = ?";
 		PreparedStatement st = null;
 		ResultSet rs = null;
 		try {
 			st = JdbcContext.getPreparedStatement(sql);
 			st.setString(1, "%" + query + "%");
-			st.setInt(2, member_id);
+			st.setInt(2, (page - 1) * 3 + 1);
+			st.setInt(3, page * 3);
+			st.setInt(4, member_id);
 			rs = st.executeQuery();
 
 			while (rs.next()) {

@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<c:set var="page" value="${empty p ? 1 : p}" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +11,7 @@
 <link href="/css/default.css" type="text/css" rel="stylesheet" />
 <link href="/css/reviewList.css" type="text/css" rel="stylesheet" />
 <script src="/js/sadariFix.js"></script>
+<script src="/js/MyRiviewList.js"></script>
 <script>
 	window.addEventListener("load", function() {
 		// 검색 폼 이벤트
@@ -98,7 +100,7 @@
 				</div>
 				<div class="aaa"></div>
 				<div id="more-more">
-					<a href="">더보기</a>
+					<input type="hidden" name="p" value="${page }"><a href="">더보기</a>
 				</div>
 			</div>
 		</div>

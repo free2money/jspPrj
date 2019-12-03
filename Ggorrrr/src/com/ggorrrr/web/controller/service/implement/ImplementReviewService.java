@@ -17,22 +17,22 @@ public class ImplementReviewService implements ReviewService {
 
 	@Override
 	public List<Review> getList() {
-		return getList("content", "");
+		return getList(1, "content", "");
 	}
 
 	@Override
-	public List<Review> getList(String field, String query) {
-		return reviewDao.getList(field, query);
+	public List<Review> getList(int page, String field, String query) {
+		return reviewDao.getList(page, field, query);
 	}
 
 	@Override
-	public List<Review> getListByOrder(String order, String field, String query) {
-		return reviewDao.getListByOrder(order, field, query);
+	public List<Review> getListByOrder(int page, String order, String field, String query) {
+		return reviewDao.getListByOrder(page, order, field, query);
 	}
 
 	@Override
-	public List<Review> getListById(int member_id, String field, String query) {
-		return reviewDao.getListById(member_id, field, query);
+	public List<Review> getListById(int member_id, int page, String field, String query) {
+		return reviewDao.getListById(member_id, page, field, query);
 	}
 
 	@Override

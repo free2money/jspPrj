@@ -115,7 +115,7 @@ main #search input[type="button"] {
 	content: "";
 	clear: both;
 	display: block;
-} 
+}
 
 #content_main::after {
 	content: "";

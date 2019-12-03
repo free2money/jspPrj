@@ -18,13 +18,6 @@
 		<img src="../../images/soriManage.png">
 	</div>
 	<hr>
-	<br>
-
-	<!-- 삭제를 처리하는 서블릿으로 이동. -->
-	<section class="reviewList">
-
-		<div>
-			<div class="mid">
 	<form id="search" action="">
 		<input type="text" name="q" placeholder="search..." /> <input
 			onclick="submit();" style="cursor: pointer;" type="button"
@@ -43,18 +36,16 @@
 			<div id="order">
 				<a href="list?order=regdate">최신순</a> <a href="list?order=rating">평점순</a><br>
 			</div>
-			<br>
-			</div>
-			<hr>
-
-			<div id="content_main">
-				<div>
+						<hr>
+			<div id="ppp">
+			<div id="middlebox">
+				<div id="content_main">
 					<c:forEach var="n" items="${list}" begin="0" end="3">
-						<br>
-						<div id="review-title">
-							<span>ㆍ ${n.address}</span> <input type="hidden" name="del_id"
-								value="${review.id }"> <input type="submit" name="del"
-								value="삭제">
+						<div id="review-title"> 
+							<span>ㆍ ${n.address}</span>
+							<input type="hidden" name="del_id"
+										value="${review.id }"> <input type="submit" name="del"
+										value="삭제">
 						</div>
 						<br>
 						<div id="review-content">
@@ -70,15 +61,12 @@
 							</a> </span><br> <span><img alt="" src="">${n.photo }사진자리입니다.<br></span>
 						</div>
 						<br>
-						<hr>
 					</c:forEach>
 
 				</div>
-			
+				<div class="aaa"></div>
 			</div>
-
-
-
+		</div>
 		</div>
 	</section>
 	<a href="../page">뒤로</a> </main>

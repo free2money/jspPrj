@@ -16,7 +16,7 @@ window.addEventListener("load", function () {
         sendData[0] = data[0].join("=");
         console.log(sendData);
         var request = new XMLHttpRequest();
-        request.open("POST", "list-json", true);
+        request.open("POST", "listDelete-json", true);
 
         request.setRequestHeader('Content-Type',
             'application/x-www-form-urlencoded');
@@ -38,7 +38,6 @@ window.addEventListener("load", function () {
             if (json.length < 3)
                 moreBtn.style.display = "none";
         };
-
         request.send(sendData);
     };
 });

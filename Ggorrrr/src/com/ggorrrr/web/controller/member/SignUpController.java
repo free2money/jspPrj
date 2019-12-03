@@ -25,11 +25,8 @@ public class SignUpController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		String location_agree = request.getParameter("location_chk");
 		request.setAttribute("location_chk", location_agree);
-
-		// request.setAttribute("member", memberService.get(id));
 		request.getRequestDispatcher("/WEB-INF/view/signUp/signUp.jsp").forward(request, response);
 	}
 

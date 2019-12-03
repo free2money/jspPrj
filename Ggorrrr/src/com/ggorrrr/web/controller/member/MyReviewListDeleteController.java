@@ -33,7 +33,7 @@ public class MyReviewListDeleteController extends HttpServlet {
 		HttpSession session = request.getSession();
 		Member member = (Member) session.getAttribute("sessionuser");
 
-		request.setAttribute("list", reviewService.getListById(member.getId(), "address", ""));
+		request.setAttribute("list", reviewService.getListById(member.getId(), 1, "address", ""));
 		request.getRequestDispatcher("/WEB-INF/view/member/review/listDelete.jsp").forward(request, response);
 	}
 
@@ -52,10 +52,12 @@ public class MyReviewListDeleteController extends HttpServlet {
 			String order = "regdate";
 			String field = "address";
 			String query = "";
+			int page = 1;
 
 			String order_ = request.getParameter("order");
 			String field_ = request.getParameter("f");
 			String query_ = request.getParameter("q");
+			String page_ = request.getParameter("p");
 
 			if (field_ != null && !field_.equals(""))
 				field = field_;
@@ -66,7 +68,10 @@ public class MyReviewListDeleteController extends HttpServlet {
 			if (order_ != null && !order_.equals(""))
 				order = order_;
 
-			List<Review> aList = reviewService.getListByOrder(order, field, query);
+			if (page_ != null && !page_.equals(""))
+				page = Integer.parseInt(page_);
+
+			List<Review> aList = reviewService.getListByOrder(page, order, field, query);
 			request.setAttribute("list", aList);
 			request.getRequestDispatcher("/WEB-INF/view/member/review/listDelete.jsp").forward(request, response);
 			break;

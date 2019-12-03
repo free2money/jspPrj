@@ -20,13 +20,15 @@ import com.ggorrrr.web.controller.dao.jdbc.JdbcMemberDao;
 public class LoginFilter implements Filter {
 
 	private static final String[] noAuthenticUris = { /**/
+			"/index", /**/
 			"/images/*", /**/
 			"/css/*", /**/
 			"/js/*", /**/
 			"/signUp/*", /**/
 			"/login/*", /**/
 			"/menu/*", /**/
-			"/review/list" };
+			"/review/list", /**/
+			"/review/list-json" };
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {

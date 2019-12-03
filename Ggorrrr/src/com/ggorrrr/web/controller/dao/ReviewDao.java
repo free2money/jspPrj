@@ -7,11 +7,11 @@ import com.ggorrrr.web.controller.entity.Review;
 public interface ReviewDao {
 	List<Review> getList();
 
-	List<Review> getList(String field, String query);
+	List<Review> getList(int page, String field, String query);
 
-	List<Review> getListByOrder(String order, String field, String query);
+	List<Review> getListByOrder(int page, String order, String field, String query);
 
-	List<Review> getListById(int member_id, String field, String query);
+	List<Review> getListById(int member_id, int page, String field, String query);
 
 	int insert(Review review);
 

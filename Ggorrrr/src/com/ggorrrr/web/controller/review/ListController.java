@@ -14,9 +14,6 @@ import com.ggorrrr.web.controller.entity.Review;
 import com.ggorrrr.web.controller.service.ReviewService;
 import com.ggorrrr.web.controller.service.implement.ImplementReviewService;
 
-/*
- * 자신의 리뷰뿐만이 아닌 모든 사용자의 리뷰의 리스트를 보여주는 컨트롤러
- */
 @WebServlet("/review/list")
 public class ListController extends HttpServlet {
 	private ReviewService reviewService;
@@ -28,7 +25,7 @@ public class ListController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		List<Review> aList = reviewService.getListByOrder("regdate", "address", "");
+		List<Review> aList = reviewService.getListByOrder(1, "regdate", "address", "");
 
 		request.setAttribute("list", aList);
 		request.getRequestDispatcher("/WEB-INF/view/review/list.jsp").forward(request, response);
@@ -40,10 +37,12 @@ public class ListController extends HttpServlet {
 		String order = "regdate";
 		String field = "address";
 		String query = "";
+		int page = 1;
 
 		String order_ = request.getParameter("order");
 		String field_ = request.getParameter("f");
 		String query_ = request.getParameter("q");
+		String page_ = request.getParameter("p");
 
 		if (field_ != null && !field_.equals(""))
 			field = field_;
@@ -54,11 +53,12 @@ public class ListController extends HttpServlet {
 		if (order_ != null && !order_.equals(""))
 			order = order_;
 
-		List<Review> aList = reviewService.getListByOrder(order, field, query);
+		if (page_ != null && !page_.equals(""))
+			page = Integer.parseInt(page_);
+
+		List<Review> aList = reviewService.getListByOrder(page, order, field, query);
 
 		request.setAttribute("list", aList);
 		request.getRequestDispatcher("/WEB-INF/view/review/list.jsp").forward(request, response);
-
 	}
-
 }

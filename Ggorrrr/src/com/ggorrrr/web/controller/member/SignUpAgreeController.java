@@ -24,8 +24,6 @@ public class SignUpAgreeController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		// jsp(view)파일경로
 		request.getRequestDispatcher("/WEB-INF/view/signUp/signUpAgree.jsp").forward(request, response);
 	}
 
@@ -36,8 +34,6 @@ public class SignUpAgreeController extends HttpServlet {
 
 		String check1_ = request.getParameter("termsService");
 		String check2_ = request.getParameter("termsLocation");
-		// 누르지 않으면 null
-		// 누르면 1
 
 		if (check1_ != null)
 			check1 = check1_;
@@ -50,19 +46,12 @@ public class SignUpAgreeController extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 
 		if (yesButton.equals("확인")) {
-			// 개인정보 필수 : service
-			// 위치정보 선택 : location
-
 			if (check1.equals("0")) {
 				PrintWriter out = response.getWriter();
 				out.println("<script>alert('개인정보동의는 필수사항입니다.'); location.href='/signUp/signUpAgree';</script>");
-				//response.sendRedirect("/signUp/signUpAgree");
 				return;
 			}
-
-			//request.setAttribute("location_chk", check2);
-			response.sendRedirect("/signUp/signUp?location_chk="+check2);
-
+			response.sendRedirect("/signUp/signUp?location_chk=" + check2);
 		}
 
 		else if (noButton.equals("취소")) {

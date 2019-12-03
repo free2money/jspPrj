@@ -1,8 +1,7 @@
-package com.ggorrrr.web.controller.review;
+package com.ggorrrr.web.controller.member;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -10,23 +9,29 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.ggorrrr.web.controller.entity.Member;
 import com.ggorrrr.web.controller.entity.Review;
 import com.ggorrrr.web.controller.service.ReviewService;
 import com.ggorrrr.web.controller.service.implement.ImplementReviewService;
 import com.google.gson.Gson;
 
-@WebServlet("/review/list-json")
-public class ListJSONController extends HttpServlet {
+@WebServlet("/member/review/listDelete-json")
+public class MyReviewListDeleteJSONController extends HttpServlet {
+
 	private ReviewService reviewService;
 
-	public ListJSONController() {
+	public MyReviewListDeleteJSONController() {
 		reviewService = new ImplementReviewService();
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		Member member = (Member) session.getAttribute("sessionuser");
+
 		String order = "regdate";
 		String field = "address";
 		String query = "";
@@ -49,7 +54,7 @@ public class ListJSONController extends HttpServlet {
 		if (page_ != null && !page_.equals(""))
 			page = Integer.parseInt(page_);
 
-		List<Review> aList = reviewService.getListByOrder(page, order, field, query);
+		List<Review> aList = reviewService.getListById(member.getId(), page, field, query);
 
 		Gson gson = new Gson();
 		String json = gson.toJson(aList);
