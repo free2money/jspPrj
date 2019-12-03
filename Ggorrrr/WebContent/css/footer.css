@@ -4,6 +4,8 @@
 	font: bold Malgun Gothic; /* 폰트 설정 - 12px의 돋움체 굵은 글씨로 표시 */
 	background: rgba(102, 102, 102, 1);
 	min-width: 1580px;
+	position: relative;
+	bottom: 0;
 }
 
 #footer>div {

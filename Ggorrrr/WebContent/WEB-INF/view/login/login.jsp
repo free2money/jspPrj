@@ -7,76 +7,7 @@
 <meta charset="UTF-8">
 <title>그래서 뭐먹어?</title>
 <link href="/css/default.css" type="text/css" rel="stylesheet" />
-<style>
-h1 {
-	width: 0px;
-	height: 0px;
-	font-size: 0px;
-	line-height: 0px;
-	position: absolute;
-	overflow: hidden;
-}
-
-main {
-	margin-left: auto;
-	margin-right: auto;
-	min-height: 500px;
-	min-width: 1600px;
-	min-height: 515px;
-}
-
-.headerBmain {
-	height: 15px;
-}
-
-.mainBfooter {
-	height: 15px;
-}
-
-.middlebox {
-	width: 400px;
-	margin-left: auto;
-	margin-right: auto;
-	min-height: inherit;
-	border: 2px solid gray;
-	margin-bottom: 20px;
-	margin-top: 20px;
-}
-
-.img {
-	width: inherit;
-	height: 100px;
-	text-align: center;
-}
-
-.img img {
-	margin-top: 20px;
-}
-
-section #smallbox {
-	width: 280px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-form input {
-	width: 270px;
-	height: 28px;
-}
-
-form input[type="submit"] {
-	width: 274px;
-}
-
-section #smallbox * {
-	margin-top: 20px;
-	font-size: 15px;
-}
-
-#smallbox ul {
-	text-align: center;
-}
-</style>
+<link href="/css/loginLogin.css" type="text/css" rel="stylesheet" />
 
 </head>
 <body>

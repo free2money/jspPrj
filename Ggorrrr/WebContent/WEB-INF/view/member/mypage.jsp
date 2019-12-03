@@ -7,34 +7,8 @@
 <meta charset="UTF-8">
 <title>그래서 뭐먹어?</title>
 <link href="/css/default.css" type="text/css" rel="stylesheet">
-<link href="/css/mypage.css" type="text/css" rel="stylesheet">
-<style>
-.nickname {
-	position: relative;
-	height: 50px;
-}
+<link href="/css/memberMypage.css" type="text/css" rel="stylesheet">
 
-.nickname span {
-	position: absolute;
-    display: inline-block;
-    font-size: 22px;
-    top: 7px;
-    left: 194px;
-}
-
-.nickname img {
-	position: relative;
-	left: -31px;
-	width: 30px;
-	height: 30px;
-	top: 9px;
-}
-
-main{
-	min-width: 1600px;
-	min-height: 539px;
-}
-</style>
 </head>
 <body>
 

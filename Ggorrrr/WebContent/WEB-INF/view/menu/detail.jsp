@@ -6,83 +6,8 @@
 <meta charset="UTF-8">
 <title>그래서 뭐먹어?</title>
 <link href="/css/default.css" type="text/css" rel="stylesheet" />
+<link href="/css/menuDetail.css" type="text/css" rel="stylesheet" />
 <script src="/js/sadariFix.js"></script>
-<style>
-h1 {
-	width: 0px;
-	height: 0px;
-	font-size: 0px;
-	line-height: 0px;
-	position: absolute;
-	overflow: hidden;
-}
-
-#middleBox {
-	position: relative;
-	width: 800px;
-	margin-left: auto;
-	margin-right: auto;
-	padding-top: 70px;
-}
-
-nav>#nav {
-	display: flex;
-	position: absolute;
-	top: 20px;
-	left: 125px;
-}
-
-nav>#nav li {
-	margin-left: 70px;
-	list-style: circle;
-}
-
-nav>#nav li a {
-	font-size: 20px;
-}
-
-main #img {
-	width: inherit;
-	text-align: center;
-}
-
-section dt, dd {
-	display: inline-block;
-	margin-top: 20px;
-}
-
-section dl, dt, dd {
-	font-size: 14px;
-	margin-left: 30px;
-	margin-left: 47px;
-}
-
-section dl {
-	padding-top: 20px;
-	padding-left: 160px;
-}
-
-#food-img {
-	width: 300px;
-}
-
-main {
-	min-width: 1580px;
-	min-height: 500px;
-}
-
-#explain .food-name {
-	margin-right: 48px;
-}
-
-#explain .food-ingridients {
-	margin-right: 28px;
-}
-
-#explain .food-explain {
-	margin-right: 14px;
-}
-</style>
 </head>
 <body>
 	<!-- ==header=========================== -->

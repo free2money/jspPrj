@@ -74,44 +74,42 @@ public class JdbcMemberDao implements MemberDao {
 	// 회원가입
 	@Override
 	public int insert(Member member) {
-		int result = 0;
-		String sql = "INSERT INTO MEMBER VALUES(?,?,?,?,?,?,?,?,?,?)";
-		PreparedStatement st = null;
-		try {
-			st = JdbcContext.getPreparedStatement(sql);
+	      int result = 0;
+	      String sql = "INSERT INTO MEMBER (USER_ID,PWD,NAME,BIRTHDAY,EMAIL,GENDER,PHONE,LOCATION_AGREE,NICKNAME) VALUES(?,?,?,?,?,?,?,?,?)";
+	      PreparedStatement st = null;
+	      try {
+	         st = JdbcContext.getPreparedStatement(sql);
+	         st.setString(1, member.getUser_id());
+	         st.setString(2, member.getPwd());
+	         st.setString(3, member.getName());
+	         st.setString(4, member.getBirthday());
+	         st.setString(5, member.getEmail());
+	         st.setString(6, member.getGender());
+	         st.setString(7, member.getPhone());
+	         st.setString(8, member.getLocation_agree());
+	         st.setString(9, member.getNickname());
 
-			st.setInt(1, member.getId());
-			st.setString(2, member.getUser_id());
-			st.setString(3, member.getPwd());
-			st.setString(4, member.getName());
-			st.setString(5, member.getBirthday());
-			st.setString(6, member.getEmail());
-			st.setString(7, member.getGender());
-			st.setString(8, member.getPhone());
-			st.setString(9, member.getLocation_agree());
-			st.setString(10, member.getNickname());
+	         result = st.executeUpdate(); // st실행 //실행되면 1반환
 
-			result = st.executeUpdate(); // st실행 //실행되면 1반환
-
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			try {
-				if (st != null)
-					st.close();
-				JdbcContext.delCon();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			}
-		}
-		return result;
-	}
+	      } catch (ClassNotFoundException e) {
+	         // TODO Auto-generated catch block
+	         e.printStackTrace();
+	      } catch (SQLException e) {
+	         // TODO Auto-generated catch block
+	         e.printStackTrace();
+	      } finally {
+	         try {
+	            if (st != null)
+	               st.close();
+	            JdbcContext.delCon();
+	         } catch (SQLException e) {
+	            e.printStackTrace();
+	         } catch (ClassNotFoundException e) {
+	            e.printStackTrace();
+	         }
+	      }
+	      return result;
+	   }
 
 	// 비번변경,닉네임변경,위치정보변경
 	@Override

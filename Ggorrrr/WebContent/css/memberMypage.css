@@ -16,7 +16,7 @@ h1 {
 	overflow: hidden;
 }
 
-main>#img{
+main>#img {
 	text-align: center;
 	margin-top: 30px;
 }
@@ -29,15 +29,44 @@ main>div:nth-child(2) {
 	border: 2px solid gray;
 	margin-bottom: 20px;
 }
-section div{
+
+section div {
 	border-bottom: 2px solid gray;
 	text-align: center;
 }
-section dt,dd{
+
+section dt, dd {
 	display: inline-block;
 	margin-top: 20px;
 }
-section dl,dt,dd{
-	font-size:14px;
+
+section dl, dt, dd {
+	font-size: 14px;
 	margin-left: 30px;
+}
+
+.nickname {
+	position: relative;
+	height: 50px;
+}
+
+.nickname span {
+	position: absolute;
+	display: inline-block;
+	font-size: 22px;
+	top: 7px;
+	left: 194px;
+}
+
+.nickname img {
+	position: relative;
+	left: -31px;
+	width: 30px;
+	height: 30px;
+	top: 9px;
+}
+
+main {
+	min-width: 1600px;
+	min-height: 539px;
 }

@@ -8,51 +8,8 @@
 <title>그래서 뭐먹어?</title>
 
 <link href="/css/default.css" type="text/css" rel="stylesheet" />
+<link href="/css/loginFindId.css" type="text/css" rel="stylesheet" />
 
-<style>
-#middlebox {
-	width: 400px;
-	min-height: inherit;
-	border: 2px solid black;
-	margin: 20px auto 20px auto;
-	min-height: 300px;
-	text-align: center;
-}
-
-#middlebox * {
-	margin-top: 15px;
-}
-
-#middlebox>h1 {
-	font-size: 32px;
-}
-
-#middlebox>#div {
-	color: #a8a8a8;
-	margin-top: 25px;
-}
-
-#middlebox span {
-	display: inline;
-	font-size: 17px;
-	font-weight: normal;
-}
-
-#middlebox form {
-	margin-top: 30px;
-	height: 200px;
-}
-
-#button {
-	width: 100px;
-	height: 32px;
-}
-
-#middlebox>#findId{
-	color: #a8a8a8;
-	margin-top: 61px;
-}
-</style>
 </head>
 <body>
 	<!-- =================HEADER================ -->
