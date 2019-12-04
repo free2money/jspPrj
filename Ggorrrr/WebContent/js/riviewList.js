@@ -36,7 +36,6 @@ window.addEventListener("load", function () {
                 content.lastElementChild.innerText = json[i].photo;
                 contentSection.append(cloneForm);
             }
-            console.log(title.lastElementChild.innerText);
             if (json.length < 3)
                 moreBtn.style.display = "none";
         };

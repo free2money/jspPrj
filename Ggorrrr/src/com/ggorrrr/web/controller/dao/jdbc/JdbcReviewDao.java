@@ -54,7 +54,6 @@ public class JdbcReviewDao implements ReviewDao {
 						rs.getString("foodName"), /**/
 						rs.getString("foodType"));
 				list.add(review);
-				System.out.println(review);
 			}
 
 		} catch (ClassNotFoundException e) {
@@ -75,7 +74,6 @@ public class JdbcReviewDao implements ReviewDao {
 				e.printStackTrace();
 			}
 		}
-		
 		return list;
 	}
 

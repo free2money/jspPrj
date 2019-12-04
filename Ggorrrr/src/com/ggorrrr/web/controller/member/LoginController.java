@@ -52,7 +52,7 @@ public class LoginController extends HttpServlet {
 		boolean isValidAdmin = adminService.isValidAdmin(id, pwd);
 
 		if (!isValidMember) {
-			response.sendRedirect("/login/login?error=1");
+			response.sendRedirect("/login/login?error=1&returnUrl="+returnUrl);
 		} else {
 			if (isValidAdmin) {
 				request.getSession().setAttribute("username", id);

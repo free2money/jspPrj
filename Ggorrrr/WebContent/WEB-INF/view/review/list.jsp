@@ -69,7 +69,7 @@
 				</div>
 				<div class="aaa"></div>
 				<div id="more-more">
-					<a href=""><input type="hidden" name="p" value="${page}">더보기</a>
+					<input type="hidden" name="p" value="${page }"> <a href="">더보기</a>
 				</div>
 			</div>
 		</div>

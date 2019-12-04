@@ -42,7 +42,6 @@ public class RegController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		//HttpSession session = request.getSession();
 		request.getRequestDispatcher("/WEB-INF/view/review/reg.jsp").forward(request, response);
 	}
 
@@ -116,10 +115,8 @@ public class RegController extends HttpServlet {
 		if (cmd_ != null && !cmd_.equals(""))
 			cmd = cmd_;
 
-		System.out.println(foodType);
 		switch (cmd) {
 		case "확인":
-
 			int result = reviewService
 					.insert(new Review(id, member_id, address, content, eating_date, fileNames, rating, foodName, foodType));
 

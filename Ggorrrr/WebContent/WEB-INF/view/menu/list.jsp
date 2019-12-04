@@ -58,12 +58,12 @@
 							<input name="member-id" type="hidden" value="${sessionScope.sessionuser.id}"> 
 							<input name="food-id" type="hidden" value="${food.id }"> 
 							<input name="category" type="hidden" value="${param.category }">
-							
-							<c:if test="${sessionScope.sessionuser!=null && !check[status.index] }">
-								
+							<c:if test="${sessionScope.sessionuser == null }">
 								<input id="star" type="submit" value="">
 							</c:if> 
-						
+							<c:if test="${sessionScope.sessionuser!=null && !check[status.index] }">
+								<input id="star" type="submit" value="">
+							</c:if> 
 							<c:if test="${sessionScope.sessionuser!=null && check[status.index] }">
 								<input id="star2" type="submit" name="bookmark" value="">
 							</c:if>
