@@ -73,11 +73,8 @@
 								<li>1.&nbsp;&nbsp;<a href="">엽기떡볶이</a>	</li>							
 								<li>2.&nbsp;&nbsp;<a href="">갈비탕</a></li>
 								<li>3.&nbsp;&nbsp;<a href="">김치찌개</a></li>
-					
-							
 							</ul>
 						</div>
-
 					</nav>
 				</div>
 			</div>

@@ -67,9 +67,9 @@
 		<nav id="categori">
 			<h1 class="d-none">메뉴</h1>
 			<div>
-				<ul>
-					<li><a href="/menu/list?category=한식">한식</a>
-						<ul>
+				<ul id="main-menu">
+					<li ><a href="/menu/list?category=한식">한식</a>
+						<ul class="sub-menu">
 							<li><a href="/menu/list?category=한식&socategory=찌개">찌개</a></li>
 							<li><a href="/menu/list?category=한식&socategory=국">국</a></li>
 							<li><a href="/menu/list?category=한식&socategory=밥">밥</a></li>
@@ -82,7 +82,7 @@
 							<li><a href="/menu/list?category=한식&socategory=부침">부침</a></li>
 						</ul></li>
 					<li><a href="/menu/list?category=양식">양식</a>
-						<ul>
+						<ul class="sub-menu">
 							<li><a href="/menu/list?category=양식&socategory=치킨">치킨</a></li>
 							<li><a href="/menu/list?category=양식&socategory=피자">피자</a></li>
 							<li><a href="/menu/list?category=양식&socategory=햄버거">햄버거</a></li>
@@ -90,7 +90,7 @@
 							<li><a href="/menu/list?category=양식&socategory=스테이크">스테이크</a></li>
 						</ul></li>
 					<li><a href="/menu/list?category=중식">중식</a>
-						<ul>
+						<ul class="sub-menu">
 							<li><a href="/menu/list?category=중식&socategory=면">면</a></li>
 							<li><a href="/menu/list?category=중식&socategory=밥">밥</a></li>
 							<li><a href="/menu/list?category=중식&socategory=딤섬">딤섬</a></li>
@@ -99,7 +99,7 @@
 							<li><a href="/menu/list?category=중식&socategory=볶음">볶음</a></li>
 						</ul></li>
 					<li><a href="/menu/list?category=일식">일식</a>
-						<ul>
+						<ul class="sub-menu">
 							<li><a href="/menu/list?category=일식&socategory=밥">밥</a></li>
 							<li><a href="/menu/list?category=일식&socategory=튀김">튀김</a></li>
 							<li><a href="/menu/list?category=일식&socategory=면">면</a></li>
@@ -107,7 +107,7 @@
 							<li><a href="/menu/list?category=일식&socategory=일본가정식">일본가정식</a></li>
 						</ul></li>
 					<li><a href="/menu/list?category=분식">분식</a>
-						<ul>
+						<ul class="sub-menu">
 							<li><a href="/menu/list?category=분식&socategory=김밥">김밥</a></li>
 							<li><a href="/menu/list?category=분식&socategory=떡볶이">떡볶이</a></li>
 							<li><a href="/menu/list?category=분식&socategory=순대">순대</a></li>
@@ -116,7 +116,7 @@
 							<li><a href="/menu/list?category=분식&socategory=만두">만두</a></li>
 						</ul></li>
 					<li><a href="/menu/list?category=테마별">테마별</a>
-						<ul>
+						<ul class="sub-menu">
 							<li><a href="/menu/list?category=테마별&socategory=비오는날">비오는날</a></li>
 							<li><a href="/menu/list?category=테마별&socategory=매운음식땡기는날">매운음식땡기는날</a></li>
 							<li><a href="/menu/list?category=테마별&socategory=쌀쌀한날">쌀쌀한날</a></li>
@@ -127,7 +127,7 @@
 							<li><a href="/menu/list?category=테마별&socategory=야식">야식</a></li>
 						</ul></li>
 					<li><a href="/menu/list?category=기타">기타</a>
-						<ul>
+						<ul class="sub-menu">
 							<li><a href="/menu/list?category=기타&socategory=카레">카레</a></li>
 							<li><a href="/menu/list?category=기타&socategory=케밥">케밥</a></li>
 							<li><a href="/menu/list?category=기타&socategory=부리또">부리또</a></li>
@@ -137,7 +137,7 @@
 							<li><a href="/menu/list?category=기타&socategory=튀김">튀김</a></li>
 						</ul></li>
 					<li><a href="/menu/list?category=채식">채식</a>
-						<ul>
+						<ul class="sub-menu">
 							<li><a href="/menu/list?category=채식&socategory=샐러드">샐러드</a></li>
 							<li><a href="/menu/list?category=채식&socategory=나물">나물</a></li>
 							<li><a href="/menu/list?category=채식&socategory=해산물">해산물</a></li>

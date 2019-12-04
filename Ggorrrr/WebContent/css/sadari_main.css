@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+body {
+	background: #FAFFFF;
+}
+
 #sadari-main {
 	width: 900px;
 	min-height: inherit;

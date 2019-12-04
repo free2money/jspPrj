@@ -1,3 +1,9 @@
+@charset "UTF-8";
+
+body {
+	background: #FAFFFF;
+}
+
 main {
 	min-width: 1600px;
 	min-height: 700px;
@@ -115,7 +121,7 @@ main #search input[type="button"] {
 	content: "";
 	clear: both;
 	display: block;
-}
+} 
 
 #content_main::after {
 	content: "";

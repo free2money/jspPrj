@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+body {
+	background: #FAFFFF;
+}
+
 h1 {
 	width: 0px;
 	height: 0px;

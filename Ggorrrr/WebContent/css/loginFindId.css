@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+body {
+	background: #FAFFFF;
+}
+
 #middlebox {
 	width: 400px;
 	min-height: inherit;

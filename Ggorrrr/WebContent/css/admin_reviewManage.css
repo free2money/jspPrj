@@ -1,4 +1,8 @@
 @charset "UTF-8";
+
+body {
+	background: #FAFFFF;
+}
 hr{
 	display: block;
 }

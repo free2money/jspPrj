@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+body {
+	background: #FAFFFF;
+}
+
 main {
 	min-width: 1580px;
 	height: 470px;

@@ -18,8 +18,6 @@
 	display: flex;
 }
 
-
-
 #header #categori {
 	width: 1200px;
 	height: 50px;
@@ -27,10 +25,7 @@
 	margin-right:auto;
 }
 
-
-
 #memberMenu {
-	
 	left: 0px;
 	width: 700px;
 	text-align: center;
@@ -53,7 +48,6 @@
 #searchHeader {
 	height: inherit;
 	width: 750px;
-	
 	display: flex;
 	right:0px
 }
@@ -138,18 +132,15 @@
 	padding-top: 10px;
 }
 
-
 #visual>div>span {
 	width: 70px;
 	vertical-align: middle;
-
 }
 
 #visual img {
 	width: 70px;
 	height: 70px;
 }
-
 
 #visual img {
 	width: 70px;
@@ -162,10 +153,8 @@
 }
 
 #categori {
-
-	display:block; 
+	display: block;
 	width: 1200px;
-	
 	height: 70px;
 	margin-left:auto;
 	margin-right:auto;
@@ -177,14 +166,23 @@
 	height:inherit;
 	display: flex;
 	font-size: 30px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 }
 
 #categori div {
-	
 	width: 1150px;
-	height:inherit;
-	margin-left:auto;
-	margin-right:auto;
+	height: inherit;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#categori li a {
+	display: block;
+	padding: 0 14px;
+	margin: 6px 0;
+	line-height: 28px;
 }
 
 #categori ul ul {
@@ -196,19 +194,20 @@
 	padding-left: 20px;
 	z-index: 1000;
 }
-#categori ul li>a{
-	width:100px;
-	height:inherit;
-	display: inline-block;
 
+#categori ul li>a {
+	width: 100px;
+	height: inherit;
+	display: inline-block;
 }
 
 #categori ul li ul li {
 	padding-left: 0px;
 }
 
-#categori ul li ul li a{
-	font-size : 15px;
+#categori ul li ul li a {
+	font-size: 15px;
+	color: white;
 }
 
 #categori a {
@@ -221,12 +220,17 @@
 }
 
 #categori ul li:hover ul {
-	display:block;
+	display: block;
+	background: linear-gradient(to bottom, #faffff, #caf1f19c);
 }
 
-hr{
-	margin-left:-200px;
-	width:1600px;
-	display:block;
+#categori ul li ul li:hover{
+	background: linear-gradient(to bottom, #faffffd1, #88ddf3c7);
+}
+
+hr {
+	margin-left: -200px;
+	width: 1600px;
+	display: block;
 	border: 1px solid black;
 }
