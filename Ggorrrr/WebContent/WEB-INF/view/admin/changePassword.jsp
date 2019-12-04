@@ -24,7 +24,7 @@
 				<h1>관리자 비밀번호 변경페이지</h1>
 				<div id="nicknameDiv">
 					<h3>
-						<img src="/images/profile.png" width="50" height="50">
+						<img id="img" src="/images/profile.png" width="50" height="50">
 						${sessionScope.sessionadmin.name}
 					</h3>
 				</div>
@@ -49,8 +49,8 @@
 					</dd>
 				</dl>
 				<label class="new-pwd-check-text"></label>
-				<div>
-					<a href="page">취소</a> <input type="submit" name="commit" value="저장">
+				<div id="pageSection">
+					<a href="page"><input type="button" name="commit" value="취소"></a> <input type="submit" name="commit" value="저장">
 				</div>
 			</section>
 		</form>

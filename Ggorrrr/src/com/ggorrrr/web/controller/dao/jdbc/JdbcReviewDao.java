@@ -49,7 +49,6 @@ public class JdbcReviewDao implements ReviewDao {
 						rs.getString("content"), /**/
 						rs.getDate("eating_date"), /**/
 						rs.getString("photo"), /**/
-						rs.getDate("regdate"), /**/
 						rs.getInt("rating"), /**/
 						rs.getString("foodName"), /**/
 						rs.getString("foodType"));
@@ -104,7 +103,6 @@ public class JdbcReviewDao implements ReviewDao {
 						rs.getString("content"), /**/
 						rs.getDate("eating_date"), /**/
 						rs.getString("photo"), /**/
-						rs.getDate("regdate"), /**/
 						rs.getInt("rating"), /**/
 						rs.getString("foodName"), /**/
 						rs.getString("foodType"));
@@ -175,7 +173,7 @@ public class JdbcReviewDao implements ReviewDao {
 	@Override
 	public int update(Review review) {
 		int result = 0;
-		String sql = "UPDATE REVIEW SET ADDRESS=?, CONTENT=?, EATING_DATE=?, PHOTO=?, REGDATE=?, RATING=? WHERE ID=?";
+		String sql = "UPDATE REVIEW SET ADDRESS=?, CONTENT=?, EATING_DATE=?, PHOTO=?, RATING=? WHERE ID=?";
 		Connection con = null;
 		PreparedStatement st = null;
 		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
@@ -187,9 +185,8 @@ public class JdbcReviewDao implements ReviewDao {
 			st.setString(2, review.getContent());
 			st.setDate(3, review.getEating_date());
 			st.setString(4, review.getPhoto());
-			st.setDate(5, review.getRegdate());
-			st.setInt(6, review.getRating());
-			st.setInt(7, review.getId());
+			st.setInt(5, review.getRating());
+			st.setInt(6, review.getId());
 
 			result = st.executeUpdate();
 
@@ -266,7 +263,6 @@ public class JdbcReviewDao implements ReviewDao {
 						rs.getString("content"), /**/
 						rs.getDate("eating_date"), /**/
 						rs.getString("photo"), /**/
-						rs.getDate("regdate"), /**/
 						rs.getInt("rating"), /**/
 						rs.getString("foodName"), /**/
 						rs.getString("foodType"));
