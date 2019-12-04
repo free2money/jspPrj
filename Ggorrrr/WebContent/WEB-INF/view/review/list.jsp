@@ -49,6 +49,7 @@
 						<form action="../member/review/listDelete" method="post">
 							<div id="review-title">
 								<span>ㆍ ${n.address}</span>
+								<span>${n.regdate}</span>
 							</div>
 							<br>
 							<div id="review-content">
@@ -61,14 +62,14 @@
 									style="display: none; cursor: pointer;"><a
 									onclick="parent.content_.style.display='none'; parent.content_hidden.style.display=''; parent.content_fold.style.display = 'none'; parent.content_expand.style.display = ''; ">
 										<br> 줄이기
-								</a> </span><br> <span><img alt="" src="">${n.photo }사진자리입니다.<br></span>
+								</a> </span><br> <span><img alt="" src="/upload/${n.photo}" width="150" height="150"><br></span>
 							</div>
 						</form>
 					</c:forEach>
 				</div>
 				<div class="aaa"></div>
 				<div id="more-more">
-					<input type="hidden" name="p" value="${page }"> <a href="">더보기</a>
+					<a href=""><input type="hidden" name="p" value="${page}">더보기</a>
 				</div>
 			</div>
 		</div>

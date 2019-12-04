@@ -26,7 +26,7 @@
 		</h2>
 	</div>
 	<div id="middlebox">
-		<form action="/review/reg" method="post">
+		<form action="/review/reg" method="post" enctype="multipart/form-data">
 			<div id="middlebox-inbox">
 				<div class="div">
 					<h4>
@@ -45,17 +45,17 @@
 				</div>
 				<div>
 					<h4>
-						음식 이름 <input type="text" name="food_name" value="음식이름">
+						음식 이름 <input type="text" name="food_name" value="">
 					</h4>
 				</div>
 				<div> 
 					<h4>
-						먹은 날짜 <input type="date" name="eating_date" value="먹은 날짜">
+						먹은 날짜 <input type="date" name="eating_date" value="">
 					</h4>
 				</div>
 				<div>
 					<h4>
-						먹은 장소 <input type="text" name="address" value="먹은 장소">
+						먹은 장소 <input type="text" name="address" value="">
 					</h4>
 				</div>
 				<div>
@@ -63,7 +63,7 @@
 					<textarea name="content"></textarea>
 				</div>
 				<div>
-					<h4>첨부 사진 <input type="file" name="images" value="첨부사진"></h4>
+					<h4>첨부 사진 <input type="file" name="file" value="첨부사진"></h4>
 				</div>
 				<div> 
 					<h4>

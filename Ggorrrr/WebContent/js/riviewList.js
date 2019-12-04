@@ -30,11 +30,13 @@ window.addEventListener("load", function () {
                 var title = cloneForm.firstElementChild;
                 var content = cloneForm.lastElementChild;
                 title.firstElementChild.innerText = "ㆍ " + json[i].address;
+                title.lastElementChild.innerText = json[i].regdate;
                 content.firstElementChild.innerText = json[i].content;
                 content.querySelector("#content_").innerText = json[i].content;
                 content.lastElementChild.innerText = json[i].photo;
                 contentSection.append(cloneForm);
             }
+            console.log(title.lastElementChild.innerText);
             if (json.length < 3)
                 moreBtn.style.display = "none";
         };

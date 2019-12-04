@@ -9,12 +9,27 @@ public class Review {
 	private String content;
 	private Date eating_date;
 	private String photo;
+	private Date regdate;
 	private int rating;
 	private String foodName;
 	private String foodType;
 
 	public Review() {
 
+	}
+
+	public Review(int id, int member_id, String address, String content, Date eating_date, String photo, Date regdate,
+			int rating, String foodName, String foodType) {
+		this.id = id;
+		this.member_id = member_id;
+		this.address = address;
+		this.content = content;
+		this.eating_date = eating_date;
+		this.photo = photo;
+		this.regdate = regdate;
+		this.rating = rating;
+		this.foodName = foodName;
+		this.foodType = foodType;
 	}
 
 	public Review(int id, int member_id, String address, String content, Date eating_date, String photo,
@@ -28,18 +43,6 @@ public class Review {
 		this.rating = rating;
 		this.foodName = foodName;
 		this.foodType = foodType;
-	}
-
-	public Review(int id, int member_id, String address, String content, Date eating_date, String photo,
-			int rating, String foodName) {
-		this.id = id;
-		this.member_id = member_id;
-		this.address = address;
-		this.content = content;
-		this.eating_date = eating_date;
-		this.photo = photo;
-		this.rating = rating;
-		this.foodName = foodName;
 	}
 
 	public Review(int id, int member_id, String address, String content, Date eating_date, String photo,
@@ -110,6 +113,14 @@ public class Review {
 		return foodName;
 	}
 
+	public Date getRegdate() {
+		return regdate;
+	}
+
+	public void setRegdate(Date regdate) {
+		this.regdate = regdate;
+	}
+
 	public void setFoodName(String foodName) {
 		this.foodName = foodName;
 	}
@@ -121,7 +132,7 @@ public class Review {
 	@Override
 	public String toString() {
 		return "Review [id=" + id + ", member_id=" + member_id + ", address=" + address + ", content=" + content
-				+ ", eating_date=" + eating_date + ", photo=" + photo + ", rating=" + rating
+				+ ", eating_date=" + eating_date + ", photo=" + photo + ", rating=" + rating + ", regdate=" + regdate
 				+ ", foodName=" + foodName + "]";
 	}
 }

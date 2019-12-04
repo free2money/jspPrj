@@ -49,10 +49,12 @@ public class JdbcReviewDao implements ReviewDao {
 						rs.getString("content"), /**/
 						rs.getDate("eating_date"), /**/
 						rs.getString("photo"), /**/
+						rs.getDate("regdate"), /**/
 						rs.getInt("rating"), /**/
 						rs.getString("foodName"), /**/
 						rs.getString("foodType"));
 				list.add(review);
+				System.out.println(review);
 			}
 
 		} catch (ClassNotFoundException e) {
@@ -73,6 +75,7 @@ public class JdbcReviewDao implements ReviewDao {
 				e.printStackTrace();
 			}
 		}
+		
 		return list;
 	}
 
@@ -103,6 +106,7 @@ public class JdbcReviewDao implements ReviewDao {
 						rs.getString("content"), /**/
 						rs.getDate("eating_date"), /**/
 						rs.getString("photo"), /**/
+						rs.getDate("regdate"), /**/
 						rs.getInt("rating"), /**/
 						rs.getString("foodName"), /**/
 						rs.getString("foodType"));
@@ -133,8 +137,9 @@ public class JdbcReviewDao implements ReviewDao {
 	@Override
 	public int insert(Review review) {
 		int result = 0;
-		String sql = "INSERT INTO REVIEW(MEMBER_ID,ADDRESS, CONTENT, EATING_DATE, PHOTO,FOODNAME,FOODTYPE) "
-				+ "VALUES (?,?,?,?,?,?,?)";
+		System.out.println(review);
+		String sql = "INSERT INTO REVIEW(MEMBER_ID, ADDRESS, CONTENT, EATING_DATE, PHOTO, RATING, FOODNAME, FOODTYPE) "
+				+ "VALUES (?,?,?,?,?,?,?,?)";
 		Connection con = null;
 		PreparedStatement st = null;
 		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
@@ -147,8 +152,9 @@ public class JdbcReviewDao implements ReviewDao {
 			st.setString(3, review.getContent());
 			st.setDate(4, review.getEating_date());
 			st.setString(5, review.getPhoto());
-			st.setString(6, review.getFoodName());
-			st.setString(7, review.getFoodType());
+			st.setInt(6, review.getRating());
+			st.setString(7, review.getFoodName());
+			st.setString(8, review.getFoodType());
 			result = st.executeUpdate();
 
 		} catch (ClassNotFoundException e) {
@@ -176,6 +182,7 @@ public class JdbcReviewDao implements ReviewDao {
 		String sql = "UPDATE REVIEW SET ADDRESS=?, CONTENT=?, EATING_DATE=?, PHOTO=?, RATING=? WHERE ID=?";
 		Connection con = null;
 		PreparedStatement st = null;
+		ResultSet rs = null;
 		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -189,6 +196,9 @@ public class JdbcReviewDao implements ReviewDao {
 			st.setInt(6, review.getId());
 
 			result = st.executeUpdate();
+			
+			rs = st.executeQuery();
+			rs.getDate("regdate"); /**/
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -263,6 +273,7 @@ public class JdbcReviewDao implements ReviewDao {
 						rs.getString("content"), /**/
 						rs.getDate("eating_date"), /**/
 						rs.getString("photo"), /**/
+						rs.getDate("regdate"), /**/
 						rs.getInt("rating"), /**/
 						rs.getString("foodName"), /**/
 						rs.getString("foodType"));

@@ -41,9 +41,8 @@
 					<input style="width:30px; height: 24px;" class="now-check-button" type="button" name="nowPwdbutton"
 						value="확인">
 				</dd>
-				<dd>
-				<input class="now-check-text" type="text" name="nowPwdText" value="">
-				</dd>
+				<!--<dd><input class="now-check-text" type="text" name="nowPwdText" value=""></dd>-->
+				<dd><label class="now-check-text"></label></dd>
 
 			<!--<dd>${nows}</dd>-->
 			
@@ -58,7 +57,8 @@
 					<input style="width:30px; height: 24px;" class="new-check-button" type="button" name="newPwdsubmit"
 						value="확인">
 				</dd>
-				<dd><input class="new-check-text" type="text" name="newPwdText" value=""></dd>
+				<!--<dd><input class="new-check-text" type="text" name="newPwdText" value=""></dd>-->
+				<dd><label class="new-check-text"></label></dd>
 			</dl>
 			</div>
 
