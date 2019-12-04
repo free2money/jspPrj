@@ -37,7 +37,7 @@
 					<input class="now-pwd" type="hidden" name="pwd" value="${pwd}">
 				</dd>
 				<dd>
-					<input class="now-pwd2" type="text" name="nowPwd" value="">
+					<input class="now-pwd2" type="password" name="nowPwd" value="">
 					<input style="width:30px; height: 24px;" class="now-check-button" type="button" name="nowPwdbutton"
 						value="확인">
 				</dd>
@@ -49,12 +49,12 @@
 			
 				<dt>새 비밀번호</dt>
 				<dd>
-					<input class="new-pwd" type="text" name="newPwd" value="">
+					<input class="new-pwd" type="password" name="newPwd" value="">
 				</dd>
 
 				<dt>새 비밀번호 확인</dt>
 				<dd>
-					<input class="new-pwd2" type="text" name="newPwd2" value="">
+					<input class="new-pwd2" type="password" name="newPwd2" value="">
 					<input style="width:30px; height: 24px;" class="new-check-button" type="button" name="newPwdsubmit"
 						value="확인">
 				</dd>

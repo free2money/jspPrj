@@ -42,6 +42,10 @@ body {
 	height: 32px;
 }
 
+#button:hover{
+	border: solid #bdd7ee;
+}
+
 #middlebox>#findId{
 	color: #a8a8a8;
 	margin-top: 61px;

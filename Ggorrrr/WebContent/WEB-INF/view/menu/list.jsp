@@ -51,7 +51,6 @@
 						<form method="post" action="bookmark">
 							<input name="member-id" type="hidden" value="${member.id}">
 							<input name="food-id" type="hidden" value="${list.id }">
-							<!-- <input id="star" type="submit" name="bookmark" value=""> -->
 						</form>
 						<br>
 						<span>${list.price } 원</span>
