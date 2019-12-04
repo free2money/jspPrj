@@ -38,7 +38,7 @@ public class MyBookmarkListController extends HttpServlet {
 			throws ServletException, IOException {
 		int foodId = Integer.parseInt(request.getParameter("food-id"));
 		int memberId = Integer.parseInt(request.getParameter("id"));
-		bookmarkService.delete(foodId);
+		bookmarkService.delete(memberId,foodId);
 		response.sendRedirect("mybookmarklist?id=" + memberId);
 	}
 

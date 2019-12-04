@@ -120,13 +120,24 @@ main>div {
 	top: 74px;
 }
 
-#menulist ul li input[type="submit"] {
-	background: url("../images/onimages.png") no-repeat;
-	width: 100px;
-	height: 100px;
+#menulist ul li #star {
+	background: url("../images/offimages.png") no-repeat;
+	background-size:contain;
+	width: 20px;
+	height: 20px;
 	outline: none;
 	border: 0px;
-	display: inline-block;
+
+	cursor: pointer;
+}
+#menulist ul li #star2 {
+	background: url("../images/onimages.png") no-repeat;
+	background-size:contain;
+	width: 20px;
+	height: 20px;
+	outline: none;
+	border: 0px;
+	
 	cursor: pointer;
 }
 

@@ -50,10 +50,9 @@ public class JdbcBookmarkDao implements BookmarkDao {
 
 	// 즐겨찾기 삭제
 	@Override
-	public int delete(int food_id) {
+	public int delete(int member_id,int food_id) {
 		int result = 0;
-		String sql = "DELETE FROM BOOKMARK WHERE FOOD_ID=?";
-		Connection con = null;
+		String sql = "DELETE FROM BOOKMARK WHERE FOOD_ID=? AND MEMBER_ID=?";
 		PreparedStatement st = null;
 		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 		try {
@@ -61,6 +60,7 @@ public class JdbcBookmarkDao implements BookmarkDao {
 			con = DriverManager.getConnection(url, "GGORRRR", "0112");
 			st = con.prepareStatement(sql);
 			st.setInt(1, food_id);
+			st.setInt(2, member_id);
 			result = st.executeUpdate();
 
 		} catch (ClassNotFoundException e) {

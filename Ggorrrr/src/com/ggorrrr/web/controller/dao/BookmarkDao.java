@@ -8,7 +8,7 @@ public interface BookmarkDao {
 	// insert, delete(update), select
 	int insert(BookmarkMenu bookmarkMenu);
 
-	int delete(int food_id);
+	int delete(int member_id,int food_id);
 
 	List<BookmarkMenu> getList(int member_id);
 

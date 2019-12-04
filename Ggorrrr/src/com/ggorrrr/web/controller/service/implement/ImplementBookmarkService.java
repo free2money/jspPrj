@@ -22,8 +22,8 @@ public class ImplementBookmarkService implements BookmarkService {
 	}
 
 	@Override
-	public int delete(int food_id) {
-		return bookmarkDao.delete(food_id);
+	public int delete(int member_id,int food_id) {
+		return bookmarkDao.delete(member_id,food_id);
 	}
 
 	@Override

@@ -24,7 +24,7 @@
 				<nav id="memberMenu" class="top">
 
 					<ul>
-						<li><a href="index">Home</a></li>
+						<li><a href="/index">Home</a></li>
 						<c:if test="${empty sessionScope.username }">
 							<li><a href="/login/login">로그인</a></li>
 							<li><a href="/signUp/signUpAgree">회원가입</a></li>

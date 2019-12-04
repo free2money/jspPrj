@@ -45,16 +45,32 @@
 
 	<div id="menulist">
 		<ul>
-			<c:forEach items="${list }" var="list">
-				<li><a href="detail?id=${list.id }"> <img
-						src="/upload/${list.photo }"><br> <span>${list.korname }</span>
-						<form method="post" action="bookmark">
-							<input name="member-id" type="hidden" value="${member.id}">
-							<input name="food-id" type="hidden" value="${list.id }">
-						</form>
-						<br>
-						<span>${list.price } 원</span>
-				</a></li>
+
+			<c:forEach var="food" items="${list}" varStatus="status"> 
+
+
+				<li><form method="post" action="/bookmarkReg">
+						<a href="detail?id=${food.id }">
+						 <img src="/upload/${food.photo }"><br> 
+						 <span>${food.korname }</span>
+						 </a>
+							
+							<input name="member-id" type="hidden" value="${sessionScope.sessionuser.id}"> 
+							<input name="food-id" type="hidden" value="${food.id }"> 
+							<input name="category" type="hidden" value="${param.category }">
+							
+							<c:if test="${sessionScope.sessionuser!=null && !check[status.index] }">
+								
+								<input id="star" type="submit" value="">
+							</c:if> 
+						
+							<c:if test="${sessionScope.sessionuser!=null && check[status.index] }">
+								<input id="star2" type="submit" name="bookmark" value="">
+							</c:if>
+						
+							
+							
+					</form> <br> <span>${food.price } 원</span> </li>
 			</c:forEach>
 		</ul>
 	</div>
