@@ -30,32 +30,27 @@ public class BookmarkRegController extends HttpServlet {
 	}
 
 	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		HttpSession session = req.getSession();
+		String category = (String) session.getAttribute("category");
+		category = URLEncoder.encode(category, "UTF-8");
+		resp.sendRedirect("/menu/list?category=" + category);
+	}
+
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		Member member = (Member) session.getAttribute("sessionuser");
-		
-		int foodId=Integer.parseInt(request.getParameter("food-id"));
 		String category = request.getParameter("category");
-		
-		List<BookmarkMenu> myBookList = bookmarkService.getList(member.getId());
-		
-		boolean done=false;
-		for(BookmarkMenu b:myBookList) {
-			if(b.getId()==foodId) {
-				done=true;
-				break;
-			}
+		if (member == null) {
+			category = URLEncoder.encode(category, "UTF-8");
+			response.sendRedirect("/menu/list?category=" + category);
+			return;
 		}
-		
-		if(done) {
-			bookmarkService.delete(member.getId(), foodId);
-		}
-		else {
-			bookmarkService.insert(new BookmarkMenu(member.getId(), foodId));
-		}
-		
-		
+
+		int foodId = Integer.parseInt(request.getParameter("food-id"));
+
 		int page = 1;
 		String field = "ingridients";
 		String query = ""; // 기본값
@@ -76,33 +71,44 @@ public class BookmarkRegController extends HttpServlet {
 
 		if (query_ != null && !query_.equals(""))
 			query = query_;
-		
-		
-		List<Food> foodList=foodService.getFoodList(category, page, field, query);
+
+		List<BookmarkMenu> myBookList = bookmarkService.getList(member.getId());
+		boolean done = false;
+		for (BookmarkMenu b : myBookList) {
+			if (b.getId() == foodId) {
+				done = true;
+				break;
+			}
+		}
+
+		if (done) {
+			bookmarkService.delete(member.getId(), foodId);
+		} else {
+			bookmarkService.insert(new BookmarkMenu(member.getId(), foodId));
+		}
+
+		List<Food> foodList = foodService.getFoodList(category, page, field, query);
 		List<BookmarkMenu> bookList = bookmarkService.getList(member.getId());
-		boolean[] check=new boolean[foodList.size()];
-		int index=0;
-		for(Food f:foodList) {
-			
-			boolean search=false;
-			for(BookmarkMenu b:bookList) {
-				if(b.getId()==f.getId()) {
-					search=true;
+		boolean[] check = new boolean[foodList.size()];
+		int index = 0;
+		for (Food f : foodList) {
+
+			boolean search = false;
+			for (BookmarkMenu b : bookList) {
+				if (b.getId() == f.getId()) {
+					search = true;
 				}
 			}
-			
-			if(search)
-				check[index]=true;
+
+			if (search)
+				check[index] = true;
 			else
-				check[index]=false;
+				check[index] = false;
 			index++;
 		}
-		
-	
-		request.setAttribute("check",check);
-		category=URLEncoder.encode(category,"UTF-8"); 
+		request.setAttribute("check", check);
+		category = URLEncoder.encode(category, "UTF-8");
 
-		
 		response.sendRedirect("/menu/list?category=" + category);
 	}
 }

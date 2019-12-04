@@ -75,7 +75,6 @@ public class RegController extends HttpServlet {
 
 		switch (cmd) {
 		case "확인":
-
 			int result = reviewService
 					.insert(new Review(id, member_id, address, content, eating_date, photo, foodName, foodType));
 

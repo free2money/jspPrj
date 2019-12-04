@@ -25,8 +25,8 @@ public class JdbcBookmarkDao implements BookmarkDao {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			con = DriverManager.getConnection(url, "GGORRRR", "0112");
 			st = con.prepareStatement(sql);
-			st.setInt(1, bookmarkMenu.getId());
-			st.setInt(2, bookmarkMenu.getMember_id());
+			st.setInt(1, bookmarkMenu.getMember_id());
+			st.setInt(2, bookmarkMenu.getId());
 			result = st.executeUpdate();
 
 		} catch (ClassNotFoundException e) {

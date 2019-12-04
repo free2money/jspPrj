@@ -42,7 +42,6 @@ public class LoginFilter implements Filter {
 		HttpServletRequest request = (HttpServletRequest) req;
 
 		String requestUri = request.getRequestURI();
-
 		HttpSession session = request.getSession();
 		// default : 인증 안댐 -> true.)
 		boolean isAuthenticated = session.getAttribute("username") == null;
