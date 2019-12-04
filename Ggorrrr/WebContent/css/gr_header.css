@@ -124,6 +124,7 @@
 	height:100px;
 	margin-left:auto;
 	margin-right:auto;
+	text-align: center;
 }
 #visual>div {
 	width: 500px;
