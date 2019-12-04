@@ -53,6 +53,7 @@ public class JdbcBookmarkDao implements BookmarkDao {
 	public int delete(int member_id,int food_id) {
 		int result = 0;
 		String sql = "DELETE FROM BOOKMARK WHERE FOOD_ID=? AND MEMBER_ID=?";
+		Connection con = null;
 		PreparedStatement st = null;
 		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 		try {
