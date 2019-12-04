@@ -1,5 +1,7 @@
 package com.ggorrrr.web.controller.dao.jdbc;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,9 +18,13 @@ public class JdbcBookmarkDao implements BookmarkDao {
 	public int insert(BookmarkMenu bookmarkMenu) {
 		int result = 0;
 		String sql = "INSERT INTO BOOKMARK (MEMBER_ID,FOOD_ID) VALUES (?,?)";
+		Connection con = null;
 		PreparedStatement st = null;
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 		try {
-			st = JdbcContext.getPreparedStatement(sql);
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "GGORRRR", "0112");
+			st = con.prepareStatement(sql);
 			st.setInt(1, bookmarkMenu.getId());
 			st.setInt(2, bookmarkMenu.getMember_id());
 			result = st.executeUpdate();
@@ -33,10 +39,9 @@ public class JdbcBookmarkDao implements BookmarkDao {
 			try {
 				if (st != null)
 					st.close();
-				JdbcContext.delCon();
+				if (con != null)
+					con.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
 		}
@@ -48,9 +53,13 @@ public class JdbcBookmarkDao implements BookmarkDao {
 	public int delete(int food_id) {
 		int result = 0;
 		String sql = "DELETE FROM BOOKMARK WHERE FOOD_ID=?";
+		Connection con = null;
 		PreparedStatement st = null;
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 		try {
-			st = JdbcContext.getPreparedStatement(sql);
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "GGORRRR", "0112");
+			st = con.prepareStatement(sql);
 			st.setInt(1, food_id);
 			result = st.executeUpdate();
 
@@ -64,10 +73,9 @@ public class JdbcBookmarkDao implements BookmarkDao {
 			try {
 				if (st != null)
 					st.close();
-				JdbcContext.delCon();
+				if (con != null)
+					con.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
 		}
@@ -79,10 +87,14 @@ public class JdbcBookmarkDao implements BookmarkDao {
 	public List<BookmarkMenu> getList(int member_id) {
 		List<BookmarkMenu> list = new ArrayList<BookmarkMenu>();
 		String sql = "SELECT FOOD_ID, KORNAME, PHOTO FROM BOOKMARK_VIEW WHERE member_ID = ?";
+		Connection con = null;
 		PreparedStatement st = null;
 		ResultSet rs = null;
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 		try {
-			st = JdbcContext.getPreparedStatement(sql);
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "GGORRRR", "0112");
+			st = con.prepareStatement(sql);
 			st.setInt(1, member_id);
 			rs = st.executeQuery();
 
@@ -106,10 +118,9 @@ public class JdbcBookmarkDao implements BookmarkDao {
 					rs.close();
 				if (st != null)
 					st.close();
-				JdbcContext.delCon();
+				if (con != null)
+					con.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
 		}

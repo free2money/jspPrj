@@ -20,7 +20,7 @@ import com.ggorrrr.web.controller.dao.jdbc.JdbcMemberDao;
 public class LoginFilter implements Filter {
 
 	private static final String[] noAuthenticUris = { /**/
-			"/upload/*",
+			"/upload/*", /**/
 			"/index", /**/
 			"/images/*", /**/
 			"/css/*", /**/

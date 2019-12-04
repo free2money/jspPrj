@@ -1,5 +1,7 @@
 package com.ggorrrr.web.controller.dao.jdbc;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -67,11 +69,14 @@ public class JdbcFoodDao implements FoodDao {
 		String sql = "select * from" + "(select rownum num1, n.* " + "from(select * from " + category_ + " where "
 				+ field + " like ? order by id desc) n )" + "where num1 between ? and ?";
 
+		Connection con = null;
 		PreparedStatement st = null;
 		ResultSet rs = null;
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 		try {
-			st = JdbcContext.getPreparedStatement(sql);
-
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "GGORRRR", "0112");
+			st = con.prepareStatement(sql);
 			st.setString(1, "%" + query + "%");
 			st.setInt(2, (page - 1) * 10 + 1);
 			st.setInt(3, page * 10);
@@ -106,10 +111,9 @@ public class JdbcFoodDao implements FoodDao {
 					rs.close();
 				if (st != null)
 					st.close();
-				JdbcContext.delCon();
+				if (con != null)
+					con.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
 		}
@@ -120,10 +124,14 @@ public class JdbcFoodDao implements FoodDao {
 	public Food get(int id) {
 		Food food = null;
 		String sql = "select * from food where id = ? ";
+		Connection con = null;
 		PreparedStatement st = null;
 		ResultSet rs = null;
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 		try {
-			st = JdbcContext.getPreparedStatement(sql);
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "GGORRRR", "0112");
+			st = con.prepareStatement(sql);
 			st.setInt(1, id);
 			rs = st.executeQuery();
 
@@ -151,10 +159,9 @@ public class JdbcFoodDao implements FoodDao {
 			try {
 				if (st != null)
 					st.close();
-				JdbcContext.delCon();
+				if (con != null)
+					con.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
 		}
@@ -166,9 +173,13 @@ public class JdbcFoodDao implements FoodDao {
 		int result = 0;
 		String sql = "INSERT INTO FOOD(KORNAME,ENGNAME,PHOTO,INGRIDIENTS,EXPLAIN,manager_id,RECIPE,VEGETARIAN,THEMA,big_CATEGORY,PRICE) "
 				+ "VALUES(?,?,?,?,?,191128018,?,?,?,?,?)";
+		Connection con = null;
 		PreparedStatement st = null;
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 		try {
-			st = JdbcContext.getPreparedStatement(sql);
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "GGORRRR", "0112");
+			st = con.prepareStatement(sql);
 			st.setString(1, food.getKorname());
 			st.setString(2, food.getEngname());
 			st.setString(3, food.getPhoto());
@@ -189,10 +200,9 @@ public class JdbcFoodDao implements FoodDao {
 			try {
 				if (st != null)
 					st.close();
-				JdbcContext.delCon();
+				if (con != null)
+					con.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
 		}
@@ -203,9 +213,13 @@ public class JdbcFoodDao implements FoodDao {
 	public int update(Food food) {
 		int result = 0;
 		String sql = " UPDATE FOOD SET KORNAME = ?, ENGNAME = ?, PHOTO = ?, INGRIDIENTS = ?, EXPLAIN = ?, RECIPE = ?,VEGETARIAN = ?, THEMA = ?, PRICE = ? where id = ? ";
+		Connection con = null;
 		PreparedStatement st = null;
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 		try {
-			st = JdbcContext.getPreparedStatement(sql);
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "GGORRRR", "0112");
+			st = con.prepareStatement(sql);
 			st.setString(1, food.getKorname());
 			st.setString(2, food.getEngname());
 			st.setString(3, food.getPhoto());
@@ -227,10 +241,9 @@ public class JdbcFoodDao implements FoodDao {
 			try {
 				if (st != null)
 					st.close();
-				JdbcContext.delCon();
+				if (con != null)
+					con.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
 		}
@@ -241,9 +254,14 @@ public class JdbcFoodDao implements FoodDao {
 	public int delete(int id) {
 		int result = 0;
 		String sql = "delete from food where id = ? ";
+		Connection con = null;
 		PreparedStatement st = null;
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 		try {
-			st = JdbcContext.getPreparedStatement(sql);
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "GGORRRR", "0112");
+			st = con.prepareStatement(sql);
+
 			st.setInt(1, id);
 			result = st.executeUpdate();
 
@@ -255,10 +273,9 @@ public class JdbcFoodDao implements FoodDao {
 			try {
 				if (st != null)
 					st.close();
-				JdbcContext.delCon();
+				if (con != null)
+					con.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
 		}
@@ -298,16 +315,19 @@ public class JdbcFoodDao implements FoodDao {
 
 		String sql = "select count(id) count " + "from ( select rownum num1 ,n.* from (select * from " + category_
 				+ " order by id desc) n) " + "where " + field + " like ?";
+		Connection con = null;
 		PreparedStatement st = null;
 		ResultSet rs = null;
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 		try {
-			st = JdbcContext.getPreparedStatement(sql);
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "GGORRRR", "0112");
+			st = con.prepareStatement(sql);
 			st.setString(1, "%" + query + "%");
 			rs = st.executeQuery();
 
 			if (rs.next())
-				;
-			count = rs.getInt("count");
+				count = rs.getInt("count");
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -319,10 +339,9 @@ public class JdbcFoodDao implements FoodDao {
 					rs.close();
 				if (st != null)
 					st.close();
-				JdbcContext.delCon();
+				if (con != null)
+					con.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
 		}

@@ -1,5 +1,7 @@
 package com.ggorrrr.web.controller.dao.jdbc;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,11 +28,14 @@ public class JdbcReviewDao implements ReviewDao {
 		List<Review> list = new ArrayList<Review>();
 		String sql = "select * from (select rownum num, n.* from (select * from review where " + field
 				+ " like ? order by " + order + " desc) n ) where num between ? and ?";
-		PreparedStatement st = null;
 		ResultSet rs = null;
-
+		Connection con = null;
+		PreparedStatement st = null;
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 		try {
-			st = JdbcContext.getPreparedStatement(sql);
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "GGORRRR", "0112");
+			st = con.prepareStatement(sql);
 			st.setString(1, "%" + query + "%");
 			st.setInt(2, (page - 1) * 3 + 1);
 			st.setInt(3, page * 3);
@@ -63,10 +68,9 @@ public class JdbcReviewDao implements ReviewDao {
 					rs.close();
 				if (st != null)
 					st.close();
-				JdbcContext.delCon();
+				if (con != null)
+					con.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
 		}
@@ -78,10 +82,14 @@ public class JdbcReviewDao implements ReviewDao {
 		List<Review> list = new ArrayList<Review>();
 		String sql = "select * from (select rownum num, n.* from (select * from review where " + field
 				+ " like ? order by regdate desc) n ) where num between ? and ? and member_id = ?";
-		PreparedStatement st = null;
 		ResultSet rs = null;
+		Connection con = null;
+		PreparedStatement st = null;
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 		try {
-			st = JdbcContext.getPreparedStatement(sql);
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "GGORRRR", "0112");
+			st = con.prepareStatement(sql);
 			st.setString(1, "%" + query + "%");
 			st.setInt(2, (page - 1) * 3 + 1);
 			st.setInt(3, page * 3);
@@ -115,10 +123,9 @@ public class JdbcReviewDao implements ReviewDao {
 					rs.close();
 				if (st != null)
 					st.close();
-				JdbcContext.delCon();
+				if (con != null)
+					con.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
 		}
@@ -130,10 +137,13 @@ public class JdbcReviewDao implements ReviewDao {
 		int result = 0;
 		String sql = "INSERT INTO REVIEW(MEMBER_ID,ADDRESS, CONTENT, EATING_DATE, PHOTO,FOODNAME,FOODTYPE) "
 				+ "VALUES (?,?,?,?,?,?,?)";
-
+		Connection con = null;
 		PreparedStatement st = null;
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 		try {
-			st = JdbcContext.getPreparedStatement(sql);
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "GGORRRR", "0112");
+			st = con.prepareStatement(sql);
 			st.setInt(1, review.getMember_id());
 			st.setString(2, review.getAddress());
 			st.setString(3, review.getContent());
@@ -153,10 +163,9 @@ public class JdbcReviewDao implements ReviewDao {
 			try {
 				if (st != null)
 					st.close();
-				JdbcContext.delCon();
+				if (con != null)
+					con.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
 		}
@@ -167,9 +176,13 @@ public class JdbcReviewDao implements ReviewDao {
 	public int update(Review review) {
 		int result = 0;
 		String sql = "UPDATE REVIEW SET ADDRESS=?, CONTENT=?, EATING_DATE=?, PHOTO=?, REGDATE=?, RATING=? WHERE ID=?";
+		Connection con = null;
 		PreparedStatement st = null;
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 		try {
-			st = JdbcContext.getPreparedStatement(sql);
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "GGORRRR", "0112");
+			st = con.prepareStatement(sql);
 			st.setString(1, review.getAddress());
 			st.setString(2, review.getContent());
 			st.setDate(3, review.getEating_date());
@@ -188,10 +201,9 @@ public class JdbcReviewDao implements ReviewDao {
 			try {
 				if (st != null)
 					st.close();
-				JdbcContext.delCon();
+				if (con != null)
+					con.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
 		}
@@ -202,9 +214,14 @@ public class JdbcReviewDao implements ReviewDao {
 	public int delete(int id) {
 		int result = 0;
 		String sql = "DELETE REVIEW WHERE ID=?";
+		Connection con = null;
 		PreparedStatement st = null;
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 		try {
-			st = JdbcContext.getPreparedStatement(sql);
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "GGORRRR", "0112");
+			st = con.prepareStatement(sql);
+
 			st.setInt(1, id);
 			result = st.executeUpdate();
 
@@ -216,10 +233,9 @@ public class JdbcReviewDao implements ReviewDao {
 			try {
 				if (st != null)
 					st.close();
-				JdbcContext.delCon();
+				if (con != null)
+					con.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
 		}
@@ -230,10 +246,14 @@ public class JdbcReviewDao implements ReviewDao {
 	public Review get(int review_id) {
 		Review review = null;
 		String sql = "SELECT * FROM REVIEW WHERE ID=?";
+		Connection con = null;
 		PreparedStatement st = null;
 		ResultSet rs = null;
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 		try {
-			st = JdbcContext.getPreparedStatement(sql);
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "GGORRRR", "0112");
+			st = con.prepareStatement(sql);
 			st.setInt(1, review_id);
 
 			rs = st.executeQuery();
@@ -262,10 +282,9 @@ public class JdbcReviewDao implements ReviewDao {
 					rs.close();
 				if (st != null)
 					st.close();
-				JdbcContext.delCon();
+				if (con != null)
+					con.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
 		}

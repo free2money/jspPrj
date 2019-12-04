@@ -1,5 +1,7 @@
 package com.ggorrrr.web.controller.dao.jdbc;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,13 +24,16 @@ public class JdbcMemberDao implements MemberDao {
 	@Override
 	public List<Member> getMemberList(String field, String query) {
 		Member member = null;
-
 		List<Member> list = new ArrayList<Member>();
 		String sql = "select * from member where " + field + " like ?";
+		Connection con = null;
 		PreparedStatement st = null;
 		ResultSet rs = null;
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 		try {
-			st = JdbcContext.getPreparedStatement(sql);
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "GGORRRR", "0112");
+			st = con.prepareStatement(sql);
 			st.setString(1, "%" + query + "%");
 
 			rs = st.executeQuery();
@@ -60,10 +65,9 @@ public class JdbcMemberDao implements MemberDao {
 					rs.close();
 				if (st != null)
 					st.close();
-				JdbcContext.delCon();
+				if (con != null)
+					con.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
 		}
@@ -73,51 +77,58 @@ public class JdbcMemberDao implements MemberDao {
 	// 회원가입
 	@Override
 	public int insert(Member member) {
-	      int result = 0;
-	      String sql = "INSERT INTO MEMBER (USER_ID,PWD,NAME,BIRTHDAY,EMAIL,GENDER,PHONE,LOCATION_AGREE,NICKNAME) VALUES(?,?,?,?,?,?,?,?,?)";
-	      PreparedStatement st = null;
-	      try {
-	         st = JdbcContext.getPreparedStatement(sql);
-	         st.setString(1, member.getUser_id());
-	         st.setString(2, member.getPwd());
-	         st.setString(3, member.getName());
-	         st.setString(4, member.getBirthday());
-	         st.setString(5, member.getEmail());
-	         st.setString(6, member.getGender());
-	         st.setString(7, member.getPhone());
-	         st.setString(8, member.getLocation_agree());
-	         st.setString(9, member.getNickname());
+		int result = 0;
+		String sql = "INSERT INTO MEMBER (USER_ID,PWD,NAME,BIRTHDAY,EMAIL,GENDER,PHONE,LOCATION_AGREE,NICKNAME) VALUES(?,?,?,?,?,?,?,?,?)";
+		Connection con = null;
+		PreparedStatement st = null;
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "GGORRRR", "0112");
+			st = con.prepareStatement(sql);
+			st.setString(1, member.getUser_id());
+			st.setString(2, member.getPwd());
+			st.setString(3, member.getName());
+			st.setString(4, member.getBirthday());
+			st.setString(5, member.getEmail());
+			st.setString(6, member.getGender());
+			st.setString(7, member.getPhone());
+			st.setString(8, member.getLocation_agree());
+			st.setString(9, member.getNickname());
 
-	         result = st.executeUpdate(); // st실행 //실행되면 1반환
+			result = st.executeUpdate(); // st실행 //실행되면 1반환
 
-	      } catch (ClassNotFoundException e) {
-	         // TODO Auto-generated catch block
-	         e.printStackTrace();
-	      } catch (SQLException e) {
-	         // TODO Auto-generated catch block
-	         e.printStackTrace();
-	      } finally {
-	         try {
-	            if (st != null)
-	               st.close();
-	            JdbcContext.delCon();
-	         } catch (SQLException e) {
-	            e.printStackTrace();
-	         } catch (ClassNotFoundException e) {
-	            e.printStackTrace();
-	         }
-	      }
-	      return result;
-	   }
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				if (st != null)
+					st.close();
+				if (con != null)
+					con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
 
 	// 비번변경,닉네임변경,위치정보변경
 	@Override
 	public int update(Member member) {
 		int result = 0;
 		String sql = "update member set pwd=?, location_agree=?, nickname=?" + "where id=?";
+		Connection con = null;
 		PreparedStatement st = null;
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 		try {
-			st = JdbcContext.getPreparedStatement(sql);
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "GGORRRR", "0112");
+			st = con.prepareStatement(sql);
 			st.setString(1, member.getPwd());
 			st.setString(2, member.getLocation_agree());
 			st.setString(3, member.getNickname());
@@ -133,10 +144,9 @@ public class JdbcMemberDao implements MemberDao {
 			try {
 				if (st != null)
 					st.close();
-				JdbcContext.delCon();
+				if (con != null)
+					con.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
 		}
@@ -148,10 +158,13 @@ public class JdbcMemberDao implements MemberDao {
 	public int delete(int id) {
 		int result = 0;
 		String sql = "delete member where id=?";
-
+		Connection con = null;
 		PreparedStatement st = null;
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 		try {
-			st = JdbcContext.getPreparedStatement(sql);
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "GGORRRR", "0112");
+			st = con.prepareStatement(sql);
 			st.setInt(1, id);
 
 			result = st.executeUpdate();
@@ -164,10 +177,9 @@ public class JdbcMemberDao implements MemberDao {
 			try {
 				if (st != null)
 					st.close();
-				JdbcContext.delCon();
+				if (con != null)
+					con.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
 		}
@@ -179,10 +191,14 @@ public class JdbcMemberDao implements MemberDao {
 	public Member get(int id) {
 		Member member = null;
 		String sql = "select * from member where id= ?";
+		Connection con = null;
 		PreparedStatement st = null;
 		ResultSet rs = null;
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 		try {
-			st = JdbcContext.getPreparedStatement(sql);
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "GGORRRR", "0112");
+			st = con.prepareStatement(sql);
 			st.setInt(1, id);
 
 			rs = st.executeQuery();
@@ -200,7 +216,6 @@ public class JdbcMemberDao implements MemberDao {
 				String nickname = rs.getString("nickname");
 
 				member = new Member(id, user_name, pwd, name, birthday, email, gender, phone, location_agree, nickname);
-
 			}
 
 		} catch (ClassNotFoundException e) {
@@ -213,10 +228,9 @@ public class JdbcMemberDao implements MemberDao {
 					rs.close();
 				if (st != null)
 					st.close();
-				JdbcContext.delCon();
+				if (con != null)
+					con.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
 		}
@@ -227,10 +241,14 @@ public class JdbcMemberDao implements MemberDao {
 	public Member get(String id) {
 		Member member = null;
 		String sql = "select * from member where user_id = ?";
+		Connection con = null;
 		PreparedStatement st = null;
 		ResultSet rs = null;
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 		try {
-			st = JdbcContext.getPreparedStatement(sql);
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "GGORRRR", "0112");
+			st = con.prepareStatement(sql);
 			st.setString(1, id);
 			rs = st.executeQuery();
 
@@ -248,7 +266,6 @@ public class JdbcMemberDao implements MemberDao {
 
 				member = new Member(id_, user_name, pwd, name, birthday, email, gender, phone, location_agree,
 						nickname);
-
 			}
 
 		} catch (ClassNotFoundException e) {
@@ -261,10 +278,9 @@ public class JdbcMemberDao implements MemberDao {
 					rs.close();
 				if (st != null)
 					st.close();
-				JdbcContext.delCon();
+				if (con != null)
+					con.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
 		}
@@ -275,11 +291,14 @@ public class JdbcMemberDao implements MemberDao {
 	public Member findId(String name) {
 		Member member = null;
 		String sql = "select * from member where name = ?";
-
+		Connection con = null;
 		PreparedStatement st = null;
 		ResultSet rs = null;
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 		try {
-			st = JdbcContext.getPreparedStatement(sql);
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "GGORRRR", "0112");
+			st = con.prepareStatement(sql);
 			st.setString(1, name);
 			rs = st.executeQuery();
 
@@ -308,10 +327,9 @@ public class JdbcMemberDao implements MemberDao {
 					rs.close();
 				if (st != null)
 					st.close();
-				JdbcContext.delCon();
+				if (con != null)
+					con.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
 		}
