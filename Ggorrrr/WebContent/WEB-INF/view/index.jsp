@@ -171,7 +171,7 @@
 				<div class="foodDiv">
 					<c:forEach var="n" items="${best}">
 						<div>
-							<img src="/upload/${n.photo }" alt="${n.korname }">
+							<img src="/upload/${n.photo }" id="${n.id }">
 						</div>
 					</c:forEach>
 				</div>

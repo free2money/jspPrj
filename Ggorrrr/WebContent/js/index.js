@@ -3,13 +3,17 @@ window.addEventListener("load", function() {
 	var offset = 10000;
 	var section = document.querySelector("#main");
 	var x = section.querySelectorAll(".food>div div");
+	var foodDiv= section.querySelector(".foodDiv");
 	var b = section.querySelectorAll(".slideButton");
 	var slide;
-	
-	
 
-	
-	//==================슬라이드 쇼 동작=======================
+	//사진메뉴 클릭시 상세설명 이동
+	foodDiv.onclick=function(e){
+		location.href="/menu/detail?id="+e.target.getAttribute("id");
+	};
+
+
+	// ==================슬라이드 쇼 동작=======================
 	// 슬라이드쇼 동작 구현
 	for (var i = 0; i < x.length; i++) {
 		x[i].classList.add("a" + i);
