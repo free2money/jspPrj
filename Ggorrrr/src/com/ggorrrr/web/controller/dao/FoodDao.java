@@ -25,4 +25,8 @@ public interface FoodDao {
 	int delete(int id); // 삭제
 
 	int getListCount(String category, String field, String query); // 전체 수 확인 후 페이지 번호 매기기
+
+	List<Food> getFoodListAll();
+
+	Food getFoodRownum(int rownum);
 }

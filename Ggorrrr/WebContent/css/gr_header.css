@@ -3,7 +3,9 @@
 .d-none {
 	display: none;
 }
-
+header{
+	width:1600px;
+}
 #header {
 	width: 1200px;
 	height: 200px;

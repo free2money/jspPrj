@@ -27,4 +27,8 @@ public interface FoodService {
 	int deletes(int[] ids);
 
 	int getFoodCount(String category, String field, String query);
+
+	List<Food> getFoodListAll();
+
+	Food getFoodRownum(int rownum);
 }

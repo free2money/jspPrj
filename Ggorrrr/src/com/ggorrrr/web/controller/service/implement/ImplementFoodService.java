@@ -72,4 +72,16 @@ public class ImplementFoodService implements FoodService {
 	public int getFoodCount(String category, String field, String query) {
 		return foodDao.getListCount(category, field, query);
 	}
+
+	@Override
+	public List<Food> getFoodListAll() {
+		
+		return foodDao.getFoodListAll();
+	}
+
+	@Override
+	public Food getFoodRownum(int rownum) {
+		
+		return foodDao.getFoodRownum(rownum);
+	}
 }

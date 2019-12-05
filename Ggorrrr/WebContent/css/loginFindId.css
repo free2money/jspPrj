@@ -4,6 +4,10 @@ body {
 	background: #FAFFFF;
 }
 
+main{
+	width:1600px;
+	
+}
 #middlebox {
 	width: 400px;
 	min-height: inherit;

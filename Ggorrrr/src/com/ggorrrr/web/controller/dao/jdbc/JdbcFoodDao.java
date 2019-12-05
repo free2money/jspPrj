@@ -348,4 +348,117 @@ public class JdbcFoodDao implements FoodDao {
 		return count;
 	}
 
+	@Override
+	public List<Food> getFoodListAll() {
+				
+		List<Food> list = new ArrayList<Food>();
+		Food food=null;
+
+		String sql = "SELECT * FROM FOOD_VIEW";
+
+		Connection con = null;
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "GGORRRR", "0112");
+			st = con.prepareStatement(sql);
+		
+			rs = st.executeQuery();
+
+			while (rs.next()) {
+				int rownum=rs.getInt("num");
+				int id = rs.getInt("id");
+				String korname = rs.getString("korname");
+				String engname = rs.getString("korname");
+				String photo = rs.getString("photo");
+				String ingridients = rs.getString("ingridients");
+				String explain = rs.getString("explain");
+				int managerId = rs.getInt("manager_id");
+				boolean vegetarian = rs.getBoolean("vegetarian");
+				String thema = rs.getString("thema");
+				String recipe = rs.getString("recipe");
+				String category=rs.getString("big_category");
+				int price = rs.getInt("price");
+
+				food = new Food(rownum,id, korname, engname, photo, ingridients, explain, managerId, vegetarian, thema, recipe,
+						category, price);
+
+				list.add(food);
+			}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (st != null)
+					st.close();
+				if (con != null)
+					con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return list;
+	}
+
+	@Override
+	public Food getFoodRownum(int rownum) {
+		Food food=null;
+
+		String sql = "SELECT * FROM FOOD_VIEW WHERE NUM=?";
+
+		Connection con = null;
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "GGORRRR", "0112");
+			st = con.prepareStatement(sql);
+			st.setInt(1, rownum);
+			rs = st.executeQuery();
+
+			while (rs.next()) {
+				int id = rs.getInt("id");
+				String korname = rs.getString("korname");
+				String engname = rs.getString("korname");
+				String photo = rs.getString("photo");
+				String ingridients = rs.getString("ingridients");
+				String explain = rs.getString("explain");
+				int managerId = rs.getInt("manager_id");
+				boolean vegetarian = rs.getBoolean("vegetarian");
+				String thema = rs.getString("thema");
+				String recipe = rs.getString("recipe");
+				String category=rs.getString("big_category");
+				int price = rs.getInt("price");
+
+				food = new Food(rownum,id, korname, engname, photo, ingridients, explain, managerId, vegetarian, thema, recipe,
+						category, price);
+
+			
+			}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (st != null)
+					st.close();
+				if (con != null)
+					con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return food;
+	}
+
 }

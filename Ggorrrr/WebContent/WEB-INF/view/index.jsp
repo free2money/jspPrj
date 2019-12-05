@@ -181,11 +181,10 @@
 		<div class="slide">
 			<div class="food">
 				<div class="foodDiv">
-				<div><img src="/images/KimchiSoup.jpg"></div>
-				<div><img src="/images/tonkatsu.jpg"></div>
-				<div><img src="/images/tteokbokki.jpg"></div>
-				<div><img src="/images/kimchiFriedRice.jpg"></div>
-				<div><img src="/images/bookmark.png"></div>
+				<c:forEach var="n" items="${best}">
+				<div><img src="/images/${n.photo }"></div>
+			
+				</c:forEach>
 				</div>
 			</div>
 			

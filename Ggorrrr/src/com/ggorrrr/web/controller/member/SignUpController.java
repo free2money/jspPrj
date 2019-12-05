@@ -76,31 +76,32 @@ public class SignUpController extends HttpServlet {
 
 		boolean isDup = false;
 		isDup = memberService.isDuplicatedId(user_id);
-		if (isDup != true) {
-			out.println("<script>alert('사용할 수 없는 아이디입니다.'); location.href='/signUp/signUp?location_chk="
-					+ location_agree + "';</script>");
-		} else {
-
-			if (pwd.equals(checkPwd) && !pwd.equals("")) {
+		
+		if(user_id.equals("") || pwd.equals("") || checkPwd.equals("") || year.equals("")
+					|| month_.equals("") || day_.equals("") || email.equals("") || phone.equals("")
+					|| nickname.equals("")) {
+			if(signUpButton.equals("가입하기")) {
+				out.println("<script>alert('빈칸없이 입력해주세요.'); location.href='/signUp/signUp?location_chk="
+						+ location_agree + "';</script>");
+			}
+		}
+		else {
+			if (isDup != true) {
+				out.println("<script>alert('사용할 수 없는 아이디입니다.'); location.href='/signUp/signUp?location_chk="
+						+ location_agree + "';</script>");
+			}
+			else if(pwd.equals(checkPwd)) {
 				if (signUpButton.equals("가입하기")) {
 					member = new Member(id, user_id, checkPwd, name, year + "-" + month_ + "-" + day_,
 							email + emailadress, gender, phone, location_agree, nickname);
 					memberService.insert(member);
 					out.println("<script>alert('회원가입이 완료되었습니다!'); location.href='/login/login';</script>");
 				}
-			} else if (!user_id.equals("") || !pwd.equals("") || !checkPwd.equals("") || !year.equals("")
-					|| !month_.equals("") || !day_.equals("") || !email.equals("") || phone.equals("")
-					|| !nickname.equals("")) {
-				if (signUpButton.equals("가입하기")) {
-					out.println("<script>alert('빈칸없이 입력해주세요.'); location.href='/signUp/signUp?location_chk="
-							+ location_agree + "';</script>");
-				}
-			} else {
+			}
+			else
 				out.println("<script>alert('비밀번호가 일치하지 않습니다.'); location.href='/signUp/signUp?location_chk="
 						+ location_agree + "';</script>");
-			}
 		}
-		
 		
 	}
 

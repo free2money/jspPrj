@@ -1,6 +1,8 @@
 package com.ggorrrr.web.controller.entity;
 
 public class Food {
+	private int rownum;
+
 	private int id;
 	private String korname;
 	private String engname;
@@ -53,6 +55,24 @@ public class Food {
 	public Food(String korname, String photo) {
 		this.korname = korname;
 		this.photo = photo;
+	}
+	
+	public Food(int rownum, int id, String korname, String engname, String photo, String ingridients, String explain,
+			int managerId, boolean vegetarian, String thema, String recipe, String category, int price) {
+		super();
+		this.rownum = rownum;
+		this.id = id;
+		this.korname = korname;
+		this.engname = engname;
+		this.photo = photo;
+		this.ingridients = ingridients;
+		this.explain = explain;
+		this.managerId = managerId;
+		this.vegetarian = vegetarian;
+		this.thema = thema;
+		this.recipe = recipe;
+		this.category = category;
+		this.price = price;
 	}
 
 	public String getRecipe() {
