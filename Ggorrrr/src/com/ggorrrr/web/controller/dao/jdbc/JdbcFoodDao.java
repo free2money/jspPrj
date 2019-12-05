@@ -351,9 +351,9 @@ public class JdbcFoodDao implements FoodDao {
 
 	@Override
 	public List<Food> getFoodListAll() {
-				
+
 		List<Food> list = new ArrayList<Food>();
-		Food food=null;
+		Food food = null;
 
 		String sql = "SELECT * FROM FOOD_VIEW";
 
@@ -365,11 +365,11 @@ public class JdbcFoodDao implements FoodDao {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			con = DriverManager.getConnection(url, "GGORRRR", "0112");
 			st = con.prepareStatement(sql);
-		
+
 			rs = st.executeQuery();
 
 			while (rs.next()) {
-				int rownum=rs.getInt("num");
+				int rownum = rs.getInt("num");
 				int id = rs.getInt("id");
 				String korname = rs.getString("korname");
 				String engname = rs.getString("korname");
@@ -380,11 +380,11 @@ public class JdbcFoodDao implements FoodDao {
 				boolean vegetarian = rs.getBoolean("vegetarian");
 				String thema = rs.getString("thema");
 				String recipe = rs.getString("recipe");
-				String category=rs.getString("big_category");
+				String category = rs.getString("big_category");
 				int price = rs.getInt("price");
 
-				food = new Food(rownum,id, korname, engname, photo, ingridients, explain, managerId, vegetarian, thema, recipe,
-						category, price);
+				food = new Food(rownum, id, korname, engname, photo, ingridients, explain, managerId, vegetarian, thema,
+						recipe, category, price);
 
 				list.add(food);
 			}
@@ -409,7 +409,7 @@ public class JdbcFoodDao implements FoodDao {
 
 	@Override
 	public Food getFoodRownum(int rownum) {
-		Food food=null;
+		Food food = null;
 
 		String sql = "SELECT * FROM FOOD_VIEW WHERE NUM=?";
 
@@ -435,13 +435,12 @@ public class JdbcFoodDao implements FoodDao {
 				boolean vegetarian = rs.getBoolean("vegetarian");
 				String thema = rs.getString("thema");
 				String recipe = rs.getString("recipe");
-				String category=rs.getString("big_category");
+				String category = rs.getString("big_category");
 				int price = rs.getInt("price");
 
-				food = new Food(rownum,id, korname, engname, photo, ingridients, explain, managerId, vegetarian, thema, recipe,
-						category, price);
+				food = new Food(rownum, id, korname, engname, photo, ingridients, explain, managerId, vegetarian, thema,
+						recipe, category, price);
 
-			
 			}
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -461,7 +460,8 @@ public class JdbcFoodDao implements FoodDao {
 		}
 		return food;
 	}
-@Override
+
+	@Override
 	public List<Food> getFoodList(String category, int page, String field, String query, String soCategory) {
 		List<Food> list = new ArrayList<>();
 		Food food = null;
@@ -501,10 +501,14 @@ public class JdbcFoodDao implements FoodDao {
 		String sql = "select * from" + "(select rownum num1, n.* " + "from(select * from food where " + field
 				+ " like ? order by id desc) n )" + "where num1 between ? and ?";
 
+		Connection con = null;
 		PreparedStatement st = null;
 		ResultSet rs = null;
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 		try {
-			st = JdbcContext.getPreparedStatement(sql);
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "GGORRRR", "0112");
+			st = con.prepareStatement(sql);
 
 			st.setString(1, "%" + query + "%");
 			st.setInt(2, (page - 1) * 10 + 1);
@@ -540,10 +544,9 @@ public class JdbcFoodDao implements FoodDao {
 					rs.close();
 				if (st != null)
 					st.close();
-				JdbcContext.delCon();
+				if (con != null)
+					con.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
 		}
@@ -586,13 +589,17 @@ public class JdbcFoodDao implements FoodDao {
 		String sql = "select * from" + "(select rownum num1, n.* " + "from(select * from " + category_ + " where "
 				+ field + " like ? and thema = ? order by id desc) n )" + "where num1 between ? and ?";
 
+		Connection con = null;
 		PreparedStatement st = null;
 		ResultSet rs = null;
+		String url = "jdbc:oracle:thin:@192.168.0.3:1521/xepdb1";
 		try {
-			st = JdbcContext.getPreparedStatement(sql);
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, "GGORRRR", "0112");
+			st = con.prepareStatement(sql);
 
 			st.setString(1, "%" + query + "%");
-			st.setString(2 , thema);
+			st.setString(2, thema);
 			st.setInt(3, (page - 1) * 10 + 1);
 			st.setInt(4, page * 10);
 
@@ -625,10 +632,9 @@ public class JdbcFoodDao implements FoodDao {
 					rs.close();
 				if (st != null)
 					st.close();
-				JdbcContext.delCon();
+				if (con != null)
+					con.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
 		}

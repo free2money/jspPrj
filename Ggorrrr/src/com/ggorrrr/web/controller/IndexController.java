@@ -34,7 +34,7 @@ public class IndexController extends HttpServlet {
 		for (int i = 0; i < checkDup.length; i++) {
 			int rand = (int) (Math.random() * (list.size() + 1));
 			boolean check = true;
-
+			
 			for (int j = 0; j < i; j++) {
 				if (checkDup[j] == rand) {
 					check = false;

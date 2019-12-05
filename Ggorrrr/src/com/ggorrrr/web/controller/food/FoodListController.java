@@ -27,6 +27,7 @@ public class FoodListController extends HttpServlet {
 		foodService = new ImplementFoodService();
 		bookmarkService = new ImplementBookmarkService();
 	}
+
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -55,15 +56,17 @@ public class FoodListController extends HttpServlet {
 
 		if (query_ != null && !query_.equals(""))
 			query = query_;
-		if(thema != null) {
-		request.setAttribute("list", foodService.getFoodThemaList(thema, page, field, query, category));
+
+		if (thema != null) {
+			request.setAttribute("list", foodService.getFoodThemaList(thema, page, field, query, category));
+		} else {
+			request.setAttribute("list", foodService.getFoodList(category));
+//			request.setAttribute("list", foodService.getFoodList(category, page, field, query));
 		}
-		else {
-		request.setAttribute("list", foodService.getFoodList(category));
-		request.setAttribute("list", foodService.getFoodList(category, page, field, query));
-		}
+
 		List<Food> foodList = foodService.getFoodList(category, page, field, query);
 		List<BookmarkMenu> bookList = null;
+
 		if (member != null) {
 			bookList = bookmarkService.getList(member.getId());
 			boolean[] check = new boolean[foodList.size()];
@@ -80,11 +83,11 @@ public class FoodListController extends HttpServlet {
 				else
 					check[index] = false;
 				index++;
+				request.setAttribute("check", check);
 			}
-			request.setAttribute("listCount", foodService.getFoodCount(category, field, query)); // 수 파악 후 세팅
-			request.setAttribute("check", check);
+		}
 		request.setAttribute("listCount", foodService.getFoodCount(category, field, query)); // 수 파악 후 세팅
-		
+
 		request.getRequestDispatcher("/WEB-INF/view/menu/list.jsp").forward(request, response);
 	}
 

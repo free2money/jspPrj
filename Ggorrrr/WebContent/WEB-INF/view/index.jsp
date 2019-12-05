@@ -163,16 +163,17 @@
 
 		
 		<div id="best">
-			<h1>BEST</h1>
+			<h1>랜덤 추천 메뉴</h1>
 		</div>
 		
 		<div class="slide">
 			<div class="food">
 				<div class="foodDiv">
-				<c:forEach var="n" items="${best}">
-				<div><img src="/images/${n.photo }"></div>
-			
-				</c:forEach>
+					<c:forEach var="n" items="${best}">
+						<div>
+							<img src="/upload/${n.photo }" alt="${n.korname }">
+						</div>
+					</c:forEach>
 				</div>
 			</div>
 			

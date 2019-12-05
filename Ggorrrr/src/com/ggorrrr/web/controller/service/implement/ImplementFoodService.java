@@ -84,4 +84,14 @@ public class ImplementFoodService implements FoodService {
 		
 		return foodDao.getFoodRownum(rownum);
 	}
+
+	@Override
+	public List<Food> getFoodThemaList(String thema, int page, String field, String query, String category) {
+		return foodDao.getFoodThemaList(thema, page, field, query, category);
+	}
+
+	@Override
+	public List<Food> getFoodList(String category, int page, String field, String query, String soCategory) {
+		return foodDao.getFoodList(category, page, field, query, soCategory);
+	}
 }
