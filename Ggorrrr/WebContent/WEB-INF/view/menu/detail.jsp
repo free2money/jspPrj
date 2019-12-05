@@ -39,9 +39,9 @@
 				<br>
 				<dt class="food-ingridients">주 재료</dt>
 				<dd>${f.ingridients }</dd>
-				<br>
-				<dt class="food-explain">음식 설명</dt>
-				<dd>${f.explain }</dd>
+				<br><br>
+				<dt class="food-explain">-------------음식 설명--------------------------------------------------------------------</dt>
+				<dd class="food-explain-dd">${f.explain }</dd>
 				<br>
 			</dl>
 		</section>

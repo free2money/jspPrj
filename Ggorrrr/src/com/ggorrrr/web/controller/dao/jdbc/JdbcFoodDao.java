@@ -498,8 +498,8 @@ public class JdbcFoodDao implements FoodDao {
 		} else
 			category = "";
 
-		String sql = "select * from" + "(select rownum num1, n.* " + "from(select * from food where " + field
-				+ " like ? order by id desc) n )" + "where num1 between ? and ?";
+		String sql = "select * from" + "(select rownum num1, n.* " + "from(select * from " + category_ + " where "
+				+ field + " like ? and SMALL_CATEGORY = ? order by id desc) n )" + "where num1 between ? and ?";
 
 		Connection con = null;
 		PreparedStatement st = null;
@@ -511,8 +511,9 @@ public class JdbcFoodDao implements FoodDao {
 			st = con.prepareStatement(sql);
 
 			st.setString(1, "%" + query + "%");
-			st.setInt(2, (page - 1) * 10 + 1);
-			st.setInt(3, page * 10);
+			st.setString(2, soCategory);
+			st.setInt(3, (page - 1) * 10 + 1);
+			st.setInt(4, page * 10);
 
 			rs = st.executeQuery();
 
@@ -523,9 +524,9 @@ public class JdbcFoodDao implements FoodDao {
 				String photo = rs.getString("photo");
 				String ingridients = rs.getString("ingridients");
 				String explain = rs.getString("explain");
+				String thema = rs.getString("thema");
 				int managerId = rs.getInt("manager_id");
 				boolean vegetarian = rs.getBoolean("vegetarian");
-				String thema = rs.getString("thema");
 				String recipe = rs.getString("recipe");
 				int price = rs.getInt("price");
 

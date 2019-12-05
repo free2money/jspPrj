@@ -78,3 +78,6 @@ main {
 #explain .food-explain {
 	margin-right: 14px;
 }
+.food-explain-dd {
+	margin-bottom: 30px;
+}

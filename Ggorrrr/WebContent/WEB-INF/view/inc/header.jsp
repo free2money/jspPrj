@@ -120,16 +120,7 @@
 							<li><a href="/menu/list?category=테마별&thema=가족식사">가족식사</a></li>
 							<li><a href="/menu/list?category=테마별&thema=야식">야식</a></li>
 						</ul></li>
-					<li><a href="/menu/list?category=기타">기타</a>
-						<ul class="sub-menu">
-							<li><a href="/menu/list?category=기타&socategory=카레">카레</a></li>
-							<li><a href="/menu/list?category=기타&socategory=케밥">케밥</a></li>
-							<li><a href="/menu/list?category=기타&socategory=부리또">부리또</a></li>
-							<li><a href="/menu/list?category=기타&socategory=쌀국수">쌀국수</a></li>
-							<li><a href="/menu/list?category=기타&socategory=볶음">볶음</a></li>
-							<li><a href="/menu/list?category=기타&socategory=볶음밥">볶음밥</a></li>
-							<li><a href="/menu/list?category=기타&socategory=튀김">튀김</a></li>
-						</ul></li>
+					<li><a href="/menu/list?category=기타">기타</a></li>
 					<li><a href="/menu/list?category=채식">채식</a></li>
 				</ul>
 			</div>

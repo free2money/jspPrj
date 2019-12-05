@@ -24,6 +24,10 @@
 	});
 </script>
 <style>
+main {
+	min-width: 1580px;
+}
+
 #bmlist .bm-del {
 	display: none;
 }
@@ -31,33 +35,99 @@
 #bmlist .bm-btn {
 	cursor: pointer;
 }
+
+#profile {
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+	width: 400px;
+	position: relative;
+}
+
+#profile img {
+	position: absolute;
+	left: 100px;
+}
+
+#profile section h1 {
+	font-size: 27px;
+	position: absolute;
+	left: 161px;
+	top: 4px;
+}
+
+#middlebox {
+	margin-top: 80px;
+	position: relative;
+}
+
+#middlebox div>img {
+	width: 25px;
+	height: 25px;
+	position: absolute;
+	left: 30px;
+	top: 25px;
+}
+
+#bmlist>div>h1 {
+	display: flex;
+	position: absolute;
+	left: 65px;
+	top: 20px;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+#middle-top {
+	height: 100px;
+}
+#content{
+	width: 1388px;
+	margin-left: auto;
+	margin-right: auto;
+	min-height: 100px;
+	display: flex;
+}
+#content ul li{
+	display: flex;
+}
+
+#content ul li>img{
+	
+}
 </style>
 </head>
 <body>
 	<jsp:include page="../inc/header.jsp" />
 	<!------------------------- ㅡheader끝 main시작 ------------------------------------>
 	<main id="main">
-	<div>
-		<div>
-			<img src="/images/ggorrrrlogo.png" width="50" height="50">
-			<section>
-				<h1>MY즐겨찾기관리</h1>
-			</section>
-		</div>
 
+	<div id="profile">
+		<img src="/images/ggorrrrlogo.png" width="50" height="50">
+		<section>
+			<h1 id="my-title">MY즐겨찾기관리</h1>
+		</section>
+	</div>
+
+	<div id="middlebox">
 		<nav id="bmlist">
-			<h1>사용자가 즐겨찾는 음식 리스트</h1>
-			<c:forEach var="bm" items="${bmlist }">
-				<form method="post">
-					<ul>
-						<li><img src="/images/KimchiSoup.jpg" width="100"
-							height="100"> <a href="../menu/detail?id=${bm.id }">
-								${bm.korname }</a> <span>${bm.price }</span> <span class="bm-btn">★</span><input
-							type="hidden" name="food-id" value="${bm.id }"> <input
-							class="bm-del" type="submit" name="del" value="삭제"></li>
-					</ul>
-				</form>
-			</c:forEach>
+			<div id="middle-top">
+				<img src="/images/onimages.png">
+				<h1>MY 메뉴 관리</h1>
+			</div>
+			<div id="content">
+				<c:forEach var="bm" items="${bmlist }">
+					<form method="post">
+						<ul>
+							<li><img src="/upload/${bm.photo }" width="100" height="100">
+								<a href="../menu/detail?id=${bm.id }"><br> ${bm.korname }</a><span
+								class="bm-btn">★</span><input type="hidden" name="food-id"
+								value="${bm.id }"> <input class="bm-del" type="submit"
+								name="del" value="삭제"></li>
+						</ul>
+					</form>
+				</c:forEach>
+			</div>
 		</nav>
 	</div>
 	</main>

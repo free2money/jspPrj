@@ -59,6 +59,8 @@ public class FoodListController extends HttpServlet {
 
 		if (thema != null) {
 			request.setAttribute("list", foodService.getFoodThemaList(thema, page, field, query, category));
+		} else if (soCategory != null) {
+			request.setAttribute("list", foodService.getFoodList(category, page, field, query, soCategory));
 		} else {
 			request.setAttribute("list", foodService.getFoodList(category));
 //			request.setAttribute("list", foodService.getFoodList(category, page, field, query));
