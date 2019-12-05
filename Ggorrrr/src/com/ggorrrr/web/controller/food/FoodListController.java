@@ -33,7 +33,12 @@ public class FoodListController extends HttpServlet {
 		HttpSession session = request.getSession();
 		Member member = (Member) session.getAttribute("sessionuser");
 		String category = request.getParameter("category");
+		String soCategory = request.getParameter("socategory");
+		String thema = request.getParameter("thema");
+
+		request.setAttribute("member", member);
 		session.setAttribute("category", category);
+
 		int page = 1;
 		String field = "ingridients";
 		String query = ""; // 기본값
@@ -50,7 +55,13 @@ public class FoodListController extends HttpServlet {
 
 		if (query_ != null && !query_.equals(""))
 			query = query_;
-
+		if(thema != null) {
+		request.setAttribute("list", foodService.getFoodThemaList(thema, page, field, query, category));
+		}
+		else {
+		request.setAttribute("list", foodService.getFoodList(category));
+		request.setAttribute("list", foodService.getFoodList(category, page, field, query));
+		}
 		List<Food> foodList = foodService.getFoodList(category, page, field, query);
 		List<BookmarkMenu> bookList = null;
 		if (member != null) {
@@ -72,8 +83,13 @@ public class FoodListController extends HttpServlet {
 			}
 			request.setAttribute("listCount", foodService.getFoodCount(category, field, query)); // 수 파악 후 세팅
 			request.setAttribute("check", check);
-		}
-		request.setAttribute("list", foodService.getFoodList(category, page, field, query));
+		request.setAttribute("listCount", foodService.getFoodCount(category, field, query)); // 수 파악 후 세팅
+		
 		request.getRequestDispatcher("/WEB-INF/view/menu/list.jsp").forward(request, response);
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 	}
 }

@@ -40,7 +40,7 @@
 				<dt class="food-ingridients">주 재료</dt>
 				<dd>${f.ingridients }</dd>
 				<br>
-				<dt class="food-explain">먹는 방법</dt>
+				<dt class="food-explain">음식 설명</dt>
 				<dd>${f.explain }</dd>
 				<br>
 			</dl>

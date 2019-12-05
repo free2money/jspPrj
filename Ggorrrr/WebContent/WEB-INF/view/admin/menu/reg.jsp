@@ -48,7 +48,7 @@
 						name="main_ingridients" value="주재료">
 				</div>
 				<div>
-					<span id="food-eat">먹는 방법</span> <input type="text"
+					<span id="food-eat">음식 설명</span> <input type="text"
 						name="how_to_eat" value="먹는 방법">
 				</div>
 				<div>

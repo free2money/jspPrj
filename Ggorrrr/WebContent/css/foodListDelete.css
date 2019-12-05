@@ -43,7 +43,7 @@ main {
 
 #middle-box {
 	width: 800px;
-	min-height: 300px;
+	min-height: 375px;
 	margin-right: auto;
 	margin-left: auto;
 	padding: 46px;
@@ -94,7 +94,8 @@ main {
 #page-middle2 .button {
 	float: right;
 }
-#page-middle2 .button *{
+
+#page-middle2 .button * {
 	margin-left: 10px;
 	margin-top: 20px;
 }

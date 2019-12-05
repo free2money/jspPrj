@@ -21,7 +21,7 @@
 
 		<section id="middle-box">
 			<h1>메뉴 등록</h1>
-			<form action="reg" method="post" enctype="multipart/form-data">
+			<form action="update" method="post" enctype="multipart/form-data">
 				<!-- 목록 펼치기. -->
 				<div id="content-first">
 					<select name="category">
@@ -36,6 +36,7 @@
 					</select> <select name="vegetarian">
 						<option value="0">채식아님</option>
 						<option value="1">채식임</option>
+						<input type="hidden" name="food-id" value="${f.id }">
 					</select><span>음식 이름</span> <input id="foodtxt" type="text" name="food_name"
 						value="${f.korname }">
 				</div>
@@ -48,7 +49,7 @@
 						name="main_ingridients" value="${f.ingridients }">
 				</div>
 				<div>
-					<span id="food-eat">먹는 방법</span> <input type="text"
+					<span id="food-eat">음식 설명</span> <input type="text"
 						name="how_to_eat" value="${f.explain }">
 				</div>
 				<div>

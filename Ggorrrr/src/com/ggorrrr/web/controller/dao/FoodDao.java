@@ -10,11 +10,15 @@ public interface FoodDao {
 	
 	List<Food> getFoodList(String category); // 카테고리만 출력
 
-	List<Food> getFoodList(String category, int page); 
+	List<Food> getFoodThemaList(String thema, int page, String field, String query, String category); // 카테고리만 출력
+
+	List<Food> getFoodList(String category, int page);
 
 	List<Food> getFoodList(String category, int page, String field, String query);
 
-	List<Food> getFoodList(String category, String query); 
+	List<Food> getFoodList(String category, int page, String field, String query, String soCategory);
+
+	List<Food> getFoodList(String category, String query);
 
 	Food get(int id); // 음식 디테일
 

@@ -229,7 +229,8 @@ public class JdbcFoodDao implements FoodDao {
 			st.setBoolean(7, food.isVegetarian());
 			st.setString(8, food.getThema());
 			st.setInt(9, food.getPrice());
-			st.setInt(10, food.getId());
+			st.setString(10, food.getCategory());
+			st.setInt(11, food.getId());
 
 			result = st.executeUpdate();
 
@@ -460,5 +461,177 @@ public class JdbcFoodDao implements FoodDao {
 		}
 		return food;
 	}
+@Override
+	public List<Food> getFoodList(String category, int page, String field, String query, String soCategory) {
+		List<Food> list = new ArrayList<>();
+		Food food = null;
+		String category_ = "";
+		String soCategory_ = "";
 
+		if (category != null) {
+			switch (category) {
+			case "한식":
+				category_ = "food_kor";
+				break;
+			case "중식":
+				category_ = "food_cha";
+				break;
+			case "일식":
+				category_ = "food_japan";
+				break;
+			case "양식":
+				category_ = "food_usa";
+				break;
+			case "분식":
+				category_ = "food_snack";
+				break;
+			case "기타":
+				category_ = "food_other";
+				break;
+			case "채식":
+				category_ = "food_veget";
+				break;
+			case "테마별":
+				category_ = "food_thema";
+				break;
+			}
+		} else
+			category = "";
+
+		String sql = "select * from" + "(select rownum num1, n.* " + "from(select * from food where " + field
+				+ " like ? order by id desc) n )" + "where num1 between ? and ?";
+
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		try {
+			st = JdbcContext.getPreparedStatement(sql);
+
+			st.setString(1, "%" + query + "%");
+			st.setInt(2, (page - 1) * 10 + 1);
+			st.setInt(3, page * 10);
+
+			rs = st.executeQuery();
+
+			while (rs.next()) {
+				int id = rs.getInt("id");
+				String korname = rs.getString("korname");
+				String engname = rs.getString("korname");
+				String photo = rs.getString("photo");
+				String ingridients = rs.getString("ingridients");
+				String explain = rs.getString("explain");
+				int managerId = rs.getInt("manager_id");
+				boolean vegetarian = rs.getBoolean("vegetarian");
+				String thema = rs.getString("thema");
+				String recipe = rs.getString("recipe");
+				int price = rs.getInt("price");
+
+				food = new Food(id, korname, engname, photo, ingridients, explain, managerId, vegetarian, thema, recipe,
+						category, price);
+
+				list.add(food);
+			}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (st != null)
+					st.close();
+				JdbcContext.delCon();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+		}
+		return list;
+	}
+
+	@Override
+	public List<Food> getFoodThemaList(String thema, int page, String field, String query, String category) {
+		List<Food> list = new ArrayList<>();
+		Food food = null;
+		String category_ = "";
+
+		switch (category) {
+		case "한식":
+			category_ = "food_kor";
+			break;
+		case "중식":
+			category_ = "food_cha";
+			break;
+		case "일식":
+			category_ = "food_japan";
+			break;
+		case "양식":
+			category_ = "food_usa";
+			break;
+		case "분식":
+			category_ = "food_snack";
+			break;
+		case "기타":
+			category_ = "food_other";
+			break;
+		case "채식":
+			category_ = "food_veget";
+			break;
+		case "테마별":
+			category_ = "food_thema";
+			break;
+		}
+
+		String sql = "select * from" + "(select rownum num1, n.* " + "from(select * from " + category_ + " where "
+				+ field + " like ? and thema = ? order by id desc) n )" + "where num1 between ? and ?";
+
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		try {
+			st = JdbcContext.getPreparedStatement(sql);
+
+			st.setString(1, "%" + query + "%");
+			st.setString(2 , thema);
+			st.setInt(3, (page - 1) * 10 + 1);
+			st.setInt(4, page * 10);
+
+			rs = st.executeQuery();
+
+			while (rs.next()) {
+				int id = rs.getInt("id");
+				String korname = rs.getString("korname");
+				String engname = rs.getString("korname");
+				String photo = rs.getString("photo");
+				String ingridients = rs.getString("ingridients");
+				String explain = rs.getString("explain");
+				int managerId = rs.getInt("manager_id");
+				boolean vegetarian = rs.getBoolean("vegetarian");
+				String recipe = rs.getString("recipe");
+				int price = rs.getInt("price");
+
+				food = new Food(id, korname, engname, photo, ingridients, explain, managerId, vegetarian, thema, recipe,
+						category, price);
+
+				list.add(food);
+			}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (st != null)
+					st.close();
+				JdbcContext.delCon();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+		}
+		return list;
+	}
 }

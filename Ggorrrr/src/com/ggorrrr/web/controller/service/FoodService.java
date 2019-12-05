@@ -9,12 +9,16 @@ public interface FoodService {
 	List<Food> getFoodList();
 	
 	List<Food> getFoodList(String category);
+	
+	List<Food> getFoodThemaList(String thema,int page, String field, String query, String category);
 
 	List<Food> getFoodList(String category, int page);
 	
 	List<Food> getFoodList(String category, String query);
 
 	List<Food> getFoodList(String category, int page, String field, String query);
+	
+	List<Food> getFoodList(String category, int page, String field, String query, String soCategory);
 
 	Food get(int id);
 

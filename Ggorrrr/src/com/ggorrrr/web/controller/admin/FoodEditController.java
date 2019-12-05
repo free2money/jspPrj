@@ -46,7 +46,7 @@ public class FoodEditController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int id = Integer.parseInt(request.getParameter("detail_id"));
+		int id = Integer.parseInt(request.getParameter("food-id"));
 		String category_ = request.getParameter("category");
 		String korName = request.getParameter("food_name");
 		String engName = request.getParameter("korname");
