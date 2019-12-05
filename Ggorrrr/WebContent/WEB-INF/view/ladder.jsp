@@ -8,8 +8,18 @@
 <title>그래서 뭐먹어?</title>
 <link href="/css/default.css" type="text/css" rel="stylesheet" />
 <link href="/css/sadari_main.css" type="text/css" rel="stylesheet" />
-<script src="/js/ladder.js"></script>
+<link href="/css/sadariGame.css" type="text/css" rel="stylesheet" />
+<script src="/js/sadari.js"></script>
+<style>
+#bookmark section img {
+	width: 120px;
+	height: 120px;
+}
 
+#bookmark section ul {
+	display: flex;
+}
+</style>
 </head>
 <body>
 	<jsp:include page="./inc/header.jsp" />
@@ -32,36 +42,33 @@
 			<div id="sadari-game">
 				<section>
 					<h1>사다리 게임</h1>
-					<div id="div_step1" style="font-size: 12px;">
-						갯수 선택 <select id="sel_num">
-							<option value="2" selected>2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-							<option value="9">9</option>
-							<option value="10">10</option>
-							<option value="11">11</option>
-							<option value="12">12</option>
-							<option value="13">13</option>
-							<option value="14">14</option>
-							<option value="15">15</option>
-							<option value="16">16</option>
-							<option value="17">17</option>
-							<option value="18">18</option>
-							<option value="19">19</option>
-							<option value="20">20</option>
-						</select> 개 <input type="button" value="만들기" onclick="Yl.init();">
+					<div
+						style="width: 720px; height: 500px; border: 1px solid #CCCCCC; position: relative;">
+						<div id="div_body" style="width: 720px; height: 500px;">
+							<div id="step1">
+								<div>
+									<label>항목의 개수를 정해주세요.</label>
+								</div>
+								<div class="count-ctrl">
+									<div>
+										<img class="minus" src="/images/minus.png" alt="minus"
+											width="50px" style="cursor: pointer;">
+									</div>
+									<div style="display: inline-block;">
+										<label class="sadari-count">2</label>
+									</div>
+									<div>
+										<img class="plus" src="/images/plus.png" alt="plus"
+											width="50px" style="cursor: pointer;">
+									</div>
+								</div>
+								<div>
+									<label>사다리 만들기</label>
+								</div>
+							</div>
+						</div>
+						<div id="step2" style="display: none;"></div>
 					</div>
-
-					<div id="div_step2" style="font-size: 12px; display: none;">
-						입력후 게임 시작 <input type="button" value="시작" onclick="Yl.create();">
-					</div>
-
-					<div id="div_body"
-						style="width: inherit; height: 500px; border: 1px solid #CCCCCC; position: relative;"></div>
 				</section>
 			</div>
 		</section>
