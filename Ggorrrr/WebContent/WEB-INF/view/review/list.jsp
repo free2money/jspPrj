@@ -48,7 +48,7 @@
 					<c:forEach var="n" items="${list}">
 						<form action="../member/review/listDelete" method="post">
 							<div id="review-title">
-								<span>ㆍ ${n.address}</span>
+								<span id="span">ㆍ ${n.address}</span>
 								<span>${n.regdate}</span>
 							</div>
 							<br>
@@ -69,7 +69,7 @@
 				</div>
 				<div class="aaa"></div>
 				<div id="more-more">
-					<input type="hidden" name="p" value="${page }"> <a href="">더보기</a>
+					<a href=""><input type="hidden" name="p" value="${page}">더보기</a>
 				</div>
 			</div>
 		</div>

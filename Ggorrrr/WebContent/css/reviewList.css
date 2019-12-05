@@ -79,9 +79,15 @@ nav #order  a {
 	width: 900px;
 }
 
-#review-title>span {
+#review-title>#span {
 	font-size: 25px;
 	font-weight: bold;
+}
+
+#review-title>#span+span{
+	font-size: 15px;
+	font-weight: bold;
+	float: right;
 }
 
 #review-content {

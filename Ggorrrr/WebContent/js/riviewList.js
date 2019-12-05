@@ -29,8 +29,23 @@ window.addEventListener("load", function () {
                 var cloneForm = contentSection.firstElementChild.cloneNode(true);
                 var title = cloneForm.firstElementChild;
                 var content = cloneForm.lastElementChild;
+                var month;
+                var day;
+                var year;
                 title.firstElementChild.innerText = "ㆍ " + json[i].address;
                 title.lastElementChild.innerText = json[i].regdate;
+                if((title.lastElementChild.innerText).length==11){
+                	month =(title.lastElementChild.innerText).substring(0,2);
+                	day = (title.lastElementChild.innerText).substring(4,5);
+                    year = (title.lastElementChild.innerText).substring(7,11);
+                    title.lastElementChild.innerText = year+"-"+month+"-"+"0"+day;     	
+                }
+                else{
+                    month = (title.lastElementChild.innerText).substring(0,2);
+                    day = (title.lastElementChild.innerText).substring(4,6);
+                    year = (title.lastElementChild.innerText).substring(8,12);
+                    title.lastElementChild.innerText = year+"-"+month+"-"+day;
+                }
                 content.firstElementChild.innerText = json[i].content;
                 content.querySelector("#content_").innerText = json[i].content;
                 content.lastElementChild.innerText = json[i].photo;
