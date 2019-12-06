@@ -20,10 +20,10 @@
 		<h1>관리자</h1>
 	</section>
 
-
+	<hr>
 	<div id="middle-box">
 		<section id="page-middle">
-			<h1>메뉴관리</h1>
+			<img src="../../images/menuManage.png">
 			<form action="adminlist">
 				<select id="select-category" name="category">
 					<option value="한식">한식</option>
@@ -38,9 +38,11 @@
 					type="submit" name="search" value="검색">
 			</form>
 		</section>
-
+		<hr style="margin-left:-245px;">
+	
 		<form id="page-middle2" action="adminlist" method="post">
-			<table>
+			<div id="tableDiv">
+			<table border="1">
 				<thead>
 					<tr>
 						<td class="table-category1">카테고리</td>
@@ -59,6 +61,7 @@
 					</c:forEach>
 				</tbody>
 			</table>
+			</div>
 			<div class="button">
 				<input type="submit" value="일괄삭제" name="cmd"> <a href="reg">메뉴등록</a>
 			</div>
