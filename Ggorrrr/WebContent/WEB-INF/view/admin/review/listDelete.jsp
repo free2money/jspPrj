@@ -69,7 +69,7 @@
 			</div>
 		</div>
 	</section>
-	</main>
+	<a href="../page">뒤로</a> </main>
 	<!-- ======================footer========================================== -->
 	<jsp:include page="../../inc/footer.jsp" />
 </body>

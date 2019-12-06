@@ -53,15 +53,7 @@
 							</div>
 							<br>
 							<div id="review-content">
-								<span>${n.content}</span> <span id="content_hidden"></span> <span
-									id="content_" style="display: none;">${n.content}</span> <span
-									id="content_expand" style="cursor: pointer;"><a
-									onclick="parent.content_.style.display=''; parent.content_hidden.style.display='none'; parent.content_expand.style.display = 'none'; parent.content_fold.style.display = '';">
-								</a> </span> <span id="content_fold"
-									style="display: none; cursor: pointer;"><a
-									onclick="parent.content_.style.display='none'; parent.content_hidden.style.display=''; parent.content_fold.style.display = 'none'; parent.content_expand.style.display = ''; ">
-										<br> 줄이기
-								</a> </span><br> <span><img alt="" src="/upload/${n.photo}" width="150" height="150"><br></span>
+								<span>${n.content}</span> <span><img alt="" src="/upload/${n.photo}" width="150" height="150"><br></span>
 							</div>
 						</form>
 					</c:forEach>

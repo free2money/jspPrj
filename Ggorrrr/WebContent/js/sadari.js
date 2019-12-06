@@ -98,7 +98,7 @@ var Yl = {
 			this.arrTopDiv[i].align = "center";
 			this.arrBotDiv[i].align = "center";
 
-			this.arrTopDiv[i].innerHTML = '<img src="" alt=' + (i + 1)
+			this.arrTopDiv[i].innerHTML = '<img src="/upload/더덕구이.jpg" alt=' + (i + 1)
 					+ ' id="inp_top_' + i + '" width="70px" tabindex="'
 					+ (i + 1) + '" />';
 			this.arrBotDiv[i].innerHTML = '<input type="text" id="inp_bot_' + i
