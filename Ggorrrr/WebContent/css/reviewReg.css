@@ -82,31 +82,31 @@ h4 {
 		padding-bottom: 10px;
 }
 
-input[type="text"] {
+#middlebox input[type="text"] {
 	width: 170px;
 	height: 20px;
 	margin-left: 5px;
 }
 
-input[type="date"] {
+#middlebox input[type="date"] {
 	width: 170px;
 	height: 20px;
 	margin-left: 5px;
 }
 
-input[type="file"] {
+#middlebox input[type="file"] {
 	width: 174px;
 	height: 20px;
 	margin-left: 5px;
 }
 
-input[type="button"] {
+#middlebox input[type="button"] {
 	width: 110px;
 	height: 50px;
 	margin-right: 5px;
 }
 
-#input:hover {
+#middlebox #input:hover {
 	border: solid #bdd7ee;
 } 
 
