@@ -1,6 +1,6 @@
 window.addEventListener("load", function() {
 	// 슬라이드 쇼 객체 가져오기
-	var offset = 10000;
+	var offset = 1000;
 	var section = document.querySelector("#main");
 	var x = section.querySelectorAll(".food>div div");
 	var foodDiv= section.querySelector(".foodDiv");
@@ -29,7 +29,9 @@ window.addEventListener("load", function() {
 		
 		//왼쪽으로 이미지 이동
 		var i;
-		offset--;
+		if(offset==1)
+			offset=1000;
+		offset--; 
 		for (i = 0; i < x.length; i++) {
 			x[i].className = "";
 			x[i].classList.add("a" + (i + offset) % x.length);

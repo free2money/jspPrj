@@ -19,8 +19,8 @@ body{
 	margin-right:auto;
 	margin-top:50px;
 }
-#best{
-	font-size: 35px;
+#h1 {
+	font-size: 27px;
 	font-weight: bold;
 	text-align: center;
 }
@@ -39,9 +39,6 @@ body{
 	margin-right:auto;
 	margin-top:24px;
 }
-
-
-
 
 .food {
 	paddin:50px;
@@ -119,4 +116,8 @@ body{
 
 .slideButton:hover{
 	cursor: pointer;
+}
+
+#img{
+	vertical-align: middle;
 }

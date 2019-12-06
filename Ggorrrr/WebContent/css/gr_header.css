@@ -3,8 +3,11 @@
 .d-none {
 	display: none;
 }
-header{
-	width:1600px;
+
+header {
+	width: 1600px;
+	margin-left: auto;
+	margin-right: auto;
 }
 #header {
 	width: 1200px;
@@ -63,40 +66,42 @@ header{
 .searchWin {
 	display: inline-block;
 	height: inherit;
-	width: inherit; 
-	border: 3px solid #D4F4FA;
-	border-right:0px;
+	width: inherit;
+	border: 3px solid #bbd7ee;
+	border-right: 0px;
 }
 
 .searchWin input:first-child {
-	float:left;
-	outline:none;
+	float: left;
+	outline: none;
 	width: 263px;
 	height: 20px;
 	border: 0px;
-	border-right:5px solid #D4F4FA;
-	padding:5px 10px;
+	border-right: 5px solid #bbd7ee;
+	padding: 5px 10px;
 }
 
 .searchWin input:last-child {
 	display: inline-block;
 	width: 30px;
 	height: 30px;
-	border:0px;
+	border: 0px;
 	outline: none;
-	float:right;
-	background: url("../images/search.png") no-repeat;
+	float: right;
+	background: url("../images/search.jpg") no-repeat;
 }
 
 #popularity {
-	width:220px;
+	width: 220px;
 	display: flex;
 	right: 0px;
 	height: 100px;
+	margin-top: 5px;
+	margin-left: 5px;
 }
 
-#popularity>h1{
-	width:150px;
+#popularity>h1 {
+	width: 150px;
 	font-size: 15px;
 }
 
@@ -105,12 +110,12 @@ header{
 	font-size: 120%;
 }
 
-#popularity>div{
-	width:inherit;
-	height:inherit;
+#popularity>div {
+	width: inherit;
+	height: inherit;
 }
 
-#ranking:hover ul{
+#ranking:hover ul {
 	display: block;
 }
 #ranking ul{
@@ -141,17 +146,13 @@ header{
 }
 
 #visual img {
-	width: 70px;
-	height: 70px;
-}
-
-#visual img {
-	width: 70px;
-	height: 70px;
+	width: 58px;
+	height: 58px;
+	vertical-align: middle;
 }
 
 #title {
-	font-size: 400%;
+	font-size: 40px;
 	font: bold Malgun Gothic;
 }
 
@@ -215,11 +216,15 @@ header{
 
 #categori a {
 	height: 32px;
-	font-family: arial;
-	font-size: 30px;
+	--font-family: arial;
+	font-size: 25px;
 	padding: 0 10px 0 10px;
 	text-decoration: none;
 	text-align: center;
+}
+
+#categori a:hover{
+	color: #7496c3;
 }
 
 #categori ul li:hover ul {
@@ -236,4 +241,16 @@ hr {
 	width: 1600px;
 	display: block;
 	border: 1px solid black;
+}
+
+#view>a {
+	font-size: 15px;
+}
+
+#hr {
+	margin-left: -200px;
+	width: 1800px;
+	display: block;
+	margin-top: 10px;
+	border: 1px solid rgb(240,240,240);
 }
