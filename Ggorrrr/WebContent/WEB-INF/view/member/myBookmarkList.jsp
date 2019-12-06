@@ -9,14 +9,15 @@
 <link href="/css/default.css" type="text/css" rel="stylesheet" />
 <script>
 	window.addEventListener("load", function() {
-		var section = document.querySelector("#bmlist");
-		var bmBtn = section.querySelector(".bm-btn");
+		var section = document.querySelector("#content");
 		var delBtn = section.querySelector(".bm-del");
 
-		bmBtn.onclick = function() {
+		section.onclick = function(e) {
+			if (e.target.className != "bm-btn")
+				return;
 			var event = new MouseEvent("click", {
 				view : window,
-				bubbles : true,
+				bubbles : false,
 				cancelable : true
 			});
 			delBtn.dispatchEvent(event);
@@ -29,7 +30,10 @@ main {
 }
 
 #bmlist .bm-del {
-	display: none;
+	visiblity: none;
+}
+#bmlist .bm-del:hover{
+	cursor: pointer;
 }
 
 #bmlist .bm-btn {
@@ -61,18 +65,18 @@ main {
 	position: relative;
 }
 
-#middlebox div>img {
+#middlebox div>img:first-child {
 	width: 25px;
 	height: 25px;
 	position: absolute;
-	left: 30px;
+	left: 10px;
 	top: 25px;
 }
 
 #bmlist>div>h1 {
 	display: flex;
 	position: absolute;
-	left: 65px;
+	left: 44px;
 	top: 20px;
 	font-size: 24px;
 	font-weight: bold;
@@ -80,21 +84,44 @@ main {
 
 #middle-top {
 	height: 100px;
-}
-#content{
-	width: 1388px;
+	width: 1040px;
+	position: relative;
 	margin-left: auto;
 	margin-right: auto;
-	min-height: 100px;
-	display: flex;
-}
-#content ul li{
-	display: flex;
 }
 
-#content ul li>img{
-	
+#content {
+	width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	min-height: 400px;
+	flex-wrap: wrap;
 }
+
+#content ul {
+	margin-left: 126px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#content ul li {
+	margin-right: 20px;
+	text-align: center;
+	font-size: 20px;
+}
+
+#font-size1 {
+	font-size: 15px;
+	margin-top: 3px;
+	width: inherit;
+}
+
+#content form {
+	width: 240px;
+	height: 209px;
+}
+
 </style>
 </head>
 <body>
@@ -116,17 +143,28 @@ main {
 				<h1>MY 메뉴 관리</h1>
 			</div>
 			<div id="content">
-				<c:forEach var="bm" items="${bmlist }">
-					<form method="post">
-						<ul>
-							<li><img src="/upload/${bm.photo }" width="100" height="100">
-								<a href="../menu/detail?id=${bm.id }"><br> ${bm.korname }</a><span
-								class="bm-btn">★</span><input type="hidden" name="food-id"
-								value="${bm.id }"> <input class="bm-del" type="submit"
-								name="del" value="삭제"></li>
-						</ul>
-					</form>
-				</c:forEach>
+				<ul>
+					<c:forEach var="bm" items="${bmlist }">
+						<form method="post">
+							<li>
+								<!--  --> <img src="/upload/${bm.photo }" width="150"
+								height="150"><br>
+								<div
+									style="display: flex; width: 200px; margin-left: auto; margin-right: auto;">
+									<div id="font-size1">
+										<a
+											style="display: inline-block; vertical-align: middle; margin-left: auto; margin-right: auto;"
+											href="../menu/detail?id=${bm.id }">${bm.korname }</a> <!-- <img
+											style="vertical-align: middle;" width="20px" height="25px"
+											src="/images/onimages.png" class="bm-btn"> -->
+											<input style="border: 0px; outline: none; background: url(/images/onimages1.png) no-repeat; vertical-align: middle; width: 20px; height: 20px" class="bm-del" type="submit" name="del"  value="">
+									</div>
+								</div> <input type="hidden" name="food-id" value="${bm.id }">
+								<input type="hidden" name="id" value="${bm.member_id }">
+							</li>
+						</form>
+					</c:forEach>
+				</ul>
 			</div>
 		</nav>
 	</div>
