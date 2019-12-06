@@ -4,7 +4,7 @@ body {
 	background: #FAFFFF;
 }
 
-h1 {
+#middleBox h1 {
 	width: 0px;
 	height: 0px;
 	font-size: 0px;
@@ -42,20 +42,20 @@ main #img {
 	text-align: center;
 }
 
-section dt, dd {
+#middleBox>section>dl {
+	padding-top: 20px;
+	padding-left: 160px;
+}
+
+#middleBox>section>dt, #middleBox>section>dd {
 	display: inline-block;
 	margin-top: 20px;
 }
 
-section dl, dt, dd {
+#middleBox>section>dl, #middleBox>section>dt, #middleBox>section>dd {
 	font-size: 14px;
 	margin-left: 30px;
 	margin-left: 47px;
-}
-
-section dl {
-	padding-top: 20px;
-	padding-left: 160px;
 }
 
 #food-img {
@@ -78,6 +78,7 @@ main {
 #explain .food-explain {
 	margin-right: 14px;
 }
+
 .food-explain-dd {
 	margin-bottom: 30px;
 }
