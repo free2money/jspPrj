@@ -20,7 +20,7 @@
 	<main>
 	<div id="sori-title">
 		<h1>
-			<img src="/images/sori.png" width="283" height="80">
+			<img src="/images/sori.png" width="265" height="70">
 		</h1>
 	</div>
 

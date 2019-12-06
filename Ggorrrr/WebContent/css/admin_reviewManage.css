@@ -3,52 +3,63 @@
 body {
 	background: #FAFFFF;
 }
-hr{
+
+#h2 {
+	font-size: 27px;
+	color: black;
+	margin-top: 20px;
+}
+
+#img {
+	vertical-align: middle;
+}
+
+hr {
 	display: block;
 }
 
-#main{
-	margin-top:30px;
-	margin-bottom:80px;
-	width:100%;
-	height:850px;
-	text-align:center;
+#main {
+	margin-top: 30px;
+	margin-bottom: 80px;
+	width: 100%;
+	height: 850px;
+	text-align: center;
 }
 
-
-#title{
-	vertical-align:center;
-	width:1000px;
-	height:80px;
+#title {
+	vertical-align: center;
+	width: 1000px;
+	height: 80px;
 	margin-left: auto;
 	margin-right: auto;
 }
 
-.reviewList{
-	padding-top:10px;
-	padding-bottom:20px;
+.reviewList {
+	padding-top: 10px;
+	padding-bottom: 20px;
 	width: inherit;
-	height:730px;
+	height: 730px;
 }
-.reviewList h1{
-	font-size:30px;
-	width:320px;
+
+.reviewList h1 {
+	font-size: 30px;
+	width: 320px;
 	height: 50px;
-	margin-left:auto;
-	margin-right:auto;
+	margin-left: auto;
+	margin-right: auto;
 }
-.mid{
-	width:1000px;
-	margin-left:auto;
+
+.mid {
+	width: 1000px;
+	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
 }
 
-.reviewList div table{
-	padding-top:40px;
+.reviewList div table {
+	padding-top: 40px;
 	text-align: center;
 }
-
 
 section>.topvisual {
 	text-align: right;
@@ -58,24 +69,23 @@ section>.topvisual {
 
 main>section .topvisual {
 	text-align: right;
-	margin-right: 80px;
-	margin-top: 30px;
+	margin-right: 350px;
+	margin-top: 40px;
 }
 
 #search {
-	
-
-	display:inline-block;
-	float:right;
-	
-	border:3px solid #D4F4FA;
-	position:relative;
+	display: inline-block;
+	float: right;
+	margin-right: 350px;
+	margin-top: 10px;
+	border: 3px solid #bbd7ee;
+	position: relative;
 }
 
 #search input[type="text"] {
 	padding: 3px;
 	width: 200px;
-	border: 1px solid #D4F4FA;
+	border: 1px solid #bbd7ee;
 	outline: none;
 }
 
@@ -84,17 +94,19 @@ main>section .topvisual {
 	height: 26px;
 	position: absolute;
 	right: 0px;
-	background: url("../images/search.png") no-repeat;
+	background: url("../images/search.jpg") no-repeat;
 	outline: none;
 	border: 0px;
 }
 
 section #order {
-	width:900px;
-	margin-left:auto;
+	width: 900px;
+	margin-left: auto;
 	margin-right: auto;
 	text-align: right;
-	
+	text-align: right;
+	margin-top: 50px;
+	margin-right: 345px;
 }
 
 section #order  a {
@@ -102,13 +114,106 @@ section #order  a {
 	margin-left: 5px;
 }
 
-#table{
-	left:200px;
+#table {
+	left: 200px;
 }
 
-#content_main{
-	width:1000px;
-	margin-left:auto;
-	margin-right:auto;
-	
+#content_main {
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#hr {
+	margin-left: -400px;
+	width: 2000px;
+	border: 1px solid black;
+}
+
+#middlebox {
+	overflow: auto;
+	width: 1000px;
+	min-height: 600px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 30px;
+}
+
+#ppp {
+	position: relative;
+	min-height: 100%;
+	margin-bottom: 50px;
+}
+
+div #content_main {
+	float: left;
+	padding-top: 0px;
+}
+
+#middlebox #content_main {
+	margin-top: 20px;
+	padding: 22px;
+}
+
+#middlebox #content_main span {
+	display: inline-block;
+	padding-left: 20px;
+	float: left;
+}
+
+#review-title {
+	padding: 19px;
+	border-bottom: 1px solid #979797;
+	width: 900px;
+	display: flex;
+}
+
+#review-title>#span {
+	margin-top: -33px;
+	display: inline-block;
+	font-size: 25px;
+	font-weight: bold;
+	float: left;
+	margin-bottom: 5px;
+}
+
+#review-title>#span>#regdate {
+	font-size: 15px;
+	font-weight: bold;
+	position: absolute;
+	right: 400px;
+	margin-top: 10px;
+}
+
+#deleteBtn {
+	float: right;
+	margin-top: 11px;
+	position: absolute;
+	right: 348px;
+}
+
+#review-content {
+	padding-left: 80px;
+}
+
+/* #review-content>span{
+	padding-bottom: 10px;
+} */
+
+#more-more {
+	width: 48px;
+	height: 20px;
+	border: 3px solid lightgray;
+	padding-right: 0px;
+	float: right;
+	text-align: center;
+	margin-right: 40px;
+}
+
+#more-more:hover {
+	border: 3px solid #bdd7ee;
+}
+
+#photo{
+	margin-bottom: 40px;
 }

@@ -248,7 +248,7 @@ hr {
 
 #hr {
 	
-	width: 1600px;
+	width: 1588px;
 	display: block;
 	margin-top: 10px;
 	border: 1px solid rgb(240,240,240);
@@ -257,3 +257,10 @@ hr {
 .hrLeft{
 	margin-left:-200px;
 }
+
+#hr2 {
+	margin-left: -200px;
+	width: 1800px;
+	display: block;
+	margin-top: 10px;
+	border: 1px solid rgb(240,240,240);
