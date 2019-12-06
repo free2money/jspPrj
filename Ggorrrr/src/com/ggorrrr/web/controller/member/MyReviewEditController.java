@@ -51,7 +51,6 @@ public class MyReviewEditController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		HttpSession session = request.getSession();
 		// 수정된 리뷰를 가져오기 위한 리뷰필드 선언
 		int id = 0;
