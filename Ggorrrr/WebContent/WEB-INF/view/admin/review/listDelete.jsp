@@ -37,7 +37,6 @@
 			<div id="order">
 				<a href="list?order=regdate">최신순</a> <a href="list?order=rating">평점순</a><br>
 			</div>
-
 			<div id="ppp">
 				<div id="middlebox">
 					<div id="content_main">

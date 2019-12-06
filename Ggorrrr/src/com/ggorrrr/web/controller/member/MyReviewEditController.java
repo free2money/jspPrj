@@ -52,6 +52,7 @@ public class MyReviewEditController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
+		Member member = (Member) session.getAttribute("sessionuser");
 		// 수정된 리뷰를 가져오기 위한 리뷰필드 선언
 		int id = 0;
 		String foodType = "";
@@ -68,7 +69,7 @@ public class MyReviewEditController extends HttpServlet {
 			id = Integer.parseInt(review_id);
 
 		// 수정해야할 항목들을 모두 받아옴
-		String foodType_ = request.getParameter("foodType");
+		String foodType_ = request.getParameter("food_type");
 		if (foodType_ != null && !foodType_.equals(""))
 			foodType = foodType_;
 
@@ -93,11 +94,10 @@ public class MyReviewEditController extends HttpServlet {
 			photo = photo_;
 
 		// id를 이용해 리뷰객체를 저장
-		Review review = reviewService.get(id);
+		Review review = new Review(id, member.getId(), address, content, eating_date, photo, foodName, foodType);
 
 		// id와 멤버id는 수정이 안되므로 나머지 값들만 불러온 값으로 업데이트
-		int result = reviewService.update(new Review(review.getId(), review.getMember_id(), address, content,
-				eating_date, photo, foodName, foodType));
+		int result = reviewService.update(review);
 
 		// 실패시 에러페이지
 		if (result == 0)
@@ -105,7 +105,7 @@ public class MyReviewEditController extends HttpServlet {
 
 		// 성공시 리스트페이지
 		else
-			response.sendRedirect("listDelete");
+		response.sendRedirect("listDelete");
 
 	}
 }

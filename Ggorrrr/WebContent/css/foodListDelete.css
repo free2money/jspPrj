@@ -9,38 +9,44 @@ main {
 }
 
 #page-top {
-	height: 100px;
-	width: 1110px;
+	height: 70px;
+	width: 100%;
 	display: flex;
+	border-bottom: 1px solid #808080a6;
 	position: relative;
+	border-top: 1px solid gray;
 	margin-top: 20px;
-	margin-left:auto;
-	margin-right: auto;
 }
 
 #page-top img {
-	width: 100px;
-	height: 100px;
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	top: 11px;
+	left: 20px;
 }
 
 #page-top h1 {
-	padding-top:30px;
-	margin-left:30px;
+	position: absolute;
 	font-size: 25px;
-
+	left: 87px;
+	top: 15px;
 }
 
-#page-middle {
-	width:1100px;
-	height:80px;
+#page-middle>h1 {
+	font-size: 20px;
+	font-weight: bold;
+	position: relative;
+	left: -103px;
+	top: -19px;
 }
-
 
 #middle-box {
-	width: 1100px;
+	width: 800px;
 	min-height: 375px;
 	margin-right: auto;
 	margin-left: auto;
+	padding: 46px;
 }
 
 #middle-box #select-category {
@@ -49,17 +55,19 @@ main {
 	padding-left: 20px;
 }
 
-
+#page-middle form * {
+	margin-left: 10px;
+}
 
 #page-middle form {
 	float: right;
-	padding-top: 45px;
 }
 
-#tableDiv{
-	width:1100px;
-	margin-top:70px;
-	margin-bottom:70px;
+#page-middle2 {
+	margin-top: 60px;
+	margin-left: 50px;
+	float: right;
+	position: relative;
 }
 #tableDiv>table{
 	
@@ -71,22 +79,65 @@ main {
 	border: 2px solid skyblue;
 	text-align: center;
 
-}
-#tableDiv>table tr{
-	height:40px;
+#page-middle2 table tr .table-category {
+	border: 1px solid #85f4ff;
+	width: 150px;
+	text-align: center;
+	height: 30px;
 }
 
-#tableDiv>table td{
+#page-middle2 table tr .table-name {
+	border: 1px solid #85f4ff;
 	text-align: center;
+	width: 500px;
+	height: 30px;
 }
-thead>tr td{
+
+#page-middle2 table tr .table-delete {
+	border: 1px solid #85f4ff;
+	text-align: center;
+	width: 150px;
+	height: 30px;
+}
+
+#page-middle2 .button {
+	float: right;
+}
+
+#page-middle2 .button * {
+	margin-left: 10px;
+	margin-top: 20px;
+}
+
+#page-middle2 thead * {
 	font-weight: bold;
 	font-size: 15px;
 }
-thead>tr{
-	background-color:#C4DEFF; 
+
+#page-middle2 thead {
+	border: 1px solid black;
 }
 
-.button{
-	text-align: right;
+#page-middle2 table tr .table-category1 {
+	border: 1px solid #85f4ff;
+	width: 150px;
+	text-align: center;
+	height: 30px;
+	font-size: 14px;
+}
+
+#page-middle2 table tr .table-name1 {
+	border: 1px solid #85f4ff;
+	text-align: center;
+	width: 500px;
+	height: 30px;
+	font-size: 14px;
+}
+
+#page-middle2 table tr .table-delete1 {
+	border: 1px solid #85f4ff;
+	text-align: center;
+	width: 150px;
+	height: 30px;
+	font-size: 14px;
 }

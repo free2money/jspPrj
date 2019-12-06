@@ -19,43 +19,43 @@ window.addEventListener("load", function() {
 			return;
 	
 
-		if (e.target.src == "http://localhost:8080/images/binstar2.png"){
+		if (e.target.src == "http://192.168.0.83:8080/images/binstar2.png"){
 			star.value="0";	
 			if(e.target.name=="star1"){
-				imgs[0].src = "../images/bookmark2.png";
+				imgs[0].src = "/images/bookmark2.png";
 				add=Number(star.value)+1;
 			}
 			else if(e.target.name=="star2"){
-				imgs[0].src = "../images/bookmark2.png";
-				imgs[1].src = "../images/bookmark2.png";
+				imgs[0].src = "/images/bookmark2.png";
+				imgs[1].src = "/images/bookmark2.png";
 				add=Number(star.value)+2;
 			}
 			else if(e.target.name=="star3"){
-				imgs[0].src = "../images/bookmark2.png";
-				imgs[1].src = "../images/bookmark2.png";
-				imgs[2].src = "../images/bookmark2.png";
+				imgs[0].src = "/images/bookmark2.png";
+				imgs[1].src = "/images/bookmark2.png";
+				imgs[2].src = "/images/bookmark2.png";
 				add=Number(star.value)+3;
 			}
 			else if(e.target.name=="star4"){
-				imgs[0].src = "../images/bookmark2.png";
-				imgs[1].src = "../images/bookmark2.png";
-				imgs[2].src = "../images/bookmark2.png";
-				imgs[3].src = "../images/bookmark2.png";
+				imgs[0].src = "/images/bookmark2.png";
+				imgs[1].src = "/images/bookmark2.png";
+				imgs[2].src = "/images/bookmark2.png";
+				imgs[3].src = "/images/bookmark2.png";
 				add=Number(star.value)+4;
 			}
 			else if(e.target.name=="star5"){
-				imgs[0].src = "../images/bookmark2.png";
-				imgs[1].src = "../images/bookmark2.png";
-				imgs[2].src = "../images/bookmark2.png";
-				imgs[3].src = "../images/bookmark2.png";
-				imgs[4].src = "../images/bookmark2.png";
+				imgs[0].src = "/images/bookmark2.png";
+				imgs[1].src = "/images/bookmark2.png";
+				imgs[2].src = "/images/bookmark2.png";
+				imgs[3].src = "/images/bookmark2.png";
+				imgs[4].src = "/images/bookmark2.png";
 			    add=Number(star.value)+5;
 			}	
 			
 		}
 		
-		else if(e.target.src == "http://localhost:8080/images/bookmark2.png"){
-				e.target.src = "../images/binstar2.png";
+		else if(e.target.src == "http://192.168.0.83:8080/images/bookmark2.png"){
+				e.target.src = "/images/binstar2.png";
 				add=Number(star.value)-1;
 			}
 

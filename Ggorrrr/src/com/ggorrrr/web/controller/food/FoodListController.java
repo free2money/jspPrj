@@ -41,7 +41,7 @@ public class FoodListController extends HttpServlet {
 		session.setAttribute("category", category);
 
 		int page = 1;
-		String field = "ingridients";
+		String field = "korname";
 		String query = ""; // 기본값
 
 		String page_ = request.getParameter("p");
@@ -62,8 +62,7 @@ public class FoodListController extends HttpServlet {
 		} else if (soCategory != null) {
 			request.setAttribute("list", foodService.getFoodList(category, page, field, query, soCategory));
 		} else {
-			request.setAttribute("list", foodService.getFoodList(category));
-//			request.setAttribute("list", foodService.getFoodList(category, page, field, query));
+			request.setAttribute("list", foodService.getFoodList(category, page, field, query));
 		}
 
 		List<Food> foodList = foodService.getFoodList(category, page, field, query);

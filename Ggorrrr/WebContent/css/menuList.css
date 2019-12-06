@@ -94,11 +94,11 @@ main>div {
 
 #socategori form .search select {
 	width: 70px;
-	border: 3px solid #D4F4FA;
+	border: 3px solid #bbd7ee;
 }
 
 #socategori form .search input[type="text"] {
-	border: 3px solid #D4F4FA;
+	border: 3px solid #bbd7ee;
 	height: 18px;
 	padding-left: 4px;
 	outline: none;

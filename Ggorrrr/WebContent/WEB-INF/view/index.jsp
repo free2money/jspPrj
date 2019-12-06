@@ -154,11 +154,9 @@
 	<main> 
 	<section id="main">
 
-		
 		<div id="best">
 			<h1 id="h1"><img id="img" src="/images/ggorrrrlogo.png" width="50" height="50"> 추천메뉴</h1>
 		</div>
-		
 		<div class="slide">
 			<div class="food">
 				<div class="foodDiv">
@@ -169,12 +167,9 @@
 					</c:forEach>
 				</div>
 			</div>
-			
 		</div>
-		
 		<button type="button" class="slideButton button"></button>
 		<button type="button" class="slideButton button"></button>
-		
 	</section>
 	</main>
 	<!-- =================ASIDE================ -->

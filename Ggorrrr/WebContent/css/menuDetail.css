@@ -58,6 +58,11 @@ main #img {
 	margin-left: 47px;
 }
 
+section dl {
+	padding-top: 20px;
+	padding-left: 160px;
+}
+
 #food-img {
 	width: 300px;
 }
