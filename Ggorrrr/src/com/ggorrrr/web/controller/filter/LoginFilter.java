@@ -29,6 +29,7 @@ public class LoginFilter implements Filter {
 			"/login/*", /**/
 			"/menu/*", /**/
 			"/review/list", /**/
+			"/admin/review/list-json",
 			"/review/list-json" };
 
 	@Override
