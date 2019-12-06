@@ -7,87 +7,85 @@
 <head>
 <meta charset="UTF-8">
 <title>그래서 뭐먹어?</title>
+<link href="/css/default.css" type="text/css" rel="stylesheet" />
+<link href="/css/reviewReg.css" rel="stylesheet" type="text/css">
+<script src="/js/reviewReg.js"></script>
 </head>
 <body>
 	<jsp:include page="../../inc/header.jsp" />
 	<!-- =========================================================================== -->
-	<main>
-	<section>
-		<img src="/images/ggorrrrlogo.png">
-		<h1>고객의 소리 등록</h1>
-		<section>
-			<form action="edit" method="post">
-				<table>
-					<tbody>
-						<tr>
-							<th>카테고리 선택</th>
-							<td><ul>
-									<!-- 목록 펼치기. -->
-									
-									<select id="foodType">
-										<c:choose>
-											<c:when test="${edit.foodType eq '한식'}">
-												<option value="한식">한식</option>
-											</c:when>
-											<c:when test="${edit.foodType eq '양식'}">
-												<option value="양식">양식</option>
-											</c:when>
-											<c:when test="${edit.foodType eq '중식'}">
-												<option value="중식">중식</option>
-											</c:when>
-											<c:when test="${edit.foodType eq '일식'}">
-												<option value="일식">일식</option>
-											</c:when>
-											<c:when test="${edit.foodType eq '분식'}">
-												<option value="분식">분식</option>
-											</c:when>
-											<c:when test="${edit.foodType eq '테마별'}">
-												<option value="테마별">테마별</option>
-											</c:when>
-											<c:when test="${edit.foodType eq '기타'}">
-												<option value="기타">기타</option>
-											</c:when>
-											<c:otherwise>
-												<option value="채식">채식</option>
-											</c:otherwise>
-										</c:choose>
-									</select>
-
-								</ul></td>
-							<th>음식 이름</th>
-							<td><input type="text" name="food_name"
-								value="${edit.foodName }"></td>
-						</tr>
-						<tr>
-							<th>먹은 날짜</th>
-							<td><input type="text" name="eating_date"
-								value="${edit.eating_date }"></td>
-
-							<th>먹은 장소</th>
-							<td><input type="text" name="address"
-								value="${edit.address }"></td>
-						</tr>
-						<tr>
-							<th>상세 내용</th>
-							<td colspan="3"><textarea name="content"
-									value="${edit.content }"></textarea></td>
-						</tr>
-						<tr>
-							<th>첨부 사진</th>
-							<td colspan="3"><input type="text" name="images"
-								value="${edit.photo }" size="50px"></td>
-						</tr>
-					</tbody>
-				</table>
-				<input type="hidden" name="review" value="${edit.id}">
-				<div>
-					<a href="listDelete">취소</a>&nbsp;
-					<!--  -->
-					<input type="submit" name="commit" value="확인">
+	<main id="main">
+	<div id="div">
+		<h2 id="h2">
+			<img id="img" src="/images/ggorrrrlogo.png" width="50" height="50">
+			고객의 소리 수정
+		</h2>
+	</div>
+	<div id="middlebox">
+		<form action="edit" method="post" enctype="multipart/form-data">
+			<div id="middlebox-inbox">
+				<div class="div">
+					<h4>
+						카테고리 선택 <select
+							style="width: 100px; height: 25px; margin-left: 49px;"
+							id="select" name="food_type">
+							<option value="한식">한식</option>
+							<option value="증식">중식</option>
+							<option value="일식">일식</option>
+							<option value="분식">분식</option>
+							<option value="테마별">테마별</option>
+							<option value="기타">기타</option>
+							<option value="채식">채식</option>
+						</select>
+					</h4>
 				</div>
-			</form>
-		</section>
-	</section>
+				<div>
+					<h4>
+						음식 이름 <input type="text" name="food_name"
+							value="${edit.foodName }">
+					</h4>
+				</div>
+				<div>
+					<h4>
+						먹은 날짜 <input type="date" name="eating_date"
+							value="${edit.eating_date }">
+					</h4>
+				</div>
+				<div>
+					<h4>
+						먹은 장소 <input type="text" name="address" value="${edit.address }">
+					</h4>
+				</div>
+				<div>
+					<h4 id="h4">상세 내용</h4>
+					<textarea name="content">${edit.content }</textarea>
+				</div>
+				<div>
+					<h4>
+						첨부 사진 <input type="file" name="file"  value="${edit.photo }">
+					</h4>
+				</div>
+				<div>
+					<h4>
+						별점
+						<div id="star-rating">
+							<input type="hidden" name="star" value="0"> <img
+								name="star1" src="/images/binstar2.png"> <img name="star2"
+								src="/images/binstar2.png"> <img name="star3"
+								src="/images/binstar2.png"> <img name="star4"
+								src="/images/binstar2.png"> <img name="star5"
+								src="/images/binstar2.png">
+						</div>
+					</h4>
+				</div>
+				<div id="button">
+					<a href="listDelete"><input id="input" type="button"
+						name="commit" value="취소"></a> <input type="submit"
+						name="commit" value="확인">
+				</div>
+			</div>
+		</form>
+	</div>
 	</main>
 	<hr>
 	<!-- =========================================================================== -->

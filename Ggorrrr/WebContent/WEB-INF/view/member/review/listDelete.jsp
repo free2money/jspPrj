@@ -68,7 +68,6 @@
 	<nav id="review">
 		<h1 class="d-none">고객의 소리 리스트</h1>
 		<div class="topvisual">
-			<a href="reg">글쓰기</a>
 		</div>
 
 		<div id="ppp">
@@ -81,16 +80,7 @@
 							</div>
 							<br>
 							<div id="review-content">
-								<span>${n.content}</span> <span id="content_hidden">...</span> <span
-									id="content_" style="display: none;">${n.content}</span> <span
-									id="content_expand" style="cursor: pointer;"><a
-									onclick="parent.content_.style.display=''; parent.content_hidden.style.display='none'; parent.content_expand.style.display = 'none'; parent.content_fold.style.display = '';">
-										<br> 더보기
-								</a> </span> <span id="content_fold"
-									style="display: none; cursor: pointer;"><a
-									onclick="parent.content_.style.display='none'; parent.content_hidden.style.display=''; parent.content_fold.style.display = 'none'; parent.content_expand.style.display = ''; ">
-										<br> 줄이기
-								</a> </span><br> <span><img alt="" src="">${n.photo }사진자리입니다.<br></span>
+								<span>${n.content}</span><br> <span><img alt="" src="/upload/${n.photo }" width="150px"><br></span>
 								<a href="edit?review_id=${n.id }">수정</a> <input type="hidden"
 									name="del-id" value="${n.id }"><a class="del-text">삭제</a><input
 									type="submit" name="cmd" value="del" />

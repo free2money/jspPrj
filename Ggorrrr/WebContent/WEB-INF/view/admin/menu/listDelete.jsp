@@ -19,12 +19,11 @@
 		<img src="../../images/profile.png">
 		<h1>관리자</h1>
 	</section>
-	<hr>
 
 
 	<div id="middle-box">
 		<section id="page-middle">
-			<img src="../../images/menuManage.png">
+			<h1>메뉴관리</h1>
 			<form action="adminlist">
 				<select id="select-category" name="category">
 					<option value="한식">한식</option>
@@ -39,16 +38,14 @@
 					type="submit" name="search" value="검색">
 			</form>
 		</section>
-		<hr style="margin-left:-245px;">
-		
+
 		<form id="page-middle2" action="adminlist" method="post">
-		<div id="tableDiv">
-			<table border="1">
+			<table>
 				<thead>
 					<tr>
-						<td class="table-category">카테고리</td>
-						<td class="table-name">이름</td>
-						<td class="table-delete">삭제</td>
+						<td class="table-category1">카테고리</td>
+						<td class="table-name1">이름</td>
+						<td class="table-delete1">삭제</td>
 					</tr>
 				</thead>
 				<tbody>
@@ -62,7 +59,6 @@
 					</c:forEach>
 				</tbody>
 			</table>
-			</div>
 			<div class="button">
 				<input type="submit" value="일괄삭제" name="cmd"> <a href="reg">메뉴등록</a>
 			</div>

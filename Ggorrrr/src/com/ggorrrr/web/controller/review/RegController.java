@@ -50,6 +50,8 @@ public class RegController extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		Member member = (Member) session.getAttribute("sessionuser");
+		if (member == null)
+			response.sendRedirect("list");
 		int id = -9;
 		int member_id = member.getId();
 		String foodType = "";
@@ -59,39 +61,40 @@ public class RegController extends HttpServlet {
 		String content = "";
 		String cmd = "";
 		int rating = Integer.parseInt(request.getParameter("star"));
-		
+
 		System.out.println(rating);
-		
-		 Collection <Part> parts = request.getParts();
-	      
-	      String fileNames ="";
-	      
-	      for(Part p : parts){
-	         if(!p.getName().equals("file")) continue;
-	         
-	         Part filePart = p;
-	         String fileName = filePart.getSubmittedFileName(); //전송한 파일명 
-	         fileNames += fileName+",";
-	         
-	         ServletContext application = request.getServletContext();
-	         String urlPath ="/upload";
-	         String realPath = application.getRealPath(urlPath);
-	         
-	         File file = new File(realPath);
-	         if(!file.exists())
-	            file.mkdir();
-	         
-	         InputStream fis = filePart.getInputStream(); //전송한 파일의 스트림
-	         OutputStream fos = new FileOutputStream(realPath+File.separator+fileName);
-	         
-	         byte[] buf = new byte[1024];
-	         int size=0;
-	         while ((size = fis.read(buf)) != -1)
-	            fos.write(buf, 0, size);
-	         fos.close();
-	      }
-	      
-	      fileNames = fileNames.substring(0, fileNames.length()-1); 
+
+		Collection<Part> parts = request.getParts();
+
+		String fileNames = "";
+
+		for (Part p : parts) {
+			if (!p.getName().equals("file"))
+				continue;
+
+			Part filePart = p;
+			String fileName = filePart.getSubmittedFileName(); // 전송한 파일명
+			fileNames += fileName + ",";
+
+			ServletContext application = request.getServletContext();
+			String urlPath = "/upload";
+			String realPath = application.getRealPath(urlPath);
+
+			File file = new File(realPath);
+			if (!file.exists())
+				file.mkdir();
+
+			InputStream fis = filePart.getInputStream(); // 전송한 파일의 스트림
+			OutputStream fos = new FileOutputStream(realPath + File.separator + fileName);
+
+			byte[] buf = new byte[1024];
+			int size = 0;
+			while ((size = fis.read(buf)) != -1)
+				fos.write(buf, 0, size);
+			fos.close();
+		}
+
+		fileNames = fileNames.substring(0, fileNames.length() - 1);
 
 		String foodType_ = request.getParameter("food_type");
 		if (foodType_ != null && !foodType_.equals(""))
@@ -117,8 +120,8 @@ public class RegController extends HttpServlet {
 
 		switch (cmd) {
 		case "확인":
-			int result = reviewService
-					.insert(new Review(id, member_id, address, content, eating_date, fileNames, rating, foodName, foodType));
+			int result = reviewService.insert(
+					new Review(id, member_id, address, content, eating_date, fileNames, rating, foodName, foodType));
 
 			if (result == 0)
 				response.sendRedirect("/error?code=2");

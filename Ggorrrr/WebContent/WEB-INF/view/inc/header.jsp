@@ -55,6 +55,9 @@
 								<li>1.&nbsp;&nbsp;<a href="">엽기떡볶이</a>	</li>							
 								<li>2.&nbsp;&nbsp;<a href="">갈비탕</a></li>
 								<li>3.&nbsp;&nbsp;<a href="">김치찌개</a></li>
+								<li>4.&nbsp;&nbsp;<a href="">삼겹살</a></li>
+								<li>5.&nbsp;&nbsp;<a href="">햄버거</a></li>
+								<li>6.&nbsp;&nbsp;<a href="">바베큐 폭립</a></li>
 							</ul>
 						</div>
 

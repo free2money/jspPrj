@@ -32,8 +32,8 @@ public class MyReviewListDeleteController extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		Member member = (Member) session.getAttribute("sessionuser");
-
-		request.setAttribute("list", reviewService.getListById(member.getId(), 1, "address", ""));
+		if (member != null)
+			request.setAttribute("list", reviewService.getListById(member.getId(), 1, "address", ""));
 		request.getRequestDispatcher("/WEB-INF/view/member/review/listDelete.jsp").forward(request, response);
 	}
 

@@ -194,7 +194,7 @@ public class JdbcReviewDao implements ReviewDao {
 			st.setInt(6, review.getId());
 
 			result = st.executeUpdate();
-			
+
 			rs = st.executeQuery();
 			rs.getDate("regdate"); /**/
 

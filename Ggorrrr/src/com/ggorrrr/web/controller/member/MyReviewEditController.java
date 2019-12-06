@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Date;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,6 +21,8 @@ import com.ggorrrr.web.controller.service.implement.ImplementReviewService;
  * 자신의 리뷰리스트에서 수정버튼을 누르면 실행
  */
 @WebServlet("/member/review/edit")
+@MultipartConfig(fileSizeThreshold = 1024 * 1024, maxFileSize = 1024 * 1024 * 100, maxRequestSize = 1024 * 1024 * 100
+		* 5)
 public class MyReviewEditController extends HttpServlet {
 
 	private ReviewService reviewService;
@@ -32,11 +35,6 @@ public class MyReviewEditController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		if (session.getAttribute("username") == null) {
-			String returnUri = request.getRequestURI();
-			response.sendRedirect("/login/login?returnUrl=.." + returnUri);
-			return;
-		}
 		// review 테이블의 식별자인 id를 선언
 		int review_id = 0;
 
@@ -53,6 +51,7 @@ public class MyReviewEditController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		HttpSession session = request.getSession();
 		// 수정된 리뷰를 가져오기 위한 리뷰필드 선언
 		int id = 0;
