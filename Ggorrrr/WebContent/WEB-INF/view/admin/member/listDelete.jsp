@@ -15,6 +15,11 @@
 	<!-- =================MAIN================ -->
 	<main id="main">
 
+		<div id="admin">
+			<img src="../../images/profile.png">
+			<h1>관리자</h1>
+		</div>
+		<hr>
 	<section>
 		<div id="title">
 			<img src="../../images/adminMemberManage.png">
@@ -41,9 +46,8 @@
 							<input type="hidden" name="id" value="${m.id }" />
 							<tbody>
 								<tr>
-									<td id="td"><input type="text" name="user_id"
-										value="${m.user_id }" /></td>
-									<td id="td"><input type="password" value="${m.pwd }" /></td>
+									<td id="td">${m.user_id }</td>
+									<td id="td">${m.pwd }</td>
 									<td id="td">${m.name }</td>
 									<td id="td">${m.gender }</td>
 									<td id="td">${m.birthday }</td>
@@ -57,7 +61,8 @@
 			
 
 		</div>
-		<a id="back" href="../page">뒤로</a>
+		<div id="back"><a href="../page">뒤로</a>
+		</div>
 	</section>
 
 	</main>

@@ -3,10 +3,11 @@
 .d-none {
 	display: none;
 }
-header{
-	width:inherit;
-	margin-left:auto;
-	margin-right:auto;
+
+header {
+	width: 1600px;
+	margin-left: auto;
+	margin-right: auto;
 }
 #header {
 	width: 1200px;
@@ -236,8 +237,7 @@ header{
 }
 
 hr {
-	margin-left: -200px;
-	width: 1588px;
+	width: 1600px;
 	display: block;
 	border: 1px solid black;
 }
@@ -247,9 +247,13 @@ hr {
 }
 
 #hr {
-	margin-left: -200px;
-	width: 1800px;
+	
+	width: 1600px;
 	display: block;
 	margin-top: 10px;
 	border: 1px solid rgb(240,240,240);
+}
+
+.hrLeft{
+	margin-left:-200px;
 }

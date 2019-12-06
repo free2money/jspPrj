@@ -13,7 +13,7 @@
 #bookmark section ul {
 	display: flex;
 }
-</style>
+
 </head>
 <body>
 	<jsp:include page="./inc/header.jsp" />

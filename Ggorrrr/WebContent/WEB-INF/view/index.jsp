@@ -79,10 +79,10 @@
 			<div id="visual">
 				<div>
 					<span> <img src="/images/ggorrrrlogo.png">
-					</span> <span id="title"> 그래서 뭐먹어? </span>
+					</span> <span id="title"> 그래서뭐먹어? </span>
 				</div>
 			</div>
-			<hr>
+			<hr class="hrLeft">
 			<nav id="categori">
 				<h1 class="d-none">메뉴</h1>
 				<div>
@@ -145,13 +145,14 @@
 			</nav>
 		</div>
 	</header>
+	<hr id="hr">
 	<!-- =================MAIN================ -->
 	<main> 
 	<section id="main">
 
 		
 		<div id="best">
-			<h1>랜덤 추천 메뉴</h1>
+			<h1 id="h1"><img id="img" src="/images/ggorrrrlogo.png" width="50" height="50"> 추천메뉴</h1>
 		</div>
 		
 		<div class="slide">

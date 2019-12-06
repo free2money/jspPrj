@@ -63,7 +63,7 @@
 			</div>
 			<div id="hiddenVisual">
 			</div>
-			<hr>
+			<hr class="hrLeft">
 		<nav id="categori">
 			<h1 class="d-none">메뉴</h1>
 			<div>
