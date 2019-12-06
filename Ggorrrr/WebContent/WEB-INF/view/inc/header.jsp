@@ -127,6 +127,7 @@
 					<li><a href="/menu/list?category=채식">채식</a></li>
 				</ul>
 			</div>
+			<hr id="hr2">
 		</nav>
 		</div>
 

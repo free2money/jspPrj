@@ -14,17 +14,14 @@ window.addEventListener("load", function () {
         var data = [["page", page]];
         var sendData = [];
         sendData[0] = data[0].join("=");
-        console.log(sendData);
         var request = new XMLHttpRequest();
-        request.open("POST", "list-json", true);
+        request.open("POST", "list-json",	 true);
 
         request.setRequestHeader('Content-Type',
             'application/x-www-form-urlencoded');
 
         request.onload = function () {
             var json = JSON.parse(request.responseText);
-            console.log(json);
-
             for (var i = 0; i < json.length; i++) {
                 var cloneForm = contentSection.firstElementChild.cloneNode(true);
                 var title = cloneForm.firstElementChild;
@@ -46,8 +43,8 @@ window.addEventListener("load", function () {
                     year = (title.lastElementChild.innerText).substring(8,12);
                     title.lastElementChild.innerText = year+"-"+month+"-"+day;
                 }
+                console.log(content);
                 content.firstElementChild.innerText = json[i].content;
-                content.querySelector("#content_").innerText = json[i].content;
                 content.lastElementChild.innerText = json[i].photo;
                 contentSection.append(cloneForm);
             }
