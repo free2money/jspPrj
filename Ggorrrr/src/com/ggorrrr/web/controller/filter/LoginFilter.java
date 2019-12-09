@@ -27,6 +27,7 @@ public class LoginFilter implements Filter {
 			"/js/*", /**/
 			"/signUp/*", /**/
 			"/login/*", /**/
+			"/member/logout",
 			"/menu/*", /**/
 			"/review/list", /**/
 			"/admin/review/list-json",

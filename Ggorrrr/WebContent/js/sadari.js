@@ -8,7 +8,6 @@ window.addEventListener("load", function() {
 	var plus = sectionStep1.querySelector(".plus");
 	var minus = sectionStep1.querySelector(".minus");
 	var sadariCount = sectionStep1.querySelector(".sadari-count");
-
 	plus.onclick = function() {
 		if (parseInt(sadariCount.innerText) == 6)
 			return;

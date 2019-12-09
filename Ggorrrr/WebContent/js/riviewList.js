@@ -15,7 +15,7 @@ window.addEventListener("load", function () {
         var sendData = [];
         sendData[0] = data[0].join("=");
         var request = new XMLHttpRequest();
-        request.open("POST", "list-json",	 true);
+        request.open("POST", "list-json", true);
 
         request.setRequestHeader('Content-Type',
             'application/x-www-form-urlencoded');
@@ -43,7 +43,6 @@ window.addEventListener("load", function () {
                     year = (title.lastElementChild.innerText).substring(8,12);
                     title.lastElementChild.innerText = year+"-"+month+"-"+day;
                 }
-                console.log(content);
                 content.firstElementChild.innerText = json[i].content;
                 content.lastElementChild.innerText = json[i].photo;
                 contentSection.append(cloneForm);
